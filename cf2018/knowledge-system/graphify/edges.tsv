@@ -1,0 +1,7 @@
+from	relation	to	status
+knowledge-system/vault/research/TGCP.md	blocks	knowledge-system/vault/specs/ACCEPTANCE.md	CONFIRMED
+knowledge-system/vault/research/TGCP.md	depends-on	sources/DRIVE_MANIFEST.md	CONFIRMED
+knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/EVIDENCE.md	CONFIRMED
+TECHNICAL_PLAN.md	depends-on	knowledge-system/vault/research/TGCP.md	CONFIRMED
+IMPLEMENTATION_PLAN.md	depends-on	knowledge-system/vault/specs/ACCEPTANCE.md	CONFIRMED
+knowledge-system/vault/research/STARTUP.md	depends-on	sources/DRIVE_MANIFEST.md	CONFIRMED
