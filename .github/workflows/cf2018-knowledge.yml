@@ -1,0 +1,33 @@
+name: CF2018 Knowledge Validation
+
+on:
+  push:
+    paths:
+      - 'cf2018/**'
+      - '.github/workflows/cf2018-knowledge.yml'
+  pull_request:
+    paths:
+      - 'cf2018/**'
+      - '.github/workflows/cf2018-knowledge.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  knowledge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate required files, links, Vault and curated edges
+        run: cd cf2018 && python tools/knowledge.py doctor
+      - name: Run knowledge tests
+        run: cd cf2018 && python -m unittest discover -s tests -v
+      - name: Sample ICM route
+        run: cd cf2018 && python tools/knowledge.py route tgcp ack
+      - name: Render Graphify relationships
+        run: cd cf2018 && python tools/knowledge.py graph > /tmp/cf2018-graph.md
