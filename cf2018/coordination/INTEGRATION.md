@@ -56,5 +56,7 @@ This does not integrate a complete deployed SOCKS5 bridge: the handoff has sent
 METHOD=00 but leaves target connection, correctly bound CONNECT reply and normal
 passthrough dispatch to the caller. The real historical hook is unavailable, so
 CF18-03's next deployment-wiring task is blocked on that source/interface. Q-02
-and G2 are unchanged. Record the exact canonical integration commit in
-assignments after publishing; do not reassign the completed proposal as READY.
+and G2 are unchanged. Canonical integration commit is
+`f70a874ed903b030fd51a94a36dff0ca43dcfff4`, recorded in [assignments](assignments.json)
+as INTEGRATED_BOUNDED_STAGE. The completed proposal is not assigned as READY;
+the next bridge-wiring task is BLOCKED_SOURCE.

@@ -36,3 +36,9 @@ Added reset-message privacy and declared-domain truncation controls: 52 canonica
 tests plus eight framing-audit tests PASS; knowledge doctor PASS. No actual target
 connection, installed proxy, historical bridge hook or device/native evidence.
 CF18-03 deployment wiring awaits bridge source; Q-02 and G2 unchanged.
+
+Canonical handoff integration: `f70a874ed903b030fd51a94a36dff0ca43dcfff4`.
+Assignments close CF18-G1-SOCKS5-01 only as a bounded stage and reserve
+CF18-G1-BRIDGE-HOOK-01 for CF18-03, blocked on real historical bridge source.
+All remaining lanes await new source evidence or review input; no fresh READY
+task is invented from unchanged missing prerequisites.

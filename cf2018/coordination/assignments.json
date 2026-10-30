@@ -42,6 +42,18 @@
       ],
       "evidence": "ORIGINAL_CODE + LOCAL_TEST_ONLY; 19 relay tests; 29 canonical tests; no SOCKS5/device/historical EOF validation",
       "input": "Preserved local CF18-03 original draft; no remote packet commit. Exact input hashes in INTEGRATION.md."
+    },
+    {
+      "id": "CF18-SOCKS5-HANDOFF",
+      "task": "CF18-G1-SOCKS5-01",
+      "status": "INTEGRATED_BOUNDED_STAGE",
+      "integration_commit": "f70a874ed903b030fd51a94a36dff0ca43dcfff4",
+      "source_commit": "9f77b2cbf9f0249b566c75e8a4e42666cb44c292",
+      "canonical_paths": [
+        "experiments/socks5_handoff.py",
+        "tests/test_socks5_handoff.py"
+      ],
+      "evidence": "ORIGINAL_CODE + LOCAL_TEST_ONLY; 23 canonical handoff tests; no full proxy, target connector, historical passthrough hook or device result."
     }
   ],
   "lanes": [
@@ -79,25 +91,20 @@
     },
     {
       "lane": "CF18-03",
-      "task": "CF18-G1-SOCKS5-01",
-      "status": "READY",
-      "scope": "Propose an original bounded RFC 1928 negotiation/CONNECT adapter for the canonical passive relay, in this lane's packet only.",
+      "task": "CF18-G1-BRIDGE-HOOK-01",
+      "status": "BLOCKED_SOURCE",
+      "scope": "Verify the historical bridge's post-method CONNECT/normal-passthrough interface before proposing actual target-connection, bound SOCKS reply and canonical-core attachment.",
       "prerequisites": [
+        "Recovered original v0.1-v0.8 bridge source or an independently verified deployed bridge interface and controls",
         {
-          "artifact": "CF18-PASSIVE-CORE",
-          "status": "INTEGRATED",
-          "commit": "15be6fc1401a164f00c2d3c9623ba29d6ac7ac53"
+          "artifact": "CF18-SOCKS5-HANDOFF",
+          "status": "INTEGRATED_BOUNDED_STAGE",
+          "commit": "f70a874ed903b030fd51a94a36dff0ca43dcfff4"
         }
       ],
-      "acceptance": [
-        "Disabled by default; no automatic listener, device test or ACK generation.",
-        "Use independent synthetic SOCKS5 fixtures and localhost-only tests; handle short/fragmented negotiation, unsupported methods/commands/address types and bounded lengths/deadlines.",
-        "Preserve bytes buffered after CONNECT negotiation and leave the relay's two directions intact.",
-        "Dispatch only exact known game IP AND port to loopback; unrelated requests must be returned to the original bridge's unchanged passthrough handling, never silently dropped or globally redirected.",
-        "One run must cap accepted diagnostic connections at 4-16; retain UUID run/connection IDs and metadata-only lifecycle logs.",
-        "Do not claim historical bridge, PCAPdroid or Termux compatibility without recovered source and actual evidence."
-      ],
-      "next_action": "Read canonical relay and tests at the integrated commit; submit one tested adapter packet and integration recipe under CF18-03 only. Do not re-submit the integrated core."
+      "ready_when": "A real bridge source/interface is available; trace ownership, buffered data, normal passthrough and run limits, then submit a bounded integration packet with controls.",
+      "do_not": "Re-submit the integrated handoff/core, install a listener, guess the historical hook, alter unrelated routing or claim PCAPdroid/Termux/device compatibility.",
+      "next_action": "Wait quietly for the missing bridge source/interface or specific coordinator review feedback. Q-02 remains UNKNOWN; no new phone experiment is ready."
     },
     {
       "lane": "CF18-04",
@@ -110,6 +117,12 @@
       "ready_when": "A new locator or independently retrievable source is supplied; read metadata, verify package identity, calculate actual hashes and ISA, then provide a rights-safe source receipt.",
       "do_not": "Repeat capped full asset listings or infer absence from failed search; never substitute the 9.99 APK."
     }
-  ]
+  ],
+  "reviewed_main": "9f77b2cbf9f0249b566c75e8a4e42666cb44c292",
+  "validation": {
+    "canonical_tests": 52,
+    "framing_audit_tests": 8,
+    "knowledge_doctor": "PASS",
+    "scope": "Local synthetic/localhost only; no native, target-connection or device gate advanced."
+  }
 }
-
