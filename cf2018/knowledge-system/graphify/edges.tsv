@@ -5,3 +5,9 @@ knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/EVIDENCE.
 TECHNICAL_PLAN.md	depends-on	knowledge-system/vault/research/TGCP.md	CONFIRMED
 IMPLEMENTATION_PLAN.md	depends-on	knowledge-system/vault/specs/ACCEPTANCE.md	CONFIRMED
 knowledge-system/vault/research/STARTUP.md	depends-on	sources/DRIVE_MANIFEST.md	CONFIRMED
+
+knowledge-system/vault/research/RELAY.md	tests	tests/test_passive_relay.py	LOCAL_TEST_ONLY
+knowledge-system/vault/research/RELAY.md	describes	experiments/passive_relay.py	LOCAL_TEST_ONLY
+knowledge-system/vault/EVIDENCE.md	evidence	coordination/incoming/CF18-01/RESULT.md	SOURCE_AUDIT
+knowledge-system/vault/EVIDENCE.md	evidence	coordination/incoming/CF18-04/RESULT.md	CONNECTED_DRIVE_METADATA
+sources/DRIVE_MANIFEST.md	evidence	coordination/incoming/CF18-04/RESULT.md	CONNECTED_DRIVE_METADATA

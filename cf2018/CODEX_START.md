@@ -9,7 +9,7 @@ This is the first task packet; do not assume the server is working.
 ## Next engineering packet: CF18-G2-ACK-01
 **Problem:** 65-byte synthetic ACK closes the client's socket quickly; no post-ACK packet. v0.8 predicts a first-frame prefix error but acceptance is not proven.
 
-**Research:** Trace actual `libapollo.so` incoming frame splitter and ACK receiver at the native offsets recorded in Vault. Prove the exact 2-byte magic comparison, byte ordering, cursor/length handling, session correlation, key-mode constraints, and whether the previous SOCKS5 relay could independently cause EOF.
+**Research:** Obtain the exact 2018 `libapollo.so`, verify its provenance/hash/ISA and establish actual incoming-splitter and ACK-receiver addresses. Current Vault summaries do not supply a reproducible native branch trace. Prove the exact 2-byte magic comparison, byte ordering, cursor/length handling, session correlation, key-mode constraints, and whether the previous SOCKS5 relay could independently cause EOF.
 
 **Deliverables:** a receiver-state trace with exact branch tests, confidence labels, minimal standalone safe implementation, tests for truncation/reordered bytes/size mismatch, and one explicitly gated on-phone A/B/C design. Keep default passive; do not run an unbounded live experiment.
 

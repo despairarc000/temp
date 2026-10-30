@@ -10,3 +10,16 @@
 - 2026-10-30: setup of isolated public `temp/cf2018` knowledge workspace and Drive reference, not a replacement for authorized original binary store.
 
 Next: [CHECKPOINT](CHECKPOINT.md) and [TGCP](research/TGCP.md).
+
+## 2026-10-30 — coordinator integration
+
+Reviewed live main ec0d55fd338df6cc6f7d1e7aad59c7885fa88f06 and incoming CF18-01/04
+packets; no remote CF18-02/03 packet existed. Integrated prefix-model limitations
+and source-search coverage limits into canonical knowledge; corrected helper
+text that presented an unverified native premise as known. Reviewed the preserved
+local CF18-03 original draft, integrated a passive loopback core and 19 transport
+tests (16 adapted plus three coordinator controls). Canonical suite: 29 PASS;
+CF18-01 audit suite: eight PASS; knowledge doctor PASS. No native/client/device
+acceptance evidence was added. Historical Q-02 and G2 remain unresolved.
+[Integration record](../../coordination/INTEGRATION.md) identifies actual inputs,
+local draft hashes and scope. Assignments are maintained by the coordinator only.

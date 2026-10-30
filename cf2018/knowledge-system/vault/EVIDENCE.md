@@ -11,9 +11,21 @@ Historical results described here come from the user's Termux runs and TXT repor
 | E-05 | ON_PHONE | `CF2018_TGCP_v04_ACK_Result.txt` | Synthetic 65-byte ACK sent; peer closes; report accumulates older sessions and reuses port-local IDs, counts unreliable |
 | E-06 | ON_PHONE | `CF2018_TGCP_v05_AB_Report.txt` | 8 passive/8 ACK controlled; passive median ~7003 ms, ACK median ~11 ms, no client follow-up |
 | E-07 | ON_PHONE LOGCAT | `CF2018_TGCP_v06_Native_Log_Report.txt` | Apollo initialization + traffic; no reliable TGCP reject diagnosis; too-broad log filter matched unrelated touch `0x1002` |
-| E-08 | NATIVE_STATIC+LOCAL_TEST | `CF2018_TGCP_v07_Audit.txt` | Client TX 43 66 prefix, syntactic candidate ACK fields, no verified server handshake |
-| E-09 | NATIVE_STATIC+LOCAL_TEST | v0.8 FrameGate package | Native incoming 16-bit marker test consistent with 66 43; server acceptance **not** proven |
+| E-08 | HISTORICAL_NATIVE_STATIC + REPORTED_LOCAL_TEST | `CF2018_TGCP_v07_Audit.txt` | Client TX 43 66 prefix, syntactic candidate ACK fields, no verified server handshake |
+| E-09 | HISTORICAL_NATIVE_STATIC + REPORTED_LOCAL_TEST | v0.8 FrameGate package | Native incoming 16-bit marker test consistent with 66 43; server acceptance **not** proven |
 | E-10 | ON_PHONE | signed-only vs edited DLL controls and `CF2018_XAPK_Comparison_Report.txt` | identical original payload except modified managed DLL; modified DLL early-exits, cause such as integrity not yet proven |
+
+## Coordinator-reviewed evidence — 2026-10-30
+
+| ID | Class | Evidence | Supports / limits |
+|---|---|---|---|
+| E-11 | SOURCE_AUDIT + LOCAL_TEST_ONLY | [CF18-01 result](../../coordination/incoming/CF18-01/RESULT.md); eight audit tests rerun | The Python helper accepts only the modeled prefix and ignores suffix/size/stream state. Does not verify native RX or ACK acceptance. |
+| E-12 | CONNECTED_DRIVE_METADATA + DIRECTORY_LISTING | [CF18-04 result](../../coordination/incoming/CF18-04/RESULT.md) | Known folder hierarchy accessible; Data sample capped at 100. Search failed a known-file control, so absence claims are unsupported. No target hash/version/native library verified. |
+| E-13 | ORIGINAL_CODE + LOCAL_TEST_ONLY | [Passive relay research](research/RELAY.md), original core and 19 relay tests | Both observed EOF directions, half-close, byte preservation, error/timeout/local-stop attribution and bounds tested locally. No historical source audit, SOCKS5/device compatibility or Q-02 resolution. |
+
+E-08/E-09 are imported historical native-review summaries without an independently
+verified library fingerprint/address trace here. Do not promote them using E-11
+or treat serializer syntax as receiver acceptance.
 
 ## Grounded known strings
 TGCP variants: client SYN 0x1001, ACK 0x1002. Route name `QueryAddrSvr`. Related native symbols: `tgcpapi_encrypt_and_send_pkg`, `tgcpapi_gather_and_split_entire_pkg`, `gcloud_tgcpapi_recv_ack_msg`, `TGCPHead::packTLV`, `TGCPAckHead::packTLVWithVarint`. Native address service `QueryAddrSvrClient::QueryAddrInfo` is **later** than the current handshake; no authenticated session established.

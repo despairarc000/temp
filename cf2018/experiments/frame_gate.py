@@ -1,9 +1,11 @@
 """First two-byte CF2018 Apollo receive-gate hypothesis.
 
 Research-only: does NOT create or transmit a valid TGCP ACK.
-Evidence: native Thumb receiver loads a little-endian 16-bit value and
-compares it to 0x4366. This predicts incoming bytes 66 43.
-The client-originated SYN instead began 43 66.
+Historical hypothesis: an unverified native-review summary describes a
+little-endian 16-bit comparison with 0x4366, predicting incoming bytes 66 43.
+The exact 2018 library and RX branch trace are still missing. The imported
+client SYN report instead describes 43 66; this model proves neither native
+framing nor ACK acceptance. See coordination/incoming/CF18-01/RESULT.md.
 """
 from __future__ import annotations
 
@@ -13,7 +15,7 @@ CANDIDATE_RECEIVE_PREFIX = bytes.fromhex("6643")
 
 
 def first_native_gate(frame: bytes) -> dict[str, object]:
-    """Model only the known 16-bit native RX compare, not full framing."""
+    """Model a hypothesized 16-bit comparison, not validated native framing."""
     if len(frame) < 2:
         return {"passes": False, "reason": "too short"}
     word = int.from_bytes(frame[:2], "little")

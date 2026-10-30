@@ -20,3 +20,18 @@ Native receiver compares first 16-bit incoming word to 0x4366; little-endian raw
 - Distinguish message framing from client logic and key exchange. Annotate source offsets, compiler/ISA mode, and confidence in Vault.
 
 See [evidence](../EVIDENCE.md), [open questions](../OPEN_QUESTIONS.md), [Drive](../../../sources/DRIVE_MANIFEST.md).
+
+## Coordinator reconciliation — 2026-10-30
+
+[CF18-01](../../../coordination/incoming/CF18-01/RESULT.md) exhaustively tested
+the Python model's two-byte input domain and demonstrated suffix/size blindness,
+no stream reassembly and no consumed-length decision. These tests do not inspect
+original native code. The claimed little-endian RX load/compare remains a
+historical hypothesis without exact library hash/ISA/caller/branch provenance.
+The canonical helper wording now reflects this limit; behavior is unchanged.
+
+ACK tags and key-mode branches above are historical review summaries, not a
+validated server acceptance contract. CF18-02 supplied no new native evidence;
+Q-03/Q-04 remain UNKNOWN. [Passive transport diagnostics](RELAY.md) distinguish
+local lifecycle observations in synthetic tests; they do not resolve historical
+EOF origin or establish ACK acceptance. No device A/B/C packet is ready.

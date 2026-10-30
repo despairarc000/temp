@@ -4,6 +4,7 @@
 - [OPEN_QUESTIONS](OPEN_QUESTIONS.md) — exact unknowns and next tests.
 - [WORKLOG](WORKLOG.md) — historical handoff.
 - [TGCP](research/TGCP.md) — native handshake/ACK research.
+- [RELAY](research/RELAY.md) — tested passive transport core and EOF evidence limits.
 - [STARTUP](research/STARTUP.md) — APK editing failure and controls.
 - [ACCEPTANCE](specs/ACCEPTANCE.md) — milestone gates.
 - [ADR-0001](decisions/ADR-0001-LOCAL-BRIDGE.md) — local bridge architecture.

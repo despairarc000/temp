@@ -24,3 +24,11 @@ Real client packet: 133 bytes, one unique content repeated across targeted endpo
 - Preserve full context and SHA only for source files where independently verified. Original proprietary binaries remain only in Drive/local.
 
 See [TGCP](knowledge-system/vault/research/TGCP.md), [Drive inventory](sources/DRIVE_MANIFEST.md), [acceptance](knowledge-system/vault/specs/ACCEPTANCE.md).
+
+## Available isolated transport component — 2026-10-30
+
+[Passive relay research](knowledge-system/vault/research/RELAY.md) documents the
+original disabled-by-default loopback core and actual local tests. It is not the
+historical SOCKS5 bridge or a TGCP server. A bounded SOCKS5 adapter and historical
+source/capture recovery remain required before any device integration. Existing
+unrelated passthrough routing must stay intact.

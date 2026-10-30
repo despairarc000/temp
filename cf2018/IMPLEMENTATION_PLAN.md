@@ -15,3 +15,12 @@
 **Immediate high-priority queue:** (1) reconcile native TGCP receive framing `tgcpapi_gather_and_split_entire_pkg` and ACK validation `gcloud_tgcpapi_recv_ack_msg`; (2) audit v0.8 prefix-only test including relay lifecycle; (3) only then authorize one bounded on-device A/B/C; (4) decode next real packet. Do not work on game bot AI while gate G2 is blocked unless a separately evidenced, non-conflicting reverse-engineering research task.
 
 Architecture decisions in [ADR](knowledge-system/vault/decisions/ADR-0001-LOCAL-BRIDGE.md); open questions in [Vault](knowledge-system/vault/OPEN_QUESTIONS.md).
+
+## Current prerequisite and available independent work — 2026-10-30
+
+G0 source identity remains incomplete: the [source inventory](coordination/incoming/CF18-04/RESULT.md)
+did not verify the exact 2018 package/library. G2 is still blocked. The coordinator
+integrated only model-limit/source metadata findings and an original locally
+validated [passive relay core](knowledge-system/vault/research/RELAY.md).
+A bounded SOCKS5 adapter proposal can proceed independently as transport work;
+no native ACK rules or device-ready experiment may be guessed from it.
