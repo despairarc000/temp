@@ -157,3 +157,89 @@ and Graphify; incoming/root app files unchanged. The queue handoff records the
 exact substantive integration commit after it exists, with one bounded task per
 lane. Next native task is downstream copied-account/Bingo/session validation;
 phone/OBB/relay prerequisites remain. G2 BLOCKED and A/B/C readiness false.
+
+Substantive body/session integration commit: `40c4aafe6665e671d08df6badb378121ec4ff213`. The queue handoff
+records that exact reference and moves CF18-02 only to downstream account/Bingo
+predicates. The incoming continuation remains unchanged and has no invented
+remote packet SHA; CF18-01 still must finish its own boundary draft.
+
+## CF18-G2-AUTH-RX-02 coordinator integration — 2026-10-30
+
+Reviewed live main9a0d6ef09c6b62a4543c8c9aadef15f1946df470. All tracked blob hashes
+checked: existing CF18-01 native_boundary_controls.py and CF18-02 RESULT.md local
+changes preserved. Existing coordinator assignments/integration/worklog handoff
+edits retained and reconciled; prior substantive body integration is40c4aafe6665e671d08df6badb378121ec4ff213.
+Ten missing tracked CF18-05 snapshot files restored from exact connector reads;
+not new remote changes. No git checkout, no active worker process.
+
+[Acceptance](AUTH_RX_INTEGRATION_ACCEPTANCE.md) preceded code changes.
+Reviewed four lanes: CF01 boundary0019dfb52700dd74c9563ea970afcdcb544b8355 submitted,
+held for separate strict99 integration; its unfinished path draft preserved.
+CF02 auth9a0 packet independently reproduced and accepted. CF03 still lacks actual
+deployed v1.2 source/directional closure proof; older core/handoff remains bounded.
+CF04 source receipt unchanged; CF05 historical APK parity and phone09–12 reports
+reconciled with explicit reported-evidence limits. Source pins/ISA/CMS/all1212
+entries rechecked, no downloads or original modifications.
+
+Earliest native defect is missing TGCPBody preamble on all three exact v1.2
+responses: body modeA5 -> -32 -> auth-18 before account parsing. Existing framing,
+extension2002 and receive pass. Correction adds5bytes and recomputes outer length;
+real corrected path reaches state4/Bingo waiting, not authentication. Native
+matrix exactly regenerated. [Canonical review](../knowledge-system/vault/research/AUTH_RECEIVER.md)
+contains every stage, predicate, stub and remaining unknown.
+
+Canonical original code adapted ONLY from the public CF02 auth_rx_02 packet:
+- experiments/auth_v12_fixtures.py unchanged from public fixture source.
+- tgcp_body_envelope.py contains reusable bounded body encoder; pinned fixture
+  offset repair moved to auth_fixture_repair.py so no arbitrary server patch API.
+- native_auth_rx.py removes lane-specific sys.path; reuses canonical pinned runner.
+- auth_native_matrix.py adapts imports and remains inactive without --library.
+- tests/test_native_auth_rx.py adapts18 controls and adds exact cap/one-over test;
+  test_auth_fixture_pins.py retains all7 public fixture regressions.
+- knowledge route gains tested auth/Bingo/2001/2002/session context.
+Older local canonical auth drafts backed up privately, not published as new input.
+
+Actual incoming25 PASS; canonical128 PASS/no skips with private APK/library/deps;
+default128 total95 PASS/33 SKIP; doctorPASS. Canonical matrix equals submitted JSON.
+No parser/gather/decrypt/Bingo success stub, no socket/game/device test. Updated
+Vault/E20–22/ICM/Graphify/navigation/source limits and assignments. Incoming lane
+files and root app untouched. No live bridge wiring claim: actual v1.2 source is
+missing. V1.4 justified in principle only after directional integration, six
+connections with silence/old49/corrected54 and unchanged successful ACK. No
+credential/key/account sweep, valid Bingo or automatic phone experiment.
+
+This entry and queue are included with the substantive code/evidence change;
+its commit SHA is discoverable in Git history, not invented as a self-reference.
+
+## Coordinator resume: downstream Bingo review
+
+Resume main ccdd219f9ed121e77fc06ad20b50b77614079cbf. The local CF02 bingo_01
+draft was interrupted by lane reassignment and has NO remote packet commit.
+Exact SHA-256 of actual local inputs reviewed:
+
+| Local CF02 bingo_01 input | SHA-256 |
+|---|---|
+| ACCEPTANCE.md | 7e90e03ef0cb06857593dfe3f46936fc57cf81e772bfa3939c2b245a2c39795c |
+| RESULT.md | d512d6a5b6850c6b252d3f76333dc6605c7ac2a9b5d8a63415b9f7b1a31b8c7d |
+| bingo_controls.py | cabf1483b0130c6a3680604d8c82d44983d53f593cbce62bb712379d65978af0 |
+| test_bingo_controls.py | 5b90d0359c3c7efdd1921eafc858740d374f3a67e82a1cee46f3bc8c11b17aeb |
+| run_bingo_matrix.py | c540b9f3ed1f180d20d5fbc6f667f8c3fc677958e754807ad54c50d58aebf9d5 |
+| NATIVE_MATRIX.json | 655b1d511408c1d34c7953989b89211965d79ccaa80fa456069897c0e4889663 |
+
+Coordinator reran incoming auth25, local Bingo21 and submitted path8 controls.
+Canonical149 PASS with explicit private APK/library/dependencies; default149
+with97 PASS/52 SKIP. Source verifier PASS/CMS/1212 entries; trust-chain not
+validated. Both actual native matrices reproduce exactly after canonical imports.
+Bingo canonical code changes imports only; tests adapt source paths; no original
+Bingo/session data is introduced. The deliberate malformed type-correlation
+controls reach native5 without Bingo component; this is not protocol acceptance.
+
+Integrated canonical native_bingo_controls.py/test_native_bingo_controls.py and
+bingo_native_matrix.py, actual BINGO_MATRIX.json and BINGO_SESSION research.
+Corrected3002 WAIT terminology and current acceptance boundaries. Reviewed CF01
+factory/wrapper evidence as bounded only; its strict99 proposal remains pending.
+No incoming file edited, no root app change, no deployed relay source recovered.
+Current exact auth failure remains body preamble; v1.4 wrapper-only comparison
+is conditional on source/instrumentation. No automatic phone test or positive
+Bingo serializer. This substantive change includes shared code/knowledge and
+queue together; commit identity follows from Git history, not a self-reference.

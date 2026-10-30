@@ -1,0 +1,773 @@
+{
+  "schema": 1,
+  "library_sha256": "4812396e98bfba9664164c14c8973eed111c5b9d177c1b575e86bc8e9f9169d8",
+  "evidence": "NATIVE_WITH_EXPLICIT_STUBS; SYNTHETIC_NEGATIVES; NO_VALID_BINGO_OR_PHONE_AUTH",
+  "base_main": "ccdd219f9ed121e77fc06ad20b50b77614079cbf",
+  "records": [
+    {
+      "control": "no_data_bingo",
+      "actual": {
+        "return": -12,
+        "state": 4,
+        "header_type": 0,
+        "post_body_selectors": [],
+        "events": [
+          [
+            "gather",
+            -12
+          ],
+          [
+            "receive_decrypt",
+            -12
+          ],
+          [
+            "bingo_receive",
+            -12
+          ]
+        ],
+        "relay_unchanged": true,
+        "relay_matches_decoded_prefix": false,
+        "compression": [
+          7,
+          99
+        ],
+        "queue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "diagnostic_type": 0,
+        "stubs": [
+          "net wrapper supplied no-data/EOF-like status; no socket"
+        ],
+        "evidence": "REAL_NATIVE_PARSE_OF_INDEPENDENT_SYNTHETIC_NEGATIVE_INPUT"
+      }
+    },
+    {
+      "control": "no_data_ready_handler",
+      "actual": {
+        "return": 0,
+        "state": 4,
+        "header_type": 0,
+        "post_body_selectors": [],
+        "events": [
+          [
+            "gather",
+            -12
+          ],
+          [
+            "receive_decrypt",
+            -12
+          ],
+          [
+            "bingo_receive",
+            -12
+          ],
+          [
+            "ready",
+            0
+          ]
+        ],
+        "relay_unchanged": true,
+        "relay_matches_decoded_prefix": false,
+        "compression": [
+          7,
+          99
+        ],
+        "queue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "diagnostic_type": 0,
+        "stubs": [
+          "net wrapper supplied no-data/EOF-like status; no socket"
+        ],
+        "evidence": "REAL_NATIVE_PARSE_OF_INDEPENDENT_SYNTHETIC_NEGATIVE_INPUT"
+      }
+    },
+    {
+      "control": "EOF_like_status_ready_handler",
+      "actual": {
+        "return": -10,
+        "state": 4,
+        "header_type": 0,
+        "post_body_selectors": [],
+        "events": [
+          [
+            "gather",
+            -10
+          ],
+          [
+            "receive_decrypt",
+            -10
+          ],
+          [
+            "bingo_receive",
+            -10
+          ],
+          [
+            "ready",
+            -10
+          ]
+        ],
+        "relay_unchanged": true,
+        "relay_matches_decoded_prefix": false,
+        "compression": [
+          7,
+          99
+        ],
+        "queue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "diagnostic_type": 0,
+        "stubs": [
+          "net wrapper supplied no-data/EOF-like status; no socket"
+        ],
+        "evidence": "REAL_NATIVE_PARSE_OF_INDEPENDENT_SYNTHETIC_NEGATIVE_INPUT"
+      }
+    },
+    {
+      "control": "INVALID_header_3002_auth_union_2002",
+      "actual": {
+        "return": 0,
+        "state": 5,
+        "header_type": 12290,
+        "post_body_selectors": [
+          8194
+        ],
+        "events": [
+          [
+            "gather",
+            0
+          ],
+          [
+            "receive_decrypt",
+            0
+          ],
+          [
+            "auth_component",
+            0
+          ],
+          [
+            "body_union",
+            0
+          ],
+          [
+            "body",
+            0
+          ],
+          [
+            "bingo_receive",
+            0
+          ]
+        ],
+        "relay_unchanged": false,
+        "relay_matches_decoded_prefix": true,
+        "compression": [
+          0,
+          0
+        ],
+        "queue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "diagnostic_type": 0,
+        "stubs": [
+          "net wrapper supplied no-data/EOF-like status; no socket",
+          "bounded libc memory operation",
+          "bounded libc memory operation",
+          "last-error get=0",
+          "XLog no-op",
+          "last-error set no-op",
+          "bounded libc memory operation",
+          "bounded libc memory operation"
+        ],
+        "evidence": "REAL_NATIVE_PARSE_OF_INDEPENDENT_SYNTHETIC_NEGATIVE_INPUT",
+        "negative_fixture_length": 54,
+        "negative_fixture_sha256": "ee01f0c662273fa8db349008f118ff42bbfdbdcc391dd6af17ec8e13bad0ee0a"
+      }
+    },
+    {
+      "control": "INVALID_header_6002_auth_union_2002",
+      "actual": {
+        "return": 0,
+        "state": 5,
+        "header_type": 24578,
+        "post_body_selectors": [
+          8194
+        ],
+        "events": [
+          [
+            "gather",
+            0
+          ],
+          [
+            "receive_decrypt",
+            0
+          ],
+          [
+            "auth_component",
+            0
+          ],
+          [
+            "body_union",
+            0
+          ],
+          [
+            "body",
+            0
+          ],
+          [
+            "bingo_receive",
+            0
+          ]
+        ],
+        "relay_unchanged": false,
+        "relay_matches_decoded_prefix": true,
+        "compression": [
+          0,
+          0
+        ],
+        "queue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "diagnostic_type": 0,
+        "stubs": [
+          "net wrapper supplied no-data/EOF-like status; no socket",
+          "bounded libc memory operation",
+          "bounded libc memory operation",
+          "last-error get=0",
+          "XLog no-op",
+          "last-error set no-op",
+          "bounded libc memory operation",
+          "bounded libc memory operation"
+        ],
+        "evidence": "REAL_NATIVE_PARSE_OF_INDEPENDENT_SYNTHETIC_NEGATIVE_INPUT",
+        "negative_fixture_length": 54,
+        "negative_fixture_sha256": "e0d8ce9c232a5c044a2fcd2c473a765a930594b247f759daff4bf4793761394b"
+      }
+    },
+    {
+      "control": "decoded_wrong_header_before_body",
+      "actual": {
+        "return": -14,
+        "state": 4,
+        "header_type": 8194,
+        "post_body_selectors": [],
+        "events": [
+          [
+            "receive_decrypt",
+            0
+          ],
+          [
+            "bingo_receive",
+            -14
+          ]
+        ],
+        "relay_unchanged": true,
+        "relay_matches_decoded_prefix": false,
+        "compression": [
+          7,
+          99
+        ],
+        "queue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "diagnostic_type": 8194,
+        "stubs": [
+          "DECODED RECEIVE STUB; no wire parsing"
+        ],
+        "evidence": "DECODED_BOUNDARY_WITH_EXPLICIT_RECEIVE_AND_OPTIONAL_PARSER_STUBS"
+      }
+    },
+    {
+      "control": "decoded_receive_real_truncated_body",
+      "actual": {
+        "return": -18,
+        "state": 4,
+        "header_type": 24578,
+        "post_body_selectors": [],
+        "events": [
+          [
+            "receive_decrypt",
+            0
+          ],
+          [
+            "body",
+            -2
+          ],
+          [
+            "bingo_receive",
+            -18
+          ]
+        ],
+        "relay_unchanged": true,
+        "relay_matches_decoded_prefix": false,
+        "compression": [
+          7,
+          99
+        ],
+        "queue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "diagnostic_type": 0,
+        "stubs": [
+          "DECODED RECEIVE STUB; no wire parsing",
+          "error-string only"
+        ],
+        "evidence": "DECODED_BOUNDARY_WITH_EXPLICIT_RECEIVE_AND_OPTIONAL_PARSER_STUBS"
+      }
+    },
+    {
+      "control": "decoded_receive_parser_failure_STUB",
+      "actual": {
+        "return": -18,
+        "state": 4,
+        "header_type": 24578,
+        "post_body_selectors": [],
+        "events": [
+          [
+            "receive_decrypt",
+            0
+          ],
+          [
+            "body",
+            -32
+          ],
+          [
+            "bingo_receive",
+            -18
+          ]
+        ],
+        "relay_unchanged": true,
+        "relay_matches_decoded_prefix": false,
+        "compression": [
+          7,
+          99
+        ],
+        "queue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "diagnostic_type": 0,
+        "stubs": [
+          "DECODED RECEIVE STUB; no wire parsing",
+          "BODY PARSER RESULT/STORAGE STUB; not protocol acceptance",
+          "error-string only"
+        ],
+        "evidence": "DECODED_BOUNDARY_WITH_EXPLICIT_RECEIVE_AND_OPTIONAL_PARSER_STUBS"
+      }
+    },
+    {
+      "control": "queue_copy_parser_zero_STUB",
+      "actual": {
+        "return": -28,
+        "state": 4,
+        "header_type": 12290,
+        "post_body_selectors": [
+          12290
+        ],
+        "events": [
+          [
+            "receive_decrypt",
+            0
+          ],
+          [
+            "body",
+            0
+          ],
+          [
+            "bingo_receive",
+            -28
+          ]
+        ],
+        "relay_unchanged": true,
+        "relay_matches_decoded_prefix": false,
+        "compression": [
+          7,
+          99
+        ],
+        "queue": [
+          1,
+          17,
+          34,
+          51
+        ],
+        "diagnostic_type": 0,
+        "stubs": [
+          "DECODED RECEIVE STUB; no wire parsing",
+          "BODY PARSER RESULT/STORAGE STUB; not protocol acceptance"
+        ],
+        "evidence": "DECODED_BOUNDARY_WITH_EXPLICIT_RECEIVE_AND_OPTIONAL_PARSER_STUBS"
+      }
+    },
+    {
+      "control": "relay_copy_parser_zero_STUB",
+      "actual": {
+        "return": 0,
+        "state": 5,
+        "header_type": 24578,
+        "post_body_selectors": [
+          24578
+        ],
+        "events": [
+          [
+            "receive_decrypt",
+            0
+          ],
+          [
+            "body",
+            0
+          ],
+          [
+            "bingo_receive",
+            0
+          ]
+        ],
+        "relay_unchanged": false,
+        "relay_matches_decoded_prefix": true,
+        "compression": [
+          3,
+          4096
+        ],
+        "queue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "diagnostic_type": 0,
+        "stubs": [
+          "DECODED RECEIVE STUB; no wire parsing",
+          "BODY PARSER RESULT/STORAGE STUB; not protocol acceptance"
+        ],
+        "evidence": "DECODED_BOUNDARY_WITH_EXPLICIT_RECEIVE_AND_OPTIONAL_PARSER_STUBS"
+      }
+    },
+    {
+      "control": "selector_replaced_with_wait_STUB",
+      "actual": {
+        "return": -28,
+        "state": 4,
+        "header_type": 24578,
+        "post_body_selectors": [
+          12290
+        ],
+        "events": [
+          [
+            "receive_decrypt",
+            0
+          ],
+          [
+            "body",
+            0
+          ],
+          [
+            "bingo_receive",
+            -28
+          ]
+        ],
+        "relay_unchanged": true,
+        "relay_matches_decoded_prefix": false,
+        "compression": [
+          7,
+          99
+        ],
+        "queue": [
+          1,
+          17,
+          34,
+          51
+        ],
+        "diagnostic_type": 0,
+        "stubs": [
+          "DECODED RECEIVE STUB; no wire parsing",
+          "BODY PARSER RESULT/STORAGE STUB; not protocol acceptance"
+        ],
+        "evidence": "DECODED_BOUNDARY_WITH_EXPLICIT_RECEIVE_AND_OPTIONAL_PARSER_STUBS"
+      }
+    },
+    {
+      "control": "decoded_receive_error_-12_STUB",
+      "actual": {
+        "return": -12,
+        "state": 4,
+        "header_type": 24578,
+        "post_body_selectors": [],
+        "events": [
+          [
+            "receive_decrypt",
+            -12
+          ],
+          [
+            "bingo_receive",
+            -12
+          ]
+        ],
+        "relay_unchanged": true,
+        "relay_matches_decoded_prefix": false,
+        "compression": [
+          7,
+          99
+        ],
+        "queue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "diagnostic_type": 0,
+        "stubs": [
+          "DECODED RECEIVE STUB; no wire parsing"
+        ],
+        "evidence": "DECODED_BOUNDARY_WITH_EXPLICIT_RECEIVE_AND_OPTIONAL_PARSER_STUBS"
+      }
+    },
+    {
+      "control": "decoded_receive_error_-10_STUB",
+      "actual": {
+        "return": -10,
+        "state": 4,
+        "header_type": 24578,
+        "post_body_selectors": [],
+        "events": [
+          [
+            "receive_decrypt",
+            -10
+          ],
+          [
+            "bingo_receive",
+            -10
+          ]
+        ],
+        "relay_unchanged": true,
+        "relay_matches_decoded_prefix": false,
+        "compression": [
+          7,
+          99
+        ],
+        "queue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "diagnostic_type": 0,
+        "stubs": [
+          "DECODED RECEIVE STUB; no wire parsing"
+        ],
+        "evidence": "DECODED_BOUNDARY_WITH_EXPLICIT_RECEIVE_AND_OPTIONAL_PARSER_STUBS"
+      }
+    },
+    {
+      "control": "decoded_receive_error_-31_STUB",
+      "actual": {
+        "return": -31,
+        "state": 4,
+        "header_type": 24578,
+        "post_body_selectors": [],
+        "events": [
+          [
+            "receive_decrypt",
+            -31
+          ],
+          [
+            "bingo_receive",
+            -31
+          ]
+        ],
+        "relay_unchanged": true,
+        "relay_matches_decoded_prefix": false,
+        "compression": [
+          7,
+          99
+        ],
+        "queue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "diagnostic_type": 0,
+        "stubs": [
+          "DECODED RECEIVE STUB; no wire parsing"
+        ],
+        "evidence": "DECODED_BOUNDARY_WITH_EXPLICIT_RECEIVE_AND_OPTIONAL_PARSER_STUBS"
+      }
+    },
+    {
+      "control": "empty_bingo",
+      "actual": {
+        "return": 0,
+        "consumed": 0,
+        "relay_payload_unchanged": true,
+        "presence": 0,
+        "compression": [
+          82,
+          1381126738
+        ],
+        "position": 1381126738,
+        "stubs": [
+          "bounded libc memory operation"
+        ],
+        "evidence": "ISOLATED_REAL_COMPONENT_DECODE_NOT_PHONE_AUTH"
+      }
+    },
+    {
+      "control": "empty_relay",
+      "actual": {
+        "return": 0,
+        "consumed": 0,
+        "relay_payload_unchanged": true,
+        "presence": 0,
+        "compression": [
+          82,
+          1381126738
+        ],
+        "position": 1381126738,
+        "stubs": [
+          "bounded libc memory operation"
+        ],
+        "evidence": "ISOLATED_REAL_COMPONENT_DECODE_NOT_PHONE_AUTH"
+      }
+    },
+    {
+      "control": "empty_nested_relay",
+      "actual": {
+        "return": 0,
+        "consumed": 5,
+        "relay_payload_unchanged": true,
+        "presence": 1,
+        "compression": [
+          82,
+          1381126738
+        ],
+        "position": 1381126738,
+        "stubs": [
+          "bounded libc memory operation",
+          "bounded libc memory operation"
+        ],
+        "evidence": "ISOLATED_REAL_COMPONENT_DECODE_NOT_PHONE_AUTH"
+      }
+    },
+    {
+      "control": "compression_without_relay",
+      "actual": {
+        "return": 0,
+        "consumed": 5,
+        "relay_payload_unchanged": true,
+        "presence": 6,
+        "compression": [
+          3,
+          4096
+        ],
+        "position": 1381126738,
+        "stubs": [
+          "bounded libc memory operation"
+        ],
+        "evidence": "ISOLATED_REAL_COMPONENT_DECODE_NOT_PHONE_AUTH"
+      }
+    },
+    {
+      "control": "zero_identity_length",
+      "actual": {
+        "return": -37,
+        "consumed": 5,
+        "relay_payload_unchanged": true,
+        "presence": 2,
+        "compression": [
+          82,
+          1381126738
+        ],
+        "position": 1381126738,
+        "stubs": [
+          "bounded libc memory operation"
+        ],
+        "evidence": "ISOLATED_REAL_COMPONENT_DECODE_NOT_PHONE_AUTH"
+      }
+    },
+    {
+      "control": "declared_overrun",
+      "actual": {
+        "return": -34,
+        "consumed": 2,
+        "relay_payload_unchanged": false,
+        "presence": 1,
+        "compression": [
+          82,
+          1381126738
+        ],
+        "position": 1,
+        "stubs": [
+          "bounded libc memory operation"
+        ],
+        "evidence": "ISOLATED_REAL_COMPONENT_DECODE_NOT_PHONE_AUTH"
+      }
+    },
+    {
+      "control": "physical_truncation",
+      "actual": {
+        "return": -2,
+        "consumed": 1,
+        "relay_payload_unchanged": false,
+        "presence": 1,
+        "compression": [
+          82,
+          1381126738
+        ],
+        "position": 0,
+        "stubs": [
+          "bounded libc memory operation"
+        ],
+        "evidence": "ISOLATED_REAL_COMPONENT_DECODE_NOT_PHONE_AUTH"
+      }
+    },
+    {
+      "control": "exact_17_Z_identity",
+      "actual": {
+        "return": -35,
+        "consumed": 22,
+        "relay_payload_unchanged": false,
+        "presence": 2,
+        "compression": [
+          82,
+          1381126738
+        ],
+        "position": 1381126738,
+        "stubs": [
+          "bounded libc memory operation"
+        ],
+        "evidence": "ISOLATED_REAL_COMPONENT_DECODE_NOT_PHONE_AUTH"
+      }
+    },
+    {
+      "control": "relay_reuse_SYN_prefix_stop_before_send",
+      "actual": {
+        "stop_code": -77,
+        "stopped_before_send": true,
+        "copied_44_bytes": true,
+        "stubs": [],
+        "synthetic_branch_entry": true
+      }
+    }
+  ]
+}

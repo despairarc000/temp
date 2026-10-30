@@ -55,11 +55,17 @@ only descriptive metadata, original verifier/parser code and synthetic fixtures.
 The full 768008878-byte XAPK and its 737048867-byte OBB member were not downloaded
 or hashed. Only APK and manifest ranges were retrieved. The linked unpacked
 [Drive OBB](DRIVE_MANIFEST.md) is not byte-proven to match this mirror.
-The phone Original.xapk/APK/Apollo hash is not available for equality comparison.
+[CF18-05 historical report summary](../coordination/incoming/CF18-05/RESULT.md)
+records Original.xapk embedded APK SHA-256 equal to the pinned mirror, and equal
+Assembly-CSharp hash, with zero differing non-signature entries across1212 in a
+re-signed-only control. Class: HISTORICAL_ON_PHONE_REPORT, not a newly fetched
+original report/phone scan in this activation. This supports reported historical
+APK/Apollo parity; current installed bytes, runtime context and OBB equality do
+not follow. No precise private original-report locator was newly supplied.
 Historical v0.1-v0.8 scripts/reports remain missing. Other same-version mirrors
 may have different bytes. G0 is partial; G2 is BLOCKED.
 
 This source makes hash-specific native analysis possible. It does not resolve
-runtime path selection, historical EOF attribution, accepted ACK or gameplay.
+runtime path selection, historical EOF attribution, authenticated session or gameplay. The phone ACK-to-auth-request hop is now confirmed in [AUTH_RECEIVER](../knowledge-system/vault/research/AUTH_RECEIVER.md).
 See [receiver trace](../knowledge-system/vault/research/ACK_RECEIVER.md) and
 [current assignments](../coordination/assignments.json).

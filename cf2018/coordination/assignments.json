@@ -4,13 +4,14 @@
   "repository": "despairarc000/temp",
   "branch": "main",
   "coordinator": "CF18-00",
-  "reviewed_main": "c52243228e8d2d38dd6b4c1d85f464d9f94461f8",
-  "canonical_integration_commit": "88c439b7938642076f721c0ec9319fd45d008420",
+  "reviewed_main": "ccdd219f9ed121e77fc06ad20b50b77614079cbf",
   "priority": {
-    "earliest_unmet": "G0_PHONE_BUILD_AND_OBB_IDENTITY",
-    "next_native_gate": "G2_ACK_BODY_SESSION",
-    "G2_status": "BLOCKED",
-    "native_AB_C_ready": false
+    "earliest_unmet": "G0_CURRENT_INSTALLED_AND_OBB_IDENTITY",
+    "next_native_gate": "G2_AUTH_BINGO_SESSION",
+    "G2_first_hop": "CONFIRMED_ON_PHONE_0x2001",
+    "G2_status": "AUTH_RESPONSE_BLOCKED",
+    "native_AB_C_ready": false,
+    "v14_envelope_comparison": "JUSTIFIED_IN_PRINCIPLE_BLOCKED_DEPLOYED_BRIDGE_REVIEW"
   },
   "rules": {
     "one_task_per_lane": true,
@@ -68,81 +69,144 @@
       "source_commit": "56db53d81326810d5bea342b11ea4e07dc351e01",
       "integration_commit": "88c439b7938642076f721c0ec9319fd45d008420",
       "limits": "Type/key/body/state predicates; session/body consumers and actual negotiation incomplete."
+    },
+    {
+      "id": "CF18-ACK-BODY-SESSION",
+      "status": "INTEGRATED_BOUNDED_TRACE",
+      "source_kind": "COMPLETED_LOCAL_DRAFT_NO_REMOTE_PACKET_COMMIT",
+      "source_commit": null,
+      "source_report_sha256": "b5e66948d76a7008bae0919bc09f63f5be4342206903ea97f2c7104f2413477f",
+      "integration_commit": "40c4aafe6665e671d08df6badb378121ec4ff213",
+      "record": "knowledge-system/vault/research/ACK_SESSION.md",
+      "limits": "Timestamp data flow and bounded body/account/state predicates with explicit stubs; no server generation policy, accepted ACK/auth, Bingo or phone proof."
+    },
+    {
+      "id": "CF18-G2-AUTH-RX-02",
+      "status": "COORDINATOR_VALIDATED_CANONICAL_CODE_IN_THIS_CHANGE",
+      "source_commit": "9a0d6ef09c6b62a4543c8c9aadef15f1946df470",
+      "integration_record": "coordination/INTEGRATION.md",
+      "limits": "Earliest body-mode failure localized, wrapper fix reaches native Bingo wait only; deployed bridge missing."
+    },
+    {
+      "id": "CF18-G2-BINGO-01",
+      "status": "COORDINATOR_VALIDATED_CANONICAL_CODE_IN_THIS_CHANGE",
+      "source_commit": null,
+      "source_basis": "Actual local CF02 draft hashes in INTEGRATION",
+      "integration_record": "coordination/INTEGRATION.md",
+      "limits": "Malformed correlation reaches5; no valid Bingo/session"
     }
   ],
   "lanes": [
     {
       "lane": "CF18-00",
-      "task": "CF18-REVIEW-INCOMING",
-      "status": "WAITING_FOR_PACKET",
-      "scope": "Review new supported packets and integrate canonical code/evidence/queue.",
+      "task": "CF18-REVIEW-RX-02",
+      "status": "READY",
+      "scope": "Review submitted99/bounds strict-parser proposal separately; preserve auth failure and incoming path draft. Integrate only supported boundaries.",
       "prerequisites": [
-        "Meaningful new packet, source evidence or review defect."
+        "Actual pinned source/dependencies for native rechecks",
+        "Packet0019 and canonical auth integration reviewed"
       ],
-      "next_action": "Review earliest unmet acceptance gate; no repeated integration of completed packets."
+      "acceptance": "Keep strict caps/terminal/opaque extension; do not imitate native wrap/duplicate/lookahead quirks.",
+      "integration_record": "coordination/INTEGRATION.md"
     },
     {
       "lane": "CF18-01",
-      "task": "CF18-G2-RX-02",
-      "status": "READY",
-      "scope": "Finish native 99/non-varint receive envelope, declared-end/size arithmetic and lookahead/error timing; compare canonical strict subset policies without duplicating ACK semantics.",
+      "task": "CF18-G2-RX-02-REVIEW",
+      "status": "WAITING_FOR_REVIEW_FEEDBACK",
+      "scope": "Submitted99/bounds and factory/wrapper packets complete; respond to coordinator review defects only.",
       "prerequisites": [
-        "verified_source available and fingerprinted in this activation",
-        "Native dependencies and current canonical receiver trace reviewed."
+        "Concrete review feedback or new path evidence"
       ],
-      "acceptance": "Bounded hash-scoped trace and independent negative controls; no raw prefix guess or phone parity claim.",
-      "previous_integration_commit": "88c439b7938642076f721c0ec9319fd45d008420"
+      "acceptance": "Report actual dispatch/wrapper controls with stubs; static factory relation is not phone runtime proof.",
+      "previous_submission_commit": "ccdd219f9ed121e77fc06ad20b50b77614079cbf",
+      "next_action": "Stop unchanged activations; no duplicate framing/auth research."
     },
     {
       "lane": "CF18-02",
-      "task": "CF18-G2-ACK-01",
+      "task": "CF18-G2-SESSION-APP-01",
       "status": "READY",
-      "scope": "Continue unfinished optional ACK-body/embedded-auth response and later session consumers; establish negotiation/correlation predicates and next-auth state use.",
+      "scope": "Trace actual state5/OnStateDone and application connected/account/relay consumers; identify validation/correlation predicates after copied relay data.",
       "prerequisites": [
-        "verified_source available and fingerprinted in this activation",
-        "Reviewed ACK_RECEIVER trace and submitted CF18-02 controls."
+        "Pinned source/ISA/dependencies rechecked",
+        "Reviewed AUTH_RECEIVER and BINGO_SESSION; no numeric-state acceptance assumption"
       ],
-      "acceptance": "Trace actual body/session uses with negative controls; keep missing generation/echo rules explicit; never construct an assumed valid ACK.",
-      "previous_integration_commit": "88c439b7938642076f721c0ec9319fd45d008420"
+      "acceptance": "Bounded actual-native trace and negative controls; no valid identity/session generation or guessed Bingo.",
+      "previous_submission_commit": "9a0d6ef09c6b62a4543c8c9aadef15f1946df470",
+      "previous_integration_commit": "40c4aafe6665e671d08df6badb378121ec4ff213",
+      "previous_local_result": "bingo_01 draft integrated with exact input hashes"
     },
     {
       "lane": "CF18-03",
-      "task": "CF18-G1-BRIDGE-HOOK-01",
+      "task": "CF18-G2-V12-RELAY-01",
       "status": "BLOCKED_SOURCE",
-      "scope": "Verify historical/deployed post-method CONNECT and normal-passthrough interface before connector/bound-reply/core wiring.",
+      "scope": "Audit actual deployedv1.2 bridge source for post-method dispatch, lifecycle, errors and directional EOF; then propose wrapper-only hook.",
       "prerequisites": [
-        "Recovered v0.1-v0.8 bridge source or independently verified deployed interface and directional controls."
+        "Precise authorized private deployedv1.2 ZIP/source locator or actual source",
+        "Directional lifecycle evidence; preserve unrelated passthrough"
       ],
-      "next_action": "Wait for that evidence. Integrated handoff/core and native source do not establish the missing bridge hook or historical EOF cause.",
+      "next_action": "Stop quietly until new source. Historical0.1\u20130.8 scripts also missing; frame_gate.py is not their source.",
       "previous_integration_commit": "f70a874ed903b030fd51a94a36dff0ca43dcfff4"
     },
     {
       "lane": "CF18-04",
       "task": "CF18-G0-PHONE-01",
-      "status": "WAITING_FOR_EVIDENCE",
-      "scope": "Compare actual historical phone APK/Apollo/OBB identity or verify a precise historical-probe/report locator when newly available.",
+      "status": "WAITING_FOR_NEW_EVIDENCE",
+      "scope": "Verify exact original historical report/current installed APK/OBB provenance when new precise source arrives.",
       "prerequisites": [
-        "New actual phone hash/private original or authorized historical-source locator."
+        "New precise authorized private report/phone/OBB locator or measured identity metadata"
       ],
-      "next_action": "Stop quietly while unchanged; no repeated asset inventory, mirror re-download or same-source receipt.",
+      "next_action": "CF05 historical hash parity is now reconciled as reported evidence. No repeat Drive inventory/mirror download/same-source receipt.",
       "previous_integration_commit": "88c439b7938642076f721c0ec9319fd45d008420"
     }
   ],
   "validation": {
     "canonical_private_selected": {
-      "passed": 83,
+      "passed": 149,
       "skipped": 0
     },
     "canonical_source_free": {
-      "passed": 81,
-      "skipped": 2
+      "passed": 97,
+      "skipped": 52
     },
-    "lane_passed": {
-      "CF18-01": 32,
-      "CF18-02": 25,
-      "CF18-04": 14
+    "auth_incoming": {
+      "passed": 25,
+      "skipped": 0
     },
+    "bingo_local": {
+      "passed": 21,
+      "skipped": 0
+    },
+    "path_incoming": {
+      "passed": 8,
+      "skipped": 0
+    },
+    "matrices": "BOTH_REPRODUCED_EXACTLY",
+    "source_verifier": "PASS_CMS_1212_ENTRIES_TRUST_NOT_VALIDATED",
     "knowledge_doctor": "PASS",
-    "scope": "Synthetic/localhost, private integrity checks and bounded stubbed native emulation; no device/G2 advancement."
+    "scope": "Offline synthetic/native controls with explicit stubs; no new phone auth/session."
+  },
+  "reviewed_packets": [
+    {
+      "lane": "CF18-01",
+      "commit": "0019dfb52700dd74c9563ea970afcdcb544b8355",
+      "status": "SUBMITTED_BOUNDARY_PARSER_REVIEW_PENDING"
+    },
+    {
+      "lane": "CF18-05",
+      "commit": "14a49c610826e6a08f6bc7d9bb06ad0e5ad30b75",
+      "status": "PHONE_METADATA_AND_FIXTURE_PINS_RECONCILED"
+    },
+    {
+      "lane": "CF18-05",
+      "commit": "b26007d73b5d6d781c8c8e8e1681c18f55cb18ce",
+      "status": "HISTORICAL_APK_PARITY_REPORTED_NO_INSTALLED_OBB_PROOF"
+    }
+  ],
+  "previous_canonical_integration_commit": "40c4aafe6665e671d08df6badb378121ec4ff213",
+  "current_integration": {
+    "status": "INCLUDED_IN_THIS_TREE",
+    "record": "coordination/INTEGRATION.md",
+    "base_main": "ccdd219f9ed121e77fc06ad20b50b77614079cbf",
+    "scope": "Exact auth failure correction and negative Bingo/session controls; no device auth"
   }
 }

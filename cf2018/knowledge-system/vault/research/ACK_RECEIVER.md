@@ -110,3 +110,16 @@ known game IP AND port scope, baseline/negative controls and failure attribution
 No automatic phone/live-network experiment is authorized by this document. G2
 advances only on a later authentic client protocol packet after ACK, followed by
 verified session state. Neither parser success nor native emulation counts.
+
+## Auth receive supersession — 2026-10-30
+
+[Current auth review](AUTH_RECEIVER.md) supersedes earlier no-post-ACK/current-blocker
+statements above. Real phone SYN133 -> ACK63 -> auth0x2001/117 is confirmed.
+All three exact v1.2 replies fail the real TGCPBody mode check before auth/account:
+A5 is neither AA nor99, -32 maps to -18. Adding the five-byte body envelope and
+updating outer length reaches real parsing/copy/state4, then real Bingo -12/wait.
+Those new controls do not stub parser success; older labeled branch controls
+remain limited as originally described. No authenticated account/session or game.
+Historical reported APK parity is separate from installed/OBB identity. V1.4
+wrapper-only comparison is justified in principle but blocked on bridge/lifecycle
+integration; no automatic phone run. Follow current assignments, not old task cues.

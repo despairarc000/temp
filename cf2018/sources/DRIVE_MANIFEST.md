@@ -49,3 +49,11 @@ unchanged Drive scans or treat this as G0/G2 completion. The observed mirror URL
 is mutable; verify actual bytes with the explicit local
 [verifier](../tools/verify_private_source.py) before native claims. Never upload
 originals or signed-download tokens.
+
+## Later phone evidence reconciliation
+
+[CF18-05](../coordination/incoming/CF18-05/RESULT.md) reports historical Original.xapk
+embedded APK/DLL hash parity with the mirror. This is a report summary, not a new
+Drive-file discovery or direct original-report retrieval. Installed APK/fullXAPK/
+OBB identity remains unverified. [Current auth evidence](../knowledge-system/vault/research/AUTH_RECEIVER.md)
+confirms the phone post-ACK auth request separately. No unchanged asset rescan.

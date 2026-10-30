@@ -81,3 +81,37 @@ experiment, valid ACK/auth reply, token construction or gameplay claimed.
 G2 BLOCKED, A/B/C false. Next: downstream account/Bingo/session predicates; exact
 phone/OBB/historical bridge evidence still missing. Queue handoff will identify
 the substantive integration commit once created.
+
+Body/session integration commit: `40c4aafe6665e671d08df6badb378121ec4ff213`. Updated assignments record that
+actual SHA and the downstream bounded continuation; earlier integration refs
+are preserved. No new phone/source claim or completed framing packet.
+
+## 2026-10-30 — exact auth receive failure integrated
+
+Reviewed9a0d6ef09c6b62a4543c8c9aadef15f1946df470; source packets9a0/14a49 and phone
+reports09–12. ACK63 -> authentic0x2001/117 is confirmed; auth/session still blocked.
+All three exact v1.2 replies fail bodyAA/99 mode with A5/-32, auth maps-18, before
+account parsing. Independently regenerated native matrix and reran25 incoming
+controls. Integrated bounded encoder, separate fixture adapter, full-native trace
+and regressions; preserved original hashes/headers/accounts and explicit stubs.
+Canonical128 PASS private-selected; default95 PASS/33 SKIP; doctor/source verifier
+PASS. No phone/network run; corrected parser reaches state4/Bingo wait only.
+
+Updated stale checkpoint/queue/ICM/graph and reported historical APK parity limits.
+Preserved incoming/unfinished path drafts. Deployed v1.2 source/directional EOF
+still missing; no direct local-server deployment is claimed. Next offline work:
+Bingo/session/application predicates; separate submitted99 boundary review.
+[Integration](../../coordination/INTEGRATION.md) and [auth trace](research/AUTH_RECEIVER.md).
+
+## 2026-10-30 — coordinator resumed and completed auth/Bingo integration
+
+Resume main ccdd219f9ed121e77fc06ad20b50b77614079cbf; preserved prior interrupted
+canonical draft and all incoming files. Auth25, local Bingo21 and submitted
+path8 tests reproduced; actual original-source integrity/CMS/1212 entries PASS.
+Integrated the body encoder/fixture regressions and original Bingo negative
+controls with exact local-input provenance, no invented source packet commit.
+Both matrices reproduced exactly. Canonical149 PASS/private-selected; default
+97 PASS/52 SKIP; doctorPASS. Current phone ACK->0x2001 evidence reconciled.
+3002 corrected to WAIT; malformed header/body can reach native5, never counted
+as authentication. No valid Bingo/credentials, deployed bridge wiring, phone run
+or playable state. Updated canonical knowledge/graph/ICM and bounded lane queue.

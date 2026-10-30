@@ -1,6 +1,8 @@
 # TGCP — reviewed mirror trace and historical phone boundary
 
-**G2 BLOCKED.** Current receiver findings are in
+**G2 auth/session BLOCKED; phone post-ACK0x2001 CONFIRMED.** Current auth findings are in
+[AUTH_RECEIVER](AUTH_RECEIVER.md), downstream [Bingo/session](BINGO_SESSION.md),
+and earlier receiver findings are in
 [CF18-G2-ACK-01](ACK_RECEIVER.md), with
 [hash-scoped source provenance](../../../sources/SOURCE_PROVENANCE.md).
 They supersede the v0.8 raw receive-prefix inference for the recovered mirror's
@@ -56,3 +58,11 @@ Next: downstream account/Bingo/session predicates, framing boundary review,
 phone source/path identity and historical relay evidence. No device A/B/C packet
 is ready. [Evidence](../EVIDENCE.md), [questions](../OPEN_QUESTIONS.md),
 [relay](RELAY.md), [assignments](../../../coordination/assignments.json).
+
+## Current supersession
+
+The earlier no-post-ACK statements above apply to historical0.1–0.8 runs.
+Phone09–12 establish ACK63 -> auth117; current native earliest v1.2 failure is
+missing body preamble (-32 -> -18). Corrected controls await server Bingo; a
+malformed type-correlation control can reach state5, which does not prove a valid
+session. Follow current CHECKPOINT and assignments rather than older task cues.

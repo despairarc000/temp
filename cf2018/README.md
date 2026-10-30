@@ -13,7 +13,7 @@
 From a clean launch, game loads its original resources, reaches an offline interface and starts/finishes a real local TDM bot match and a Bomb/S&D bot match. AI, weapons, teams, scoring, match transitions, and restartability must be observable, not mocked. Prioritize a minimum working mode, preserve existing assets and gameplay.
 
 ## Current approach
-Original re-signed APK + original OBB, no protected managed-DLL edits; app network traffic intercepted with PCAPdroid VpnService SOCKS5 to a Termux loopback service. Native Apollo/GCloud TGCP handshake is still a blocker. Do not confuse connectivity, packet encoding, ACK accepted, or lobby/gameplay: these are independent gates.
+Original re-signed APK + original OBB, no protected managed-DLL edits; app network traffic intercepted with PCAPdroid VpnService SOCKS5 to a Termux loopback service. The phone ACK-to-auth-request hop is confirmed; TGCP auth/session remains blocked. Do not confuse connectivity, packet encoding, ACK accepted, or lobby/gameplay: these are independent gates.
 
 ## Repository boundaries
 This is a subproject of the existing public `despairarc000/temp` repository. Keep all CF2018 files under `cf2018/`. Do not overwrite the unrelated ChatGPT Browser Android app. Do not commit APK, XAPK, OBB, .so, managed assemblies, extracted assets, credential/token/session values, or full sensitive traces. Research documentation, original (new) server code, tests, and small sanitized fixtures are allowed, subject to rights/security review.
@@ -23,6 +23,10 @@ Codex: `cd cf2018 && python tools/knowledge.py doctor && python tools/knowledge.
 
 Current reviewed work: [hash-scoped mirror source](sources/SOURCE_PROVENANCE.md)
 and [receiver-state trace](knowledge-system/vault/research/ACK_RECEIVER.md).
-Original offline framing/source-verification tools are integrated; no accepted
-phone ACK, authenticated session or bot match is claimed. Check
+[Exact auth-response review](knowledge-system/vault/research/AUTH_RECEIVER.md)
+localizes the missing TGCPBody preamble in all three v1.2 replies. The bounded
+encoder/native regressions are integrated; deployed bridge wiring is unverified.
+[Bingo review](knowledge-system/vault/research/BINGO_SESSION.md) establishes why
+numeric state5 alone cannot prove authentication. No authenticated session or
+bot match is claimed. Check
 [assignments](coordination/assignments.json) for remaining non-overlapping work.

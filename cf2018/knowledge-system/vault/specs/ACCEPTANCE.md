@@ -12,3 +12,10 @@
 | Reliability | relaunch, shutdown, clean restore, bounded logs, no-root workflow | success only once, hundreds of uncontrolled retries |
 
 Each gate: record version, device, hash or provenance, date, test command, original control, observed signal and negative result. Completed means verified on the actual game, not inferred from native static analysis or fabricated packet.
+
+Current gate refinement: real ACK63 -> authentic0x2001/117 is confirmed by the
+user/phone09–12 reports. Auth/session remains unmet. [Auth failure](../research/AUTH_RECEIVER.md)
+and [Bingo controls](../research/BINGO_SESSION.md) show that parser0, waiting0 and
+even numeric state5 are insufficient. Require meaningful real session/application
+progression with identity/correlation evidence; do not require an unsolicited
+third client packet while the receiver is waiting for another server step.

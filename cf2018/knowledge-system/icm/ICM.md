@@ -10,3 +10,5 @@ Hash-scoped native routing: TGCP/ACK now includes the reviewed
 routes include [source provenance](../../sources/SOURCE_PROVENANCE.md). Check
 actual private-file availability and pinned hash every activation before native
 claims. Route output does not establish shared disk or runtime selection.
+
+Authentication/auth/0x2001/0x2002/Bingo/session now route to [AUTH_RECEIVER](../vault/research/AUTH_RECEIVER.md), [Bingo/session](../vault/research/BINGO_SESSION.md) and the phone v1.2 report. The tested route keeps the earliest native failure distinct from phone EOF attribution.

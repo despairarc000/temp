@@ -93,3 +93,90 @@ PASS. Actual pinned source hash/ISA and bounded branches were checked. Native
 functions run in isolated emulation with labeled decoded-boundary/parser/send
 stubs, not Android sockets. No complete wire reply, phone run, new authentic
 packet or G2 advancement. No original/raw native code or sensitive bytes published.
+
+## E-20 — phone progression supersedes ACK-first checkpoint
+
+Class: USER_CONFIRMED_PHONE_OBSERVATION + SANITIZED_PHONE_REPORTS. Reviewed from
+CF18-05 at main9a0d6ef09c6b62a4543c8c9aadef15f1946df470:
+[v0.9](../../coordination/incoming/CF18-05/PHONE_V09_RESULT.md),
+[v1.0](../../coordination/incoming/CF18-05/PHONE_V10_RESULT.md),
+[v1.1](../../coordination/incoming/CF18-05/PHONE_V11_RESULT.md),
+[v1.2](../../coordination/incoming/CF18-05/PHONE_V12_RESULT.md).
+Real SYN133 -> AA_DIRECT ACK63 -> authentic0x2001/117 is confirmed. v1.0's empty
+ext_type output was a kind-filter bug; observed pair[8193,1] identifies0x2001.
+v1.2 has8 sessions,2 per arm: all250 clientbytes/twoframes; silence about7s;
+synthetic66/49/79 replies produce read_eof at8–11ms. No third packet or valid
+session. Local EOF does not identify FIN/RST origin. Historical earlier no-post-
+ACK statements remain accurate only for their earlier runs, not current status.
+No fresh phone run was performed by the coordinator.
+
+## E-21 — reported historical source parity
+
+Class: HISTORICAL_ON_PHONE_REPORT + INDEPENDENT_MIRROR_HASH_VERIFICATION.
+[CF18-05 summary](../../coordination/incoming/CF18-05/RESULT.md), source commit
+b26007d73b5d6d781c8c8e8e1681c18f55cb18ce, reports Original.xapk embedded APK
+SHA33045335685284385866e8b0e2df55285009399c285294c2f428b451ee00d3d9,
+matching the independently verified mirror; managed DLL hash also matches.
+It reports0 differing non-signature entries among1212 for the re-signed control.
+Original comparison report bytes/precise private locator were not newly retrieved
+in this activation. Supports reported historical parity, not installed APK,
+current runtime context, entire XAPK/OBB or connected Drive equality.
+
+## E-22 — earliest exact v1.2 native failure and body correction
+
+Class: ORIGINAL_NATIVE_STATIC + NATIVE_EMULATION_WITH_STUBS + ORIGINAL_CODE /
+INDEPENDENT_SYNTHETIC. Submitted [CF18-02](../../coordination/incoming/CF18-02/auth_rx_02/RESULT.md)
+in9a0d6ef09c6b62a4543c8c9aadef15f1946df470, using exact [CF18-05 fixtures](../../coordination/incoming/CF18-05/V13_NATIVE_TEST_PACKET.md)
+from14a49c610826e6a08f6bc7d9bb06ad0e5ad30b75. Coordinator independently reran25
+incoming tests and regenerated the [native matrix](../../coordination/incoming/CF18-02/auth_rx_02/NATIVE_MATRIX.json) exactly.
+[Canonical trace](research/AUTH_RECEIVER.md) includes addresses, all stubs and limits.
+
+All exact originals pass frame/header/effective2002/receive. TGCPBody mode A5
+fails AA/99 at0x3b8896–9c, returns-32 at0x3b88d8 after1byte; auth maps-18 at
+0x3ac378. Auth/account/Bingo not reached; prior account unchanged/state3.
+Verified correction adds AA+BE total length before existing body union and
+recomputes outer length. Corrected71/54/84-byte paths parse real components,
+copy/state4, then real Bingo-12/wait; no parser-success stub. Dummy UID/account
+and waiting are not session acceptance. Native incompatibility is independent
+of actual phone EOF cause. Deployed bridge source/wiring still unavailable.
+
+Original canonical [encoder](../../experiments/tgcp_body_envelope.py), separate
+[fixture repair](../../experiments/auth_fixture_repair.py), [native controls](../../experiments/native_auth_rx.py),
+[19 auth tests](../../tests/test_native_auth_rx.py) and seven pin tests integrated.
+Full canonical128 PASS private-selected; default95 PASS/33 private-sourceSKIP.
+DoctorPASS; source verifierPASS including1212 signed entries/trust-chain not
+validated. Conditional six-connection v1.4 envelope comparison is justified in
+principle, not ready without reviewed deployed bridge/directional instrumentation.
+No actual phone test, generated credential/key/Bingo, auth session or gameplay.
+
+## E-23 — Bingo correlation and received relay-data uses
+
+Class: ORIGINAL_NATIVE_STATIC + NATIVE_EMULATION_WITH_STUBS + INDEPENDENT_SYNTHETIC.
+Coordinator reviewed completed LOCAL CF02 bingo_01 draft against ccdd219f9ed121e77fc06ad20b50b77614079cbf.
+No source packet commit exists; exact six input hashes are in [integration](../../coordination/INTEGRATION.md).
+[Canonical trace](research/BINGO_SESSION.md), [controls](../../experiments/native_bingo_controls.py),
+[21 tests](../../tests/test_native_bingo_controls.py), [actual23-control matrix](../../coordination/CF18-G2-AUTH-RX-02/BINGO_MATRIX.json).
+
+3002 dispatches TGCPWaitBody/position-total-roughTime, correcting prior stop wording.
+Header checks3002/6002 before body, but real union parsing overwrites selector.
+Actual deliberately mismatched header6002 or3002/body2002 decodes auth component,
+never Bingo component, yet reaches state5/copy. No parser-success stub in those
+wire controls. Numeric state5 cannot establish valid correlation/authentication.
+Separate decoded parser-zero controls explicitly stub results/storage. Relay44-byte
+fields and compression copy traced; later SYN prefix reuses relay block, stopped
+before send. Generation/account binding remain unknown; no valid Bingo built.
+
+Incoming21, auth25 and CF01 path8 controls independently reproduced. Canonical149
+PASS/private-selected; default97 PASS/52 private-sourceSKIP; doctorPASS; both
+native matrices reproduce exactly. Original-source verifier/CMS/all1212 entries
+PASS, external trust not validated. No Android/device/network run or auth success.
+
+## E-24 — reviewed bounded factory/wrapper continuation
+
+Class: ORIGINAL_NATIVE_STATIC + NATIVE_EMULATION_WITH_STUBS. Source
+[CF18-01 path result](../../coordination/incoming/CF18-01/PATH_RESULT.md), commit
+ccdd219f9ed121e77fc06ad20b50b77614079cbf. Coordinator reran8 controls. Actual
+examined native receive wrapper preserves raw prefixes; synthetic AddressService
+virtual prefix selects GCloud factory using constructor vtable address point.
+No actual phone runtime selection or EOF source is proven. Strict99/bounds parser
+proposal from0019 remains a separate pending integration, not silently promoted.
