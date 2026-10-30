@@ -60,3 +60,45 @@ and G2 are unchanged. Canonical integration commit is
 `f70a874ed903b030fd51a94a36dff0ca43dcfff4`, recorded in [assignments](assignments.json)
 as INTEGRATED_BOUNDED_STAGE. The completed proposal is not assigned as READY;
 the next bridge-wiring task is BLOCKED_SOURCE.
+
+
+## Recovered mirror native/source review — 2026-10-30
+
+Reviewed live main c52243228e8d2d38dd6b4c1d85f464d9f94461f8. All 55 tracked
+CF2018 snapshot blobs matched; git status returned 128 (not a checkout). No
+active lane claim was overwritten. [Acceptance](NATIVE_INTEGRATION_ACCEPTANCE.md)
+was defined before canonical code edits. Incoming lane packets remain unchanged.
+
+| Lane / actual source commit | Reviewed disposition |
+|---|---|
+| CF18-01 fefd0dc224851fefc2b74a51fc95e0fa0090e9a2 | Reran 32 tests including nine native controls. Accepted decoded-marker interpretation for pinned GCloud path and original AA/varint offline subset; no phone runtime claim. |
+| CF18-02 56db53d81326810d5bea342b11ea4e07dc351e01 | Reran 25 controls. Accepted bounded type/key/body/error/state predicates and their stub limits. Optional body/embedded-auth/session consumers still unfinished; no server field-generation or accepted-ACK policy. |
+| CF18-03 9f77b2cbf9f0249b566c75e8a4e42666cb44c292 | No new packet; existing core/handoff remain integrated. Canonical 19 relay/23 handoff controls rerun in full suite. Historical/deployed bridge source still missing; no EOF conclusion. |
+| CF18-04 c52243228e8d2d38dd6b4c1d85f464d9f94461f8 | Reran 14 controls including actual CMS/all 1212 signed-entry checks. Accepted mirror source receipt/pins and original local verifier. Phone/OBB/Drive-target equality remains unverified. |
+
+Integrated canonical experiments/rx_envelope.py and tests/test_rx_envelope.py
+from CF18-01 original code. Coordinator adaptations: rename message_type to
+base_type to prevent a base field implying effective extension type; finish is
+terminal. Two additional independent controls cover those boundaries (17 total).
+It is an offline strict subset with opaque extensions, not a server ACK or full
+native parser. 99, duplicate/unknown acceptance and gather/lookahead timing remain
+outside parity claims.
+
+Integrated original tools/verify_private_source.py and
+[14 controls](../tests/test_verify_private_source.py) from CF18-04, with adapted
+canonical imports/document pointer, plus descriptive sources/MIRROR_RECEIPT.json.
+No original file is published. No download/listener/game execution is introduced.
+Default CLI is inactive; selected private paths are pinned before interpretation.
+
+[Canonical receiver trace](../knowledge-system/vault/research/ACK_RECEIVER.md)
+now focuses CF18-G2-ACK-01. Corrected E-09/Q-01/current startup docs, source
+manifest, source provenance, navigation, ICM/Graphify and ADR-0002; preserved
+historical phone/report limits in EVIDENCE and WORKLOG. frame_gate.py behavior
+is unchanged and explicitly retired as a raw-prefix hypothesis model.
+
+Actual checks: knowledge doctor PASS; 83 canonical tests PASS with private APK
+selected; source-free suite 83 total with two private-source skips. Lane suites
+32/25/14 PASS without skips. These are local/synthetic/private-source and bounded
+native emulation with explicit stubs. G2 BLOCKED; no A/B/C candidates or device
+plan is ready. The exact substantive integration commit will be recorded in the
+next compact assignments handoff after it exists, without inventing its own SHA.

@@ -1,4 +1,4 @@
-# DespairArc Drive — authoritative file locator (NOT game binaries)
+# Source locators — connected Drive and recovered mirror
 
 **Verified through the connected Google Drive account (2026-10-30):**
 
@@ -25,7 +25,27 @@ folder hierarchy using metadata and bounded direct listings. Data returned the
 100-item cap; no complete inventory is established. Exact-name search omitted
 the known 9.99 APK even though direct metadata access succeeded. Empty searches
 cannot prove that a target library, assembly or report is absent from Drive.
-No requested checksum fields were returned; no source was downloaded or hashed.
-Exact 2018 package identity, libapollo.so, Assembly-CSharp.dll and historical
-probe/report availability remain unverified. Resume only with new evidence or a
+No requested checksum fields were returned; that Drive inventory downloaded
+and hashed no source. Exact target package/native/managed availability in Drive
+and historical probe/report availability remain unverified. Resume only with new evidence or a
 verified private source locator, rather than repeatedly listing all assets.
+
+
+## Coordinator-reviewed mirror source — separate from Drive
+
+After the user explicitly asked to find the APK on the internet, the exact
+v1.0.11.11 package was recovered from the observed APKPure endpoint. See
+[canonical source provenance](SOURCE_PROVENANCE.md) and the descriptive
+[MIRROR_RECEIPT](MIRROR_RECEIPT.json), reviewed from CF18-04 source commit
+c52243228e8d2d38dd6b4c1d85f464d9f94461f8. APK SHA-256 is
+33045335685284385866e8b0e2df55285009399c285294c2f428b451ee00d3d9;
+Apollo SHA-256 is
+4812396e98bfba9664164c14c8973eed111c5b9d177c1b575e86bc8e9f9169d8.
+
+That source is privately available on the current runner and supports only
+hash-specific static/native controls. It does not prove availability in Drive,
+phone build equality, OBB match or historical report/relay access. Do not repeat
+unchanged Drive scans or treat this as G0/G2 completion. The observed mirror URL
+is mutable; verify actual bytes with the explicit local
+[verifier](../tools/verify_private_source.py) before native claims. Never upload
+originals or signed-download tokens.

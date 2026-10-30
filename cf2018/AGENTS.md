@@ -9,7 +9,7 @@ Restore genuine offline bot-playable CrossFire: Legends **2018 / v1.0.11.11** (`
 - User mission: [IDEA_PLAN](IDEA_PLAN.md).
 - Current truth: [CHECKPOINT](knowledge-system/vault/CHECKPOINT.md) + [EVIDENCE](knowledge-system/vault/EVIDENCE.md) + repeatable tests.
 - Engineering proposals: [TECHNICAL_PLAN](TECHNICAL_PLAN.md) and [OPEN_QUESTIONS](knowledge-system/vault/OPEN_QUESTIONS.md), **not** established facts.
-- Original files: connected DespairArc Drive via [DRIVE_MANIFEST](sources/DRIVE_MANIFEST.md); Drive access is a connector permission, not implied by this link.
+- Original files: connected DespairArc Drive via [DRIVE_MANIFEST](sources/DRIVE_MANIFEST.md), plus the separately user-authorized private [mirror receipt](sources/SOURCE_PROVENANCE.md). Verify actual availability and exact hashes every activation; links/schedules do not establish source access or shared disk.
 
 ## Every task
 1. Check `git status`, current branch and active edits; leave other contributors and unrelated root project alone.
@@ -20,7 +20,7 @@ Restore genuine offline bot-playable CrossFire: Legends **2018 / v1.0.11.11** (`
 6. Implement minimal original server-side code with strict parsers, size/time limits, predictable logs, no internet exposure. Preserve PCAPdroid SOCKS5 path and Termux compatibility. Keep experiments bounded and disabled by default.
 7. Run tests with exact command/results. A local replay **does not** equal real client acceptance. Never fabricate a server reply or observed client progress.
 8. Update CHECKPOINT, EVIDENCE, WORKLOG, OPEN_QUESTIONS, graph links/edge list and decisions when claims/status change. Run `python tools/knowledge.py doctor` and unit tests.
-9. Use real source provenance: Drive file link/path and hash when available; never invent Drive files, hashes, missing server capture, timings, or decompilation results.
+9. Use real source provenance: observed authorized Drive/mirror link or private path and actual hash when available; never invent Drive files, hashes, missing server capture, timings, or decompilation results.
 
 ## Working limits
 - Public repository: **NO** original XAPK/APK/OBB/.so/.dll, raw decompilation, full game assets, keys, logins, private user data or proprietary extracted media. Do not automate uploads from Drive.

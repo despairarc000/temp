@@ -1,11 +1,11 @@
-"""First two-byte CF2018 Apollo receive-gate hypothesis.
+"""Retired historical two-byte prefix hypothesis model.
 
-Research-only: does NOT create or transmit a valid TGCP ACK.
-Historical hypothesis: an unverified native-review summary describes a
-little-endian 16-bit comparison with 0x4366, predicting incoming bytes 66 43.
-The exact 2018 library and RX branch trace are still missing. The imported
-client SYN report instead describes 43 66; this model proves neither native
-framing nor ACK acceptance. See coordination/incoming/CF18-01/RESULT.md.
+The hash-pinned GCloud RX trace compares decoded base marker 0x4366 after TLV
+parsing, not a raw socket word. Both raw prefix orders fail in that mirror path.
+This model's outputs remain solely for reproducing the historical hypothesis;
+its function name does not identify a validated native gate. Do not build a
+phone reply or A/B/C plan from prefix_only_candidate(). See canonical TGCP
+research and experiments/rx_envelope.py for the offline framing subset.
 """
 from __future__ import annotations
 

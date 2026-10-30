@@ -1,25 +1,47 @@
-# CODEX START — CF2018
-This is the first task packet; do not assume the server is working.
+# CODEX START — CF2018 current packet
 
-## Required cold start
-1. Open [AGENTS](AGENTS.md), [NAVIGATION](NAVIGATION.md), [IDEA_PLAN](IDEA_PLAN.md), and [CHECKPOINT](knowledge-system/vault/CHECKPOINT.md).
-2. Run `python tools/knowledge.py route tgcp ack`, `python tools/knowledge.py doctor`, `python -m unittest discover -s tests -v`.
-3. Open [TGCP](knowledge-system/vault/research/TGCP.md), [evidence](knowledge-system/vault/EVIDENCE.md), [questions](knowledge-system/vault/OPEN_QUESTIONS.md), and the [Drive locator](sources/DRIVE_MANIFEST.md).
+Read [AGENTS](AGENTS.md), [NAVIGATION](NAVIGATION.md), [IDEA_PLAN](IDEA_PLAN.md),
+[CHECKPOINT](knowledge-system/vault/CHECKPOINT.md), live
+[assignments](coordination/assignments.json), [source provenance](sources/SOURCE_PROVENANCE.md)
+and [Drive limits](sources/DRIVE_MANIFEST.md). Refresh main and source availability;
+GitHub schedules do not establish a checkout, private disk or Android runtime.
 
-## Next engineering packet: CF18-G2-ACK-01
-**Problem:** 65-byte synthetic ACK closes the client's socket quickly; no post-ACK packet. v0.8 predicts a first-frame prefix error but acceptance is not proven.
+Run from cf2018:
 
-**Research:** Obtain the exact 2018 `libapollo.so`, verify its provenance/hash/ISA and establish actual incoming-splitter and ACK-receiver addresses. Current Vault summaries do not supply a reproducible native branch trace. Prove the exact 2-byte magic comparison, byte ordering, cursor/length handling, session correlation, key-mode constraints, and whether the previous SOCKS5 relay could independently cause EOF.
+```text
+python tools/knowledge.py route 'tgcp ack native source provenance'
+python tools/knowledge.py doctor
+python -m unittest discover -s tests -v
+```
 
-**Deliverables:** a receiver-state trace with exact branch tests, confidence labels, minimal standalone safe implementation, tests for truncation/reordered bytes/size mismatch, and one explicitly gated on-phone A/B/C design. Keep default passive; do not run an unbounded live experiment.
+## Focused CF18-G2-ACK-01
 
-**Acceptance:** static validation and tests are separate from game proof. Only a later real client packet after ACK counts as protocol advancement.
+[Reviewed receiver trace](knowledge-system/vault/research/ACK_RECEIVER.md) combines
+hash-specific native RX, ACK/session branch observations and source integrity.
+G2 stays BLOCKED: no later authentic client packet after ACK. Continue optional
+ACK-body/embedded-auth session consumers; the framing lane separately owns
+remaining native 99/bounds/lookahead work. Honor exclusive lane write paths.
 
-## Artifacts and access
-The actual v0.1–v0.8 experimental packages and phone reports were exchanged in the earlier ChatGPT workflow; this public GitHub repository currently contains the consolidated knowledge and a safe standalone [frame-gate hypothesis test](experiments/frame_gate.py), **not a wholesale import of those packages**. To run the historical full v0.8 probe, the original source package is needed from the prior experiment; do not claim the small `frame_gate.py` is the full replacement.
+The recovered v1.0.11.11 Mono mirror is verified by actual hashes and internal
+signature checks. Phone equality, matching OBB, historical relay sources and
+actual runtime path remain unverified. Original files stay private; verify the
+pinned source before address claims. The unrelated 9.99 APK/cfmobileoffline is
+never an evidence substitute.
 
-[DespairArc Drive](sources/DRIVE_MANIFEST.md) has the unpacked OBB. Codex needs authorized Drive access to read it; a URL is not a download or a mount. The APK/OBB native libraries must never be committed to this public repository.
+## Corrected framing premise and available tools
 
-Keep future implementation files under `cf2018/`. No changes to the unrelated root Android WebView app.
+The mirror compares decoded base marker 0x4366 after AA/99 TLV decoding.
+The historical raw 66 43 inference is retired for this path. Do not derive a
+reply from [legacy frame_gate.py](experiments/frame_gate.py) or assume outgoing
+43 66 should be reused inbound. Historical v0.1-v0.8 probes/reports are missing.
 
-Scheduled workers: read [current assignments](coordination/assignments.json) and honor readiness/prerequisites plus exclusive lane write ownership. An unchanged blocked source task should stop quietly; only the coordinator integrates canonical changes.
+[Offline strict framing subset](experiments/rx_envelope.py) has opaque extensions
+and base_type metadata only; it is not an ACK validator/serializer. The
+[private-source verifier](tools/verify_private_source.py) is inactive without
+explicit paths and performs no download or game execution. Native controls in
+incoming lane packets require private source and optional dependencies; report
+skips/unrun exactly. No device A/B/C candidates are ready and no automatic live
+phone/network experiment is supplied.
+
+Only a later real client protocol packet after ACK advances G2. Keep all work
+under cf2018; root WebView untouched. Stop unchanged blocked activations quietly.

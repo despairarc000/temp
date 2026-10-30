@@ -12,16 +12,23 @@
 | G7 | Bomb/S&D bots | objectives, bombs, rounds, AI, end & replay |
 | G8 | packaging and recovery | repeatable launch, reboot/reinstall controls, no proprietary distribution |
 
-**Immediate high-priority queue:** (1) reconcile native TGCP receive framing `tgcpapi_gather_and_split_entire_pkg` and ACK validation `gcloud_tgcpapi_recv_ack_msg`; (2) audit v0.8 prefix-only test including relay lifecycle; (3) only then authorize one bounded on-device A/B/C; (4) decode next real packet. Do not work on game bot AI while gate G2 is blocked unless a separately evidenced, non-conflicting reverse-engineering research task.
+**Immediate queue:** continue [CF18-G2-ACK-01](knowledge-system/vault/research/ACK_RECEIVER.md)
+on optional ACK-body/auth/session consumers; separately finish native framing
+boundaries and recover actual runtime/relay evidence. G2 requires an authentic
+later client protocol packet, never parser/emulation success. Bot implementation
+remains deferred.
 
-Architecture decisions in [ADR](knowledge-system/vault/decisions/ADR-0001-LOCAL-BRIDGE.md); open questions in [Vault](knowledge-system/vault/OPEN_QUESTIONS.md).
+## Current source and implementation boundary
 
-## Current prerequisite and available independent work — 2026-10-30
+[Recovered mirror provenance](sources/SOURCE_PROVENANCE.md) supports hash-specific
+native/managed analysis: package/version, library ISA/hashes and internal signature
+are checked. G0 remains partial on historical phone/full-XAPK/OBB equality.
+No blanket missing-library blocker applies to this verified mirror on the current
+runner, but every activation must check actual private source access.
 
-G0 source identity remains incomplete: the [source inventory](coordination/incoming/CF18-04/RESULT.md)
-did not verify the exact 2018 package/library. G2 is still blocked. The coordinator
-integrated only model-limit/source metadata findings and an original locally
-validated [passive relay core](knowledge-system/vault/research/RELAY.md).
-The bounded SOCKS5 negotiation/handoff proposal is now integrated with local
-tests. Further deployment wiring waits for the historical bridge/passthrough
-interface; native ACK rules and device readiness remain unverified.
+Canonical offline framing and source verification are integrated with explicit
+subset/identity limits. Relay core and SOCKS5 handoff are bounded local stages;
+full bridge wiring awaits the historical/deployed passthrough interface. No
+on-device A/B/C proposal is ready. [Assignments](coordination/assignments.json)
+reserve non-overlapping tasks; [ADR-0002](knowledge-system/vault/decisions/ADR-0002-HASH-SCOPED-NATIVE.md)
+records the evidence boundary.

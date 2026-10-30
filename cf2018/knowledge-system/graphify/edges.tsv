@@ -16,3 +16,14 @@ knowledge-system/vault/CHECKPOINT.md	depends-on	coordination/assignments.json	CO
 knowledge-system/vault/research/RELAY.md	tests	tests/test_socks5_handoff.py	LOCAL_TEST_ONLY
 knowledge-system/vault/research/RELAY.md	describes	experiments/socks5_handoff.py	LOCAL_TEST_ONLY
 knowledge-system/vault/EVIDENCE.md	evidence	coordination/incoming/CF18-03/RESULT.md	LOCAL_TEST_ONLY
+
+knowledge-system/vault/research/TGCP.md	depends-on	knowledge-system/vault/research/ACK_RECEIVER.md	HASH_SCOPED_NATIVE
+knowledge-system/vault/research/ACK_RECEIVER.md	depends-on	sources/SOURCE_PROVENANCE.md	HASH_SCOPED_NATIVE
+sources/SOURCE_PROVENANCE.md	evidence	coordination/incoming/CF18-04/SOURCE_RESULT.md	MIRROR_SOURCE_PROVENANCE
+sources/SOURCE_PROVENANCE.md	describes	sources/MIRROR_RECEIPT.json	DESCRIPTIVE_METADATA
+sources/SOURCE_PROVENANCE.md	tests	tests/test_verify_private_source.py	PRIVATE_SOURCE_VERIFICATION
+knowledge-system/vault/research/ACK_RECEIVER.md	evidence	coordination/incoming/CF18-01/NATIVE_RX_RESULT.md	NATIVE_EMULATION_WITH_STUBS
+knowledge-system/vault/research/ACK_RECEIVER.md	evidence	coordination/incoming/CF18-02/RESULT.md	NATIVE_EMULATION_WITH_STUBS
+knowledge-system/vault/research/ACK_RECEIVER.md	describes	experiments/rx_envelope.py	OFFLINE_STRICT_SUBSET
+knowledge-system/vault/research/ACK_RECEIVER.md	tests	tests/test_rx_envelope.py	LOCAL_SYNTHETIC
+knowledge-system/vault/research/ACK_RECEIVER.md	depends-on	knowledge-system/vault/research/RELAY.md	DEVICE_GATE_BLOCKED

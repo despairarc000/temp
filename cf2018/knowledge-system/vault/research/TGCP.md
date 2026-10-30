@@ -1,37 +1,53 @@
-# TGCP handshake — factual/hypothesis split
+# TGCP — reviewed mirror trace and historical phone boundary
 
-## Client-side evidence
-Real client 133-byte SYN; start `43 66 aa 00 00 00 83 15...`; 32 identical requests in v0.1 capture, 33 further v0.3; service identifier `QueryAddrSvr`; extension variant `0x1001`. Client framing observed/native TX code consistent with 2-byte prefix and TGCP header.
+**G2 BLOCKED.** Current receiver findings are in
+[CF18-G2-ACK-01](ACK_RECEIVER.md), with
+[hash-scoped source provenance](../../../sources/SOURCE_PROVENANCE.md).
+They supersede the v0.8 raw receive-prefix inference for the recovered mirror's
+GCloud call chain. Exact equality/runtime selection on the phone is unverified.
 
-## Synthesized ACK failure
-Earlier local reply is 65 bytes, ACK type `0x1002`, key mode 0 and copied SYN base fields. Never captured from real server. On-phone v0.5 A/B gives median passive ~7003 ms vs ACK ~11 ms; ACK-to-EOF median ~8.44 ms. No next client frame. EOF origin unresolved.
+## Historical phone reports
 
-## v0.7 static audit
-`TGCPAckHead::packTLVWithVarint` ACK tags 11,21,35,41,50,60 structurally supported by native serializer. `recv_ack_msg` dispatches on 0x1002. `recv_and_decrypt_pkg` branches for key modes 0,2,3. Mere syntactic parity does not show accepted state.
+Imported reports describe a 133-byte QueryAddrSvr SYN beginning 43 66 then TLV,
+32 identical requests in v0.1 and 33 more in v0.3. The earlier 65-byte synthetic
+ACK used type 0x1002, key mode 0 and copied base fields, without an authentic
+server capture. v0.5 median passive duration was about 7003 ms; ACK duration
+about 11 ms and ACK-to-EOF 8.44 ms; no later client packet. Originals and relay
+source are unavailable, so EOF origin and precise candidate construction remain
+unrevalidated. These are historical phone reports, not new device observations.
 
-## v0.8 hypothesis
-Native receiver compares first 16-bit incoming word to 0x4366; little-endian raw bytes `66 43` would match. Previous ACK used client outgoing `43 66`. Check whether the instruction is truly used in *server→client* RX path, whether there is byte-swapping, and whether relay byte order is preserved. Next controlled experiment must change only prefix, leave all else equal, and record post-ACK traffic. As of this checkpoint **phone acceptance unknown**.
+## Corrected native interpretation
 
-## Next reverse-engineering target
-- `tgcpapi_gather_and_split_entire_pkg` — byte-offset, length, magic, framing error.
-- `gcloud_tgcpapi_recv_ack_msg` — type/session validation and ACK body parsing.
-- `tgcpapi_encrypt_and_send_pkg` — compare client TX framing, don't reuse blindly.
-- `TGCPHead`, `TGCPSynHead`, `TGCPAckHead` — TLV layout and state.
-- Distinguish message framing from client logic and key exchange. Annotate source offsets, compiler/ISA mode, and confidence in Vault.
+The pinned mirror's ACK -> receive/decrypt -> GCloud splitter decodes an AA/99
+TLV envelope. Its 0x4366 comparison is on decoded base marker storage, not a raw
+socket prefix. Both raw prefix orders fail before the TLV decoder in native
+controls. Independent TX code explicitly prepends raw 43 66. The historical
+[frame_gate.py](../../../experiments/frame_gate.py) is retained only to reproduce
+the retired hypothesis; do not use its prefix mutation as a candidate reply.
 
-See [evidence](../EVIDENCE.md), [open questions](../OPEN_QUESTIONS.md), [Drive](../../../sources/DRIVE_MANIFEST.md).
+Effective header type comes from the extension selector, which replaces the base
+field. ACK processing applies methods before some failures, consumes before the
+ACK caller's type check, and handles optional body/auth content. Mode 0 reaches
+the empty-body branch but does not establish successful later crypto/session.
+No bounded receive function proves which fields a server should generate/echo.
 
-## Coordinator reconciliation — 2026-10-30
+## Canonical code and limits
 
-[CF18-01](../../../coordination/incoming/CF18-01/RESULT.md) exhaustively tested
-the Python model's two-byte input domain and demonstrated suffix/size blindness,
-no stream reassembly and no consumed-length decision. These tests do not inspect
-original native code. The claimed little-endian RX load/compare remains a
-historical hypothesis without exact library hash/ISA/caller/branch provenance.
-The canonical helper wording now reflects this limit; behavior is unchanged.
+[Offline AA/varint framing](../../../experiments/rx_envelope.py) has strict local
+size/duplicate/unknown-field policies, opaque extension bytes, `base_type` metadata
+and terminal EOF. It has no ACK serializer, networking or session validator.
+Native 99 mode and gather/lookahead timing are not implemented by that subset.
+[Private-source verifier](../../../tools/verify_private_source.py) checks known
+APK/member fingerprints, internal signing links and ELF identity with explicit
+local files. Its signature result does not establish external certificate trust.
 
-ACK tags and key-mode branches above are historical review summaries, not a
-validated server acceptance contract. CF18-02 supplied no new native evidence;
-Q-03/Q-04 remain UNKNOWN. [Passive transport diagnostics](RELAY.md) distinguish
-local lifecycle observations in synthetic tests; they do not resolve historical
-EOF origin or establish ACK acceptance. No device A/B/C packet is ready.
+Coordinator checks: 83 canonical tests passed with private APK selected; the
+source-free suite has two explicit private-source skips. Separately, 32 framing,
+25 ACK and 14 source-lane tests passed against the private originals, no skips.
+All use synthetic/localhost or isolated native controls. No actual new phone
+packet, accepted ACK, authenticated AddressService or gameplay is claimed.
+
+Next: optional ACK body/embedded auth/session consumers, framing boundary review,
+phone source/path identity and historical relay evidence. No device A/B/C packet
+is ready. [Evidence](../EVIDENCE.md), [questions](../OPEN_QUESTIONS.md),
+[relay](RELAY.md), [assignments](../../../coordination/assignments.json).

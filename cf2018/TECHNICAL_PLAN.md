@@ -14,7 +14,10 @@ Known old targets from PCAP + redirector tests: 45.113.69.32, 211.159.211.105 an
 6. **Offline gameplay**: map actual original menu→match engine route; use original client mode scripts/assets and bot behavior where available, no fake UI replacing the game.
 
 ## Protocol evidence
-Real client packet: 133 bytes, one unique content repeated across targeted endpoints; `QueryAddrSvr` route; TGCP SYN extension 0x1001. v0.4 ACK: 65 bytes synthesized; v0.5 A/B: ACK causes EOF ~8ms median after send vs passive ~7 seconds; no client continuation. v0.6 logcat had no relevant native TGCP diagnostics. v0.7 confirms syntax but *not* semantics. v0.8 native receive gate hypothesis: server prefix likely `66 43` vs client outbound `43 66`; **on-phone experiment not yet confirmed**, never mark accepted without new capture.
+Real client packet: 133 bytes, one unique content repeated across targeted endpoints; `QueryAddrSvr` route; TGCP SYN extension 0x1001. v0.4 ACK: 65 bytes synthesized; v0.5 A/B: ACK causes EOF ~8ms median after send vs passive ~7 seconds; no client continuation. v0.6 logcat had no relevant native TGCP diagnostics. v0.7 confirms syntax but *not* semantics. The v0.8 raw 66 43 inference is retired for the recovered mirror: the actual
+GCloud path compares decoded 0x4366 after TLV, while TX separately prepends
+43 66. See the [reviewed receiver trace](knowledge-system/vault/research/ACK_RECEIVER.md).
+Phone library/path equality and ACK acceptance remain unverified.
 
 ## Validation discipline
 - Passive SYN + no ACK is control.
@@ -40,3 +43,14 @@ NO-AUTH/CONNECT subset and preserves buffered data; [research](knowledge-system/
 records 23 adapter tests. It is not a complete proxy. Historical normal CONNECT
 passthrough must be recovered and verified before wiring the post-method hook,
 actual loopback connector and bound reply. No live experiment is ready.
+
+
+## Hash-scoped offline implementation
+
+[Framing subset](experiments/rx_envelope.py) performs AA/varint envelope checks
+with bounded stream state, terminal EOF and opaque extensions. base_type never
+claims effective ACK type. [Source verifier](tools/verify_private_source.py)
+anchors analysis to the [mirror receipt](sources/SOURCE_PROVENANCE.md); it never
+downloads, runs or modifies the game. Neither is a server ACK or complete TGCP
+session implementation. Continue the precise receiver/body/session gate before
+any device candidate; no prefix-only experiment is ready.

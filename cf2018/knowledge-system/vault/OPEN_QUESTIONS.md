@@ -1,14 +1,16 @@
 # OPEN QUESTIONS — bounded P0 queue
 
-| ID | Unknown | How to falsify / resolve | State |
+| ID | Remaining question | Current evidence / next falsifiable action | State |
 |---|---|---|---|
-| Q-01 | Does server→client TGCP require opposite 2-byte magic from client→server? | Disassemble exact native load/compare in incoming splitter; unit-test both endian orders, compare with v0.8 phone A/B/C | HIGH-PRIORITY HYPOTHESIS |
-| Q-02 | Does SOCKS5/relay or client originate early EOF? | Recover historical sources and directional evidence; passive core and SOCKS5 handoff have local tests; original bridge hook and historical/device evidence remain missing | UNKNOWN |
-| Q-03 | Which ACK base/session fields should be server-generated, echoed, or zeroed? | Trace `recv_ack_msg` field use and state machine; don't guess defaults | UNKNOWN |
-| Q-04 | Is key mode 0 acceptable to this client's negotiated SYN? | Trace encryption branch and session constraints from native Apollo | UNKNOWN |
-| Q-05 | What follows valid TGCP ACK? | Record real next client message in bounded on-device test | UNKNOWN |
-| Q-06 | How to resolve discontinued config DNS safely? | Research narrow DNS remap and local TLS/HTTP after G2 | BLOCKED ON PRIORITY |
-| Q-07 | What authoritative 2018 game client binaries are accessible in connected Drive? | Need a verified private target locator; bounded inventory failed a search positive control, so empty results do not prove absence | PARTIAL / BLOCKED_SOURCE |
-| Q-08 | What original bot modes, scripts and assets are present? | Native/managed/OBB inventory after source access and provenance | UNKNOWN |
+| Q-01 | Which incoming envelope is used by the actual phone runtime? | Pinned mirror GCloud path decodes AA/99 then compares decoded 0x4366; both raw prefix orders fail. Compare phone hash/path; framing lane owns remaining 99/bounds/lookahead trace. | MIRROR_PATH_RECONCILED / PHONE_UNVERIFIED |
+| Q-02 | What originated historical early EOF? | Original v0.1-v0.8 relay/captures or verified deployed post-method interface still needed; local core/handoff tests do not attribute that EOF. | UNKNOWN / BLOCKED_SOURCE |
+| Q-03 | Which server base/session fields are generated, echoed or zeroed? | Bounded mirror ACK functions contain no observed SYN-base equality check; no server policy follows. Continue embedded ACK auth body and later session consumers. | PARTIAL_NATIVE / READY_RESEARCH |
+| Q-04 | Is key mode 0 compatible with actual negotiation and later messages? | Mirror empty-body branch skips key setup, but later encrypted body can return -31. Trace body/session use; verify actual SYN/phone context; no successful DH/cipher negotiation yet. | PARTIAL_NATIVE / PHONE_UNVERIFIED |
+| Q-05 | What does actual client send after ACK? | Mirror state handler reaches suppressed auth-send boundary; static sender builds 0x2001. Need authentic later phone packet after justified ACK; state-handler zero can mean waiting. | STATIC_BOUNDARY_ONLY |
+| Q-06 | How to resolve discontinued config DNS safely? | Narrow DNS/local HTTP/TLS research after G2. | BLOCKED_ON_G2 |
+| Q-07 | How do recovered source, connected Drive and phone originals relate? | Mirror APK/native/managed hashes and internal signature verified; Drive target-native availability, phone equality and OBB match remain unverified. Await new precise source/hash evidence; no repeated capped scans. | MIRROR_VERIFIED / PHONE_OBB_PARTIAL |
+| Q-08 | Which original bot modes/scripts/assets are usable? | No bot implementation before G2; later source-grounded non-overlapping research only. | DEFERRED |
 
-Do not schedule repeated 1000-connection retries. Each experimental run needs controls and a separate uniquely scoped report.
+[Receiver trace](research/ACK_RECEIVER.md), [provenance](../../sources/SOURCE_PROVENANCE.md),
+[evidence](EVIDENCE.md), [assignments](../../coordination/assignments.json).
+No prefix-only phone retry plan is ready; no repeated 1000-connection retries.

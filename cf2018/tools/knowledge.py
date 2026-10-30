@@ -7,10 +7,10 @@ import argparse, csv, re
 ROOT=Path(__file__).resolve().parents[1]
 BASE=["AGENTS.md","NAVIGATION.md","IDEA_PLAN.md","knowledge-system/vault/CHECKPOINT.md"]
 ROUTES={
- "tgcp":(["tgcp","ack","syn","apollo","handshake","framing"],["knowledge-system/vault/research/TGCP.md","knowledge-system/vault/EVIDENCE.md"]),
+ "tgcp":(["tgcp","ack","syn","apollo","handshake","framing"],["knowledge-system/vault/research/TGCP.md","knowledge-system/vault/research/ACK_RECEIVER.md","knowledge-system/vault/EVIDENCE.md"]),
  "bridge":(["pcapdroid","termux","socks5","vpn","tcp","relay","dns"],["TECHNICAL_PLAN.md","knowledge-system/vault/EVIDENCE.md"]),
  "startup":(["startup","mono","dll","apk","crash"],["knowledge-system/vault/research/STARTUP.md","sources/DRIVE_MANIFEST.md"]),
- "sources":(["drive","obb","asset","native","libapollo"],["sources/DRIVE_MANIFEST.md"]),
+ "sources":(["drive","obb","asset","native","libapollo","source","provenance","mirror","signature","hash"],["sources/DRIVE_MANIFEST.md","sources/SOURCE_PROVENANCE.md"]),
  "gameplay":(["bot","tdm","bomb","gameplay","offline","lobby"],["IMPLEMENTATION_PLAN.md","knowledge-system/vault/specs/ACCEPTANCE.md"]),
  "handoff":(["continue","status","next","checkpoint"],["knowledge-system/vault/CHECKPOINT.md","knowledge-system/vault/OPEN_QUESTIONS.md"]),
  "knowledge":(["graphify","icm","vault","graph"],["knowledge-system/icm/ICM.md","knowledge-system/graphify/GRAPHIFY.md","knowledge-system/vault/INDEX.md"])}

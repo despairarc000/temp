@@ -90,3 +90,14 @@ case; no real upstream target connection or complete proxy/device flow was teste
 Two coordinator controls add transport-reset message privacy and declared-domain
 truncation. Direct module invocation printed the disabled message. G2 and Q-02
 remain unchanged. No new native/library/historical source receipt was obtained.
+
+
+## Native/source update after this transport packet
+
+A [hash-scoped mirror source](../../../sources/SOURCE_PROVENANCE.md) and
+[receiver-state trace](ACK_RECEIVER.md) are now coordinator reviewed. Earlier
+sentences about unavailable native source describe the transport packet's inputs
+at that time. No historical bridge source, deployed passthrough interface,
+original failed-ACK construction or new phone evidence was recovered. Q-02
+remains UNKNOWN and A/B/C readiness remains false; do not repeat the integrated
+core/handoff or infer EOF cause from native parser rejection alone.

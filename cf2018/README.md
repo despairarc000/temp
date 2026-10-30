@@ -19,3 +19,10 @@ Original re-signed APK + original OBB, no protected managed-DLL edits; app netwo
 This is a subproject of the existing public `despairarc000/temp` repository. Keep all CF2018 files under `cf2018/`. Do not overwrite the unrelated ChatGPT Browser Android app. Do not commit APK, XAPK, OBB, .so, managed assemblies, extracted assets, credential/token/session values, or full sensitive traces. Research documentation, original (new) server code, tests, and small sanitized fixtures are allowed, subject to rights/security review.
 
 Codex: `cd cf2018 && python tools/knowledge.py doctor && python tools/knowledge.py route tgcp ack`.
+
+
+Current reviewed work: [hash-scoped mirror source](sources/SOURCE_PROVENANCE.md)
+and [receiver-state trace](knowledge-system/vault/research/ACK_RECEIVER.md).
+Original offline framing/source-verification tools are integrated; no accepted
+phone ACK, authenticated session or bot match is claimed. Check
+[assignments](coordination/assignments.json) for remaining non-overlapping work.

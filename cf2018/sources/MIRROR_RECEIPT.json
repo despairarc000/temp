@@ -1,0 +1,90 @@
+{
+  "apk_bytes": 30884905,
+  "apk_sha256": "33045335685284385866e8b0e2df55285009399c285294c2f428b451ee00d3d9",
+  "identity_basis": "pinned APK hash; separate embedded-manifest receipt",
+  "signed_entries": 1212,
+  "artifacts": [
+    {
+      "apk_member": "lib/armeabi-v7a/libapollo.so",
+      "bytes": 5243704,
+      "sha256": "4812396e98bfba9664164c14c8973eed111c5b9d177c1b575e86bc8e9f9169d8"
+    },
+    {
+      "apk_member": "assets/bin/Data/Managed/Assembly-CSharp.dll",
+      "bytes": 13423104,
+      "sha256": "174a30cea9dba4f84b90a446f247cc0d212b7c83d462889d57703e7875e249e9"
+    },
+    {
+      "apk_member": "assets/bin/Data/Managed/Assembly-CSharp-firstpass.dll",
+      "bytes": 317440,
+      "sha256": "4ac2b58a02cc1d3ad1e345d9b21dd78c758b0077c19354862792d25bcaa8ba60"
+    }
+  ],
+  "native": {
+    "class": 32,
+    "endianness": "little",
+    "machine": "ARM",
+    "type": "DYN",
+    "eabi": 5,
+    "flags": 83886080
+  },
+  "signature": {
+    "cms_signature": "PASS",
+    "certificate_sha256": "dbfc84490cc286cb3e6cfa243c8c175dab6f33862997e6b45a2973aa41a262b4",
+    "certificate_trust_chain": "NOT_VALIDATED",
+    "certificate_sha1": "2d1305191dfaeb11ca7fe6dc28ccabd0fc3eb8cf"
+  },
+  "phone_build_equality": "UNVERIFIED",
+  "whole_xapk_and_obb": "NOT_VERIFIED",
+  "schema_version": 1,
+  "review_base": "56db53d81326810d5bea342b11ea4e07dc351e01",
+  "evidence_class": [
+    "MIRROR_SOURCE_PROVENANCE",
+    "PRIVATE_LOCAL_HASH_VERIFICATION",
+    "INTERNAL_V1_SIGNATURE_VERIFICATION"
+  ],
+  "source": {
+    "observed_at": "2026-10-30T04:53:39.572743+00:00",
+    "source_page": "https://apkpure.net/crossfire-legends-action/com.tencent.tmgp.cfmnac/download",
+    "download_entrypoint": "https://d.apkpure.net/b/XAPK/com.tencent.tmgp.cfmnac?version=latest",
+    "archive_size_from_content_range": 768008878,
+    "whole_archive_downloaded": false,
+    "whole_archive_hash": null
+  },
+  "android_identity": {
+    "package_name": "com.tencent.tmgp.cfmnac",
+    "version_name": "1.0.11.11",
+    "version_code": "11",
+    "reader": "Androguard 4.1.4 embedded AndroidManifest.xml",
+    "valid_apk": true,
+    "v1_signed": true,
+    "v2_signed": false
+  },
+  "xapk_manifest": {
+    "bytes": 4776,
+    "sha256": "05a9bab976ba63cd34aa104c96a6860089e3eb2efa23d18ff1b46e36541127bc",
+    "package_name": "com.tencent.tmgp.cfmnac",
+    "version_name": "1.0.11.11",
+    "version_code": "11"
+  },
+  "local_extracted_copies": [
+    {
+      "artifact": "armeabi-v7a-libapollo.so",
+      "bytes": 5243704,
+      "sha256": "4812396e98bfba9664164c14c8973eed111c5b9d177c1b575e86bc8e9f9169d8"
+    },
+    {
+      "artifact": "Assembly-CSharp.dll",
+      "bytes": 13423104,
+      "sha256": "174a30cea9dba4f84b90a446f247cc0d212b7c83d462889d57703e7875e249e9"
+    },
+    {
+      "artifact": "Assembly-CSharp-firstpass.dll",
+      "bytes": 317440,
+      "sha256": "4ac2b58a02cc1d3ad1e345d9b21dd78c758b0077c19354862792d25bcaa8ba60"
+    }
+  ],
+  "historical_probes_reports": "NOT_OBTAINED",
+  "drive_target_native_apk": "NOT_VERIFIED; no repeat inventory",
+  "G2_status": "BLOCKED; no actual post-ACK client packet"
+}

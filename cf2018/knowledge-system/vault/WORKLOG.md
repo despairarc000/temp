@@ -42,3 +42,23 @@ Assignments close CF18-G1-SOCKS5-01 only as a bounded stage and reserve
 CF18-G1-BRIDGE-HOOK-01 for CF18-03, blocked on real historical bridge source.
 All remaining lanes await new source evidence or review input; no fresh READY
 task is invented from unchanged missing prerequisites.
+
+
+## 2026-10-30 — recovered mirror receiver/source integration
+
+Reviewed c52243228e8d2d38dd6b4c1d85f464d9f94461f8 and all four lanes.
+Independently reran framing 32, ACK 25 and source 14 controls against the private
+pinned originals. Integrated original offline framing (17 canonical tests,
+including base_type/terminal-EOF coordinator controls), private-source verifier
+(14 controls) and descriptive source receipt. Canonical suite 83 PASS with
+private APK selected; source-free run has two private-source skips; doctor PASS.
+
+Updated current knowledge around the actual decoded marker, effective extension
+type, ACK/key/body ordering and side effects. The old v0.8 raw-prefix premise is
+retired for this mirror path. Source identity now supports bounded native work;
+phone/OBB equality, runtime selection and historical relay evidence remain gaps.
+No original/lane packet is modified or uploaded, no valid ACK is constructed,
+and no phone/network experiment or bot work runs. G2 remains BLOCKED.
+[Integration record](../../coordination/INTEGRATION.md) describes review and code
+adaptations. A following queue handoff records the substantive integration SHA
+and the bounded ready native tasks, leaving source/relay tasks honestly blocked.
