@@ -1,7 +1,9 @@
 """Optional bounded execution controls for one private, hash-pinned ARM library.
 
 Requires pyelftools and Unicorn. Contains no original game code or binary bytes.
-Only native gather/header/base decoding executes; recv and libc are explicit stubs.
+Native gather/header/base decoding executes. Optional socket_payload controls
+execute the native net-recv wrapper with only imported recv and libc substituted;
+otherwise the whole wrapper returns an explicitly supplied nonpositive status.
 Optional second-call controls explicitly simulate caller consumption in host code.
 No ACK/session/state-machine acceptance is inferred from a return value.
 """
@@ -13,7 +15,7 @@ LIBRARY_SHA256 = '4812396e98bfba9664164c14c8973eed111c5b9d177c1b575e86bc8e9f9169
 
 
 def probe(library, data, *, cursor=0, buffered=None, capacity=65536,
-          network_result=-3, advance_current=False):
+          network_result=-3, advance_current=False, socket_payload=None):
     if not isinstance(data, bytes) or len(data) > 65536:
         raise ValueError('independent synthetic bytes capped at 64 KiB required')
     if buffered is None:
@@ -25,6 +27,8 @@ def probe(library, data, *, cursor=0, buffered=None, capacity=65536,
         raise ValueError('synthetic state refers to unprovided bytes')
     if network_result not in (-2, -3, -4, 0):
         raise ValueError('nonpositive receive-result control required')
+    if socket_payload is not None and (not isinstance(socket_payload, bytes) or len(socket_payload) > 65536):
+        raise ValueError('synthetic recv payload capped at 64 KiB')
     library = Path(library)
     if library.stat().st_size != 5243704:
         raise ValueError('unexpected library size')
@@ -72,8 +76,19 @@ def probe(library, data, *, cursor=0, buffered=None, capacity=65536,
         r1 = u.reg_read(UC_ARM_REG_R1)
         r2 = u.reg_read(UC_ARM_REG_R2)
         if address == 0x284fcc:
+            if socket_payload is not None:
+                stubs.append('actual native net_recv wrapper; timeout zero')
+                return
             u.reg_write(UC_ARM_REG_R0, network_result & 0xffffffff)
             stubs.append('net_recv result stub; no network')
+        elif address == 0x1940e8 and socket_payload is not None:
+            # ELF .rel.plt identifies this slot as recv, not the wrapper.
+            if len(socket_payload) > r2:
+                raise ValueError('synthetic recv payload exceeds native receive capacity')
+            if socket_payload:
+                u.mem_write(r1, socket_payload)
+            u.reg_write(UC_ARM_REG_R0, len(socket_payload))
+            stubs.append('imported recv synthetic bytes/EOF stub; no socket')
         elif address == 0x193e60:
             if r2 > 65536:
                 raise ValueError('memset stub budget exceeded')

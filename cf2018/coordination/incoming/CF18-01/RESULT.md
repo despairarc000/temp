@@ -105,3 +105,14 @@ for actual hashes/signature checks, a bounded GCloud receive/TX trace, native
 emulation controls and an original strict parser proposal. It distinguishes a
 decoded marker comparison from raw prefix bytes. The earlier model audit above
 remains historical; no phone or G2 acceptance is asserted by either packet.
+
+## Native path/wrapper continuation submitted
+
+[PATH_RESULT](PATH_RESULT.md), completed against main
+9a0d6ef09c6b62a4543c8c9aadef15f1946df470: native receive wrapper preserves raw
+prefix bytes; AddressService virtual prefix selects GCloud Apollo factory under
+the constructor vtable address point. Eight new native controls PASS; full lane
+74 PASS with pinned source. Explicit stubs and static/runtime limits apply.
+No active claim remains; no phone runtime/session or EOF-origin claim follows.
+The known real phone ACK63 -> auth117 progression and CF02 auth9a0 findings are
+preserved. Coordinator canonical drafts remain unpublished and untouched here.
