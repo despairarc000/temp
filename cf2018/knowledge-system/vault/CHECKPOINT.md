@@ -98,3 +98,18 @@ comparison. Earlier blanket source-missing statements are superseded for that
 preparation; this coordinator has not independently reopened the private ZIP.
 No phone result yet. Schedules remain paused. Next offline boundary is actual
 QueryAddrInfo submission/response, not another guessed Bingo or connected flag.
+
+## Direct DLL investigation at6a0ecc16
+
+User requested finding why managed edits auto-exit. [Native integrity trace](research/INTEGRITY_NATIVE.md)
+confirms stored Assembly-CSharp/firstpass are non-PE; original Mono image loading
+routes through libtprt. Reproduced signature branches and an injected post-load
+CRC mismatch requesting termination18, intercepted before syscall. This is a
+real native guard, not yet the cause of the historical edited-DLL phone exit.
+Historical edited bytes/precise diff and matched logs remain absent; provider
+initialization and safe format round trip unresolved. No patched build delivered.
+
+Added read-only image/diff preflight, bounded original native controls and actual
+15-member/native matrix. Canonical176 PASS with all explicit private sources;
+default106 PASS/70 SKIP; doctorPASS. No originals changed, phone test or schedule
+started. TGCP/Bingo/session findings and separate pending work remain intact.

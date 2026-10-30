@@ -14,3 +14,5 @@ claims. Route output does not establish shared disk or runtime selection.
 Authentication/auth/0x2001/0x2002/Bingo/session now route to [AUTH_RECEIVER](../vault/research/AUTH_RECEIVER.md), [Bingo/session](../vault/research/BINGO_SESSION.md) and the phone v1.2 report. The tested route keeps the earliest native failure distinct from phone EOF attribution.
 
 Connection/callback/account-consumer context routes through [connection callbacks](../vault/research/CONNECTION_CALLBACKS.md), including explicit observer/RTTI/UI substitutions and the next address-query boundary.
+
+Startup/integrity/protected-assembly context includes [native integrity trace](../vault/research/INTEGRITY_NATIVE.md). Separate stored format, structural headers, original-native guard and phone termination causality.

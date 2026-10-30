@@ -126,3 +126,14 @@ branch controls. Local connected/result0/bind/open are not account validation.
 Eleven new tests; canonical160 PASS private-selected, sourcefree98 PASS/62 SKIP;
 ten-case matrix reproduced exactly; doctor PASS. Original binaries untouched.
 [Trace and limits](research/CONNECTION_CALLBACKS.md). No phone experiment run.
+
+## 2026-10-30 — direct user DLL startup investigation
+
+Base6a0ecc16 refreshed, actual original APK/DLL/native hashes/ISA checked. Found
+stored game DLL/firstpass are non-PE, unlike13 other assemblies. Original Mono
+detour to libtprt reproduced; actual signature branches, CRC routine and injected
+post-load checksum mismatch termination path tested. Historical edited bytes/logs
+not present, so no causal phone failure or safe patch claimed. Added read-only
+header/diff preflight and bounded native controls;176 canonical PASS/private,
+106 PASS/70 SKIP sourcefree, doctorPASS. [Trace](research/INTEGRITY_NATIVE.md).
+All originals untouched; scheduled workers and session track stayed paused.

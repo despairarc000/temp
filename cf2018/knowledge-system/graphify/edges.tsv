@@ -55,3 +55,8 @@ knowledge-system/vault/research/CONNECTION_CALLBACKS.md	depends-on	knowledge-sys
 knowledge-system/vault/research/CONNECTION_CALLBACKS.md	tests	tests/test_native_callback_controls.py	NATIVE_WITH_EXPLICIT_RUNTIME_STUBS
 knowledge-system/vault/research/CONNECTION_CALLBACKS.md	evidence	coordination/CF18-G2-CALLBACK-01/NATIVE_MATRIX.json	REPRODUCED_NATIVE_MATRIX
 knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/research/CONNECTION_CALLBACKS.md	NOT_AUTHENTICATION
+knowledge-system/vault/research/STARTUP.md	depends-on	knowledge-system/vault/research/INTEGRITY_NATIVE.md	HASH_SCOPED_NATIVE_NOT_PHONE_CAUSE
+knowledge-system/vault/research/INTEGRITY_NATIVE.md	depends-on	sources/SOURCE_PROVENANCE.md	EXACT_APK_MEMBER_HASHES
+knowledge-system/vault/research/INTEGRITY_NATIVE.md	tests	tests/test_native_integrity_controls.py	NATIVE_WITH_EXPLICIT_CONTEXT_SUBSTITUTES
+knowledge-system/vault/research/INTEGRITY_NATIVE.md	tests	tests/test_managed_image_preflight.py	SYNTHETIC_HEADERS_NOT_LOADABILITY
+knowledge-system/vault/research/INTEGRITY_NATIVE.md	evidence	coordination/CF18-INTEGRITY-01/NATIVE_MATRIX.json	REPRODUCED_NATIVE_AND_SOURCE_MATRIX

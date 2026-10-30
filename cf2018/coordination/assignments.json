@@ -4,7 +4,7 @@
   "repository": "despairarc000/temp",
   "branch": "main",
   "coordinator": "CF18-00",
-  "reviewed_main": "c9b1d3555f8dd4036d64d1d34cb47a440b881c4c",
+  "reviewed_main": "6a0ecc16877adbdc4eed03cefebb5b4144f7bd6f",
   "priority": {
     "earliest_unmet": "G0_CURRENT_INSTALLED_AND_OBB_IDENTITY",
     "next_native_gate": "G2_AUTH_BINGO_SESSION",
@@ -162,12 +162,12 @@
   ],
   "validation": {
     "canonical_private_selected": {
-      "passed": 160,
+      "passed": 176,
       "skipped": 0
     },
     "canonical_source_free": {
-      "passed": 98,
-      "skipped": 62
+      "passed": 106,
+      "skipped": 70
     },
     "auth_incoming": {
       "passed": 25,
@@ -187,6 +187,14 @@
     "scope": "Offline synthetic/native controls with explicit stubs; no new phone auth/session.",
     "callback_tests": {
       "passed": 11,
+      "skipped": 0
+    },
+    "integrity_native_tests": {
+      "passed": 9,
+      "skipped": 0
+    },
+    "managed_preflight_tests": {
+      "passed": 7,
       "skipped": 0
     }
   },
@@ -222,5 +230,15 @@
     "status": "VALIDATED_IN_THIS_TREE",
     "next_offline": "QueryAddrInfo request/response consumers",
     "phone_result": "NOT_OBSERVED"
+  },
+  "direct_integrity_investigation": {
+    "task": "CF18-INTEGRITY-01",
+    "scope": "Separate native managed-loader/startup failure investigation; preserve session lanes",
+    "status": "NATIVE_PROVIDER_AND_CHECKSUM_PATH_CONFIRMED_PHONE_CAUSE_UNKNOWN",
+    "record": "knowledge-system/vault/research/INTEGRITY_NATIVE.md",
+    "base_main": "6a0ecc16877adbdc4eed03cefebb5b4144f7bd6f",
+    "schedules": "REMAIN_PAUSED",
+    "next": "Provider initialization/format round trip and actual historical edited bytes/diff; no blind patch",
+    "safe_modified_build": "NOT_ESTABLISHED"
   }
 }

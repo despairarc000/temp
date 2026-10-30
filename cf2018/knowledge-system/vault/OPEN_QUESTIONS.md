@@ -27,3 +27,14 @@ Recv_QueryAddrInfo0x399a98. Never count callback/open as authentication.
 Q-02: CF05 c9b1d355 reports actual bridge recovery and prepared v1.4; private package
 not independently reopened here, phone directional outcome still absent. No new
 payload sweep. All schedules paused by user; assignments are dormant work scopes.
+
+## Q-09 — reliable managed editing / startup exit
+
+[Integrity native investigation](research/INTEGRITY_NATIVE.md): actual stored
+Assembly-CSharp/firstpass are non-PE; Mono image loading is detoured to libtprt.
+An enabled post-load first4096-byte CRC mismatch can request termination. Which
+predicate failed in historical edited build remains UNKNOWN: actual edited file,
+precise diff and matched startup/termination logs are absent. Next offline work:
+provider context initialization, name-dependent transform selection and exact
+round-trip feasibility, before any changed assembly or bypass. Headers alone do
+not establish valid IL/Mono loadability. Safe modified build NOT_ESTABLISHED.

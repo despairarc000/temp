@@ -204,3 +204,20 @@ Reports recovered actualv1.2 scripts and user-only v1.4 envelope comparison,21 l
 tests. Private ZIP not independently re-opened by coordinator this activation;
 no new phone result or historical EOF attribution. Supersedes blanket unavailable
 source claim for preparing that probe; does not resolve Q-02.
+
+## E-27 — protected stored DLL and native image-loader/termination boundary
+
+Classes: ORIGINAL_FILE_FORMAT_OBSERVATION + ORIGINAL_NATIVE_STATIC +
+NATIVE_EMULATION_WITH_EXPLICIT_SUBSTITUTIONS. Base6a0ecc16877adbdc4eed03cefebb5b4144f7bd6f.
+[Native trace](research/INTEGRITY_NATIVE.md), [source/control matrix](../../coordination/CF18-INTEGRITY-01/NATIVE_MATRIX.json),
+[controls](../../experiments/native_integrity_controls.py),
+[read-only preflight](../../tools/managed_image_preflight.py).
+Exact original APK has15 managed members:13 bounded PE/CLI headers, game and
+firstpass non-PE. Original Mono0x196c38 -> veneer -> provider slot26/0x33fc handoff
+reproduced with two explicit relocations. Signature controls stop before transform.
+Actual CRC matches independent zlib vectors. Injected pre/post lookup nonzero
+mismatch requests termination18; equal/zero controls avoid mismatch path. Monitor
+lookup is explicitly supplied, runtime flag/context injected, syscall never run.
+This does not prove historical phone cause, key/init/format round trip or safe
+managed modification.176 canonical PASS private-selected;106 PASS/70 SKIP default;
+source verifier in suite PASS with prior trust-chain limitation. No original edit.

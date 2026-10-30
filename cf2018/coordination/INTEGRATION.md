@@ -260,3 +260,17 @@ Completed LOCAL CF18-02 session_app_01 packet reviewed,13 native controls rerun;
 ```
 
 New canonical callback controls use only canonical NativeControl; they do not import unpublished lane code. [Trace](../knowledge-system/vault/research/CONNECTION_CALLBACKS.md) and [acceptance](CF18-G2-CALLBACK-01/ACCEPTANCE.md) identify independent-stage/stub boundaries. Eleven new tests/ten cases;160 canonical PASS private-selected,98 PASS/62 SKIP sourcefree. CF05 c9b1d355 private bridge recovery is reported evidence, not independent coordinator source review. No schedule restarted or phone experiment performed.
+
+## CF18-INTEGRITY-01 direct user investigation
+
+Base6a0ecc16877adbdc4eed03cefebb5b4144f7bd6f, original main. User explicitly
+requested reliable DLL modification investigation; session assignments unchanged,
+schedules paused. [Acceptance](CF18-INTEGRITY-01/ACCEPTANCE.md), [report](../knowledge-system/vault/research/INTEGRITY_NATIVE.md),
+[actual matrix](CF18-INTEGRITY-01/NATIVE_MATRIX.json). New independently original
+host controls and read-only preflight, no incoming lane writes. Source pins in
+report/matrix are actual hashes of members from pinned private APK. No original
+binary/decrypted image/raw disassembly/key uploaded. Native provider handoff and
+injected CRC-mismatch termination branch verified; historical phone cause and
+safe modification remain unknown.176 canonical PASS private-selected; default
+106 PASS/70 SKIP; all16 affected methods PASS; source matrix reproduced exactly.
+No patch, original modification, installation, game execution or phone request.

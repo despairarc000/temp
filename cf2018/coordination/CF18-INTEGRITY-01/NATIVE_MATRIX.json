@@ -1,0 +1,461 @@
+{
+  "schema": 1,
+  "base_main": "6a0ecc16877adbdc4eed03cefebb5b4144f7bd6f",
+  "library_pins": {
+    "mono": [
+      3889708,
+      "025e971133d24a38ddb2493cf2adee8208555bb5967247fa889a6ad7b91dac91"
+    ],
+    "tprt": [
+      153676,
+      "f608b142822b888f4e5b44bbb0167e8d5c02e1680ea89bab8171aeaab59b4f0a"
+    ]
+  },
+  "images": [
+    {
+      "member": "assets/bin/Data/Managed/ArabicSupport.dll",
+      "preflight": {
+        "size": 11776,
+        "sha256": "a181871b65cbf77142df371df1b38c1151f3c7b0087126b771a711f6e42f67c8",
+        "mz": true,
+        "status": "MANAGED_HEADERS_PRESENT",
+        "runtime_load_verified": false,
+        "cli_flags": 1,
+        "strong_name_size": 0,
+        "metadata_streams": [
+          "#~",
+          "#Strings",
+          "#GUID",
+          "#Blob",
+          "#US"
+        ]
+      }
+    },
+    {
+      "member": "assets/bin/Data/Managed/Assembly-CSharp-firstpass.dll",
+      "preflight": {
+        "size": 317440,
+        "sha256": "4ac2b58a02cc1d3ad1e345d9b21dd78c758b0077c19354862792d25bcaa8ba60",
+        "mz": false,
+        "status": "STORED_NON_PE",
+        "runtime_load_verified": false
+      }
+    },
+    {
+      "member": "assets/bin/Data/Managed/Assembly-CSharp.dll",
+      "preflight": {
+        "size": 13423104,
+        "sha256": "174a30cea9dba4f84b90a446f247cc0d212b7c83d462889d57703e7875e249e9",
+        "mz": false,
+        "status": "STORED_NON_PE",
+        "runtime_load_verified": false
+      }
+    },
+    {
+      "member": "assets/bin/Data/Managed/CSProto.dll",
+      "preflight": {
+        "size": 1324544,
+        "sha256": "796577bbcf547d1615ca2ed9607cdab79581dd9f69cbd0a1f392a53385f3a08d",
+        "mz": true,
+        "status": "MANAGED_HEADERS_PRESENT",
+        "runtime_load_verified": false,
+        "cli_flags": 1,
+        "strong_name_size": 0,
+        "metadata_streams": [
+          "#~",
+          "#Strings",
+          "#GUID",
+          "#Blob",
+          "#US"
+        ]
+      }
+    },
+    {
+      "member": "assets/bin/Data/Managed/CSProtoSerializer.dll",
+      "preflight": {
+        "size": 534016,
+        "sha256": "108b2857824bbabe70ad68e6158b1ab990660fb19c991e379d338e33947ca4f8",
+        "mz": true,
+        "status": "MANAGED_HEADERS_PRESENT",
+        "runtime_load_verified": false,
+        "cli_flags": 1,
+        "strong_name_size": 0,
+        "metadata_streams": [
+          "#~",
+          "#Strings",
+          "#GUID",
+          "#Blob",
+          "#US"
+        ]
+      }
+    },
+    {
+      "member": "assets/bin/Data/Managed/DataProto.dll",
+      "preflight": {
+        "size": 56832,
+        "sha256": "3556ff53ef891bb939baa286deb21b66afb4d706e7b40c03bc338a19c6ba1064",
+        "mz": true,
+        "status": "MANAGED_HEADERS_PRESENT",
+        "runtime_load_verified": false,
+        "cli_flags": 1,
+        "strong_name_size": 0,
+        "metadata_streams": [
+          "#~",
+          "#Strings",
+          "#GUID",
+          "#Blob",
+          "#US"
+        ]
+      }
+    },
+    {
+      "member": "assets/bin/Data/Managed/ExtMethods.dll",
+      "preflight": {
+        "size": 6656,
+        "sha256": "ac8c83c62ded082f14502241ba7635eb29d3488399d32ee9ef62940d5d08b67c",
+        "mz": true,
+        "status": "MANAGED_HEADERS_PRESENT",
+        "runtime_load_verified": false,
+        "cli_flags": 1,
+        "strong_name_size": 0,
+        "metadata_streams": [
+          "#~",
+          "#Strings",
+          "#GUID",
+          "#Blob"
+        ]
+      }
+    },
+    {
+      "member": "assets/bin/Data/Managed/PlayMaker.dll",
+      "preflight": {
+        "size": 155648,
+        "sha256": "66851cff49999d1334508cff4cfd484a62249c28171d9b6e8a8a87af24fbfff6",
+        "mz": true,
+        "status": "MANAGED_HEADERS_PRESENT",
+        "runtime_load_verified": false,
+        "cli_flags": 1,
+        "strong_name_size": 0,
+        "metadata_streams": [
+          "#~",
+          "#Strings",
+          "#GUID",
+          "#Blob",
+          "#US"
+        ]
+      }
+    },
+    {
+      "member": "assets/bin/Data/Managed/PlayMakerCSharp.dll",
+      "preflight": {
+        "size": 129024,
+        "sha256": "5a511aca7b72db3c1802d161dc9f397d0716a5879917ab2ef70a675af3a68767",
+        "mz": true,
+        "status": "MANAGED_HEADERS_PRESENT",
+        "runtime_load_verified": false,
+        "cli_flags": 1,
+        "strong_name_size": 0,
+        "metadata_streams": [
+          "#~",
+          "#Strings",
+          "#GUID",
+          "#Blob",
+          "#US"
+        ]
+      }
+    },
+    {
+      "member": "assets/bin/Data/Managed/System.Core.dll",
+      "preflight": {
+        "size": 82432,
+        "sha256": "329ace4f47d22219e99d6b58bcdd3d7f68cd847df4168600ef4b953ab2a167ef",
+        "mz": true,
+        "status": "MANAGED_HEADERS_PRESENT",
+        "runtime_load_verified": false,
+        "cli_flags": 1,
+        "strong_name_size": 128,
+        "metadata_streams": [
+          "#~",
+          "#Strings",
+          "#GUID",
+          "#Blob",
+          "#US"
+        ]
+      }
+    },
+    {
+      "member": "assets/bin/Data/Managed/System.dll",
+      "preflight": {
+        "size": 322560,
+        "sha256": "4ce1050452738d64fca3c3a9c7c410169d3a4e9a4eb5b3e93eed493b2834d7d5",
+        "mz": true,
+        "status": "MANAGED_HEADERS_PRESENT",
+        "runtime_load_verified": false,
+        "cli_flags": 1,
+        "strong_name_size": 128,
+        "metadata_streams": [
+          "#~",
+          "#Strings",
+          "#GUID",
+          "#Blob",
+          "#US"
+        ]
+      }
+    },
+    {
+      "member": "assets/bin/Data/Managed/UnityEngine.UI.dll",
+      "preflight": {
+        "size": 171520,
+        "sha256": "0292c66ee9dc34b4ba30aea0ab24d09753950d2919f0a457c68b0723c0fbd3a1",
+        "mz": true,
+        "status": "MANAGED_HEADERS_PRESENT",
+        "runtime_load_verified": false,
+        "cli_flags": 1,
+        "strong_name_size": 0,
+        "metadata_streams": [
+          "#~",
+          "#Strings",
+          "#GUID",
+          "#Blob",
+          "#US"
+        ]
+      }
+    },
+    {
+      "member": "assets/bin/Data/Managed/UnityEngine.dll",
+      "preflight": {
+        "size": 376832,
+        "sha256": "a8b2dc376542737d972f47c9cca601ff4a51d497d8d77b02c85fa42ec6f6c8a1",
+        "mz": true,
+        "status": "MANAGED_HEADERS_PRESENT",
+        "runtime_load_verified": false,
+        "cli_flags": 1,
+        "strong_name_size": 0,
+        "metadata_streams": [
+          "#~",
+          "#Strings",
+          "#GUID",
+          "#Blob",
+          "#US"
+        ]
+      }
+    },
+    {
+      "member": "assets/bin/Data/Managed/mscorlib.dll",
+      "preflight": {
+        "size": 1559552,
+        "sha256": "2acba57dab80ef4f673fb09aca77b67a0c1beb60b3807237260c4e1fa4175698",
+        "mz": true,
+        "status": "MANAGED_HEADERS_PRESENT",
+        "runtime_load_verified": false,
+        "cli_flags": 1,
+        "strong_name_size": 128,
+        "metadata_streams": [
+          "#~",
+          "#Strings",
+          "#GUID",
+          "#Blob",
+          "#US"
+        ]
+      }
+    },
+    {
+      "member": "assets/bin/Data/Managed/protobuf-net.dll",
+      "preflight": {
+        "size": 47616,
+        "sha256": "bd69b9741899c8eaf43e3e042ea878af46d9c097e3d28b0b4b84d183ef2b72de",
+        "mz": true,
+        "status": "MANAGED_HEADERS_PRESENT",
+        "runtime_load_verified": false,
+        "cli_flags": 9,
+        "strong_name_size": 128,
+        "metadata_streams": [
+          "#~",
+          "#Strings",
+          "#GUID",
+          "#Blob",
+          "#US"
+        ]
+      }
+    }
+  ],
+  "mono_handoff": {
+    "sites": [
+      1666104,
+      85412,
+      4022252,
+      5256188
+    ],
+    "target_rva": 13308,
+    "arguments_preserved": true,
+    "relocations": [
+      "mono GOT g_tprt_pfn_array",
+      "tprt function slot26"
+    ],
+    "evidence": "EXPLICIT_TWO_RELOCATION_HANDOFF_NOT_ANDROID_INIT"
+  },
+  "synthetic_signature_controls": [
+    {
+      "name": "opaque",
+      "actual": {
+        "events": [
+          {
+            "site": 13586,
+            "transform_mode": 6,
+            "input_offset": 0
+          }
+        ],
+        "stubs": [],
+        "input_unchanged": true,
+        "evidence": "INJECTED_ENABLED_BRANCH_STOP_BEFORE_TRANSFORM"
+      }
+    },
+    {
+      "name": "MZ_branch",
+      "actual": {
+        "events": [
+          {
+            "site": 13598,
+            "transform_mode": null,
+            "input_offset": null
+          }
+        ],
+        "stubs": [],
+        "input_unchanged": true,
+        "evidence": "INJECTED_ENABLED_BRANCH_STOP_BEFORE_TRANSFORM"
+      }
+    },
+    {
+      "name": "TXP_small",
+      "actual": {
+        "events": [
+          {
+            "site": 13586,
+            "transform_mode": 7,
+            "input_offset": 4
+          }
+        ],
+        "stubs": [
+          "bounded four-byte memcpy"
+        ],
+        "input_unchanged": false,
+        "evidence": "INJECTED_ENABLED_BRANCH_STOP_BEFORE_TRANSFORM"
+      }
+    },
+    {
+      "name": "TXP_large",
+      "actual": {
+        "events": [
+          {
+            "site": 13586,
+            "transform_mode": 8,
+            "input_offset": 4
+          }
+        ],
+        "stubs": [
+          "bounded four-byte memcpy"
+        ],
+        "input_unchanged": false,
+        "evidence": "INJECTED_ENABLED_BRANCH_STOP_BEFORE_TRANSFORM"
+      }
+    }
+  ],
+  "native_crc_standard_vector": 3421780262,
+  "injected_postload_controls": [
+    {
+      "before": 123,
+      "supplied_lookup": 123,
+      "actual": {
+        "events": [
+          [
+            "native_site",
+            13842
+          ],
+          [
+            "native_site",
+            13846
+          ],
+          [
+            "normal_return_boundary",
+            16793600
+          ]
+        ],
+        "stubs": [
+          "monitor singleton supplied",
+          "post-load lookup CRC supplied; no module enumeration"
+        ],
+        "evidence": "INJECTED_POSTLOAD_CHECKSUM_NOT_PHONE_CAUSE"
+      }
+    },
+    {
+      "before": 123,
+      "supplied_lookup": 124,
+      "actual": {
+        "events": [
+          [
+            "native_site",
+            13842
+          ],
+          [
+            "native_site",
+            13846
+          ],
+          [
+            "native_site",
+            13850
+          ],
+          [
+            "termination_requested",
+            18
+          ]
+        ],
+        "stubs": [
+          "monitor singleton supplied",
+          "post-load lookup CRC supplied; no module enumeration"
+        ],
+        "evidence": "INJECTED_POSTLOAD_CHECKSUM_NOT_PHONE_CAUSE"
+      }
+    },
+    {
+      "before": 0,
+      "supplied_lookup": 124,
+      "actual": {
+        "events": [
+          [
+            "normal_return_boundary",
+            16793600
+          ]
+        ],
+        "stubs": [
+          "monitor singleton supplied",
+          "post-load lookup CRC supplied; no module enumeration"
+        ],
+        "evidence": "INJECTED_POSTLOAD_CHECKSUM_NOT_PHONE_CAUSE"
+      }
+    },
+    {
+      "before": 123,
+      "supplied_lookup": 0,
+      "actual": {
+        "events": [
+          [
+            "native_site",
+            13842
+          ],
+          [
+            "normal_return_boundary",
+            16793600
+          ]
+        ],
+        "stubs": [
+          "monitor singleton supplied",
+          "post-load lookup CRC supplied; no module enumeration"
+        ],
+        "evidence": "INJECTED_POSTLOAD_CHECKSUM_NOT_PHONE_CAUSE"
+      }
+    }
+  ],
+  "phone_exit_cause": "NOT_ESTABLISHED",
+  "safe_modified_build": "NOT_ESTABLISHED",
+  "original_files_modified": false
+}
