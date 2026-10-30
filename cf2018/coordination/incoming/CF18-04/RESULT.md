@@ -1,5 +1,8 @@
 # CF18-04 — bounded source/provenance inventory
 
+> Later source evidence: [recovered mirror receipt and verifier](SOURCE_RESULT.md).
+> The original bounded Drive inventory below is retained as historical evidence.
+
 Date: 2026-10-30 UTC. Base main commit:
 `0a5cf7496471f25809bb62242c3365670ce006db`.
 
