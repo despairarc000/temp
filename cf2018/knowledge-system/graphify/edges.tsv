@@ -11,3 +11,4 @@ knowledge-system/vault/research/RELAY.md	describes	experiments/passive_relay.py	
 knowledge-system/vault/EVIDENCE.md	evidence	coordination/incoming/CF18-01/RESULT.md	SOURCE_AUDIT
 knowledge-system/vault/EVIDENCE.md	evidence	coordination/incoming/CF18-04/RESULT.md	CONNECTED_DRIVE_METADATA
 sources/DRIVE_MANIFEST.md	evidence	coordination/incoming/CF18-04/RESULT.md	CONNECTED_DRIVE_METADATA
+knowledge-system/vault/CHECKPOINT.md	depends-on	coordination/assignments.json	COORDINATION

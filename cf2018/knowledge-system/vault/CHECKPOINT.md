@@ -24,6 +24,8 @@
 - [Passive relay core](research/RELAY.md) is integrated as original LOCAL_TEST_ONLY diagnostics, disabled by default, loopback-only, with no SOCKS5 adapter, ACK construction or device test. Nineteen relay tests passed within the 29-test canonical suite; eight framing audit tests also passed.
 - No new original binary, receiver-state trace, historical relay source or real post-ACK client packet was obtained. No on-phone A/B/C packet is ready.
 
+[Current assignments](../../coordination/assignments.json) reserve one task per lane. Only CF18-03 has an independently ready adapter proposal; source/native tasks explicitly wait for missing prerequisites.
+
 ## NEXT EXACT TASK
 Review Apollo incoming framing at `tgcpapi_gather_and_split_entire_pkg` and `gcloud_tgcpapi_recv_ack_msg` and audit server-vs-client prefix/endian expectations. Check byte-level v0.8 candidate, SOCKS5 relay's EOF provenance and sample boundedness. Once tested offline, design one small, explicit A/B/C device test, then capture whether new client message appears.
 

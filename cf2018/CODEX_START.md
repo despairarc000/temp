@@ -21,3 +21,5 @@ The actual v0.1–v0.8 experimental packages and phone reports were exchanged in
 [DespairArc Drive](sources/DRIVE_MANIFEST.md) has the unpacked OBB. Codex needs authorized Drive access to read it; a URL is not a download or a mount. The APK/OBB native libraries must never be committed to this public repository.
 
 Keep future implementation files under `cf2018/`. No changes to the unrelated root Android WebView app.
+
+Scheduled workers: read [current assignments](coordination/assignments.json) and honor readiness/prerequisites plus exclusive lane write ownership. An unchanged blocked source task should stop quietly; only the coordinator integrates canonical changes.

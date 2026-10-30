@@ -23,3 +23,6 @@ CF18-01 audit suite: eight PASS; knowledge doctor PASS. No native/client/device
 acceptance evidence was added. Historical Q-02 and G2 remain unresolved.
 [Integration record](../../coordination/INTEGRATION.md) identifies actual inputs,
 local draft hashes and scope. Assignments are maintained by the coordinator only.
+
+Canonical code/evidence integration: `15be6fc1401a164f00c2d3c9623ba29d6ac7ac53`.
+[Assignments](../../coordination/assignments.json) record exact source/integration commits, one scoped task per lane and honest prerequisite states. CF18-03 has one READY bounded SOCKS5-adapter proposal; native/source tasks await their missing prerequisites.

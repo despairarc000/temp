@@ -6,6 +6,7 @@
 | Current work and blockers | [CHECKPOINT](knowledge-system/vault/CHECKPOINT.md) | [WORKLOG](knowledge-system/vault/WORKLOG.md) |
 | TGCP, ACK, framing, Apollo | [TGCP research](knowledge-system/vault/research/TGCP.md) | [EVIDENCE](knowledge-system/vault/EVIDENCE.md), [OPEN_QUESTIONS](knowledge-system/vault/OPEN_QUESTIONS.md) |
 | SOCKS5, PCAPdroid, Termux | [TECHNICAL_PLAN](TECHNICAL_PLAN.md) | [ACCEPTANCE](knowledge-system/vault/specs/ACCEPTANCE.md) |
+| Worker ownership / next task | [Assignments](coordination/assignments.json) | [Integration](coordination/INTEGRATION.md) |
 | Passive relay diagnostics | [RELAY](knowledge-system/vault/research/RELAY.md) | [Integration](coordination/INTEGRATION.md) |
 | Source binaries and assets | [DRIVE_MANIFEST](sources/DRIVE_MANIFEST.md) | [EVIDENCE](knowledge-system/vault/EVIDENCE.md) |
 | Startup / patch integrity | [STARTUP research](knowledge-system/vault/research/STARTUP.md) | [OPEN_QUESTIONS](knowledge-system/vault/OPEN_QUESTIONS.md) |

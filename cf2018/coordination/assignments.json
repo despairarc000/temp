@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-10-30",
+  "repository": "despairarc000/temp",
+  "branch": "main",
+  "coordinator": "CF18-00",
+  "priority": {
+    "earliest_unmet": "G0_SOURCE_PROVENANCE",
+    "engineering_gate": "G2_TGCP_ACK",
+    "G2_status": "BLOCKED",
+    "native_AB_C_ready": false
+  },
+  "rules": {
+    "one_task_per_lane": true,
+    "worker_writes": "cf2018/coordination/incoming/<lane>/ only",
+    "canonical_writes": "CF18-00 only",
+    "claims": "Do not overwrite another run's active claim; verify the previous run stopped before resuming an unreleased claim.",
+    "blocked_runs": "With unchanged prerequisites and no useful independent task, stop quietly without filler commits or repeated source searches."
+  },
+  "integrated": [
+    {
+      "id": "CF18-MODEL-LIMITS",
+      "status": "INTEGRATED",
+      "integration_commit": "15be6fc1401a164f00c2d3c9623ba29d6ac7ac53",
+      "source_commit": "0a5cf7496471f25809bb62242c3365670ce006db",
+      "evidence": "SOURCE_AUDIT + LOCAL_TEST_ONLY; eight audit tests; no native comparison proof"
+    },
+    {
+      "id": "CF18-SOURCE-LIMITS",
+      "status": "INTEGRATED",
+      "integration_commit": "15be6fc1401a164f00c2d3c9623ba29d6ac7ac53",
+      "source_commit": "ec0d55fd338df6cc6f7d1e7aad59c7885fa88f06",
+      "evidence": "CONNECTED_DRIVE_METADATA; search coverage control failed; no verified target binary"
+    },
+    {
+      "id": "CF18-PASSIVE-CORE",
+      "status": "INTEGRATED",
+      "integration_commit": "15be6fc1401a164f00c2d3c9623ba29d6ac7ac53",
+      "canonical_paths": [
+        "experiments/passive_relay.py",
+        "tests/test_passive_relay.py"
+      ],
+      "evidence": "ORIGINAL_CODE + LOCAL_TEST_ONLY; 19 relay tests; 29 canonical tests; no SOCKS5/device/historical EOF validation",
+      "input": "Preserved local CF18-03 original draft; no remote packet commit. Exact input hashes in INTEGRATION.md."
+    }
+  ],
+  "lanes": [
+    {
+      "lane": "CF18-00",
+      "task": "CF18-REVIEW-INCOMING",
+      "status": "WAITING_FOR_PACKET",
+      "scope": "Review new lane packets against current main and integrate supported code/evidence; maintain shared knowledge and this queue.",
+      "prerequisites": [
+        "A meaningful new submitted packet or source evidence"
+      ],
+      "next_action": "Review the next eligible packet. Do not repeat unchanged integration/status commits."
+    },
+    {
+      "lane": "CF18-01",
+      "task": "CF18-G2-RX-01",
+      "status": "BLOCKED_SOURCE",
+      "scope": "Exact original incoming splitter: RX caller, magic load/compare and byte order, length/cursor bounds, fragmentation/coalescence and error branches.",
+      "prerequisites": [
+        "Verified 2018 libapollo.so private source link, actual hash and ISA from CF18-04"
+      ],
+      "ready_when": "The source receipt is independently verified; then submit a bounded native trace and original strict-parser proposal justified only by observed rules.",
+      "do_not": "Repeat the prefix-model audit or infer native semantics from passing Python tests."
+    },
+    {
+      "lane": "CF18-02",
+      "task": "CF18-G2-ACK-01",
+      "status": "BLOCKED_SOURCE",
+      "scope": "Exact original ACK/session/decryption validation: type dispatch, TLV bounds, field correlation, negotiated key modes and state transitions.",
+      "prerequisites": [
+        "Verified 2018 libapollo.so private source link, actual hash and ISA from CF18-04"
+      ],
+      "ready_when": "The source receipt is independently verified; then trace receiver branch predicates and propose only supported validators/tests.",
+      "do_not": "Guess echoed/generated fields, construct an assumed valid ACK, or duplicate CF18-01 framing work."
+    },
+    {
+      "lane": "CF18-03",
+      "task": "CF18-G1-SOCKS5-01",
+      "status": "READY",
+      "scope": "Propose an original bounded RFC 1928 negotiation/CONNECT adapter for the canonical passive relay, in this lane's packet only.",
+      "prerequisites": [
+        {
+          "artifact": "CF18-PASSIVE-CORE",
+          "status": "INTEGRATED",
+          "commit": "15be6fc1401a164f00c2d3c9623ba29d6ac7ac53"
+        }
+      ],
+      "acceptance": [
+        "Disabled by default; no automatic listener, device test or ACK generation.",
+        "Use independent synthetic SOCKS5 fixtures and localhost-only tests; handle short/fragmented negotiation, unsupported methods/commands/address types and bounded lengths/deadlines.",
+        "Preserve bytes buffered after CONNECT negotiation and leave the relay's two directions intact.",
+        "Dispatch only exact known game IP AND port to loopback; unrelated requests must be returned to the original bridge's unchanged passthrough handling, never silently dropped or globally redirected.",
+        "One run must cap accepted diagnostic connections at 4-16; retain UUID run/connection IDs and metadata-only lifecycle logs.",
+        "Do not claim historical bridge, PCAPdroid or Termux compatibility without recovered source and actual evidence."
+      ],
+      "next_action": "Read canonical relay and tests at the integrated commit; submit one tested adapter packet and integration recipe under CF18-03 only. Do not re-submit the integrated core."
+    },
+    {
+      "lane": "CF18-04",
+      "task": "CF18-G0-SOURCE-01",
+      "status": "WAITING_FOR_LOCATOR",
+      "scope": "Verify original 2018 package/library identity and retrieve only required native/managed/probe/report sources privately.",
+      "prerequisites": [
+        "A new actual authorized private target locator, source bundle or changed retrieval capability"
+      ],
+      "ready_when": "A new locator or independently retrievable source is supplied; read metadata, verify package identity, calculate actual hashes and ISA, then provide a rights-safe source receipt.",
+      "do_not": "Repeat capped full asset listings or infer absence from failed search; never substitute the 9.99 APK."
+    }
+  ]
+}
+

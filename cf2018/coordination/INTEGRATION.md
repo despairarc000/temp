@@ -30,9 +30,10 @@ direct passive_relay.py invocation printed its disabled message. Tests use only
 synthetic data/localhost, with no game source, live endpoint, device or ACK test.
 
 Earliest unmet prerequisite is G0 source provenance; G2 stays BLOCKED. No native
-receiver-state trace or device A/B/C implementation is warranted yet. Once the
-code integration is committed, the coordinator records that exact commit in
-assignments and may make the bounded SOCKS5-adapter proposal ready for CF18-03.
+receiver-state trace or device A/B/C implementation is warranted yet. Code/evidence integration commit is
+`15be6fc1401a164f00c2d3c9623ba29d6ac7ac53`. The coordinator recorded this exact
+commit in [assignments](assignments.json), making the bounded SOCKS5-adapter
+proposal ready for CF18-03.
 Native lanes and source retrieval remain explicitly blocked until new evidence
 or a verified private locator is supplied. Do not manufacture ready work or repeat
 unchanged source searches/status reports.
