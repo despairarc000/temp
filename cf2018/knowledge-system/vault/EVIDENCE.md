@@ -180,3 +180,27 @@ examined native receive wrapper preserves raw prefixes; synthetic AddressService
 virtual prefix selects GCloud factory using constructor vtable address point.
 No actual phone runtime selection or EOF source is proven. Strict99/bounds parser
 proposal from0019 remains a separate pending integration, not silently promoted.
+
+## E-25 — local connection callback is not authenticated session
+
+Class: ORIGINAL_NATIVE_STATIC + NATIVE_EMULATION_WITH_EXPLICIT_STUBS. Base
+c9b1d3555f8dd4036d64d1d34cb47a440b881c4c. [Trace](research/CONNECTION_CALLBACKS.md),
+[original controls](../../experiments/native_callback_controls.py),
+[actual ten-case matrix](../../coordination/CF18-G2-CALLBACK-01/NATIVE_MATRIX.json).
+Actual observer thunk/connector locally constructs result0 and schedules notify
+with unchanged zero account prefix. Independently invoked notify, explicit vector/
+RTTI/GetBuffer substitutes, original AddressService result9 error vs0 bind branch.
+Real local bind installs callable; real open is no-op. No account validation or
+request send in examined handler; no whole-client absence claim. All11 new tests
+PASS; canonical160 PASS/private-selected; sourcefree98 PASS/62 SKIP; local CF02
+13 PASS. Every stub and independent-stage limit recorded; no valid session/phone.
+
+## E-26 — private bridge recovery handoff, reported separately
+
+Class: CF18-05_REPORTED_PRIVATE_SOURCE_REVIEW_AND_LOCAL_TESTS. Commit
+c9b1d3555f8dd4036d64d1d34cb47a440b881c4c,
+[handoff](../../coordination/incoming/CF18-05/V14_DEPLOYED_BRIDGE_HANDOFF.md).
+Reports recovered actualv1.2 scripts and user-only v1.4 envelope comparison,21 local
+tests. Private ZIP not independently re-opened by coordinator this activation;
+no new phone result or historical EOF attribution. Supersedes blanket unavailable
+source claim for preparing that probe; does not resolve Q-02.

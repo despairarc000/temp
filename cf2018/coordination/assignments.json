@@ -4,7 +4,7 @@
   "repository": "despairarc000/temp",
   "branch": "main",
   "coordinator": "CF18-00",
-  "reviewed_main": "ccdd219f9ed121e77fc06ad20b50b77614079cbf",
+  "reviewed_main": "c9b1d3555f8dd4036d64d1d34cb47a440b881c4c",
   "priority": {
     "earliest_unmet": "G0_CURRENT_INSTALLED_AND_OBB_IDENTITY",
     "next_native_gate": "G2_AUTH_BINGO_SESSION",
@@ -124,7 +124,7 @@
     {
       "lane": "CF18-02",
       "task": "CF18-G2-SESSION-APP-01",
-      "status": "READY",
+      "status": "PAUSED_CALLBACK_FINDINGS_REVIEWED",
       "scope": "Trace actual state5/OnStateDone and application connected/account/relay consumers; identify validation/correlation predicates after copied relay data.",
       "prerequisites": [
         "Pinned source/ISA/dependencies rechecked",
@@ -133,18 +133,19 @@
       "acceptance": "Bounded actual-native trace and negative controls; no valid identity/session generation or guessed Bingo.",
       "previous_submission_commit": "9a0d6ef09c6b62a4543c8c9aadef15f1946df470",
       "previous_integration_commit": "40c4aafe6665e671d08df6badb378121ec4ff213",
-      "previous_local_result": "bingo_01 draft integrated with exact input hashes"
+      "previous_local_result": "bingo_01 draft integrated with exact input hashes",
+      "next_action": "Schedules paused; next user-authorized offline scope is QueryAddrInfo request/response consumers. Local session_app_01 packet reproduced; no packet commit invented."
     },
     {
       "lane": "CF18-03",
       "task": "CF18-G2-V12-RELAY-01",
-      "status": "BLOCKED_SOURCE",
+      "status": "PAUSED_PRIVATE_HANDOFF_REPORTED",
       "scope": "Audit actual deployedv1.2 bridge source for post-method dispatch, lifecycle, errors and directional EOF; then propose wrapper-only hook.",
       "prerequisites": [
-        "Precise authorized private deployedv1.2 ZIP/source locator or actual source",
-        "Directional lifecycle evidence; preserve unrelated passthrough"
+        "Actual recovered private package on reviewing runner; handoff alone is not source bytes",
+        "Directional phone outcome still missing"
       ],
-      "next_action": "Stop quietly until new source. Historical0.1\u20130.8 scripts also missing; frame_gate.py is not their source.",
+      "next_action": "Read CF05 V14_DEPLOYED_BRIDGE_HANDOFF at c9b1d355; private source recovery reported, independently reopen package before further source claims. No automatic phone test.",
       "previous_integration_commit": "f70a874ed903b030fd51a94a36dff0ca43dcfff4"
     },
     {
@@ -161,12 +162,12 @@
   ],
   "validation": {
     "canonical_private_selected": {
-      "passed": 149,
+      "passed": 160,
       "skipped": 0
     },
     "canonical_source_free": {
-      "passed": 97,
-      "skipped": 52
+      "passed": 98,
+      "skipped": 62
     },
     "auth_incoming": {
       "passed": 25,
@@ -183,7 +184,11 @@
     "matrices": "BOTH_REPRODUCED_EXACTLY",
     "source_verifier": "PASS_CMS_1212_ENTRIES_TRUST_NOT_VALIDATED",
     "knowledge_doctor": "PASS",
-    "scope": "Offline synthetic/native controls with explicit stubs; no new phone auth/session."
+    "scope": "Offline synthetic/native controls with explicit stubs; no new phone auth/session.",
+    "callback_tests": {
+      "passed": 11,
+      "skipped": 0
+    }
   },
   "reviewed_packets": [
     {
@@ -208,5 +213,14 @@
     "record": "coordination/INTEGRATION.md",
     "base_main": "ccdd219f9ed121e77fc06ad20b50b77614079cbf",
     "scope": "Exact auth failure correction and negative Bingo/session controls; no device auth"
+  },
+  "execution_policy": "USER_PAUSED_ALL_SCHEDULES; scopes below do not reactivate workers",
+  "current_investigation": {
+    "task": "CF18-G2-CALLBACK-01",
+    "record": "knowledge-system/vault/research/CONNECTION_CALLBACKS.md",
+    "base_main": "c9b1d3555f8dd4036d64d1d34cb47a440b881c4c",
+    "status": "VALIDATED_IN_THIS_TREE",
+    "next_offline": "QueryAddrInfo request/response consumers",
+    "phone_result": "NOT_OBSERVED"
   }
 }

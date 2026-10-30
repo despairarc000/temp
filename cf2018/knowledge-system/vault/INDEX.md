@@ -16,3 +16,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [AUTH_RECEIVER](research/AUTH_RECEIVER.md) — exact v1.2 earliest native failure, correction and remaining Bingo/relay gate.
 
 - [BINGO_SESSION](research/BINGO_SESSION.md) — actual negative correlation, WAIT semantics and received relay-field reuse.
+
+- [CONNECTION_CALLBACKS](research/CONNECTION_CALLBACKS.md) — actual local success notification and AddressService buffer boundary, not authentication.

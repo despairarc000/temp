@@ -1,0 +1,509 @@
+{
+  "schema": 1,
+  "base_main": "c9b1d3555f8dd4036d64d1d34cb47a440b881c4c",
+  "library_sha256": "4812396e98bfba9664164c14c8973eed111c5b9d177c1b575e86bc8e9f9169d8",
+  "evidence": "NATIVE_CALLBACK_WITH_EXPLICIT_RUNTIME_STUBS_NOT_AUTH",
+  "controls": [
+    {
+      "name": "transport_observer",
+      "configuration": {},
+      "actual": {
+        "return": 1,
+        "targets": {
+          "gcp_observer": 3957625,
+          "connection_result": 3955195,
+          "service_observer": 3787385
+        },
+        "events": [
+          [
+            "native_site",
+            3957624
+          ],
+          [
+            "native_site",
+            3957504
+          ],
+          [
+            "native_site",
+            3955194
+          ]
+        ],
+        "scheduled": [
+          {
+            "object_matches": true,
+            "method": 3958701,
+            "adjust": 0,
+            "argument": 0
+          }
+        ],
+        "reached_bind_boundary": false,
+        "service_error_flag": 0,
+        "client_connected": 1,
+        "buffer_manager_nonzero": false,
+        "bound_connector_matches": false,
+        "connected_info_prefix_unchanged_zero": true,
+        "stubs": [
+          "net wrapper no data -3; no socket",
+          "timer reset suppressed",
+          "single-thread lock suppressed",
+          "AString empty storage substitute; no allocator",
+          "AString empty storage substitute; no allocator",
+          "AString assignment storage substitute",
+          "tick clock zero64",
+          "AString destructor suppressed",
+          "UI scheduling CAPTURE ONLY; no thread/callback",
+          "AString destructor suppressed",
+          "single-thread unlock suppressed",
+          "OnDataOutEvent suppressed; no send"
+        ],
+        "evidence": "INJECTED_CONTEXT_NATIVE_CALLBACK_NOT_AUTHENTICATION"
+      }
+    },
+    {
+      "name": "transport_state4",
+      "configuration": {
+        "state": 4
+      },
+      "actual": {
+        "return": 1,
+        "targets": {
+          "gcp_observer": 3957625,
+          "connection_result": 3955195,
+          "service_observer": 3787385
+        },
+        "events": [],
+        "scheduled": [],
+        "reached_bind_boundary": false,
+        "service_error_flag": 0,
+        "client_connected": 0,
+        "buffer_manager_nonzero": false,
+        "bound_connector_matches": false,
+        "connected_info_prefix_unchanged_zero": true,
+        "stubs": [
+          "net wrapper no data -3; no socket",
+          "clock zero64"
+        ],
+        "evidence": "INJECTED_CONTEXT_NATIVE_CALLBACK_NOT_AUTHENTICATION"
+      }
+    },
+    {
+      "name": "transport_empty",
+      "configuration": {
+        "observer": false
+      },
+      "actual": {
+        "return": 1,
+        "targets": {
+          "gcp_observer": 3957625,
+          "connection_result": 3955195,
+          "service_observer": 3787385
+        },
+        "events": [],
+        "scheduled": [],
+        "reached_bind_boundary": false,
+        "service_error_flag": 0,
+        "client_connected": 1,
+        "buffer_manager_nonzero": false,
+        "bound_connector_matches": false,
+        "connected_info_prefix_unchanged_zero": true,
+        "stubs": [
+          "net wrapper no data -3; no socket",
+          "timer reset suppressed",
+          "single-thread lock suppressed",
+          "single-thread unlock suppressed",
+          "OnDataOutEvent suppressed; no send"
+        ],
+        "evidence": "INJECTED_CONTEXT_NATIVE_CALLBACK_NOT_AUTHENTICATION"
+      }
+    },
+    {
+      "name": "dispatch_bind_boundary",
+      "configuration": {
+        "stage": "dispatch"
+      },
+      "actual": {
+        "return": -77,
+        "targets": {
+          "gcp_observer": 3957625,
+          "connection_result": 3955195,
+          "service_observer": 3787385
+        },
+        "events": [
+          [
+            "native_site",
+            3958700
+          ],
+          [
+            "native_site",
+            3787384
+          ],
+          [
+            "service_result",
+            0
+          ],
+          [
+            "connected_info_pointer_matches",
+            true
+          ],
+          [
+            "native_site",
+            3787478
+          ],
+          [
+            "native_site",
+            3787492
+          ],
+          [
+            "STOP_BEFORE_MSG_BUFFER_BIND",
+            3938540
+          ]
+        ],
+        "scheduled": [],
+        "reached_bind_boundary": true,
+        "service_error_flag": 0,
+        "client_connected": 0,
+        "buffer_manager_nonzero": false,
+        "bound_connector_matches": false,
+        "connected_info_prefix_unchanged_zero": true,
+        "stubs": [
+          "AString empty storage substitute; no allocator",
+          "observer vector copy injected <=1 element",
+          "RTTI dynamic_cast supplied result, NOT runtime binding proof",
+          "AString empty storage substitute; no allocator",
+          "AString assignment storage substitute",
+          "single-thread lock suppressed",
+          "GetBuffer virtual boundary supplied synthetic buffer",
+          "RTTI dynamic_cast supplied result, NOT runtime binding proof",
+          "shared-count destructor suppressed"
+        ],
+        "evidence": "INJECTED_CONTEXT_NATIVE_CALLBACK_NOT_AUTHENTICATION"
+      }
+    },
+    {
+      "name": "dispatch_error9",
+      "configuration": {
+        "stage": "dispatch",
+        "result": 9
+      },
+      "actual": {
+        "return": 17887088,
+        "targets": {
+          "gcp_observer": 3957625,
+          "connection_result": 3955195,
+          "service_observer": 3787385
+        },
+        "events": [
+          [
+            "native_site",
+            3958700
+          ],
+          [
+            "native_site",
+            3787384
+          ],
+          [
+            "service_result",
+            9
+          ],
+          [
+            "connected_info_pointer_matches",
+            true
+          ],
+          [
+            "native_site",
+            3787478
+          ]
+        ],
+        "scheduled": [],
+        "reached_bind_boundary": false,
+        "service_error_flag": 1,
+        "client_connected": 0,
+        "buffer_manager_nonzero": false,
+        "bound_connector_matches": false,
+        "connected_info_prefix_unchanged_zero": true,
+        "stubs": [
+          "AString empty storage substitute; no allocator",
+          "observer vector copy injected <=1 element",
+          "RTTI dynamic_cast supplied result, NOT runtime binding proof",
+          "AString empty storage substitute; no allocator",
+          "AString assignment storage substitute",
+          "single-thread lock suppressed",
+          "single-thread unlock suppressed",
+          "AString destructor suppressed",
+          "injected observer vector destructor suppressed",
+          "AString destructor suppressed"
+        ],
+        "evidence": "INJECTED_CONTEXT_NATIVE_CALLBACK_NOT_AUTHENTICATION"
+      }
+    },
+    {
+      "name": "dispatch_no_connector",
+      "configuration": {
+        "stage": "dispatch",
+        "connector": false
+      },
+      "actual": {
+        "return": 17887088,
+        "targets": {
+          "gcp_observer": 3957625,
+          "connection_result": 3955195,
+          "service_observer": 3787385
+        },
+        "events": [
+          [
+            "native_site",
+            3958700
+          ],
+          [
+            "native_site",
+            3787384
+          ],
+          [
+            "service_result",
+            0
+          ],
+          [
+            "connected_info_pointer_matches",
+            true
+          ],
+          [
+            "native_site",
+            3787478
+          ],
+          [
+            "native_site",
+            3787492
+          ]
+        ],
+        "scheduled": [],
+        "reached_bind_boundary": false,
+        "service_error_flag": 0,
+        "client_connected": 0,
+        "buffer_manager_nonzero": false,
+        "bound_connector_matches": false,
+        "connected_info_prefix_unchanged_zero": true,
+        "stubs": [
+          "AString empty storage substitute; no allocator",
+          "observer vector copy injected <=1 element",
+          "RTTI dynamic_cast supplied result, NOT runtime binding proof",
+          "AString empty storage substitute; no allocator",
+          "AString assignment storage substitute",
+          "single-thread lock suppressed",
+          "single-thread unlock suppressed",
+          "AString destructor suppressed",
+          "injected observer vector destructor suppressed",
+          "AString destructor suppressed"
+        ],
+        "evidence": "INJECTED_CONTEXT_NATIVE_CALLBACK_NOT_AUTHENTICATION"
+      }
+    },
+    {
+      "name": "dispatch_bad_observer_cast",
+      "configuration": {
+        "stage": "dispatch",
+        "cast": false
+      },
+      "actual": {
+        "return": 17887088,
+        "targets": {
+          "gcp_observer": 3957625,
+          "connection_result": 3955195,
+          "service_observer": 3787385
+        },
+        "events": [
+          [
+            "native_site",
+            3958700
+          ]
+        ],
+        "scheduled": [],
+        "reached_bind_boundary": false,
+        "service_error_flag": 0,
+        "client_connected": 0,
+        "buffer_manager_nonzero": false,
+        "bound_connector_matches": false,
+        "connected_info_prefix_unchanged_zero": true,
+        "stubs": [
+          "AString empty storage substitute; no allocator",
+          "observer vector copy injected <=1 element",
+          "RTTI dynamic_cast supplied result, NOT runtime binding proof",
+          "injected observer vector destructor suppressed",
+          "AString destructor suppressed"
+        ],
+        "evidence": "INJECTED_CONTEXT_NATIVE_CALLBACK_NOT_AUTHENTICATION"
+      }
+    },
+    {
+      "name": "dispatch_bad_buffer_cast",
+      "configuration": {
+        "stage": "dispatch",
+        "buffer_cast": false
+      },
+      "actual": {
+        "return": 17887088,
+        "targets": {
+          "gcp_observer": 3957625,
+          "connection_result": 3955195,
+          "service_observer": 3787385
+        },
+        "events": [
+          [
+            "native_site",
+            3958700
+          ],
+          [
+            "native_site",
+            3787384
+          ],
+          [
+            "service_result",
+            0
+          ],
+          [
+            "connected_info_pointer_matches",
+            true
+          ],
+          [
+            "native_site",
+            3787478
+          ],
+          [
+            "native_site",
+            3787492
+          ]
+        ],
+        "scheduled": [],
+        "reached_bind_boundary": false,
+        "service_error_flag": 0,
+        "client_connected": 0,
+        "buffer_manager_nonzero": false,
+        "bound_connector_matches": false,
+        "connected_info_prefix_unchanged_zero": true,
+        "stubs": [
+          "AString empty storage substitute; no allocator",
+          "observer vector copy injected <=1 element",
+          "RTTI dynamic_cast supplied result, NOT runtime binding proof",
+          "AString empty storage substitute; no allocator",
+          "AString assignment storage substitute",
+          "single-thread lock suppressed",
+          "GetBuffer virtual boundary supplied synthetic buffer",
+          "RTTI dynamic_cast supplied result, NOT runtime binding proof",
+          "shared-count destructor suppressed",
+          "single-thread unlock suppressed",
+          "AString destructor suppressed",
+          "injected observer vector destructor suppressed",
+          "AString destructor suppressed"
+        ],
+        "evidence": "INJECTED_CONTEXT_NATIVE_CALLBACK_NOT_AUTHENTICATION"
+      }
+    },
+    {
+      "name": "dispatch_actual_bind_open",
+      "configuration": {
+        "stage": "dispatch",
+        "execute_bind": true
+      },
+      "actual": {
+        "return": 17887088,
+        "targets": {
+          "gcp_observer": 3957625,
+          "connection_result": 3955195,
+          "service_observer": 3787385
+        },
+        "events": [
+          [
+            "native_site",
+            3958700
+          ],
+          [
+            "native_site",
+            3787384
+          ],
+          [
+            "service_result",
+            0
+          ],
+          [
+            "connected_info_pointer_matches",
+            true
+          ],
+          [
+            "native_site",
+            3787478
+          ],
+          [
+            "native_site",
+            3787492
+          ],
+          [
+            "MSG_BUFFER_BIND",
+            3938540
+          ],
+          [
+            "native_site",
+            3937432
+          ]
+        ],
+        "scheduled": [],
+        "reached_bind_boundary": true,
+        "service_error_flag": 0,
+        "client_connected": 0,
+        "buffer_manager_nonzero": true,
+        "bound_connector_matches": true,
+        "connected_info_prefix_unchanged_zero": true,
+        "stubs": [
+          "AString empty storage substitute; no allocator",
+          "observer vector copy injected <=1 element",
+          "RTTI dynamic_cast supplied result, NOT runtime binding proof",
+          "AString empty storage substitute; no allocator",
+          "AString assignment storage substitute",
+          "single-thread lock suppressed",
+          "GetBuffer virtual boundary supplied synthetic buffer",
+          "RTTI dynamic_cast supplied result, NOT runtime binding proof",
+          "shared-count destructor suppressed",
+          "allocator supplied isolated 16-byte function object",
+          "single-thread unlock suppressed",
+          "AString destructor suppressed",
+          "injected observer vector destructor suppressed",
+          "AString destructor suppressed"
+        ],
+        "evidence": "INJECTED_CONTEXT_NATIVE_CALLBACK_NOT_AUTHENTICATION"
+      }
+    },
+    {
+      "name": "dispatch_empty",
+      "configuration": {
+        "stage": "dispatch",
+        "observer": false
+      },
+      "actual": {
+        "return": 17887088,
+        "targets": {
+          "gcp_observer": 3957625,
+          "connection_result": 3955195,
+          "service_observer": 3787385
+        },
+        "events": [
+          [
+            "native_site",
+            3958700
+          ]
+        ],
+        "scheduled": [],
+        "reached_bind_boundary": false,
+        "service_error_flag": 0,
+        "client_connected": 0,
+        "buffer_manager_nonzero": false,
+        "bound_connector_matches": false,
+        "connected_info_prefix_unchanged_zero": true,
+        "stubs": [
+          "AString empty storage substitute; no allocator",
+          "observer vector copy injected <=1 element",
+          "injected observer vector destructor suppressed",
+          "AString destructor suppressed"
+        ],
+        "evidence": "INJECTED_CONTEXT_NATIVE_CALLBACK_NOT_AUTHENTICATION"
+      }
+    }
+  ]
+}

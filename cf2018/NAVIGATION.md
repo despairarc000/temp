@@ -16,3 +16,5 @@
 | Knowledge tooling | [ICM](knowledge-system/icm/ICM.md) | [Graphify](knowledge-system/graphify/GRAPHIFY.md), [Vault index](knowledge-system/vault/INDEX.md) |
 
 Cold start: AGENTS → NAVIGATION → IDEA_PLAN → CHECKPOINT → task route `python tools/knowledge.py route tgcp ack` → linked source/test evidence → implement or research → doctor/tests → update vault.
+
+Application connected/account consumers: [native callback trace](knowledge-system/vault/research/CONNECTION_CALLBACKS.md), [reported v1.4 bridge handoff](coordination/incoming/CF18-05/V14_DEPLOYED_BRIDGE_HANDOFF.md). Schedules remain paused.

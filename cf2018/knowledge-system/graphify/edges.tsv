@@ -50,3 +50,8 @@ knowledge-system/vault/research/BINGO_SESSION.md	tests	tests/test_native_bingo_c
 knowledge-system/vault/research/BINGO_SESSION.md	evidence	coordination/CF18-G2-AUTH-RX-02/BINGO_MATRIX.json	REPRODUCED_NATIVE_MATRIX
 knowledge-system/vault/research/BINGO_SESSION.md	depends-on	sources/SOURCE_PROVENANCE.md	HASH_SCOPED_NATIVE
 knowledge-system/vault/research/ACK_RECEIVER.md	evidence	coordination/incoming/CF18-01/PATH_RESULT.md	BOUNDED_FACTORY_WRAPPER_NATIVE
+knowledge-system/vault/research/CONNECTION_CALLBACKS.md	depends-on	sources/SOURCE_PROVENANCE.md	HASH_SCOPED_NATIVE
+knowledge-system/vault/research/CONNECTION_CALLBACKS.md	depends-on	knowledge-system/vault/research/BINGO_SESSION.md	INDEPENDENT_STAGE_LIMIT
+knowledge-system/vault/research/CONNECTION_CALLBACKS.md	tests	tests/test_native_callback_controls.py	NATIVE_WITH_EXPLICIT_RUNTIME_STUBS
+knowledge-system/vault/research/CONNECTION_CALLBACKS.md	evidence	coordination/CF18-G2-CALLBACK-01/NATIVE_MATRIX.json	REPRODUCED_NATIVE_MATRIX
+knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/research/CONNECTION_CALLBACKS.md	NOT_AUTHENTICATION

@@ -16,3 +16,14 @@
 [evidence](EVIDENCE.md), [assignments](../../coordination/assignments.json).
 V1.4 wrapper-only comparison justified in principle; not ready without deployed
 bridge source and directional controls. No automatic phone/network experiment.
+
+## Current callback/recovery refinement
+
+Q-03: [connection callbacks](research/CONNECTION_CALLBACKS.md) locally create zero
+notification and bind/open buffer without examining connected-info account content
+in the examined handler. Still unknown: meaningful subsequent request/response and
+account/session validity. Next bounded native target Send_QueryAddrInfo0x3998d4 /
+Recv_QueryAddrInfo0x399a98. Never count callback/open as authentication.
+Q-02: CF05 c9b1d355 reports actual bridge recovery and prepared v1.4; private package
+not independently reopened here, phone directional outcome still absent. No new
+payload sweep. All schedules paused by user; assignments are dormant work scopes.

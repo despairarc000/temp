@@ -124,3 +124,5 @@ and state5 application consumers, deployed relay source and directional EOF,
 installed context/OBB identity. This finding does not justify a guessed Bingo
 addition to v1.4. Keep any later experiment focused on the proven body-wrapper
 correction after bridge instrumentation. No automatic device proposal or run.
+
+The [later connection callback trace](CONNECTION_CALLBACKS.md) follows numeric state5 into a local success notification and AddressService buffer binding. Neither is an authentication oracle.

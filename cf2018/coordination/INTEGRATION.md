@@ -243,3 +243,20 @@ Current exact auth failure remains body preamble; v1.4 wrapper-only comparison
 is conditional on source/instrumentation. No automatic phone test or positive
 Bingo serializer. This substantive change includes shared code/knowledge and
 queue together; commit identity follows from Git history, not a self-reference.
+
+## Direct callback investigation at c9b1d355
+
+Completed LOCAL CF18-02 session_app_01 packet reviewed,13 native controls rerun; no source packet commit exists and no incoming file changes. Input SHA-256 pins:
+
+```json
+{
+  "ACCEPTANCE.md": "c7219a0cc0ea8d29ae8066f65c398c627454e14e8593cfdcf11660cc2e47b253",
+  "NATIVE_MATRIX.json": "d32673221c3f4435f2df79b9f9e36067f0e24542d7e04c734105f5b89e6d32ac",
+  "RESULT.md": "d8a0d8d3e616f523d7de526f8ff9df98ba50104e1eb979c3d237be49a87e57e5",
+  "native_app_controls.py": "2adfdb0259230df2ad9565b26ffb7cdc7b6dba1cfffe42440ceaa7decf6ceeda",
+  "run_native_matrix.py": "b1b1200c8f8d45cfe0e59dbe070e717b1d03145f634858a38c13fb3424125f87",
+  "test_native_app_controls.py": "1177758e02d14d4882a8c4742b6a10b6c946bcce05cd07e2f6409ccd18b67c54"
+}
+```
+
+New canonical callback controls use only canonical NativeControl; they do not import unpublished lane code. [Trace](../knowledge-system/vault/research/CONNECTION_CALLBACKS.md) and [acceptance](CF18-G2-CALLBACK-01/ACCEPTANCE.md) identify independent-stage/stub boundaries. Eleven new tests/ten cases;160 canonical PASS private-selected,98 PASS/62 SKIP sourcefree. CF05 c9b1d355 private bridge recovery is reported evidence, not independent coordinator source review. No schedule restarted or phone experiment performed.

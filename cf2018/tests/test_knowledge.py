@@ -15,11 +15,12 @@ class TestKnowledge(unittest.TestCase):
   self.assertEqual(routes[0][0],"tgcp")
   self.assertIn("knowledge-system/vault/research/TGCP.md",paths)
  def test_auth_route(self):
-  routes,paths=mod.route("authentication 0x2002 Bingo")
+  routes,paths=mod.route("authentication 0x2002 Bingo callback")
   self.assertEqual(routes[0][0],"auth")
   self.assertIn("knowledge-system/vault/research/AUTH_RECEIVER.md",paths)
   self.assertIn("coordination/incoming/CF18-05/PHONE_V12_RESULT.md",paths)
   self.assertIn("knowledge-system/vault/research/BINGO_SESSION.md",paths)
+  self.assertIn("knowledge-system/vault/research/CONNECTION_CALLBACKS.md",paths)
  def test_gameplay_route(self):
   routes,paths=mod.route("offline bots tdm")
   self.assertEqual(routes[0][0],"gameplay")

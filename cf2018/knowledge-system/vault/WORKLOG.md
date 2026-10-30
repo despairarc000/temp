@@ -115,3 +115,14 @@ Both matrices reproduced exactly. Canonical149 PASS/private-selected; default
 3002 corrected to WAIT; malformed header/body can reach native5, never counted
 as authentication. No valid Bingo/credentials, deployed bridge wiring, phone run
 or playable state. Updated canonical knowledge/graph/ICM and bounded lane queue.
+
+## 2026-10-30 — direct user-requested offline callback investigation
+
+Schedules stayed paused. Refreshed c9b1d355 and its new CF05 bridge handoff;
+rechecked pinned original Apollo and actual environment. Reviewed/reran completed
+local CF02 application13 controls without editing incoming paths. Added actual
+observer thunk/connector/local-result/UI-boundary and separate AddressService
+branch controls. Local connected/result0/bind/open are not account validation.
+Eleven new tests; canonical160 PASS private-selected, sourcefree98 PASS/62 SKIP;
+ten-case matrix reproduced exactly; doctor PASS. Original binaries untouched.
+[Trace and limits](research/CONNECTION_CALLBACKS.md). No phone experiment run.

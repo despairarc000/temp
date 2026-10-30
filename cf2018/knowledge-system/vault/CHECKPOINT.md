@@ -81,3 +81,20 @@ does not establish authentication or correct correlation. Received relay identit
 server/session fields are copied and later reused by a SYN prefix; generation/
 account binding remains unknown. All21 new controls and both native matrices
 reproduced; decoded parser-zero branch tests remain explicitly stubbed.
+
+## Later coordinator investigation at c9b1d355
+
+[Connection callback trace](research/CONNECTION_CALLBACKS.md) extends the native
+consumer path: injected state5/writable event can schedule a locally constructed
+zero result with zero connected-info account prefix. Separate dispatch controls
+reach AddressService, whose result-code branch gates local buffer binding; open
+is a no-op. These notifications do not establish authentication. Eleven new tests,
+160 canonical PASS/private-selected; default98 PASS/62 SKIP; ten-case matrix
+reproduces exactly. Existing CF02 local13 controls reproduced, incoming unchanged.
+
+CF05 [v1.4 handoff](../../coordination/incoming/CF18-05/V14_DEPLOYED_BRIDGE_HANDOFF.md)
+reports recovered deployedv1.2 bridge and prepared private six-session envelope
+comparison. Earlier blanket source-missing statements are superseded for that
+preparation; this coordinator has not independently reopened the private ZIP.
+No phone result yet. Schedules remain paused. Next offline boundary is actual
+QueryAddrInfo submission/response, not another guessed Bingo or connected flag.
