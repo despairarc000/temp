@@ -94,3 +94,12 @@ listed validation branches. A clean native trace can confirm or refute the
 opposite-prefix hypothesis. Do not substitute the unrelated 9.99 APK. On an
 unchanged future activation with no new binary/trace, stop without another audit
 or repeated blocker commit.
+
+## Subsequent source-backed packet — 2026-10-30
+
+The user's explicit internet-search instruction enabled recovery of a signed
+same-package/version mirror APK. See [native receiver result](NATIVE_RX_RESULT.md)
+for actual hashes/signature checks, a bounded GCloud receive/TX trace, native
+emulation controls and an original strict parser proposal. It distinguishes a
+decoded marker comparison from raw prefix bytes. The earlier model audit above
+remains historical; no phone or G2 acceptance is asserted by either packet.
