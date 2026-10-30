@@ -1,0 +1,443 @@
+{
+  "schema": 1,
+  "source_sha256": "4812396e98bfba9664164c14c8973eed111c5b9d177c1b575e86bc8e9f9169d8",
+  "evidence": "PINNED_NATIVE_EMULATION_WITH_STUBS; SYNTHETIC_RESPONSES; NOT_PHONE_AUTH",
+  "context": "Fresh initialized state 3, zero method/key, synthetic prior account; complete preloaded input; net wrapper -3.",
+  "records": [
+    {
+      "arm": "V11_EMPTY_ACCOUNT",
+      "original": {
+        "length": 66,
+        "sha256": "787fd8b6a013a1c469f065a8a6e269fa402968d6e2f503852411ab9e6d40d40e",
+        "native_codes": {
+          "base_varint": [
+            0
+          ],
+          "extension": [
+            0
+          ],
+          "header_varint": [
+            0
+          ],
+          "header_unpack": [
+            0
+          ],
+          "header_helper": [
+            0
+          ],
+          "gather": [
+            0
+          ],
+          "receive_decrypt": [
+            0
+          ],
+          "body_unpack": [
+            -32
+          ],
+          "auth_receive": [
+            -18
+          ],
+          "auth_state": [
+            -18
+          ]
+        },
+        "effective_type": 8194,
+        "header_length": 42,
+        "body_length": 24,
+        "predicates": [
+          {
+            "address": 3895882,
+            "extension_selector": 8194
+          },
+          {
+            "address": 3901656,
+            "condition": "TGCPBody mode is neither AA nor 99",
+            "observed_byte": 165,
+            "return": -32
+          },
+          {
+            "address": 3901660,
+            "body_cursor": 1
+          }
+        ],
+        "state": 3,
+        "account_unchanged": true,
+        "stubs": [
+          "XLog no-op",
+          "bounded libc memory operation",
+          "error-string only",
+          "last-error get=0",
+          "last-error set no-op",
+          "net_recv wrapper supplied-status stub; no socket"
+        ]
+      },
+      "isolated_components_not_reached_on_original_path": {
+        "auth_return": 0,
+        "auth_consumed": 17,
+        "account_return": 0,
+        "account_consumed": 0
+      },
+      "corrected": {
+        "length": 71,
+        "sha256": "31eb1e432aabd74efa29c279f1ceb488d26f5e1c0b51e002c435a438d15c5848",
+        "native_codes": {
+          "base_varint": [
+            0
+          ],
+          "extension": [
+            0
+          ],
+          "header_varint": [
+            0
+          ],
+          "header_unpack": [
+            0
+          ],
+          "header_helper": [
+            0
+          ],
+          "gather": [
+            0,
+            -12
+          ],
+          "receive_decrypt": [
+            0,
+            -12
+          ],
+          "account_component": [
+            0
+          ],
+          "auth_component": [
+            0
+          ],
+          "body_union": [
+            0
+          ],
+          "body_unpack": [
+            0
+          ],
+          "auth_receive": [
+            0
+          ],
+          "bingo_receive": [
+            -12
+          ],
+          "auth_state": [
+            0
+          ]
+        },
+        "effective_type": 8194,
+        "header_length": 42,
+        "body_length": 29,
+        "predicates": [
+          {
+            "address": 3895882,
+            "extension_selector": 8194
+          },
+          {
+            "address": 3901660,
+            "body_cursor": 29
+          }
+        ],
+        "state": 4,
+        "synthetic_uid_zero": true,
+        "stubs": [
+          "XLog no-op",
+          "bounded libc memory operation",
+          "last-error get=0",
+          "last-error set no-op",
+          "net_recv wrapper supplied-status stub; no socket"
+        ]
+      }
+    },
+    {
+      "arm": "V12_BODY_EMPTY",
+      "original": {
+        "length": 49,
+        "sha256": "527b6570d015c64355ab8d4d83c534dc3fe5975818485133a2c4b313edcbf4ca",
+        "native_codes": {
+          "base_varint": [
+            0
+          ],
+          "extension": [
+            0
+          ],
+          "header_varint": [
+            0
+          ],
+          "header_unpack": [
+            0
+          ],
+          "header_helper": [
+            0
+          ],
+          "gather": [
+            0
+          ],
+          "receive_decrypt": [
+            0
+          ],
+          "body_unpack": [
+            -32
+          ],
+          "auth_receive": [
+            -18
+          ],
+          "auth_state": [
+            -18
+          ]
+        },
+        "effective_type": 8194,
+        "header_length": 42,
+        "body_length": 7,
+        "predicates": [
+          {
+            "address": 3895882,
+            "extension_selector": 8194
+          },
+          {
+            "address": 3901656,
+            "condition": "TGCPBody mode is neither AA nor 99",
+            "observed_byte": 165,
+            "return": -32
+          },
+          {
+            "address": 3901660,
+            "body_cursor": 1
+          }
+        ],
+        "state": 3,
+        "account_unchanged": true,
+        "stubs": [
+          "XLog no-op",
+          "bounded libc memory operation",
+          "error-string only",
+          "last-error get=0",
+          "last-error set no-op",
+          "net_recv wrapper supplied-status stub; no socket"
+        ]
+      },
+      "isolated_components_not_reached_on_original_path": {
+        "auth_return": 0,
+        "auth_consumed": 0,
+        "account_return": null,
+        "account_consumed": null
+      },
+      "corrected": {
+        "length": 54,
+        "sha256": "17ace86895dc499ea70045bac4132e9d8a5e9cc6056f350e7cf099a256495738",
+        "native_codes": {
+          "base_varint": [
+            0
+          ],
+          "extension": [
+            0
+          ],
+          "header_varint": [
+            0
+          ],
+          "header_unpack": [
+            0
+          ],
+          "header_helper": [
+            0
+          ],
+          "gather": [
+            0,
+            -12
+          ],
+          "receive_decrypt": [
+            0,
+            -12
+          ],
+          "auth_component": [
+            0
+          ],
+          "body_union": [
+            0
+          ],
+          "body_unpack": [
+            0
+          ],
+          "auth_receive": [
+            0
+          ],
+          "bingo_receive": [
+            -12
+          ],
+          "auth_state": [
+            0
+          ]
+        },
+        "effective_type": 8194,
+        "header_length": 42,
+        "body_length": 12,
+        "predicates": [
+          {
+            "address": 3895882,
+            "extension_selector": 8194
+          },
+          {
+            "address": 3901660,
+            "body_cursor": 12
+          }
+        ],
+        "state": 4,
+        "synthetic_uid_zero": true,
+        "stubs": [
+          "XLog no-op",
+          "bounded libc memory operation",
+          "last-error get=0",
+          "last-error set no-op",
+          "net_recv wrapper supplied-status stub; no socket"
+        ]
+      }
+    },
+    {
+      "arm": "V12_FULL_ZERO_ACCOUNT",
+      "original": {
+        "length": 79,
+        "sha256": "2aed3ae9a18a47497969bedad3332a2eb8a91aaf0e3a50839ace9843267199fa",
+        "native_codes": {
+          "base_varint": [
+            0
+          ],
+          "extension": [
+            0
+          ],
+          "header_varint": [
+            0
+          ],
+          "header_unpack": [
+            0
+          ],
+          "header_helper": [
+            0
+          ],
+          "gather": [
+            0
+          ],
+          "receive_decrypt": [
+            0
+          ],
+          "body_unpack": [
+            -32
+          ],
+          "auth_receive": [
+            -18
+          ],
+          "auth_state": [
+            -18
+          ]
+        },
+        "effective_type": 8194,
+        "header_length": 42,
+        "body_length": 37,
+        "predicates": [
+          {
+            "address": 3895882,
+            "extension_selector": 8194
+          },
+          {
+            "address": 3901656,
+            "condition": "TGCPBody mode is neither AA nor 99",
+            "observed_byte": 165,
+            "return": -32
+          },
+          {
+            "address": 3901660,
+            "body_cursor": 1
+          }
+        ],
+        "state": 3,
+        "account_unchanged": true,
+        "stubs": [
+          "XLog no-op",
+          "bounded libc memory operation",
+          "error-string only",
+          "last-error get=0",
+          "last-error set no-op",
+          "net_recv wrapper supplied-status stub; no socket"
+        ]
+      },
+      "isolated_components_not_reached_on_original_path": {
+        "auth_return": 0,
+        "auth_consumed": 30,
+        "account_return": 0,
+        "account_consumed": 13
+      },
+      "corrected": {
+        "length": 84,
+        "sha256": "cdf1ed4faeaf2e97ada4530043c8929373ffa82d5e7b3c007c18b5c5e2ccf599",
+        "native_codes": {
+          "base_varint": [
+            0
+          ],
+          "extension": [
+            0
+          ],
+          "header_varint": [
+            0
+          ],
+          "header_unpack": [
+            0
+          ],
+          "header_helper": [
+            0
+          ],
+          "gather": [
+            0,
+            -12
+          ],
+          "receive_decrypt": [
+            0,
+            -12
+          ],
+          "account_component": [
+            0
+          ],
+          "auth_component": [
+            0
+          ],
+          "body_union": [
+            0
+          ],
+          "body_unpack": [
+            0
+          ],
+          "auth_receive": [
+            0
+          ],
+          "bingo_receive": [
+            -12
+          ],
+          "auth_state": [
+            0
+          ]
+        },
+        "effective_type": 8194,
+        "header_length": 42,
+        "body_length": 42,
+        "predicates": [
+          {
+            "address": 3895882,
+            "extension_selector": 8194
+          },
+          {
+            "address": 3901660,
+            "body_cursor": 42
+          }
+        ],
+        "state": 4,
+        "synthetic_uid_zero": true,
+        "stubs": [
+          "XLog no-op",
+          "bounded libc memory operation",
+          "last-error get=0",
+          "last-error set no-op",
+          "net_recv wrapper supplied-status stub; no socket"
+        ]
+      }
+    }
+  ]
+}
