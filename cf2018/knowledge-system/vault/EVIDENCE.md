@@ -69,3 +69,27 @@ Reviewed at c52243228e8d2d38dd6b4c1d85f464d9f94461f8. Source receipt:
 explicit emulation boundaries and remaining body/session/runtime/relay gates.
 No original binary, capture, game key or raw disassembly is published. No new
 phone packet or device experiment was obtained; Q-02 and G2 remain blocked.
+
+## E-19 — optional ACK body and later session uses
+
+Class: ORIGINAL_NATIVE_STATIC + NATIVE_EMULATION_WITH_STUBS + ORIGINAL_CODE /
+INDEPENDENT_SYNTHETIC. Reviewed main 37b808d095641c90e80a707209f656e9bf29c53f.
+[Integration provenance](../../coordination/INTEGRATION.md) records actual hashes
+of the completed unpublished local CF18-02 continuation; no source commit invented.
+[Canonical trace](research/ACK_SESSION.md), [runner](../../experiments/native_control.py),
+[controls](../../experiments/native_session_controls.py),
+[18 tests](../../tests/test_native_session_controls.py).
+
+Received base timestamp is copied into the next auth-request field. Optional
+embedded-body component presence is not an observed fast-auth path in examined
+callers. Separate type-0x2002 receiver parses then copies account/state; successful
+copy controls explicitly stub parser zero. Waiting zero does not call Bingo.
+Server timestamp generation, account/auth semantics, later Bingo/session/crypto and
+phone equivalence remain unknown. State 4 is never counted as authentication.
+
+All 40 affected lane tests reproduced. Canonical 101 PASS with private sources
+selected; default 82 PASS and 19 explicit private-source SKIP. Knowledge doctor
+PASS. Actual pinned source hash/ISA and bounded branches were checked. Native
+functions run in isolated emulation with labeled decoded-boundary/parser/send
+stubs, not Android sockets. No complete wire reply, phone run, new authentic
+packet or G2 advancement. No original/raw native code or sensitive bytes published.

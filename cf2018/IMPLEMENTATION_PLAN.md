@@ -13,7 +13,8 @@
 | G8 | packaging and recovery | repeatable launch, reboot/reinstall controls, no proprietary distribution |
 
 **Immediate queue:** continue [CF18-G2-ACK-01](knowledge-system/vault/research/ACK_RECEIVER.md)
-on optional ACK-body/auth/session consumers; separately finish native framing
+on downstream copied-account/Bingo/session validation after the reviewed
+[body continuation](knowledge-system/vault/research/ACK_SESSION.md); separately finish native framing
 boundaries and recover actual runtime/relay evidence. G2 requires an authentic
 later client protocol packet, never parser/emulation success. Bot implementation
 remains deferred.

@@ -1,4 +1,4 @@
-# CHECKPOINT — 2026-10-30, native/source integration
+# CHECKPOINT — 2026-10-30, body/session integration
 
 **Goal:** real offline TDM and Bomb/S&D in CrossFire: Legends 2018 v1.0.11.11
 `com.tencent.tmgp.cfmnac`, Mono. **NOT PLAYABLE. G2 BLOCKED.**
@@ -17,7 +17,10 @@
 - ACK extension selector supplies effective type. Key mode 0 can reach the empty
   stage; later encrypted data can still fail. Native return zero does not prove
   a complete accepted ACK or negotiated session. No server field echo/generation
-  policy is justified. Optional ACK-body/embedded-auth session use is unfinished.
+  policy is justified. The [body/session continuation](research/ACK_SESSION.md) identifies received
+  timestamp use in the next auth request and a separate auth-response account
+  copy/state-4 branch. Parser-zero copy controls are explicitly stubbed; no
+  authenticated session is demonstrated. Downstream Bingo/session uses remain open.
 - Canonical [offline parser](../../experiments/rx_envelope.py) and
   [source verifier](../../tools/verify_private_source.py) are integrated original
   code. Parser extensions are opaque, base_type is not an effective ACK type,
@@ -35,7 +38,7 @@ ACK-to-EOF 8.44 ms and zero later client packets. v0.6 logcat did not identify a
 reliable native reject. No new phone run, accepted ACK, auth, AddressService,
 updater/config progression, offline lobby or bot match was obtained here.
 
-## Actual coordinator checks
+## Prior coordinator checks
 
 Reviewed base `c52243228e8d2d38dd6b4c1d85f464d9f94461f8` and all 55 tracked CF2018
 blob hashes. The local snapshot is not a git checkout; git status exited 128.
@@ -46,11 +49,24 @@ CF18-04 14 lane tests PASS, no skips, with actual private source selected.
 Native emulation has explicit stubs and does not count as Android/phone proof.
 [Integration record](../../coordination/INTEGRATION.md) records the review.
 
+## Current body/session checks
+
+Reviewed live main `37b808d095641c90e80a707209f656e9bf29c53f`; 64 tracked blobs
+checked, only the preserved local CF18-02 RESULT continuation link differs.
+No git checkout or active worker process. Completed local CF18-02 continuation
+has no remote source commit; actual draft hashes are recorded in integration.
+Reran 40 lane methods and checked bounded native branch/data-flow sites against
+actual pinned ARM source. Canonical original native runner/session controls and
+18 tests integrated, including three coordinator controls. Full suite: 101 PASS
+with private APK/library selected; default: 101 total, 82 PASS, 19 private-source
+SKIP. Knowledge doctor PASS. Incoming drafts and original binaries stay private
+or unchanged, respectively; no phone/network experiment was run.
+
 ## Next exact task and prerequisites
 
 [Assignments](../../coordination/assignments.json) retain exclusive paths and
-one task per lane. CF18-02 continues CF18-G2-ACK-01 on embedded ACK auth/session
-consumers. CF18-01 owns remaining 99/bounds/lookahead behavior. Both require the
+one task per lane. CF18-02 continues CF18-G2-ACK-01 on downstream copied-account,
+Bingo and session predicates. CF18-01 owns remaining 99/bounds/lookahead behavior. Both require the
 pinned source available and verified in that activation; schedules do not imply
 a shared disk. CF18-03 awaits actual historical/deployed bridge interface.
 CF18-04 awaits new phone/OBB/historical-source evidence; no repeated asset scans.

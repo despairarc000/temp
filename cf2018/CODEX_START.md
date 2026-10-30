@@ -18,8 +18,10 @@ python -m unittest discover -s tests -v
 
 [Reviewed receiver trace](knowledge-system/vault/research/ACK_RECEIVER.md) combines
 hash-specific native RX, ACK/session branch observations and source integrity.
-G2 stays BLOCKED: no later authentic client packet after ACK. Continue optional
-ACK-body/embedded-auth session consumers; the framing lane separately owns
+The [body/session continuation](knowledge-system/vault/research/ACK_SESSION.md)
+traces timestamp use, optional-body storage and separate account-copy state.
+G2 stays BLOCKED: no later authentic client packet after ACK. Continue downstream
+account/Bingo/session predicates; the framing lane separately owns
 remaining native 99/bounds/lookahead work. Honor exclusive lane write paths.
 
 The recovered v1.0.11.11 Mono mirror is verified by actual hashes and internal

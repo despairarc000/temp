@@ -4,7 +4,7 @@
 |---|---|---|
 | Mission/scope | [IDEA_PLAN](IDEA_PLAN.md) | [ACCEPTANCE](knowledge-system/vault/specs/ACCEPTANCE.md) |
 | Current work and blockers | [CHECKPOINT](knowledge-system/vault/CHECKPOINT.md) | [WORKLOG](knowledge-system/vault/WORKLOG.md) |
-| TGCP, ACK, framing, Apollo | [Reviewed receiver](knowledge-system/vault/research/ACK_RECEIVER.md), [TGCP](knowledge-system/vault/research/TGCP.md) | [EVIDENCE](knowledge-system/vault/EVIDENCE.md), [OPEN_QUESTIONS](knowledge-system/vault/OPEN_QUESTIONS.md) |
+| TGCP, ACK, framing, Apollo | [Reviewed receiver](knowledge-system/vault/research/ACK_RECEIVER.md), [body/session continuation](knowledge-system/vault/research/ACK_SESSION.md), [TGCP](knowledge-system/vault/research/TGCP.md) | [EVIDENCE](knowledge-system/vault/EVIDENCE.md), [OPEN_QUESTIONS](knowledge-system/vault/OPEN_QUESTIONS.md) |
 | SOCKS5, PCAPdroid, Termux | [TECHNICAL_PLAN](TECHNICAL_PLAN.md) | [ACCEPTANCE](knowledge-system/vault/specs/ACCEPTANCE.md) |
 | Worker ownership / next task | [Assignments](coordination/assignments.json) | [Integration](coordination/INTEGRATION.md) |
 | Passive relay diagnostics | [RELAY](knowledge-system/vault/research/RELAY.md) | [Integration](coordination/INTEGRATION.md) |

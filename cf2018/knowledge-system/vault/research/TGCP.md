@@ -47,7 +47,12 @@ source-free suite has two explicit private-source skips. Separately, 32 framing,
 All use synthetic/localhost or isolated native controls. No actual new phone
 packet, accepted ACK, authenticated AddressService or gameplay is claimed.
 
-Next: optional ACK body/embedded auth/session consumers, framing boundary review,
+The [body/session continuation](ACK_SESSION.md) adds received timestamp data flow,
+optional-body storage and separate auth account-copy/state branches, with explicit
+stub boundaries. Canonical suite is now 101 tests: all pass with sources selected;
+default has 82 PASS and 19 private-source SKIP.
+
+Next: downstream account/Bingo/session predicates, framing boundary review,
 phone source/path identity and historical relay evidence. No device A/B/C packet
 is ready. [Evidence](../EVIDENCE.md), [questions](../OPEN_QUESTIONS.md),
 [relay](RELAY.md), [assignments](../../../coordination/assignments.json).

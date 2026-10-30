@@ -29,9 +29,9 @@ Inputs: [CF18-01](../../../coordination/incoming/CF18-01/NATIVE_RX_RESULT.md)
 | Key dispatch `0x3abeb2` | Mode 0 clears key length and skips key setup. Mode 2 copies decoded key then calls set-key. Mode 3 calls compute-k then set-key. Other modes return -30, with the preceding configuration writes retained. |
 | Set-key `0x3ab24a` | Empty key + nonzero encryption method returns -31. Nonempty key + unsupported method returns -29; methods 3/4 select AES setup. No explicit exactly-16-byte length check is established here. |
 | Body `0x3abf08` | Empty body supplies zero output length. Nonempty body with base byte +0xc nonzero invokes decrypt `0x3ab31e`; plaintext branch copies bytes. Missing key/unsupported method/primitive failure remain separate errors. |
-| Consume `0x3ac032`–`0x3ac056` | Saves decoded base word +8 to handle+0x3490, advances cursor, reduces count and clears pending before returning to the ACK caller. |
+| Consume `0x3ac032`–`0x3ac056` | Saves decoded base timestamp +8 to handle+0x3490, advances cursor, reduces count and clears pending before returning to the ACK caller. |
 | ACK type `0x3ac100` | Requires effective type 0x1002 after receive/decrypt. Mismatch records type and returns -14, without rolling back frame consumption. |
-| Compression / optional body | Copies compression method/limit. Empty body returns zero. Positive body invokes TGCPBody decoder `0x3b8860`; malformed body maps to -18. ACK-body field 2 can contain an embedded auth response; its later state/session use remains unfinished. |
+| Compression / optional body | Copies compression method/limit. Empty body returns zero. Positive body invokes TGCPBody decoder `0x3b8860`; malformed body maps to -18. ACK-body field 2 can contain an embedded auth response; reviewed storage and immediate caller behavior are in [body/session continuation](ACK_SESSION.md). |
 | Key-syn state `0x3a9f8c` | Requires initialized handle, nonnegative descriptor and state 2. -12 becomes zero without auth send. ACK zero with state still 2 and no relay-progress flag reaches auth-send call `0x3a9fd8` -> `0x3ab964`. |
 
 GCloud TX independently prepends raw 43 66 before packTLV at `0x3ab430`.
@@ -48,6 +48,11 @@ physical truncation (-2) and detects declared-end overrun (-34), potentially
 after modifying decoded storage. Missing fields can retain prior storage;
 duplicates can overwrite; unknown scalar fields can be skipped. Strict parser
 policies must not be confused with these native behaviors.
+
+The [reviewed body/session continuation](ACK_SESSION.md) identifies received base
++8 as a timestamp copied into the next auth request, optional body storage, and
+the separate auth-response account-copy/state branch. Its parser-zero controls
+are explicit stubs; state 4 is not authentication evidence.
 
 No SYN-base/session equality check was observed in these bounded ACK functions.
 This does not prove arbitrary/echoed/zeroed identifiers work later. Server field
@@ -85,8 +90,8 @@ socket session; a zero result or suppressed-send boundary is not a real packet.
 
 ## Remaining work and disabled device gate
 
-CF18-G2-ACK-01 remains focused on the optional embedded-auth ACK body, its later
-session consumers and actual negotiation requirements. The framing lane separately
+CF18-G2-ACK-01 now continues downstream copied-account/Bingo/session predicates
+and actual negotiation requirements after the [body/session review](ACK_SESSION.md). The framing lane separately
 owns remaining 99/boundary/lookahead questions. [Assignments](../../../coordination/assignments.json)
 record one task per lane and precise prerequisites.
 

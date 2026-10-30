@@ -105,3 +105,55 @@ plan is ready. Substantive integration commit is
 handoff records that exact SHA and one bounded task per lane. CF18-01/02 are
 ready only with actual pinned-source access; CF18-03/04 retain missing-evidence
 prerequisites. No self-referential commit hash is invented.
+
+## ACK body/session continuation review — 2026-10-30
+
+Reviewed main `37b808d095641c90e80a707209f656e9bf29c53f`. The completed local
+CF18-02 body/session continuation was interrupted before remote publication;
+there is **no source packet commit** for it. No worker process was active. This
+coordinator review integrates actual local original code/findings without editing
+incoming files or inventing a submitted commit. CF18-01's unfinished boundary draft
+is preserved and not integrated. CF18-03/04 have no new bridge/phone/OBB evidence;
+their existing blockers remain unchanged. G0 phone/OBB identity is still the earliest
+unmet prerequisite; useful independent native G2 research can continue locally.
+
+[Acceptance](ACK_BODY_INTEGRATION_ACCEPTANCE.md) preceded canonical changes.
+All 64 tracked blobs were checked; only the existing local CF18-02 RESULT link
+addition differed from remote. Git status returned 128, not a checkout.
+Exact SHA-256 provenance of actual CF18-02 local input text:
+
+| Local original file | SHA-256 |
+|---|---|
+| BODY_ACCEPTANCE.md | afd7adb120999560ec9eace95df6afa41d51562f09be5004fa3cf649ec715480 |
+| BODY_RESULT.md | b5e66948d76a7008bae0919bc09f63f5be4342206903ea97f2c7104f2413477f |
+| native_body_controls.py | 09eaf2bb1a6c11a44b947715e713a469db5de1bfa772d05d60239577b36ee190 |
+| test_native_body_controls.py | 8b697a6c68ced1080dc4344ec4eea5d0fd03c3e7f346441e49f5e34b6ffdf429 |
+| native_ack_controls.py (previously published base runner) | 186f3a1653289897f60c8a9b3aae62e36ff89af5ace40426c98c047c96e6f317 |
+
+Recalculated pinned library hash/ARM ISA; independently inspected actual bounded
+Thumb data-flow/branch sites for auth timestamp, ACK nested component, separate
+auth receiver and state handler. Reran all 40 CF18-02 lane methods, no skips.
+Accepted received timestamp -> next auth field, optional-body storage and examined
+immediate caller, and separate auth-response copy/state branches. Exact trace,
+addresses, evidence classes, stubs and limitations: [ACK_SESSION](../knowledge-system/vault/research/ACK_SESSION.md).
+No server timestamp/echo policy, valid ACK/auth response, cipher negotiation,
+phone-path identity, login or authentic later client packet is inferred.
+
+Canonical original experiments/native_control.py extracts only the existing
+hash-pinned runner class (unused snapshot/probe entrypoints omitted).
+experiments/native_session_controls.py adapts the local continuation import.
+tests/test_native_session_controls.py adapts 15 local methods and adds two native
+controls for fresh context and state receive failure, plus a dependency-free
+fingerprint guard. Optional imports remain lazy; no network, download, listener,
+serializer or CLI action. Fresh mappings, source pin, ISA and execution budgets
+are retained. Parser-zero controls explicitly label their stub; timestamp probes
+stop before account/token/hash construction.
+
+Actual canonical private-selected run: 101 PASS, zero skips. Default run: 101
+methods, 82 PASS, 19 SKIP (17 native methods and two private APK controls).
+Knowledge doctor PASS. Source selection/dependency commands and limits are in
+ACK_SESSION. Updated receiver/current knowledge, E-19, questions, ADR-0002, navigation
+and Graphify; incoming/root app files unchanged. The queue handoff records the
+exact substantive integration commit after it exists, with one bounded task per
+lane. Next native task is downstream copied-account/Bingo/session validation;
+phone/OBB/relay prerequisites remain. G2 BLOCKED and A/B/C readiness false.

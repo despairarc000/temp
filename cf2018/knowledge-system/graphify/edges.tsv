@@ -27,3 +27,9 @@ knowledge-system/vault/research/ACK_RECEIVER.md	evidence	coordination/incoming/C
 knowledge-system/vault/research/ACK_RECEIVER.md	describes	experiments/rx_envelope.py	OFFLINE_STRICT_SUBSET
 knowledge-system/vault/research/ACK_RECEIVER.md	tests	tests/test_rx_envelope.py	LOCAL_SYNTHETIC
 knowledge-system/vault/research/ACK_RECEIVER.md	depends-on	knowledge-system/vault/research/RELAY.md	DEVICE_GATE_BLOCKED
+
+knowledge-system/vault/research/ACK_RECEIVER.md	depends-on	knowledge-system/vault/research/ACK_SESSION.md	HASH_SCOPED_NATIVE
+knowledge-system/vault/research/ACK_SESSION.md	depends-on	sources/SOURCE_PROVENANCE.md	HASH_SCOPED_NATIVE
+knowledge-system/vault/research/ACK_SESSION.md	describes	experiments/native_control.py	NATIVE_EMULATION_WITH_STUBS
+knowledge-system/vault/research/ACK_SESSION.md	describes	experiments/native_session_controls.py	NATIVE_EMULATION_WITH_STUBS
+knowledge-system/vault/research/ACK_SESSION.md	tests	tests/test_native_session_controls.py	PRIVATE_SOURCE_REQUIRED

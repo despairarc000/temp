@@ -63,3 +63,21 @@ and no phone/network experiment or bot work runs. G2 remains BLOCKED.
 adaptations. Substantive integration: `88c439b7938642076f721c0ec9319fd45d008420`.
 The queue handoff records this exact SHA, gives framing/ACK-body research one
 ready task each, and leaves relay/phone-identity tasks waiting on real evidence.
+
+## 2026-10-30 — CF18-00 body/session integration
+
+Reviewed main 37b808d095641c90e80a707209f656e9bf29c53f and all four lanes. No active
+worker; preserved unfinished CF18-01 boundary draft and unpublished CF18-02 inputs.
+The latter's actual hashes, not an invented source commit, identify this review.
+[Acceptance](../../coordination/ACK_BODY_INTEGRATION_ACCEPTANCE.md) preceded edits.
+Rechecked actual pinned Apollo hash/ISA and bounded native branch sites; 40 lane
+methods reproduced. Integrated original canonical opt-in native controls and
+18 tests, plus [timestamp/body/session trace](research/ACK_SESSION.md). Three
+coordinator controls cover source pin, fresh state and error-before-copy/Bingo.
+101 canonical tests PASS with private sources/dependencies selected; default
+82 PASS, 19 private-source SKIP; knowledge doctor PASS. Only canonical CF2018
+files changed; incoming edits, originals and root app untouched. No phone/network
+experiment, valid ACK/auth reply, token construction or gameplay claimed.
+G2 BLOCKED, A/B/C false. Next: downstream account/Bingo/session predicates; exact
+phone/OBB/historical bridge evidence still missing. Queue handoff will identify
+the substantive integration commit once created.

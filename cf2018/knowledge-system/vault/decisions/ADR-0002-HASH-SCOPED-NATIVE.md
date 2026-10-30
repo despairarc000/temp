@@ -23,3 +23,11 @@ Synthetic parser tests, stubbed native controls and internal signature checks
 retain their separate evidence classes. No device run is ready until runtime,
 session/candidate and relay prerequisites exist. Original game files remain
 unmodified; no live network experiments or bot implementation are introduced.
+
+## Body/session integration refinement
+
+The [continuation](../research/ACK_SESSION.md) keeps received timestamp data flow
+separate from a server timestamp policy. Optional embedded-body syntax does not
+establish a fast-auth path; a parser-stubbed account copy/state 4 never counts as
+login. Canonical native controls stay opt-in by explicit private-source path,
+with hash/ISA/budget guards and all send boundaries suppressed.
