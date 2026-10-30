@@ -22,5 +22,6 @@ G0 source identity remains incomplete: the [source inventory](coordination/incom
 did not verify the exact 2018 package/library. G2 is still blocked. The coordinator
 integrated only model-limit/source metadata findings and an original locally
 validated [passive relay core](knowledge-system/vault/research/RELAY.md).
-A bounded SOCKS5 adapter proposal can proceed independently as transport work;
-no native ACK rules or device-ready experiment may be guessed from it.
+The bounded SOCKS5 negotiation/handoff proposal is now integrated with local
+tests. Further deployment wiring waits for the historical bridge/passthrough
+interface; native ACK rules and device readiness remain unverified.

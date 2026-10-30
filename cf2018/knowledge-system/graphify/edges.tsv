@@ -12,3 +12,7 @@ knowledge-system/vault/EVIDENCE.md	evidence	coordination/incoming/CF18-01/RESULT
 knowledge-system/vault/EVIDENCE.md	evidence	coordination/incoming/CF18-04/RESULT.md	CONNECTED_DRIVE_METADATA
 sources/DRIVE_MANIFEST.md	evidence	coordination/incoming/CF18-04/RESULT.md	CONNECTED_DRIVE_METADATA
 knowledge-system/vault/CHECKPOINT.md	depends-on	coordination/assignments.json	COORDINATION
+
+knowledge-system/vault/research/RELAY.md	tests	tests/test_socks5_handoff.py	LOCAL_TEST_ONLY
+knowledge-system/vault/research/RELAY.md	describes	experiments/socks5_handoff.py	LOCAL_TEST_ONLY
+knowledge-system/vault/EVIDENCE.md	evidence	coordination/incoming/CF18-03/RESULT.md	LOCAL_TEST_ONLY

@@ -32,3 +32,19 @@ TGCP variants: client SYN 0x1001, ACK 0x1002. Route name `QueryAddrSvr`. Related
 
 ## Provenance & limits
 Source locations to re-open with authorized Drive access: [Drive manifest](../../sources/DRIVE_MANIFEST.md). Do not treat static symbol names, a parser's own unit tests, or locally synthesized replies as official-server capture. Treat v0.8 inference as testable, not accepted.
+
+## E-14 — bounded SOCKS5 handoff, 2026-10-30
+
+Class: ORIGINAL_CODE + LOCAL_TEST_ONLY. Source:
+[CF18-03 result](../../coordination/incoming/CF18-03/RESULT.md), submitted in
+`9f77b2cbf9f0249b566c75e8a4e42666cb44c292`; canonical
+[implementation](../../experiments/socks5_handoff.py) and
+[tests](../../tests/test_socks5_handoff.py).
+
+Twenty-three canonical handoff tests passed, including a real localhost
+fragmentation/pipelining handoff and a synthetic canonical-core attachment.
+The full canonical suite passed 52 tests. This establishes the bounded stage's
+parsing, scope, ownership, limits and metadata behavior only. No actual upstream
+connection, deployed passthrough interface, device compatibility, historical EOF
+cause, TGCP ACK acceptance or original native validation was demonstrated.
+Q-02 remains UNKNOWN and G2 BLOCKED.

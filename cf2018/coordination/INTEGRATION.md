@@ -37,3 +37,24 @@ proposal ready for CF18-03.
 Native lanes and source retrieval remain explicitly blocked until new evidence
 or a verified private locator is supplied. Do not manufacture ready work or repeat
 unchanged source searches/status reports.
+
+## CF18-G1-SOCKS5-01 review — 2026-10-30
+
+Reviewed source packet commit `9f77b2cbf9f0249b566c75e8a4e42666cb44c292` at that
+exact live base. CF18-01/02 native prerequisites and CF18-04 source receipt were
+unchanged. No new source search was justified. Local snapshot matched all 38
+tracked CF2018 blobs; it is not a git checkout.
+
+Accepted only the bounded original NO-AUTH/CONNECT negotiation and route-handoff
+stage into experiments/socks5_handoff.py and tests/test_socks5_handoff.py. Adapted
+imports; added two coordinator checks for reset-message privacy and declared
+variable-length truncation. Canonical suite: 52 PASS; CF18-01 audit: eight PASS;
+knowledge doctor PASS; direct invocation remained disabled. Incoming lane files
+were not changed and no listener/connector was installed.
+
+This does not integrate a complete deployed SOCKS5 bridge: the handoff has sent
+METHOD=00 but leaves target connection, correctly bound CONNECT reply and normal
+passthrough dispatch to the caller. The real historical hook is unavailable, so
+CF18-03's next deployment-wiring task is blocked on that source/interface. Q-02
+and G2 are unchanged. Record the exact canonical integration commit in
+assignments after publishing; do not reassign the completed proposal as READY.

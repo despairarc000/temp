@@ -26,3 +26,13 @@ local draft hashes and scope. Assignments are maintained by the coordinator only
 
 Canonical code/evidence integration: `15be6fc1401a164f00c2d3c9623ba29d6ac7ac53`.
 [Assignments](../../coordination/assignments.json) record exact source/integration commits, one scoped task per lane and honest prerequisite states. CF18-03 has one READY bounded SOCKS5-adapter proposal; native/source tasks await their missing prerequisites.
+
+## 2026-10-30 — bounded SOCKS5 packet integration
+
+Reviewed packet 9f77b2cbf9f0249b566c75e8a4e42666cb44c292; integrated its original
+negotiation/handoff stage into canonical experiments/tests. Kept the disabled
+entrypoint, strict exact-IP-and-port route selection and normal-dispatch handoff.
+Added reset-message privacy and declared-domain truncation controls: 52 canonical
+tests plus eight framing-audit tests PASS; knowledge doctor PASS. No actual target
+connection, installed proxy, historical bridge hook or device/native evidence.
+CF18-03 deployment wiring awaits bridge source; Q-02 and G2 unchanged.

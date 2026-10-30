@@ -32,3 +32,11 @@ original disabled-by-default loopback core and actual local tests. It is not the
 historical SOCKS5 bridge or a TGCP server. A bounded SOCKS5 adapter and historical
 source/capture recovery remain required before any device integration. Existing
 unrelated passthrough routing must stay intact.
+
+## SOCKS5 negotiation boundary — 2026-10-30
+
+The [canonical handoff stage](experiments/socks5_handoff.py) now handles a bounded
+NO-AUTH/CONNECT subset and preserves buffered data; [research](knowledge-system/vault/research/RELAY.md)
+records 23 adapter tests. It is not a complete proxy. Historical normal CONNECT
+passthrough must be recovered and verified before wiring the post-method hook,
+actual loopback connector and bound reply. No live experiment is ready.

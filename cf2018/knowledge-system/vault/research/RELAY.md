@@ -44,10 +44,10 @@ stop and caller cancellation. Other cases inject read/write/drain failures,
 unsupported half-close, backpressure, combined byte caps and invalid scope/budgets.
 All payloads are independent synthetic fixtures; no phone/device test occurred.
 
-The SOCKS5 adapter is still missing. Before a device-ready proposal, verify
-bounded RFC 1928 negotiation/CONNECT handling, preserve any bytes already read
-past negotiation, map only known game IP AND port, retain unrelated passthrough
-behavior in the existing bridge, and enforce a single 4-16-connection run budget.
+A bounded SOCKS5 negotiation/handoff stage is now available (see below).
+A deployed adapter is still missing: actual target connection, correctly bound
+CONNECT reply and the historical bridge's normal passthrough hook must be wired
+and verified with a single 4-16-connection run budget before a device proposal.
 The core alone cannot establish PCAPdroid/Termux compatibility or historical EOF
 provenance. It has only been executed here with Python 3.12 on Linux; Android and
 Termux execution remain unverified. Recover the historical source and directional
@@ -56,3 +56,37 @@ reports before attributing the old ~8 ms EOF.
 No on-phone A/B/C packet is ready: exact native framing/session rules, the
 historical candidate and relay provenance are prerequisites. See [questions](../OPEN_QUESTIONS.md),
 [technical plan](../../../TECHNICAL_PLAN.md) and [integration record](../../../coordination/INTEGRATION.md).
+
+## Integrated SOCKS5 handoff stage — 2026-10-30
+
+Coordinator reviewed [CF18-03 packet](../../../coordination/incoming/CF18-03/RESULT.md)
+from commit `9f77b2cbf9f0249b566c75e8a4e42666cb44c292` and integrated original
+[NO-AUTH/CONNECT negotiation code](../../../experiments/socks5_handoff.py) plus
+[23 canonical adapter tests](../../../tests/test_socks5_handoff.py). RFC 1928
+sections 3-6 were the packet's protocol source; this subset does not implement
+GSSAPI, authenticated subnegotiation, BIND or UDP and is not full RFC conformance.
+
+NegotiationRun is disabled by default, opens no listener/connector and accepts
+only already-connected loopback TCP. Four to sixteen attempts include malformed
+handshakes; one absolute deadline bounds reads and METHOD-reply drain. Reports
+contain IDs/status only. IPv4, IPv6 and opaque domain requests are parsed without
+DNS; only exact known numeric IPv4 IP AND port pairs select a loopback target.
+All others return a normal-dispatch handoff without CONNECT rejection or close.
+Exact reads leave pipelined bytes in the original reader.
+
+A valid handoff sent METHOD=00 but **has not sent CONNECT success**. A dispatcher
+must connect first, issue the correct bound SOCKS reply and attach the passive
+core without replaying the greeting or losing buffered bytes. Disabled None
+retains caller ownership; rejection None has closed owned streams. Check enabled
+state before dispatch so disabled behavior never drops existing bridge traffic.
+Normal passthrough must run at the recovered post-method/parsed-CONNECT interface;
+that historical interface is not verified. The module alone is not a functioning
+SOCKS proxy, a replacement for the old probe or a ready phone experiment.
+
+Actual coordinator checks: canonical suite 52 PASS, including 23 handoff and 19
+relay tests; eight framing-audit tests also PASS. Adapter controls include one
+real localhost fragmentation/pipelining handoff and a synthetic core-attachment
+case; no real upstream target connection or complete proxy/device flow was tested.
+Two coordinator controls add transport-reset message privacy and declared-domain
+truncation. Direct module invocation printed the disabled message. G2 and Q-02
+remain unchanged. No new native/library/historical source receipt was obtained.
