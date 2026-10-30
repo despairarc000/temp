@@ -6,6 +6,7 @@ import hashlib
 from pathlib import Path
 
 PINS = {
+    'unity': (11178032, 'fb4577bb258cf8898b904865787c3f2ebae411fae61b6eb08ede21a32a2174c2'),
     'mono': (3889708, '025e971133d24a38ddb2493cf2adee8208555bb5967247fa889a6ad7b91dac91'),
     'tprt': (153676, 'f608b142822b888f4e5b44bbb0167e8d5c02e1680ea89bab8171aeaab59b4f0a'),
 }
@@ -201,3 +202,33 @@ def mono_handoff(mono, tprt):
             'arguments_preserved': tuple(u.reg_read(r) for r in regs) == args,
             'relocations': ['mono GOT g_tprt_pfn_array', 'tprt function slot26'],
             'evidence': 'EXPLICIT_TWO_RELOCATION_HANDOFF_NOT_ANDROID_INIT'}
+
+
+def unity_loader_result(unity, *, image_present, status):
+    """Real caller checks after image-open, with explicitly injected result."""
+    if type(image_present) is not bool or type(status) is not int or status not in (0, 3):
+        raise ValueError('bounded caller result required')
+    guarded_bytes(unity, 'unity')
+    from elftools.elf.elffile import ELFFile
+    from unicorn import Uc, UC_ARCH_ARM, UC_MODE_ARM, UC_HOOK_CODE
+    from unicorn.arm_const import UC_ARM_REG_R0, UC_ARM_REG_SP
+    u=Uc(UC_ARCH_ARM,UC_MODE_ARM)
+    u.mem_map(0,0xc00000);u.mem_map(STACK,0x10000)
+    with open(unity,'rb') as f:
+        e=ELFFile(f)
+        if e.elfclass != 32 or not e.little_endian or e['e_machine'] != 'EM_ARM':
+            raise ValueError('unexpected source ISA')
+        for s in e.iter_segments():
+            if s['p_type']=='PT_LOAD':u.mem_write(s['p_vaddr'],s.data())
+    u.reg_write(UC_ARM_REG_R0,CTX if image_present else 0)
+    u.reg_write(UC_ARM_REG_SP,STACK+0xf000)
+    u.mem_write(STACK+0xf000+0x114,status.to_bytes(4,'little'))
+    sites=[]
+    def hook(u,a,size,unused):
+        if a in (0x20f898,0x20fb28):
+            sites.append(a);u.emu_stop()
+    u.hook_add(UC_HOOK_CODE,hook)
+    u.emu_start(0x20f880,0x20fc00,timeout=1000000,count=32)
+    if not sites:raise RuntimeError('caller boundary not reached')
+    return {'stop_site':sites[0],'path':'image_present_status_zero' if sites[0]==0x20fb28 else 'image_load_diagnostic',
+            'evidence':'INJECTED_MONO_RESULT_NATIVE_CALLER_NOT_ACTUAL_DLL_LOAD'}

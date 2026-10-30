@@ -145,3 +145,46 @@ python experiments/integrity_native_matrix.py
 
 Unit/native controls are offline evidence, not a repaired launch. Session findings
 and original files are preserved. No scheduled worker was resumed.
+
+## CF18-INTEGRITY-02 — original Unity caller and initialization boundary
+
+Continued from main6144a7cc271ac6b66e3e56b0f4247eb194c5576b; originals and
+session lanes unchanged. [Acceptance](../../../coordination/CF18-INTEGRITY-02-ACCEPTANCE.md).
+Pinned original Unity11178032 bytes SHA256
+fb4577bb258cf8898b904865787c3f2ebae411fae61b6eb08ede21a32a2174c2,
+ELF32LE ARM. Actual ELF JUMP_SLOT relocation0xaa924c for
+mono_image_open_from_data_with_name resolves PLT0x55f60. Static direct-call scan
+locates ARM call0x20f87c. This is the caller in the original file, not a phone trace.
+
+Caller prepares data pointer/length at0x20f858–64, sets need_copy=1 at0x20f878,
+status output pointer at0x20f870, refonly0 at stack[0] and name pointer at
+stack[4]. Earlier buffer preparation calls0x3e99d8; its file-read helper0x3e98f8
+can use a virtual reader or fread. Actual stored APK bytes cannot yet be equated
+to the bytes entering Mono: provider initialization and file-reader effects are
+not reproduced. Therefore the earlier explanation “unwrap/edit/rewrap” remains
+an investigation strategy, not an established sufficient recipe for this build.
+
+Actual native caller controls start immediately after the Mono call0x20f880,
+with independent supplied image/status. Image nonnull AND status0 reaches
+0x20fb28; null image/status0 and nonnull image/status3 take diagnostic branch
+0x20f898. Controls stop there, before diagnostic logging or further processing.
+No direct exit is executed or inferred from these branches. A malformed image
+load and an explicit protection exit must remain separate candidate causes.
+Four new tests pass; the return/status are injected, not a decrypted DLL load.
+
+Original libtprt init_array at0x22458 contains seven nonzero constructor targets
+0x27b8,0x2960,0x2a4c,0x2bac,0x2c0c,0x2c38,0x2ca8. Static review identifies
+string/container setup, dynamic symbol lookup and mutex/runtime setup. JNI_OnLoad
+0x3100 also obtains JNI environment/registers methods. Slot28/0x857c handles
+additional runtime metadata/path work; it is not assumed to be a decoder init.
+These Android initialization steps have not been emulated completely. No key is
+guessed; the previous uninitialized transformation failure is not evidence about
+correct decoding. Unchanged-image decode and byte-identical re-encode remain
+unachieved. Next offline boundary: exact virtual/file reader and provider setup
+before calling the transform; then validate the actual input, not arbitrary modes.
+
+Current canonical checks:180 PASS with explicit private Unity/TPRT/Mono/Apollo/APK;
+source-free180 total107 PASS/73 SKIP; doctorPASS. The additional Unity tests use
+32 instructions/one second, fresh original PT_LOAD mappings, injected return and
+status, and stop before side effects. No transformation or initialization success
+is stubbed as completed. No original modifications, deployment or phone run.

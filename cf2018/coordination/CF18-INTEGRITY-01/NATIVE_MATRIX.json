@@ -2,6 +2,10 @@
   "schema": 1,
   "base_main": "6a0ecc16877adbdc4eed03cefebb5b4144f7bd6f",
   "library_pins": {
+    "unity": [
+      11178032,
+      "fb4577bb258cf8898b904865787c3f2ebae411fae61b6eb08ede21a32a2174c2"
+    ],
     "mono": [
       3889708,
       "025e971133d24a38ddb2493cf2adee8208555bb5967247fa889a6ad7b91dac91"

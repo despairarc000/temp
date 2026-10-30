@@ -137,3 +137,7 @@ not present, so no causal phone failure or safe patch claimed. Added read-only
 header/diff preflight and bounded native controls;176 canonical PASS/private,
 106 PASS/70 SKIP sourcefree, doctorPASS. [Trace](research/INTEGRITY_NATIVE.md).
 All originals untouched; scheduled workers and session track stayed paused.
+
+## Integrity-02 continuation
+
+Pinned Unity caller/import and seven provider constructors traced statically. Four actual caller-result controls PASS, injected results explicitly distinct from a DLL load. No unchanged round trip yet.180 canonical PASS private;107 PASS/73 SKIP default; doctorPASS. Originals untouched/schedules paused.

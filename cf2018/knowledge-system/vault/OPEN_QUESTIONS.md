@@ -38,3 +38,5 @@ precise diff and matched startup/termination logs are absent. Next offline work:
 provider context initialization, name-dependent transform selection and exact
 round-trip feasibility, before any changed assembly or bypass. Headers alone do
 not establish valid IL/Mono loadability. Safe modified build NOT_ESTABLISHED.
+
+Q-09 refinement: original Unity reads through virtual/file paths before Mono. Reproduce that exact buffer and provider initialization; do not assume ciphertext from APK is directly passed unchanged, or that a plain PE replacement is safe. Actual caller diagnostic branch is now controlled separately from protection termination.

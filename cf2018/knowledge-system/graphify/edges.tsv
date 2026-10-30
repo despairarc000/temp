@@ -60,3 +60,4 @@ knowledge-system/vault/research/INTEGRITY_NATIVE.md	depends-on	sources/SOURCE_PR
 knowledge-system/vault/research/INTEGRITY_NATIVE.md	tests	tests/test_native_integrity_controls.py	NATIVE_WITH_EXPLICIT_CONTEXT_SUBSTITUTES
 knowledge-system/vault/research/INTEGRITY_NATIVE.md	tests	tests/test_managed_image_preflight.py	SYNTHETIC_HEADERS_NOT_LOADABILITY
 knowledge-system/vault/research/INTEGRITY_NATIVE.md	evidence	coordination/CF18-INTEGRITY-01/NATIVE_MATRIX.json	REPRODUCED_NATIVE_AND_SOURCE_MATRIX
+knowledge-system/vault/research/INTEGRITY_NATIVE.md	tests	tests/test_unity_loader_result.py	INJECTED_RESULT_NATIVE_CALLER_NOT_DLL_LOAD

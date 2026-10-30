@@ -221,3 +221,7 @@ lookup is explicitly supplied, runtime flag/context injected, syscall never run.
 This does not prove historical phone cause, key/init/format round trip or safe
 managed modification.176 canonical PASS private-selected;106 PASS/70 SKIP default;
 source verifier in suite PASS with prior trust-chain limitation. No original edit.
+
+## E-28 — Unity caller versus provider initialization
+
+Original native static + bounded emulation with injected results. [Integrity continuation](research/INTEGRITY_NATIVE.md): Unity JUMP_SLOT0xaa924c/PLT0x55f60 called at0x20f87c. Actual return-check controls distinguish nonnull/status0 from null or nonzero-status diagnostics. Four tests PASS; caller input/Android initialization not reproduced; no decode/round trip/phone exit cause claimed.

@@ -162,12 +162,12 @@
   ],
   "validation": {
     "canonical_private_selected": {
-      "passed": 176,
+      "passed": 180,
       "skipped": 0
     },
     "canonical_source_free": {
-      "passed": 106,
-      "skipped": 70
+      "passed": 107,
+      "skipped": 73
     },
     "auth_incoming": {
       "passed": 25,
@@ -239,6 +239,7 @@
     "base_main": "6a0ecc16877adbdc4eed03cefebb5b4144f7bd6f",
     "schedules": "REMAIN_PAUSED",
     "next": "Provider initialization/format round trip and actual historical edited bytes/diff; no blind patch",
-    "safe_modified_build": "NOT_ESTABLISHED"
+    "safe_modified_build": "NOT_ESTABLISHED",
+    "continuation": "CF18-INTEGRITY-02 original Unity caller traced; reader/provider initialization and unchanged round trip unresolved"
   }
 }
