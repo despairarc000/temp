@@ -1,3 +1,5 @@
+> Native 99/bounds continuation: [CF18-G2-RX-02](BOUNDARY_RESULT.md).
+
 # CF18-01 — prefix-model limitations audited
 
 Date: 2026-10-30 UTC. State: SUBMITTED for coordinator review; native trace
