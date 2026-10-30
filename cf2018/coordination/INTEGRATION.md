@@ -100,5 +100,8 @@ Actual checks: knowledge doctor PASS; 83 canonical tests PASS with private APK
 selected; source-free suite 83 total with two private-source skips. Lane suites
 32/25/14 PASS without skips. These are local/synthetic/private-source and bounded
 native emulation with explicit stubs. G2 BLOCKED; no A/B/C candidates or device
-plan is ready. The exact substantive integration commit will be recorded in the
-next compact assignments handoff after it exists, without inventing its own SHA.
+plan is ready. Substantive integration commit is
+`88c439b7938642076f721c0ec9319fd45d008420`; the compact [assignments](assignments.json)
+handoff records that exact SHA and one bounded task per lane. CF18-01/02 are
+ready only with actual pinned-source access; CF18-03/04 retain missing-evidence
+prerequisites. No self-referential commit hash is invented.

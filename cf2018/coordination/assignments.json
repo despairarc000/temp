@@ -4,9 +4,11 @@
   "repository": "despairarc000/temp",
   "branch": "main",
   "coordinator": "CF18-00",
+  "reviewed_main": "c52243228e8d2d38dd6b4c1d85f464d9f94461f8",
+  "canonical_integration_commit": "88c439b7938642076f721c0ec9319fd45d008420",
   "priority": {
-    "earliest_unmet": "G0_SOURCE_PROVENANCE",
-    "engineering_gate": "G2_TGCP_ACK",
+    "earliest_unmet": "G0_PHONE_BUILD_AND_OBB_IDENTITY",
+    "next_native_gate": "G2_ACK_BODY_SESSION",
     "G2_status": "BLOCKED",
     "native_AB_C_ready": false
   },
@@ -14,46 +16,58 @@
     "one_task_per_lane": true,
     "worker_writes": "cf2018/coordination/incoming/<lane>/ only",
     "canonical_writes": "CF18-00 only",
-    "claims": "Do not overwrite another run's active claim; verify the previous run stopped before resuming an unreleased claim.",
-    "blocked_runs": "With unchanged prerequisites and no useful independent task, stop quietly without filler commits or repeated source searches."
+    "claims": "Verify a prior run stopped before resuming its unreleased claim.",
+    "blocked_runs": "Stop unchanged blocked runs quietly; no repeated source scans or status commits."
+  },
+  "verified_source": {
+    "receipt": "sources/MIRROR_RECEIPT.json",
+    "library_sha256": "4812396e98bfba9664164c14c8973eed111c5b9d177c1b575e86bc8e9f9169d8",
+    "availability": "Verified private files on current runner only. Each activation must recheck actual access/hash/dependencies; schedules imply no shared disk."
   },
   "integrated": [
     {
       "id": "CF18-MODEL-LIMITS",
       "status": "INTEGRATED",
-      "integration_commit": "15be6fc1401a164f00c2d3c9623ba29d6ac7ac53",
       "source_commit": "0a5cf7496471f25809bb62242c3365670ce006db",
-      "evidence": "SOURCE_AUDIT + LOCAL_TEST_ONLY; eight audit tests; no native comparison proof"
+      "integration_commit": "15be6fc1401a164f00c2d3c9623ba29d6ac7ac53"
     },
     {
       "id": "CF18-SOURCE-LIMITS",
       "status": "INTEGRATED",
-      "integration_commit": "15be6fc1401a164f00c2d3c9623ba29d6ac7ac53",
       "source_commit": "ec0d55fd338df6cc6f7d1e7aad59c7885fa88f06",
-      "evidence": "CONNECTED_DRIVE_METADATA; search coverage control failed; no verified target binary"
+      "integration_commit": "15be6fc1401a164f00c2d3c9623ba29d6ac7ac53"
     },
     {
       "id": "CF18-PASSIVE-CORE",
       "status": "INTEGRATED",
-      "integration_commit": "15be6fc1401a164f00c2d3c9623ba29d6ac7ac53",
-      "canonical_paths": [
-        "experiments/passive_relay.py",
-        "tests/test_passive_relay.py"
-      ],
-      "evidence": "ORIGINAL_CODE + LOCAL_TEST_ONLY; 19 relay tests; 29 canonical tests; no SOCKS5/device/historical EOF validation",
-      "input": "Preserved local CF18-03 original draft; no remote packet commit. Exact input hashes in INTEGRATION.md."
+      "integration_commit": "15be6fc1401a164f00c2d3c9623ba29d6ac7ac53"
     },
     {
       "id": "CF18-SOCKS5-HANDOFF",
-      "task": "CF18-G1-SOCKS5-01",
       "status": "INTEGRATED_BOUNDED_STAGE",
-      "integration_commit": "f70a874ed903b030fd51a94a36dff0ca43dcfff4",
       "source_commit": "9f77b2cbf9f0249b566c75e8a4e42666cb44c292",
-      "canonical_paths": [
-        "experiments/socks5_handoff.py",
-        "tests/test_socks5_handoff.py"
-      ],
-      "evidence": "ORIGINAL_CODE + LOCAL_TEST_ONLY; 23 canonical handoff tests; no full proxy, target connector, historical passthrough hook or device result."
+      "integration_commit": "f70a874ed903b030fd51a94a36dff0ca43dcfff4"
+    },
+    {
+      "id": "CF18-MIRROR-SOURCE",
+      "status": "INTEGRATED_HASH_SCOPED",
+      "source_commit": "c52243228e8d2d38dd6b4c1d85f464d9f94461f8",
+      "integration_commit": "88c439b7938642076f721c0ec9319fd45d008420",
+      "limits": "Internal signature/hash identity; phone/OBB equality unverified."
+    },
+    {
+      "id": "CF18-NATIVE-RX",
+      "status": "INTEGRATED_HASH_SCOPED",
+      "source_commit": "fefd0dc224851fefc2b74a51fc95e0fa0090e9a2",
+      "integration_commit": "88c439b7938642076f721c0ec9319fd45d008420",
+      "limits": "GCloud mirror decoded marker; offline strict subset, opaque extension; no phone acceptance."
+    },
+    {
+      "id": "CF18-ACK-PREDICATES",
+      "status": "INTEGRATED_PARTIAL_TRACE",
+      "source_commit": "56db53d81326810d5bea342b11ea4e07dc351e01",
+      "integration_commit": "88c439b7938642076f721c0ec9319fd45d008420",
+      "limits": "Type/key/body/state predicates; session/body consumers and actual negotiation incomplete."
     }
   ],
   "lanes": [
@@ -61,68 +75,74 @@
       "lane": "CF18-00",
       "task": "CF18-REVIEW-INCOMING",
       "status": "WAITING_FOR_PACKET",
-      "scope": "Review new lane packets against current main and integrate supported code/evidence; maintain shared knowledge and this queue.",
+      "scope": "Review new supported packets and integrate canonical code/evidence/queue.",
       "prerequisites": [
-        "A meaningful new submitted packet or source evidence"
+        "Meaningful new packet, source evidence or review defect."
       ],
-      "next_action": "Review the next eligible packet. Do not repeat unchanged integration/status commits."
+      "next_action": "Review earliest unmet acceptance gate; no repeated integration of completed packets."
     },
     {
       "lane": "CF18-01",
-      "task": "CF18-G2-RX-01",
-      "status": "BLOCKED_SOURCE",
-      "scope": "Exact original incoming splitter: RX caller, magic load/compare and byte order, length/cursor bounds, fragmentation/coalescence and error branches.",
+      "task": "CF18-G2-RX-02",
+      "status": "READY",
+      "scope": "Finish native 99/non-varint receive envelope, declared-end/size arithmetic and lookahead/error timing; compare canonical strict subset policies without duplicating ACK semantics.",
       "prerequisites": [
-        "Verified 2018 libapollo.so private source link, actual hash and ISA from CF18-04"
+        "verified_source available and fingerprinted in this activation",
+        "Native dependencies and current canonical receiver trace reviewed."
       ],
-      "ready_when": "The source receipt is independently verified; then submit a bounded native trace and original strict-parser proposal justified only by observed rules.",
-      "do_not": "Repeat the prefix-model audit or infer native semantics from passing Python tests."
+      "acceptance": "Bounded hash-scoped trace and independent negative controls; no raw prefix guess or phone parity claim.",
+      "previous_integration_commit": "88c439b7938642076f721c0ec9319fd45d008420"
     },
     {
       "lane": "CF18-02",
       "task": "CF18-G2-ACK-01",
-      "status": "BLOCKED_SOURCE",
-      "scope": "Exact original ACK/session/decryption validation: type dispatch, TLV bounds, field correlation, negotiated key modes and state transitions.",
+      "status": "READY",
+      "scope": "Continue unfinished optional ACK-body/embedded-auth response and later session consumers; establish negotiation/correlation predicates and next-auth state use.",
       "prerequisites": [
-        "Verified 2018 libapollo.so private source link, actual hash and ISA from CF18-04"
+        "verified_source available and fingerprinted in this activation",
+        "Reviewed ACK_RECEIVER trace and submitted CF18-02 controls."
       ],
-      "ready_when": "The source receipt is independently verified; then trace receiver branch predicates and propose only supported validators/tests.",
-      "do_not": "Guess echoed/generated fields, construct an assumed valid ACK, or duplicate CF18-01 framing work."
+      "acceptance": "Trace actual body/session uses with negative controls; keep missing generation/echo rules explicit; never construct an assumed valid ACK.",
+      "previous_integration_commit": "88c439b7938642076f721c0ec9319fd45d008420"
     },
     {
       "lane": "CF18-03",
       "task": "CF18-G1-BRIDGE-HOOK-01",
       "status": "BLOCKED_SOURCE",
-      "scope": "Verify the historical bridge's post-method CONNECT/normal-passthrough interface before proposing actual target-connection, bound SOCKS reply and canonical-core attachment.",
+      "scope": "Verify historical/deployed post-method CONNECT and normal-passthrough interface before connector/bound-reply/core wiring.",
       "prerequisites": [
-        "Recovered original v0.1-v0.8 bridge source or an independently verified deployed bridge interface and controls",
-        {
-          "artifact": "CF18-SOCKS5-HANDOFF",
-          "status": "INTEGRATED_BOUNDED_STAGE",
-          "commit": "f70a874ed903b030fd51a94a36dff0ca43dcfff4"
-        }
+        "Recovered v0.1-v0.8 bridge source or independently verified deployed interface and directional controls."
       ],
-      "ready_when": "A real bridge source/interface is available; trace ownership, buffered data, normal passthrough and run limits, then submit a bounded integration packet with controls.",
-      "do_not": "Re-submit the integrated handoff/core, install a listener, guess the historical hook, alter unrelated routing or claim PCAPdroid/Termux/device compatibility.",
-      "next_action": "Wait quietly for the missing bridge source/interface or specific coordinator review feedback. Q-02 remains UNKNOWN; no new phone experiment is ready."
+      "next_action": "Wait for that evidence. Integrated handoff/core and native source do not establish the missing bridge hook or historical EOF cause.",
+      "previous_integration_commit": "f70a874ed903b030fd51a94a36dff0ca43dcfff4"
     },
     {
       "lane": "CF18-04",
-      "task": "CF18-G0-SOURCE-01",
-      "status": "WAITING_FOR_LOCATOR",
-      "scope": "Verify original 2018 package/library identity and retrieve only required native/managed/probe/report sources privately.",
+      "task": "CF18-G0-PHONE-01",
+      "status": "WAITING_FOR_EVIDENCE",
+      "scope": "Compare actual historical phone APK/Apollo/OBB identity or verify a precise historical-probe/report locator when newly available.",
       "prerequisites": [
-        "A new actual authorized private target locator, source bundle or changed retrieval capability"
+        "New actual phone hash/private original or authorized historical-source locator."
       ],
-      "ready_when": "A new locator or independently retrievable source is supplied; read metadata, verify package identity, calculate actual hashes and ISA, then provide a rights-safe source receipt.",
-      "do_not": "Repeat capped full asset listings or infer absence from failed search; never substitute the 9.99 APK."
+      "next_action": "Stop quietly while unchanged; no repeated asset inventory, mirror re-download or same-source receipt.",
+      "previous_integration_commit": "88c439b7938642076f721c0ec9319fd45d008420"
     }
   ],
-  "reviewed_main": "9f77b2cbf9f0249b566c75e8a4e42666cb44c292",
   "validation": {
-    "canonical_tests": 52,
-    "framing_audit_tests": 8,
+    "canonical_private_selected": {
+      "passed": 83,
+      "skipped": 0
+    },
+    "canonical_source_free": {
+      "passed": 81,
+      "skipped": 2
+    },
+    "lane_passed": {
+      "CF18-01": 32,
+      "CF18-02": 25,
+      "CF18-04": 14
+    },
     "knowledge_doctor": "PASS",
-    "scope": "Local synthetic/localhost only; no native, target-connection or device gate advanced."
+    "scope": "Synthetic/localhost, private integrity checks and bounded stubbed native emulation; no device/G2 advancement."
   }
 }

@@ -60,5 +60,6 @@ phone/OBB equality, runtime selection and historical relay evidence remain gaps.
 No original/lane packet is modified or uploaded, no valid ACK is constructed,
 and no phone/network experiment or bot work runs. G2 remains BLOCKED.
 [Integration record](../../coordination/INTEGRATION.md) describes review and code
-adaptations. A following queue handoff records the substantive integration SHA
-and the bounded ready native tasks, leaving source/relay tasks honestly blocked.
+adaptations. Substantive integration: `88c439b7938642076f721c0ec9319fd45d008420`.
+The queue handoff records this exact SHA, gives framing/ACK-body research one
+ready task each, and leaves relay/phone-identity tasks waiting on real evidence.
