@@ -1,15 +1,19 @@
-# Repository navigation for AI
+# Repository signpost
 
-Read this map before choosing a workspace. Existing main branch; preserve concurrent changes.
+A directory of what exists in this repository and where to find it. This is not a workflow, task priority, or required reading order. The user's request determines what is relevant.
 
-| Path | Purpose | Start |
-|---|---|---|
-| app/ | Original Android WebView wrapper for ChatGPT | README.md |
-| .github/ | Repository workflows, including Android builds | Inspect relevant workflow only |
-| build.gradle, settings.gradle, gradle.properties | Root Android build configuration | Leave alone during CF research |
-| cf2018/ | Original CF2018 research, original new code/tests, historical evidence | cf2018/AGENTS.md |
-| cf2018v2/ | Version 2 of the CF2018 knowledge/workspace organization; same restoration mission and game version | [START](cf2018v2/START.md) |
-| README.md | Original app description and workspace links | [Navigation](NAVIGATION.md) |
+| Location | Contents |
+|---|---|
+| `app/` | Android WebView wrapper project for ChatGPT. |
+| `.github/` | GitHub Actions workflows, including Android builds. |
+| `build.gradle`, `settings.gradle`, `gradle.properties` | Root Android build configuration. |
+| `README.md` | Original Android app overview and workspace links. |
+| `NAVIGATION.md` | Broad repository directory map. |
+| `cf2018/` | CrossFire: Legends 2018 offline-restoration implementation, experiments, historical research and evidence. |
+| `cf2018/knowledge-system/vault/research/` | Detailed technical findings about CrossFire networking, startup and DLL protection. |
+| `cf2018/knowledge-system/vault/research/INTEGRITY_NATIVE.md` | Protected managed-DLL loading and native integrity-check investigation. |
+| `cf2018v2/` | CrossFire 2018 knowledge workspace, with topic index, current status, diary and evidence graph. |
+| `cf2018v2/vault/CURRENT.md` | Current CrossFire research state and outstanding problems. |
+| `cf2018v2/icm/ROUTES.md` | Topic-to-document location index. |
 
-CF2018 work starts in cf2018v2. Existing implementation/evidence stays in cf2018; do not move or duplicate it blindly. Each folder's AGENTS applies within that folder. Updating the old implementation also requires its operating contract.
-Public repository: no original game binaries/assets, raw dumps/captures, account/session contents, keys or credentials. No scheduled workers or live phone experiments automatically. Use only the owner's authorized despairarc000 GitHub connection. Source links do not establish local access.
+The two CrossFire folders concern the same 2018 game: `cf2018/` holds the older code and detailed evidence; `cf2018v2/` organizes current knowledge. The version 2 label refers to workspace organization, not a different game release.
