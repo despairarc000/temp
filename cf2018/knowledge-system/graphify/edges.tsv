@@ -87,3 +87,6 @@ knowledge-system/vault/research/ADDRESS_APPLICATION.md	tests	tests/test_native_a
 knowledge-system/vault/research/ADDRESS_APPLICATION.md	tests	tests/test_address_response_gate.py	STRICT_OFFLINE_REQUIRED_REASON
 knowledge-system/vault/research/ADDRESS_APPLICATION.md	describes	experiments/address_response_gate.py	ORIGINAL_CF05_CODE_CANONICAL_CORRECTION
 coordination/CURRENT_HANDOFF.md	depends-on	knowledge-system/vault/research/ADDRESS_APPLICATION.md	CURRENT_APPLICATION_RESEARCH
+coordination/CURRENT_HANDOFF.md	depends-on	knowledge-system/vault/research/PHONE_V381.md	LATEST_ACTUAL_PHONE_RESULT
+knowledge-system/vault/research/PHONE_V381.md	depends-on	experiments/routed_body_diagnostic.py	SOURCE_AUDITED_CLASSIFICATION
+knowledge-system/vault/research/PHONE_V381.md	depends-on	knowledge-system/vault/research/ADDRESS_APPLICATION.md	NATIVE_DIFFERENTIAL_NOT_IDENTIFIED_RPC

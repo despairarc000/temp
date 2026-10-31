@@ -4,7 +4,7 @@
   "repository": "despairarc000/temp",
   "branch": "main",
   "coordinator": "CF18-00",
-  "reviewed_main": "26cc7c0fcf77dd266d4e22a5c33401dd9df9694d",
+  "reviewed_main": "e9a120fa54a9b4daeb5c2733382680fced507e35",
   "priority": {
     "earliest_unmet": "G0_CURRENT_INSTALLED_AND_OBB_IDENTITY",
     "next_native_gate": "G2_ROUTED_APPLICATION_IDENTIFICATION",
@@ -99,12 +99,11 @@
   "lanes": [
     {
       "lane": "CF18-00",
-      "task": "CF18-V381-RESULT-REVIEW",
-      "status": "READY_OFFLINE_OWNER_PHONE_PENDING",
-      "scope": "Maintain current handoff and continue actual application producer/receiver; review bounded v381 labels when provided; no guessed reply",
+      "task": "CF18-QUERYADDR-PRODUCER-01",
+      "status": "READY_OFFLINE",
+      "scope": "Trace actual QueryAddrSvr queue/body producer upstream of CTGcp::onDataOutEvent and reciprocal dispatch; do not re-request v381",
       "prerequisites": [
-        "Current handoff and exact source/native audit reviewed",
-        "Recheck private inputs on this runner; owner manually supplies new phone result"
+        "Actual v381 report reviewed; exact source hash/ISA/access rechecked"
       ],
       "acceptance": "Do not reset handshake/source findings; local SOCKS5 controls are not new phone progress",
       "integration_record": "coordination/INTEGRATION.md"
@@ -245,10 +244,10 @@
   },
   "execution_policy": "USER_PAUSED_ALL_SCHEDULES; scopes below do not reactivate workers",
   "current_investigation": {
-    "task": "CF18-V381-SEQUENCE-BOUNDARY",
-    "record": "coordination/CURRENT_HANDOFF.md",
-    "status": "PATCH_KIT_LOCAL_SOCKS5_VALIDATED_AWAITING_OWNER_PHONE_RESULT",
-    "next_offline": "Continue actual application producer/reciprocal receiver; review fixed labels when owner supplies TXT",
+    "task": "CF18-QUERYADDR-PRODUCER-01",
+    "record": "knowledge-system/vault/research/PHONE_V381.md",
+    "status": "PHONE_V381_REVIEWED_ROUTE_SEQUENCE_MATCH_OPERATION_UNKNOWN",
+    "next_offline": "Trace CTGcp::onDataOutEvent queue/body producer (direct edge3a5476) and reciprocal handler; no repeat phone diagnostic",
     "phone_result": "ACTUAL_USER_V38_REPORT_REVIEWED_2_OF_4_ROUTED",
     "schedules": "REMAIN_PAUSED",
     "source_zip": "EXACT_USER_ZIP_HASH_VERIFIED",

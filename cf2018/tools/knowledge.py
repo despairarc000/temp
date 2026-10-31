@@ -7,7 +7,7 @@ import argparse, csv, re
 ROOT=Path(__file__).resolve().parents[1]
 BASE=["AGENTS.md","NAVIGATION.md","IDEA_PLAN.md","knowledge-system/vault/CHECKPOINT.md","coordination/CURRENT_HANDOFF.md"]
 ROUTES={
- "v38":(["v38","datahead","serializer","sequence"],["knowledge-system/vault/research/V38_SOURCE_AUDIT.md","knowledge-system/vault/research/V38_BLOCKER.md","knowledge-system/vault/research/SERVER_PATH.md"]),
+ "v38":(["v38","v381","queryaddrsvr","datahead","serializer","sequence"],["knowledge-system/vault/research/PHONE_V381.md","knowledge-system/vault/research/V38_SOURCE_AUDIT.md","knowledge-system/vault/research/V38_BLOCKER.md","knowledge-system/vault/research/SERVER_PATH.md"]),
  "tgcp":(["tgcp","ack","syn","apollo","handshake","framing"],["knowledge-system/vault/research/TGCP.md","knowledge-system/vault/research/ACK_RECEIVER.md","knowledge-system/vault/EVIDENCE.md"]),
  "auth":(["auth","authentication","bingo","session","0x2001","0x2002","2001","2002","callback","connected","connection","routed","address","0x4013","4013"],["knowledge-system/vault/research/SERVER_PATH.md","knowledge-system/vault/research/ADDRESS_APPLICATION.md","knowledge-system/vault/research/CONNECTION_CALLBACKS.md","knowledge-system/vault/research/AUTH_RECEIVER.md","knowledge-system/vault/research/BINGO_SESSION.md","knowledge-system/vault/research/ACK_SESSION.md","coordination/incoming/CF18-05/PHONE_V12_RESULT.md","knowledge-system/vault/EVIDENCE.md"]),
  "bridge":(["pcapdroid","termux","socks5","vpn","tcp","relay","dns"],["TECHNICAL_PLAN.md","knowledge-system/vault/EVIDENCE.md"]),

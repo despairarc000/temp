@@ -10,6 +10,15 @@ artifact, controls and no-repeat rules. Base main0d6dc5edec04e687cc677f2cce5dca2
 this checkpoint consolidates earlier repeated historical sections. Original
 findings remain in [EVIDENCE](EVIDENCE.md), [WORKLOG](WORKLOG.md) and linked traces.
 
+## Latest real phone evidence: v3.8.1, now reviewed
+
+[PHONE_V381](research/PHONE_V381.md):2/4 later4013 frames161/166, body80/85.
+Both report sequence_prefix=MATCH, known_address_route=MATCH (QueryAddrSvr), and
+METHOD_BYTES_POLICY at offsets0/4. This identifies the route and supports the
+sequence boundary; operation/encoding still unknown. No4013 reply tested. Next
+trace CTGcp::onDataOutEvent queue producer (direct send edge0x3a5476); do not repeat
+this diagnostic. Older awaiting-phone-result paragraphs below are superseded.
+
 ## Current verified progression
 
 Real phone: SYN133 -> AA_DIRECT ACK63 -> auth0x2001/117. All three v1.2 response

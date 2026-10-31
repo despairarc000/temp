@@ -1,3 +1,5 @@
+Latest actual phone result: [v3.8.1](knowledge-system/vault/research/PHONE_V381.md). Sequence/QueryAddrSvr route MATCH; method bytes fail lexical policy. Continue actual producer trace; do not repeat the completed phone diagnostic. Older v38-only/awaiting-v381 statements below are superseded.
+
 # CF2018 cold start — current handoff first
 
 Read [CURRENT_HANDOFF](coordination/CURRENT_HANDOFF.md), [AGENTS](AGENTS.md),

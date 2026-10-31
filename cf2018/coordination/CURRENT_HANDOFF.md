@@ -6,6 +6,15 @@ Current target: **2018 v1.0.11.11 com.tencent.tmgp.cfmnac, Mono**. End goal rema
 real offline TDM/Bomb bot matches. **Not playable; no validated login/session.**
 All scheduled workers remain paused. Do not recreate/resume schedules.
 
+## Latest update: owner completed v3.8.1 phone run
+
+[Actual phone review](../knowledge-system/vault/research/PHONE_V381.md) supersedes
+all awaiting-v381-result statements below:2/4 routed frames, both sequence MATCH,
+exact QueryAddrSvr route MATCH, METHOD_BYTES_POLICY at offsets0/4. No4013 reply or
+operation identified. Do not ask for this same test again. Next offline target:
+CTGcp::onDataOutEvent queue/body producer, direct routed-send edge0x3a5476, and
+reciprocal application response dispatch. No automatic new phone experiment.
+
 ## How the owner actually tests
 
 ```text

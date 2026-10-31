@@ -168,3 +168,7 @@ Read actual v38 PCAPdroid/Termux package before preparing portable patch-only ki
 ## 2026-10-31 — continued real native application investigation
 
 User asked for concrete blocker/action. Executed generated QueryAddrInfo args/result instructions with explicit memory/string-runtime substitutions. Native args34+N and full legacy/strict positive controls show observer can recognize those complete forms; real request still unknown. Native result requires reason STRING; missing field reaches0x39ead8. Integrated corrected original CF05 preflight canonically; incoming files unchanged.12 native controls and15 preflight methods PASS;236 canonical private PASS /137 PASS+99 SKIP default; doctorPASS. No new phone response/run or kit change.
+
+## 2026-10-31 — reviewed actual v381 phone upload
+
+[New evidence](research/PHONE_V381.md): sequence and exact QueryAddrSvr route MATCH in both routed samples; lexical method-name policy failure at offsets0/4, not truncation/length. Next native producer candidate CTGcp::onDataOutEvent direct send edge3a5476. Preserved4 outcomes/EOF limits. No repeat phone request; latest result nowv381, no accepted operation/response. Default236 total137 PASS/99 SKIP, doctorPASS.

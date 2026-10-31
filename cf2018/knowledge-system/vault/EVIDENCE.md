@@ -260,3 +260,7 @@ real identity/session or RPC inferred. Seven new methods PASS; canonical187 PASS
 ## E-34 — actual generated address request and required response fields
 
 [Native trace/matrix/controls](research/ADDRESS_APPLICATION.md). Original args writer emits34+N; native full legacy/strict controls both recognized by existing v38 parser.80/85 legacy size model first differs61; actual report64plus does not fit that simple model. Original generated result decoder requires I32 result AND reason STRING; missing result0x39eaae, missing reason0x39ead8 (stopped before exception allocation; no native error code invented). Empty reason accepted structurally. Corrected canonical offline preflight integrated from CF05 original code, incoming unchanged.12 native/bounds/differential +15 preflight PASS;236 private canonical PASS /137 PASS+99 SKIP default; doctorPASS. No actual phone producer, accepted response/session or new device result established.
+
+## E-35 — actual user v3.8.1 phone result
+
+[Report review](research/PHONE_V381.md),5777 bytes SHA2568b4e60eb97f08c81cf6b904c674dd201652deead588c5f30d4e0a4393c298919. Two routed samples both match header packet sequence and exact allowlisted QueryAddrSvr route. Both fail METHOD_BYTES_POLICY at offsets0/4; full operation unidentified. No4013 reply sent. New native-static direct caller candidate0x3a5476 in CTGcp::onDataOutEvent; next trace upstream queue/body producer. No new phone run requested or native rejection inferred. Default236 total137 PASS/99 SKIP, doctorPASS; prior private236 not rerun.
