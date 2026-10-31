@@ -4,7 +4,7 @@
   "repository": "despairarc000/temp",
   "branch": "main",
   "coordinator": "CF18-00",
-  "reviewed_main": "e9a120fa54a9b4daeb5c2733382680fced507e35",
+  "reviewed_main": "b418e8b988b5b7e03c26448263a177dfaadf053f",
   "priority": {
     "earliest_unmet": "G0_CURRENT_INSTALLED_AND_OBB_IDENTITY",
     "next_native_gate": "G2_ROUTED_APPLICATION_IDENTIFICATION",
@@ -101,7 +101,7 @@
       "lane": "CF18-00",
       "task": "CF18-QUERYADDR-PRODUCER-01",
       "status": "READY_OFFLINE",
-      "scope": "Trace actual QueryAddrSvr queue/body producer upstream of CTGcp::onDataOutEvent and reciprocal dispatch; do not re-request v381",
+      "scope": "Trace upstream callers of CTGcp Write overloads and application buffer construction/inverse receiver; queue handoff and v381 route/sequence already reviewed",
       "prerequisites": [
         "Actual v381 report reviewed; exact source hash/ISA/access rechecked"
       ],
@@ -247,13 +247,14 @@
     "task": "CF18-QUERYADDR-PRODUCER-01",
     "record": "knowledge-system/vault/research/PHONE_V381.md",
     "status": "PHONE_V381_REVIEWED_ROUTE_SEQUENCE_MATCH_OPERATION_UNKNOWN",
-    "next_offline": "Trace CTGcp::onDataOutEvent queue/body producer (direct edge3a5476) and reciprocal handler; no repeat phone diagnostic",
+    "next_offline": "Resolve upstream callers of CTGcp Write overloads3a45bc/3a4708 and AString buffer construction/transform, then inverse receive",
     "phone_result": "ACTUAL_USER_V38_REPORT_REVIEWED_2_OF_4_ROUTED",
     "schedules": "REMAIN_PAUSED",
     "source_zip": "EXACT_USER_ZIP_HASH_VERIFIED",
     "native_failure": "NOT_LOCALIZED_FOR_REDACTED_PHONE_BODY",
     "artifact": "deliverables/CF2018_v381_Patch_Kit.zip",
-    "offline_continuation": "knowledge-system/vault/research/ADDRESS_APPLICATION.md"
+    "offline_continuation": "knowledge-system/vault/research/ADDRESS_APPLICATION.md",
+    "source_audit": "knowledge-system/vault/research/REPOSITORY_SOURCE_AUDIT.md"
   },
   "direct_integrity_investigation": {
     "task": "CF18-INTEGRITY-01",

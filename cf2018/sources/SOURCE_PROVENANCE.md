@@ -69,3 +69,7 @@ This source makes hash-specific native analysis possible. It does not resolve
 runtime path selection, historical EOF attribution, authenticated session or gameplay. The phone ACK-to-auth-request hop is now confirmed in [AUTH_RECEIVER](../knowledge-system/vault/research/AUTH_RECEIVER.md).
 See [receiver trace](../knowledge-system/vault/research/ACK_RECEIVER.md) and
 [current assignments](../coordination/assignments.json).
+
+## Fresh local availability clarification — 2026-10-31
+
+[Actual re-audit](../knowledge-system/vault/research/REPOSITORY_SOURCE_AUDIT.md) recalculated the extracted APK/Apollo/storedDLL hashes. Full XAPK and full OBB were not found in workspace/attachment roots; MIRROR_RECEIPT explicitly states whole_archive_downloaded false. Archive-size metadata is not a downloaded full archive. Historical G2/probe-availability fields in that acquisition receipt are superseded by the current checkpoint, not fresh progress facts.

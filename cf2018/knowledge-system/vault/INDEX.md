@@ -32,3 +32,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [ADDRESS_APPLICATION](research/ADDRESS_APPLICATION.md) — actual native arguments, required reason field, strict preflight correction and remaining runtime evidence.
 
 - [PHONE_V381](research/PHONE_V381.md) — latest actual phone evidence and next producer target.
+
+- [REPOSITORY_SOURCE_AUDIT](research/REPOSITORY_SOURCE_AUDIT.md) — exact local source availability, repository reconciliation and upstream queue trace.

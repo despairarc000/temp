@@ -264,3 +264,7 @@ real identity/session or RPC inferred. Seven new methods PASS; canonical187 PASS
 ## E-35 — actual user v3.8.1 phone result
 
 [Report review](research/PHONE_V381.md),5777 bytes SHA2568b4e60eb97f08c81cf6b904c674dd201652deead588c5f30d4e0a4393c298919. Two routed samples both match header packet sequence and exact allowlisted QueryAddrSvr route. Both fail METHOD_BYTES_POLICY at offsets0/4; full operation unidentified. No4013 reply sent. New native-static direct caller candidate0x3a5476 in CTGcp::onDataOutEvent; next trace upstream queue/body producer. No new phone run requested or native rejection inferred. Default236 total137 PASS/99 SKIP, doctorPASS; prior private236 not rerun.
+
+## E-36 — fresh source/repository audit and upstream queue trace
+
+[Descriptive audit](research/REPOSITORY_SOURCE_AUDIT.md): actual4 source file hashes recalculated; full XAPK/OBB not present in workspace/attachments, receipt whole_archive_downloaded false. Live complete181-file tree and23 incoming reports reviewed; stale receipt progress distinguished from v381. Original-static CTGcp Write -> queue -> PopOneSendBuffer -> onDataOutEvent pointer/size handoff traced; upstream Write callers/constructors next. No queue runtime/phone acceptance. Default236 total137 PASS/99 SKIP, doctorPASS.

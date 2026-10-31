@@ -19,6 +19,16 @@ sequence boundary; operation/encoding still unknown. No4013 reply tested. Next
 trace CTGcp::onDataOutEvent queue producer (direct send edge0x3a5476); do not repeat
 this diagnostic. Older awaiting-phone-result paragraphs below are superseded.
 
+## Repository/source re-audit and upstream trace
+
+[Re-audit](research/REPOSITORY_SOURCE_AUDIT.md): actual private APK/Apollo/stored
+DLL hashes recalculated; full XAPK/OBB absent from workspace/attachment roots.
+Receipt confirms whole archive was not downloaded. Native work remains possible
+with available Apollo. Complete live cf2018 tree181 files and23 incoming reports
+reviewed. New static queue chain reaches CTGcp::Write overloads0x3a45bc/0x3a4708;
+next trace their upstream payload construction and inverse receive path. No new
+phone test or decoder acceptance inferred.
+
 ## Current verified progression
 
 Real phone: SYN133 -> AA_DIRECT ACK63 -> auth0x2001/117. All three v1.2 response

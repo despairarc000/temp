@@ -15,6 +15,20 @@ operation identified. Do not ask for this same test again. Next offline target:
 CTGcp::onDataOutEvent queue/body producer, direct routed-send edge0x3a5476, and
 reciprocal application response dispatch. No automatic new phone experiment.
 
+## Original-file availability clarified and producer trace advanced
+
+[Repository/source audit](../knowledge-system/vault/research/REPOSITORY_SOURCE_AUDIT.md):
+no full XAPK or full OBB locally; verified30.9MB extracted APK plus Apollo and
+stored protected DLLs are present and rehashed. Receipt explicitly records that
+whole archive was not downloaded. v38 source ZIP is a probe package, not game
+XAPK. Current native research has the required Apollo; do not reset to missing APK.
+Live complete tree181 files and23 incoming reports reviewed. Historical receipt
+G2/no-post-ACK status is superseded by v381, not current mission truth.
+Queue chain now traced: CTGcp::Write0x3a45bc/route overload0x3a4708 -> send queue
+-> PopOneSendBuffer0x3a43ac -> onDataOutEvent -> pointer/size handoff0x3a5476.
+Next resolve upstream Write callers and AString construction/transform, not another
+boundary phone test. No new operation/session acceptance claimed.
+
 ## How the owner actually tests
 
 ```text

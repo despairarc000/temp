@@ -172,3 +172,7 @@ User asked for concrete blocker/action. Executed generated QueryAddrInfo args/re
 ## 2026-10-31 — reviewed actual v381 phone upload
 
 [New evidence](research/PHONE_V381.md): sequence and exact QueryAddrSvr route MATCH in both routed samples; lexical method-name policy failure at offsets0/4, not truncation/length. Next native producer candidate CTGcp::onDataOutEvent direct send edge3a5476. Preserved4 outcomes/EOF limits. No repeat phone request; latest result nowv381, no accepted operation/response. Default236 total137 PASS/99 SKIP, doctorPASS.
+
+## 2026-10-31 — owner requested full source and repository context check
+
+[Audit](research/REPOSITORY_SOURCE_AUDIT.md): no full XAPK/OBB downloaded; verified APK/Apollo/storedDLLs rehashed. Complete live tree and23 incoming reports reviewed; historical missing-source/no-post-ACK summaries superseded. Continued original-static producer trace to CTGcp Write overloads/queue; next upstream caller buffer construction. Default236 total137 PASS/99 SKIP, doctorPASS. Originals unchanged, no repeated phone test or source download.

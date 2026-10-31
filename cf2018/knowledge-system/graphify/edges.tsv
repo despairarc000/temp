@@ -90,3 +90,6 @@ coordination/CURRENT_HANDOFF.md	depends-on	knowledge-system/vault/research/ADDRE
 coordination/CURRENT_HANDOFF.md	depends-on	knowledge-system/vault/research/PHONE_V381.md	LATEST_ACTUAL_PHONE_RESULT
 knowledge-system/vault/research/PHONE_V381.md	depends-on	experiments/routed_body_diagnostic.py	SOURCE_AUDITED_CLASSIFICATION
 knowledge-system/vault/research/PHONE_V381.md	depends-on	knowledge-system/vault/research/ADDRESS_APPLICATION.md	NATIVE_DIFFERENTIAL_NOT_IDENTIFIED_RPC
+coordination/CURRENT_HANDOFF.md	depends-on	knowledge-system/vault/research/REPOSITORY_SOURCE_AUDIT.md	ACTUAL_SOURCE_AVAILABILITY_AND_NATIVE_STATIC
+knowledge-system/vault/research/REPOSITORY_SOURCE_AUDIT.md	depends-on	sources/MIRROR_RECEIPT.json	HISTORICAL_ACQUISITION_NOT_CURRENT_G2
+knowledge-system/vault/research/REPOSITORY_SOURCE_AUDIT.md	depends-on	knowledge-system/vault/research/PHONE_V381.md	CURRENT_PHONE_CONTEXT
