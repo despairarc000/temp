@@ -1,0 +1,7 @@
+from	relation	to
+vault/CURRENT.md	evidence	../cf2018/knowledge-system/vault/research/PHONE_V381.md
+vault/CURRENT.md	next-trace	../cf2018/knowledge-system/vault/research/REPOSITORY_SOURCE_AUDIT.md
+vault/CURRENT.md	depends-on	vault/SOURCES.md
+vault/WORKFLOW.md	describes	../cf2018/coordination/CURRENT_HANDOFF.md
+diary.md	summarizes	vault/CURRENT.md
+START.md	routes-through	icm/ROUTES.md
