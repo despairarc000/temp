@@ -1,5 +1,7 @@
 # TECHNICAL PLAN — evidence-bounded architecture
 
+Current operational authority: [CURRENT_HANDOFF](coordination/CURRENT_HANDOFF.md). The exact supplied v38 bridge is reviewed; older isolated-component readiness paragraphs below are historical. Latest real phone result reaches routed4013; the application operation remains unidentified.
+
 ## Stable local path (observed)
 Original re-signed CF2018 client → PCAPdroid (VpnService and app-filter) → SOCKS5 at 127.0.0.1:1080 in Termux → route old Address Service endpoints to local listener at 127.0.0.1:8080/8085. Other traffic passes through without inventing service responses.
 
@@ -17,7 +19,7 @@ Known old targets from PCAP + redirector tests: 45.113.69.32, 211.159.211.105 an
 Real client packet: 133 bytes, one unique content repeated across targeted endpoints; `QueryAddrSvr` route; TGCP SYN extension 0x1001. v0.4 ACK: 65 bytes synthesized; v0.5 A/B: ACK causes EOF ~8ms median after send vs passive ~7 seconds; no client continuation. v0.6 logcat had no relevant native TGCP diagnostics. v0.7 confirms syntax but *not* semantics. The v0.8 raw 66 43 inference is retired for the recovered mirror: the actual
 GCloud path compares decoded 0x4366 after TLV, while TX separately prepends
 43 66. See the [reviewed receiver trace](knowledge-system/vault/research/ACK_RECEIVER.md).
-Phone library/path equality and ACK acceptance remain unverified.
+Phone library/path equality remains incomplete; later real phone ACK63 -> auth0x2001 is confirmed. See the current handoff; the failed ACK history above is not the current blocker.
 
 ## Validation discipline
 - Passive SYN + no ACK is control.

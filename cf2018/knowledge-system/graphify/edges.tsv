@@ -74,3 +74,10 @@ knowledge-system/vault/research/V38_SOURCE_AUDIT.md	tests	tests/test_v38_observe
 knowledge-system/vault/research/V38_SOURCE_AUDIT.md	describes	tools/prepare_v38_observer.py	INACTIVE_PRIVATE_COPY_ONLY
 knowledge-system/vault/research/V38_SOURCE_AUDIT.md	evidence	coordination/ROUTED_TX_MATRIX.json	PACKET_SEQUENCE_CORRECTION
 knowledge-system/vault/research/V38_BLOCKER.md	depends-on	knowledge-system/vault/research/V38_SOURCE_AUDIT.md	SOURCE_GAP_RESOLVED
+AGENTS.md	requires	coordination/CURRENT_HANDOFF.md	USER_REQUESTED_COLD_START
+CODEX_START.md	depends-on	coordination/CURRENT_HANDOFF.md	CURRENT_OPERATIONAL_HANDOFF
+knowledge-system/vault/CHECKPOINT.md	depends-on	coordination/CURRENT_HANDOFF.md	CURRENT_TRUTH
+coordination/CURRENT_HANDOFF.md	evidence	knowledge-system/vault/research/V38_SOURCE_AUDIT.md	HASH_SCOPED_NATIVE_AND_SOURCE
+coordination/CURRENT_HANDOFF.md	describes	coordination/V381_TERMUX_STEPS.txt	OWNER_MANUAL_OPT_IN_ONLY
+coordination/CURRENT_HANDOFF.md	tests	tests/test_v381_patch_kit.py	ACTUAL_LOCAL_SOCKS5_NOT_ANDROID
+coordination/CURRENT_HANDOFF.md	describes	deliverables/CF2018_v381_Patch_Kit.zip	ORIGINAL_CODE_ONLY_NO_PRIVATE_INPUTS

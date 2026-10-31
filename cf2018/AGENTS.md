@@ -1,6 +1,6 @@
 # AGENTS — CF2018 operating contract
 
-Applies inside `cf2018/`. Read [NAVIGATION](NAVIGATION.md), [IDEA_PLAN](IDEA_PLAN.md), [CHECKPOINT](knowledge-system/vault/CHECKPOINT.md), and [Drive manifest](sources/DRIVE_MANIFEST.md) **before writing or asserting anything**.
+Applies inside `cf2018/`. Start with [CURRENT_HANDOFF](coordination/CURRENT_HANDOFF.md) for the owner's actual PCAPdroid/Termux workflow and latest diagnostic. Read [NAVIGATION](NAVIGATION.md), [IDEA_PLAN](IDEA_PLAN.md), [CHECKPOINT](knowledge-system/vault/CHECKPOINT.md), and [Drive manifest](sources/DRIVE_MANIFEST.md) **before writing or asserting anything**.
 
 ## Objective and scope
 Restore genuine offline bot-playable CrossFire: Legends **2018 / v1.0.11.11** (`com.tencent.tmgp.cfmnac`, Unity 4.6-era Mono). Work against this exact version. The separate `despairarc000/cfmobileoffline` IL2CPP project is NOT an evidence substitute. Correctness is observed game behavior, not synthetic emulator tests.

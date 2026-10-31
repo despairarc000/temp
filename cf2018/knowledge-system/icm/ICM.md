@@ -22,3 +22,5 @@ Routed/address/0x4013 context: [server-path decision and native TX](../vault/res
 Current routed application blocker: [v3.8 review](../vault/research/V38_BLOCKER.md). Preserve report provenance and distinguish compression from encryption.
 
 [V38 source/sequence/serializer context](../vault/research/V38_SOURCE_AUDIT.md).
+
+**All task routes now include [CURRENT_HANDOFF](../../coordination/CURRENT_HANDOFF.md)**: actual PCAPdroid/Termux workflow and next diagnostic; old task summaries do not reset progress.

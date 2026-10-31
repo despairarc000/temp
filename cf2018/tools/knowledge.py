@@ -5,7 +5,7 @@ from collections import deque
 import argparse, csv, re
 
 ROOT=Path(__file__).resolve().parents[1]
-BASE=["AGENTS.md","NAVIGATION.md","IDEA_PLAN.md","knowledge-system/vault/CHECKPOINT.md"]
+BASE=["AGENTS.md","NAVIGATION.md","IDEA_PLAN.md","knowledge-system/vault/CHECKPOINT.md","coordination/CURRENT_HANDOFF.md"]
 ROUTES={
  "v38":(["v38","datahead","serializer","sequence"],["knowledge-system/vault/research/V38_SOURCE_AUDIT.md","knowledge-system/vault/research/V38_BLOCKER.md","knowledge-system/vault/research/SERVER_PATH.md"]),
  "tgcp":(["tgcp","ack","syn","apollo","handshake","framing"],["knowledge-system/vault/research/TGCP.md","knowledge-system/vault/research/ACK_RECEIVER.md","knowledge-system/vault/EVIDENCE.md"]),

@@ -22,6 +22,8 @@ Do not discard its findings. No new phone experiment or schedule automatically.
 
 ## Current source and implementation boundary
 
+Current operational handoff and patch kit: [CURRENT_HANDOFF](coordination/CURRENT_HANDOFF.md). Exact v38 bridge source was supplied and audited; no blanket deployed-source blocker remains. The ready v3.8.1 diagnostic preserves replies and uses the existing PCAPdroid/Termux path, owner manual opt-in only. Older component-boundary paragraphs below are historical.
+
 [Recovered mirror provenance](sources/SOURCE_PROVENANCE.md) supports hash-specific
 native/managed analysis: package/version, library ISA/hashes and internal signature
 are checked. Historical phone embedded APK hash parity is reported; G0 remains partial on current installed/full-XAPK/OBB equality.

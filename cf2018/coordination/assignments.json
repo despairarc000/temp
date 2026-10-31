@@ -4,7 +4,7 @@
   "repository": "despairarc000/temp",
   "branch": "main",
   "coordinator": "CF18-00",
-  "reviewed_main": "44bb53ebf7aee223840a9fb87f8e5765e25de000",
+  "reviewed_main": "0d6dc5edec04e687cc677f2cce5dca20b15171da",
   "priority": {
     "earliest_unmet": "G0_CURRENT_INSTALLED_AND_OBB_IDENTITY",
     "next_native_gate": "G2_ROUTED_APPLICATION_IDENTIFICATION",
@@ -99,14 +99,14 @@
   "lanes": [
     {
       "lane": "CF18-00",
-      "task": "CF18-REVIEW-RX-02",
-      "status": "READY",
-      "scope": "Review submitted99/bounds strict-parser proposal separately; preserve auth failure and incoming path draft. Integrate only supported boundaries.",
+      "task": "CF18-V381-RESULT-REVIEW",
+      "status": "READY_OFFLINE_OWNER_PHONE_PENDING",
+      "scope": "Maintain current handoff and continue actual application producer/receiver; review bounded v381 labels when provided; no guessed reply",
       "prerequisites": [
-        "Actual pinned source/dependencies for native rechecks",
-        "Packet0019 and canonical auth integration reviewed"
+        "Current handoff and exact source/native audit reviewed",
+        "Recheck private inputs on this runner; owner manually supplies new phone result"
       ],
-      "acceptance": "Keep strict caps/terminal/opaque extension; do not imitate native wrap/duplicate/lookahead quirks.",
+      "acceptance": "Do not reset handshake/source findings; local SOCKS5 controls are not new phone progress",
       "integration_record": "coordination/INTEGRATION.md"
     },
     {
@@ -162,12 +162,12 @@
   ],
   "validation": {
     "canonical_private_selected": {
-      "passed": 205,
+      "passed": 209,
       "skipped": 0
     },
     "canonical_source_free": {
-      "passed": 117,
-      "skipped": 88
+      "passed": 120,
+      "skipped": 89
     },
     "auth_incoming": {
       "passed": 25,
@@ -204,6 +204,11 @@
     "v38_prepared_focused": {
       "passed": 9,
       "skipped": 0
+    },
+    "v381_patch_kit": {
+      "passed": 4,
+      "skipped": 0,
+      "scope": "four local synthetic game sessions through actual SOCKS5 plus non-target passthrough; not Android"
     }
   },
   "reviewed_packets": [
@@ -223,7 +228,7 @@
       "status": "HISTORICAL_APK_PARITY_REPORTED_NO_INSTALLED_OBB_PROOF"
     }
   ],
-  "previous_canonical_integration_commit": "40c4aafe6665e671d08df6badb378121ec4ff213",
+  "previous_canonical_integration_commit": "0d6dc5edec04e687cc677f2cce5dca20b15171da",
   "current_integration": {
     "status": "INCLUDED_IN_THIS_TREE",
     "record": "coordination/INTEGRATION.md",
@@ -232,14 +237,15 @@
   },
   "execution_policy": "USER_PAUSED_ALL_SCHEDULES; scopes below do not reactivate workers",
   "current_investigation": {
-    "task": "CF18-V38-APPLICATION-FRAMING",
-    "record": "knowledge-system/vault/research/V38_SOURCE_AUDIT.md",
-    "status": "SOURCE_NATIVE_DIFFERENTIAL_REVIEWED",
-    "next_offline": "Actual application producer/reciprocal receiver; metadata-only prepared observer can distinguish sequence boundary, no guessed reply",
+    "task": "CF18-V381-SEQUENCE-BOUNDARY",
+    "record": "coordination/CURRENT_HANDOFF.md",
+    "status": "PATCH_KIT_LOCAL_SOCKS5_VALIDATED_AWAITING_OWNER_PHONE_RESULT",
+    "next_offline": "Continue actual application producer/reciprocal receiver; review fixed labels when owner supplies TXT",
     "phone_result": "ACTUAL_USER_V38_REPORT_REVIEWED_2_OF_4_ROUTED",
     "schedules": "REMAIN_PAUSED",
     "source_zip": "EXACT_USER_ZIP_HASH_VERIFIED",
-    "native_failure": "NOT_LOCALIZED_FOR_REDACTED_PHONE_BODY"
+    "native_failure": "NOT_LOCALIZED_FOR_REDACTED_PHONE_BODY",
+    "artifact": "deliverables/CF2018_v381_Patch_Kit.zip"
   },
   "direct_integrity_investigation": {
     "task": "CF18-INTEGRITY-01",
@@ -252,5 +258,6 @@
     "safe_modified_build": "NOT_ESTABLISHED",
     "continuation": "CF18-INTEGRITY-02 original Unity caller traced; reader/provider initialization and unchanged round trip unresolved",
     "priority": "PARKED_IN_FAVOR_OF_PHONE_GROUNDED_SERVER_PATH"
-  }
+  },
+  "handoff": "coordination/CURRENT_HANDOFF.md"
 }

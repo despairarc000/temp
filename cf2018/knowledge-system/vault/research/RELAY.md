@@ -1,3 +1,7 @@
+# Current deployed workflow supersedes old missing-source boundaries
+
+[CURRENT_HANDOFF](../../../coordination/CURRENT_HANDOFF.md) records actual reviewed v38 PCAPdroid -> Termux SOCKS5 -> local server source and the v3.8.1 patch kit. Four bounded Linux synthetic sessions now pass through that actual redirector and server; normal non-target binary passthrough also passes. This is not a new Android runtime/FIN-attribution result. Historical isolated-core findings follow; their missing-deployed-source status is superseded for v38, not retroactively for missing v0.1-v0.8 scripts.
+
 # Passive relay core — LOCAL_TEST_ONLY
 
 2026-10-30: coordinator integrated original [relay code](../../../experiments/passive_relay.py)

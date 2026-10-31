@@ -160,3 +160,7 @@ Read/hash actual5383-byte user report. Reconciled2/4 laterframes and no4013reply
 ## 2026-10-31 — exact v38 source/native differential
 
 User requested active investigation. Opened exact ZIP privately; source audits PASS. Original receiver replay selects mode0 through exact lab stages with stated stubs/state3 injection. Actual native header writer agrees with v38 legacy classifier. Corrected earlier UID interpretation to native packet sequence and verified real counter increment. Prepared private metadata-only observer copy preserving all outgoing replies; original/prepared9 focused tests PASS each.205 canonical private PASS;117 PASS/88 SKIP default; doctorPASS. [Full evidence/integration](research/V38_SOURCE_AUDIT.md). No native rejection of actual phone payload localized, no guessed response or phone test. Schedules paused.
+
+## 2026-10-31 — owner requested proactive handoff and existing workflow continuity
+
+Read actual v38 PCAPdroid/Termux package before preparing portable patch-only kit. Added CURRENT_HANDOFF to mandatory entrypoints and every ICM route; consolidated checkpoint/cold-start so historical missing-source/no-first-hop blocks cannot replace current facts. Kit consumes existing owner ZIP, preserves replies/handler, adds fixed diagnostics and versioned report/IDs. Four synthetic sessions through actual SOCKS5 redirector/server and unrelated binary passthrough PASS.209 canonical private PASS;120 PASS/89 SKIP default; doctorPASS. No phone run, original edit or schedule restart.

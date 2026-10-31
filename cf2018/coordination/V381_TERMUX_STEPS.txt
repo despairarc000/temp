@@ -1,0 +1,56 @@
+CF2018 v3.8.1 Sequence Boundary — patch-only kit for the existing v3.8 package
+
+This kit contains only original patch code, diagnostics and source hashes.
+It DOES NOT contain the original v3.8 fixture, APK, OBB, library or game assets.
+Use your existing CF2018_TGCP_v3.8_GCloud_DataHead_Flags.zip unchanged.
+Preparation checks the exact ZIP SHA256 and all 60 source files.
+
+Your existing phone setup:
+Original 2018 CrossFire -> PCAPdroid (CrossFire only, Termux EXCLUDED)
+-> SOCKS5 127.0.0.1:1080 in Termux -> local fake server 127.0.0.1:8080/8085.
+No root, no APK/OBB/DLL patch, no other VPN concurrently.
+
+In Termux, with the original v3.8 ZIP and this kit in Downloads:
+
+cd ~/storage/downloads
+unzip CF2018_v381_Patch_Kit.zip -d CF2018_v381_Patch_Kit
+python3 CF2018_v381_Patch_Kit/apply_v381.py --zip CF2018_TGCP_v3.8_GCloud_DataHead_Flags.zip --output CF2018_TGCP_v3.8.1_Sequence_Boundary
+cd CF2018_TGCP_v3.8.1_Sequence_Boundary
+bash START_V381.sh
+
+That last command runs nine existing synthetic tests. It starts no listener.
+Existing output folders are refused; never overwrite the original v3.8 folder.
+If Android storage access is not already granted, use termux-setup-storage.
+
+For a MANUAL phone run, stop old probes in their Termux sessions using Ctrl+C.
+Do not run old and new servers simultaneously. Keep PCAPdroid SOCKS5
+127.0.0.1:1080, select CrossFire only, exclude Termux. Then run:
+
+CF2018_V381_LIVE=YES bash START_V381.sh
+
+After the startup message, launch the original CrossFire 2018 game. The probe
+completes after four accepted sessions; Ctrl+C stops early if no traffic arrives.
+Port-in-use means stop the old instance; do not change the PCAPdroid proxy port
+or start another copy. If zero clients reach the listener, inspect this same
+VPN/app-filter/SOCKS5 path before changing protocol replies.
+
+Send only: ~/storage/downloads/CF2018_v381_Sequence_Boundary_Result.txt
+Private metadata run folders: ~/cf2018_v381_runs/run_<UTC>_<unique-id>/
+Do not send raw packets, original fixture, credentials, APK or OBB.
+
+Changes: adds fixed labels sequence_prefix, legacy_at_start,
+legacy_after_sequence, known_address_route. All SYN/ACK/auth/Bingo stage bytes,
+the 150ms staging delay and four-session budget are preserved. No 0x4013 reply.
+New diagnostic diversion requires numeric 45.113.69.32, 211.159.211.105 or
+119.28.34.12 AND port 8080/8085. The old v3.8 redirector also recognized two
+domain aliases; this diagnostic does not divert those domain CONNECT requests.
+Other destinations retain normal passthrough. Do not broaden routing on a guess.
+
+Interpretation: sequence MATCH supports the expected body boundary; MISMATCH
+requires boundary/context review. Neither proves encryption or authentication.
+known_address_route MATCH only means the allowlisted QueryAddrSvr route matched;
+it does not identify or validate an application RPC. NO new success claim.
+
+Validated on Linux with local synthetic clients, including the actual SOCKS5
+redirector -> local server path. Android/PCAPdroid execution remains untested for
+this patch until you run it; v3.8 on-phone findings remain the latest real result.

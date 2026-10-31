@@ -1,5 +1,7 @@
 # NAVIGATION — CF2018 ICM entrypoint
 
+**Read [CURRENT_HANDOFF](coordination/CURRENT_HANDOFF.md) first:** actual PCAPdroid -> Termux setup, latest phone evidence, source availability, next test and no-repeat rules.
+
 | Task | Read first | Then |
 |---|---|---|
 | Mission/scope | [IDEA_PLAN](IDEA_PLAN.md) | [ACCEPTANCE](knowledge-system/vault/specs/ACCEPTANCE.md) |

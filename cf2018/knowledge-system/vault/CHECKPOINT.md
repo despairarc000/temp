@@ -1,152 +1,82 @@
-# Current: v38 source and native differential reviewed
+# Current checkpoint — 2026-10-31
 
-[Source/native audit](research/V38_SOURCE_AUDIT.md), base44bb53ebf7aee223840a9fb87f8e5765e25de000. Source ZIP now available and audited. Exact ACK63/auth54/Bingo91 native replay selects method0 with explicit state3/no-data/runtime stubs. Native legacy serializer matches v38 classifier; no operation identified from phone bodies. Four-byte prefix corrected from UID to packet sequence (`dwSequence`), native increment verified. New metadata-only observer integration preserves replies, no automatic live run.205 canonical private PASS; source-free117 PASS/88 SKIP; doctorPASS. NOT PLAYABLE; schedules paused.
+**NOT PLAYABLE. No validated account/session, accepted service reply, lobby or bot match.**
+Target2018 v1.0.11.11 com.tencent.tmgp.cfmnac, Mono. Prioritize original-client
+local server; integrity editing parked. Scheduled workers remain paused.
 
-# Latest reviewed test: v3.8 DataHead
-
-[Actual uploaded report and current blocker](research/V38_BLOCKER.md):2/4 routed client frames, kind5/no-compression reported, inner application unidentified; no4013 reply sent. The older v1.6 review below is historical. Exact v38 parser/source has since been reviewed; see current audit above.
-
-# Current checkpoint — 2026-10-31 server continuation
-
-**Priority: original-client local server; integrity editing parked. NOT PLAYABLE.**
-Reviewed main5d76e82696984717e394552cc6fb9c076e77e01f. [Decision/native continuation](research/SERVER_PATH.md).
-Latest CF05 phone reports supersede earlier historical sections below: v1.4 body
-correction removes immediate EOF2/2; v1.5/v1.6 synthetic Bingo elicits authentic
-0x4013 in3/4 trials. No identified application RPC, accepted account, lobby or bots.
-The v1.6 observer had a selector-kind filter defect; missing hint is inconclusive.
-No v1.6.1 phone outcome reviewed here. Original report summaries are linked in
-SERVER_PATH; raw reports not newly reopened. No new phone run by coordinator.
-
-Native continuation verifies routed TX pre-encryption body is BE packet-sequence32 + original
-application payload, with actual4013/header and state/size/route guards. Stops
-before encrypt/send, not a real session.187 canonical PASS with explicit private
-sources; default108 PASS/79 SKIP; incoming Bingo13/address14 PASS; doctorPASS.
-Schedules remain paused. Next: actual inner RPC/envelope identification and native
-reciprocal routed receiver; preserve working sequence, no guessed reply sweep.
-
-The following sections are historical records with their original limits;
-statements of no later packet or v1.4 result are superseded by this checkpoint.
-
-# CHECKPOINT — 2026-10-30, auth receive failure integrated
-
-CrossFire: Legends 2018 v1.0.11.11 com.tencent.tmgp.cfmnac, Mono.
-**NOT PLAYABLE. G2 first hop CONFIRMED_ON_PHONE; auth/session BLOCKED.**
-Reviewed main `ccdd219f9ed121e77fc06ad20b50b77614079cbf`.
+Read [CURRENT_HANDOFF](../../coordination/CURRENT_HANDOFF.md) before choosing work.
+It records the owner's actual PCAPdroid/Termux workflow, source access, exact next
+artifact, controls and no-repeat rules. Base main0d6dc5edec04e687cc677f2cce5dca20b15171da;
+this checkpoint consolidates earlier repeated historical sections. Original
+findings remain in [EVIDENCE](EVIDENCE.md), [WORKLOG](WORKLOG.md) and linked traces.
 
 ## Current verified progression
 
-User-confirmed [phone v1.2](../../coordination/incoming/CF18-05/PHONE_V12_RESULT.md):
-SYN133 -> AA_DIRECT ACK63 -> authentic 0x2001/117 (header42/body73).
-All eight sessions produced two client frames/250 bytes. Silence timed out at
-about7s; three synthetic 0x2002 response arms gave local read_eof at about8–11ms.
-No later client packet, authenticated session, AddressService, lobby or game.
-Older statements that no post-ACK packet exists are superseded; do not restart
-ACK-prefix experiments. Local EOF still does not identify its origin.
+Real phone: SYN133 -> AA_DIRECT ACK63 -> auth0x2001/117. All three v1.2 response
+arms failed natively because they omitted TGCPBody preamble; actual unpack modeA5
+failsAA/99 at0x3b88d8 (-32), auth maps-18 at0x3ac378 before account parsing.
+[Auth trace](research/AUTH_RECEIVER.md). Corrected54-byte response removes immediate
+EOF in v1.4; synthetic Bingo91 elicits later real4013 in v1.5/v1.6 reports3/4.
+Those earlier cohorts are separate from latest v3.8; do not pool as probabilities.
 
-## Earliest verified native failure
+Latest real test [v3.8](research/V38_BLOCKER.md):2/4 later4013 frames161/166 bytes,
+header79/body80 or85, extension kind5, compression off reported. Two deliberate
+post-route windows, one deadline, one EOF. No4013 reply was sent. Application
+operation unidentified. EOF does not diagnose an authentication rejection.
 
-[Reviewed AUTH_RECEIVER](research/AUTH_RECEIVER.md) and [exact native matrix](../../coordination/incoming/CF18-02/auth_rx_02/NATIVE_MATRIX.json):
-all three exact v1.2 replies pass frame/header/extension/receive with effective
-0x2002. TGCPBody::unpackTLV 0x3b8860 reads A5 instead of AA/99 and returns
--32 at0x3b88d8 after one byte; auth receiver maps it to -18 at0x3ac378.
-Auth/account components and Bingo are not reached; account remains unchanged,
-state3. All three omit the separate five-byte body preamble.
+## What offline reverse engineering established
 
-Minimal [original encoder](../../experiments/tgcp_body_envelope.py) wraps the
-existing union in AA + BE uint32 total length; outer body length must be
-recomputed. Corrected native paths reach real auth/account decoders, copy and
-state4, then real Bingo -12/waiting (handler0). No parser-success stub is used.
-Synthetic zero UID/state4/wait are not valid authentication or session evidence.
-The deployed v1.2 bridge source is missing, so deployment/wiring is unverified.
-A v1.4 envelope-only comparison is justified in principle, not ready to run.
+[Exact source/native audit](research/V38_SOURCE_AUDIT.md), [matrix](../../coordination/V38_STAGE_CONTEXT_MATRIX.json):
+exact v38 synthetic ACK63/auth54/Bingo91 returns0 with states2/4/5 and method0.
+Auth-send omitted/state3 supplied; no-data/memory/log stubs explicit. This is not
+an actual phone crypto measurement or legitimate account validation. Numeric5
+alone is not success. [Bingo/session](research/BINGO_SESSION.md).
 
-## Source, framing and transport limits
+Four-byte routed prefix is **packet sequence dwSequence**, not UID or application
+length. Actual native increment and final mode0 queued-body preservation verified.
+Original native legacy RPC writer emits BE32 name length +name +U8 type +BE64
+sequence, recognized by v38 classifier at offset4 on independent synthetic input.
+No simple endian/offset correction found. Current earliest failed boundary is
+observer application identification; no native failing predicate for actual
+redacted phone body established. See the audit for addresses/provenance/stubs.
 
-[Source](../../sources/SOURCE_PROVENANCE.md): exact mirror APK/native/managed
-hashes/ARM ISA and CMS/all1212 payload digests rechecked. CF18-05 reports matching
-historical Original.xapk embedded APK/DLL hashes; that is historical reported
-parity, not a newly retrieved original report, installed APK or OBB equality.
-Full XAPK/OBB matching and actual Android runtime context remain unverified.
-No new Drive scan/download; originals unchanged/private.
+## Ready next diagnostic and development continuity
 
-[ACK receiver](research/ACK_RECEIVER.md) and [body/session](research/ACK_SESSION.md)
-remain useful hash-scoped native traces; earlier parser-stubbed branch controls
-are distinct from current full-wire auth replay. The raw66 43 hypothesis is
-retired for this receive path. CF18-01 boundary packet0019 remains pending strict99 parser integration. Reviewed
-[path packet ccdd219](../../coordination/incoming/CF18-01/PATH_RESULT.md) shows
-examined wrapper preserves prefixes and virtual dispatch selects GCloud factory
-under synthetic context; this does not prove the phone runtime path.
-[Relay](research/RELAY.md) core/handoff are local stages, not deployed v1.2 source.
-Historical v0.1–v0.8 scripts and v1.2 directional closure evidence remain missing;
-Q-02 UNKNOWN. Never substitute frame_gate.py for those sources.
+[Patch-only v3.8.1 kit](../../deliverables/CF2018_v381_Patch_Kit.zip) consumes the
+owner's existing exact v38 ZIP on their device, creates a new folder, adds fixed
+sequence/header/allowlisted-route labels, distinct output and run/connection IDs.
+No APK/OBB/DLL edits or new4013 response. Four-session budget and original protocol
+handler unchanged. New diversion is exact known numeric IP AND8080/8085; normal
+non-target passthrough retained. [Exact steps](../../coordination/V381_TERMUX_STEPS.txt).
+Preparation/default startup never starts live listeners. Owner manual opt-in only.
 
-## Actual coordinator verification
+Linux controls exercise actual supplied SOCKS5 NO-AUTH/CONNECT redirector -> fake
+TGCP server, four synthetic game sessions, exact ACK/auth/Bingo bytes, privacy,
+IDs, report and EOF. Non-target local binary passthrough control also passes.
+This does not claim Android/PCAPdroid execution of v3.8.1. Latest phone result
+remains v3.8 until the owner supplies a new TXT.
 
-Local snapshot is not a git checkout (git status128); no active native worker.
-Tracked blobs checked; existing CF18-01/02 edits and coordinator handoff drafts
-preserved. Incoming auth25 PASS/no skips. Published matrix reproduced exactly.
-Source verifier PASS including1212 signed entries; certificate trust not validated.
-Canonical149 PASS with explicit private APK/library/dependencies; default149 total,
-97 PASS/52 private-source SKIP. Knowledge doctor PASS. These are offline/local
-checks with the explicit stubs in AUTH_RECEIVER, not a phone authentication run.
-[Integration](../../coordination/INTEGRATION.md), [evidence](EVIDENCE.md),
-[assignments](../../coordination/assignments.json) track inputs/limits and next tasks.
+Next AI: follow the handoff decision table; continue native application producer
+and reciprocal receiver work. Do not repeat ACK research, guess valid credentials,
+request broad packet sweeps, or claim source missing without inspecting access.
 
-## Next gate
+## Actual source and remaining gates
 
-CF18-02: actual state5 application/account/session consumers after corrected auth;
-no guessed credentials, keys or valid Bingo. CF18-03: recover deployed v1.2 source
-and directional lifecycle before phone instrumentation. CF18-01: path packet reviewed as bounded evidence; await framing review feedback.
-CF18-04: wait for new precise historical report/installed/OBB locator; no repeated
-inventory. CF18-00 next reviews submitted99/bounds separately. Bot work deferred.
+[Source provenance](../../sources/SOURCE_PROVENANCE.md) and [Drive limits](../../sources/DRIVE_MANIFEST.md).
+Exact APK/Apollo privately recovered/hash verified; v38 ZIP supplied and all60
+files pinned. Private paths are runner-local/transient; recheck availability/hash.
+Historical embedded APK/DLL equality is reported; current installed/fullXAPK/OBB
+identity remains partial. No substitute9.99 or cfmobileoffline.
 
-## Bingo/session acceptance boundary
+G3 accepted address-service reply, G4 update/config, G5 lobby, G6 real TDM bots,
+G7 Bomb bots and G8 repeatable installation/matches remain open. Integrity route
+has original Mono/provider/checksum predicates but no decoded unchanged round trip,
+verified historical exit cause or safe edited build. [Integrity](research/INTEGRITY_NATIVE.md).
 
-[Reviewed continuation](research/BINGO_SESSION.md):3002 is WAIT/queue metadata.
-Actual body decoding replaces the header selector; a deliberately mismatched
-header6002 or3002 with auth-body2002 reaches numeric state5 without running a
-Bingo component decoder. No valid Bingo was built. Numeric state5 therefore
-does not establish authentication or correct correlation. Received relay identity/
-server/session fields are copied and later reused by a SYN prefix; generation/
-account binding remains unknown. All21 new controls and both native matrices
-reproduced; decoded parser-zero branch tests remain explicitly stubbed.
+## Verification
 
-## Later coordinator investigation at c9b1d355
-
-[Connection callback trace](research/CONNECTION_CALLBACKS.md) extends the native
-consumer path: injected state5/writable event can schedule a locally constructed
-zero result with zero connected-info account prefix. Separate dispatch controls
-reach AddressService, whose result-code branch gates local buffer binding; open
-is a no-op. These notifications do not establish authentication. Eleven new tests,
-160 canonical PASS/private-selected; default98 PASS/62 SKIP; ten-case matrix
-reproduces exactly. Existing CF02 local13 controls reproduced, incoming unchanged.
-
-CF05 [v1.4 handoff](../../coordination/incoming/CF18-05/V14_DEPLOYED_BRIDGE_HANDOFF.md)
-reports recovered deployedv1.2 bridge and prepared private six-session envelope
-comparison. Earlier blanket source-missing statements are superseded for that
-preparation; this coordinator has not independently reopened the private ZIP.
-No phone result yet. Schedules remain paused. Next offline boundary is actual
-QueryAddrInfo submission/response, not another guessed Bingo or connected flag.
-
-## Direct DLL investigation at6a0ecc16
-
-User requested finding why managed edits auto-exit. [Native integrity trace](research/INTEGRITY_NATIVE.md)
-confirms stored Assembly-CSharp/firstpass are non-PE; original Mono image loading
-routes through libtprt. Reproduced signature branches and an injected post-load
-CRC mismatch requesting termination18, intercepted before syscall. This is a
-real native guard, not yet the cause of the historical edited-DLL phone exit.
-Historical edited bytes/precise diff and matched logs remain absent; provider
-initialization and safe format round trip unresolved. No patched build delivered.
-
-Added read-only image/diff preflight, bounded original native controls and actual
-15-member/native matrix. Canonical176 PASS with all explicit private sources;
-default106 PASS/70 SKIP; doctorPASS. No originals changed, phone test or schedule
-started. TGCP/Bingo/session findings and separate pending work remain intact.
-
-## Integrity caller continuation
-
-[Native investigation](research/INTEGRITY_NATIVE.md) now locates actual original Unity->Mono call0x20f87c and its buffer preparation. Supplied null-image or nonzero-status controls take diagnostic branch, distinct from explicit native termination. Stored APK bytes are not yet proven identical to Mono input because virtual/file-reader and initialization effects remain unresolved. No decoded image or unchanged round trip achieved.180 canonical PASS private-selected; default107 PASS/73 SKIP; doctorPASS.
-
-## Latest supplied phone test: v3.8 (supersedes v1.6 recency)
-
-[Actual report review](research/V38_BLOCKER.md): four synthetic-stage trials, two later4013 frames/header79/body80 or85; kind5, named-route candidate, compression reportedoff, no recognized inner operation. No4013 reply sent; post-route-window completion is not reply rejection. Native crypto helper controls demonstrate compression off does not establish plaintext. Current blocker: actual application framing and v3.8 classifier/source review. No new phone run.191 canonical PASS private;109 PASS/82 SKIP default; doctorPASS.
+Canonical209 PASS with explicit private APK/Apollo/Unity/Mono/tprt, v38 source/ZIP
+and analysis dependencies. Default209 total:120 PASS/89 explicit private-input SKIP.
+Four new patch-kit tests include complete local SOCKS5 integration; v381 default
+starter runs9 original focused synthetic tests and starts no listener. DoctorPASS.
+No new phone result, external-service experiment or scheduled worker activation.

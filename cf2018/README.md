@@ -2,6 +2,8 @@
 
 **Mission:** restore original 2018 CrossFire: Legends (CF2018, `com.tencent.tmgp.cfmnac`) to **genuinely playable, local, offline bot matches**. This is not the newer IL2CPP `cfmobileoffline` project.
 
+**Current handoff:** [owner workflow, latest evidence and ready diagnostic](coordination/CURRENT_HANDOFF.md). Read this before acting on historical task summaries.
+
 ## Start here
 1. [AGENTS.md](AGENTS.md) — required Codex agent operating contract.
 2. [NAVIGATION.md](NAVIGATION.md) — compact ICM routing entrypoint.
@@ -25,7 +27,7 @@ Current reviewed work: [hash-scoped mirror source](sources/SOURCE_PROVENANCE.md)
 and [receiver-state trace](knowledge-system/vault/research/ACK_RECEIVER.md).
 [Exact auth-response review](knowledge-system/vault/research/AUTH_RECEIVER.md)
 localizes the missing TGCPBody preamble in all three v1.2 replies. The bounded
-encoder/native regressions are integrated; deployed bridge wiring is unverified.
+encoder/native regressions are integrated. The exact v38 deployed package is now privately available and audited; the new patch kit is offline validated, awaiting owner phone outcome.
 [Bingo review](knowledge-system/vault/research/BINGO_SESSION.md) establishes why
 numeric state5 alone cannot prove authentication. No authenticated session or
 bot match is claimed. Check

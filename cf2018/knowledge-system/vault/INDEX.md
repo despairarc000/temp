@@ -26,3 +26,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [V38_BLOCKER](research/V38_BLOCKER.md) — latest uploaded report, classifier/source gap and native compression/encryption distinction.
 
 [V38_SOURCE_AUDIT — native stage/serializer differential and metadata diagnostic](research/V38_SOURCE_AUDIT.md).
+
+**All task routes now include [CURRENT_HANDOFF](../../coordination/CURRENT_HANDOFF.md)**: actual PCAPdroid/Termux workflow and next diagnostic; old task summaries do not reset progress.
