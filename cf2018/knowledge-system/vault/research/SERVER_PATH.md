@@ -44,21 +44,21 @@ against original instructions and extended with actual isolated execution.
 |0x3a923c–0x3a9286|Nonempty input, positive length, nonnegative timeout; payload<=handle+0x6d0. Invalid input/timeout-2; oversized-16.|
 |0x3a92c6–0x3a931e|Route kinds1/2/4 require pointer; initialized flag+0x124 required, else-4; numeric state5 required, else-8.|
 |0x3a9328–0x3a936c|Compression negotiation at+0x33f4/+0x33f8; controls disable it explicitly. Actual compression implementation/phone setting not established.|
-|0x3a9372–0x3a9396|Writes marker4366 and type4013 into outgoing header. Copies UID field+0x12c into outgoing base+0x30. Route/compression metadata resides in header structures.|
-|0x3a93e2–0x3a9404|Copies that UID into the first four send-body bytes in BIG-ENDIAN order. It is not an application length field in this examined path.|
+|0x3a9372–0x3a9396|Writes marker4366 and type4013 into outgoing header. Copies packet-sequence field+0x12c into outgoing base+0x30. Route/compression metadata resides in header structures.|
+|0x3a93e2–0x3a9404|Copies that sequence into the first four send-body bytes in BIG-ENDIAN order. It is not an application length field in this examined path.|
 |0x3a9406–0x3a941a|Copies application payload immediately after those four bytes, then passes total payload+4 to encrypt-and-send.|
 |0x3a941c ->0x3ab430|Controls intercept before executing encryption/send, sentinel-77. No socket, encryption, final TGCP serialization or real routed frame generated.|
 
 The new [original runner](../../../experiments/native_routed_tx.py) runs the entire
 function with independent synthetic payload/context. Both1-byte and64-byte
-payloads are preserved after the BE UID prefix, header4013/marker4366/compression0.
+payloads are preserved after the BE packet-sequence prefix, header4013/marker4366/compression0.
 State4, uninitialized, oversize, negative timeout and missing route pointer take
 the expected errors before submission. [Actual seven-case matrix](../../../coordination/ROUTED_TX_MATRIX.json),
 [seven test methods](../../../tests/test_native_routed_tx.py),
 [acceptance](../../../coordination/CF18-G2-ROUTED-TX-01-ACCEPTANCE.md).
 
 Only bounded libc memcpy/log/last-error helpers use canonical NativeControl
-substitutions; exact called helper labels are in the matrix. Synthetic UID,
+substitutions; exact called helper labels are in the matrix. Synthetic packet sequence,
 initialized handle, numeric5, route0/no pointer, disabled compression and injected
 buffer capacity are premises, not a valid account. Fresh PT_LOAD memory;100000
 instructions/one second. The pre-encryption prefix may not be visible as plaintext
@@ -68,7 +68,7 @@ on the actual wire. No generic claim that all TGCP directions have this body for
 
 1. Preserve the phone progression, inspect routed0x4013 with corrected kind-aware
    instrumentation. Identify the actual method/envelope from structural evidence;
-   do not equate the four UID bytes with a length or log their value. The existing
+   do not equate the four packet-sequence bytes with a length or log their value. The existing
    observer's scan may already cover the offset; this discovery alone does not
    warrant changing its classifier or sending a new reply.
 2. Connect original AddressService write -> message buffer -> routed send, then
@@ -89,3 +89,5 @@ suite187 PASS/no skips. DoctorPASS; incoming Bingo13 and address14 PASS. This
 continues the chosen path with native evidence, not a claim of playable progress.
 
 Latest reviewed test is now [v3.8 DataHead](V38_BLOCKER.md), not v1.6. It contains observed kind5/no-compression labels but no identified inner operation and no4013 reply. Prior phone observations remain historical; focus on actual v38 parser/source and application serialization.
+
+Current correction: [v38 source/native audit](V38_SOURCE_AUDIT.md) proves the prefix is `dwSequence`, superseding earlier UID wording. Actual source is now available; exact-stage replay selects mode0. Extended runner executes packing/copy and counter increment with only final submission suppressed. Current205 private PASS /117 PASS+88 SKIP default.

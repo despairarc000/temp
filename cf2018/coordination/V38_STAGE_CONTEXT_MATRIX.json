@@ -1,0 +1,105 @@
+{
+  "source_zip_sha256": "e3bbc31f7b93e738aff0d4205dd0d1418c7abd55b7c17b332ca5d426eb619df2",
+  "stages": [
+    {
+      "stage": "ack",
+      "wire_length": 63,
+      "return": 0,
+      "crypto_method": 0,
+      "key_mode": 0,
+      "key_present": false,
+      "state": 2,
+      "compression": 0,
+      "stubs": [
+        "no-data boundary; no socket",
+        "bounded libc memory operation",
+        "bounded libc memory operation",
+        "bounded libc memory operation",
+        "last-error get=0",
+        "XLog no-op",
+        "last-error set no-op",
+        "last-error get=0",
+        "XLog no-op",
+        "last-error set no-op",
+        "last-error get=0",
+        "XLog no-op",
+        "last-error set no-op"
+      ]
+    },
+    {
+      "stage": "auth",
+      "wire_length": 54,
+      "return": 0,
+      "crypto_method": 0,
+      "key_mode": 0,
+      "key_present": false,
+      "state": 4,
+      "compression": 0,
+      "stubs": [
+        "no-data boundary; no socket",
+        "bounded libc memory operation",
+        "bounded libc memory operation",
+        "last-error get=0",
+        "XLog no-op",
+        "last-error set no-op",
+        "bounded libc memory operation",
+        "bounded libc memory operation",
+        "bounded libc memory operation"
+      ]
+    },
+    {
+      "stage": "bingo",
+      "wire_length": 91,
+      "return": 0,
+      "crypto_method": 0,
+      "key_mode": 0,
+      "key_present": false,
+      "state": 5,
+      "compression": 0,
+      "stubs": [
+        "no-data boundary; no socket",
+        "bounded libc memory operation",
+        "bounded libc memory operation",
+        "last-error get=0",
+        "XLog no-op",
+        "last-error set no-op",
+        "bounded libc memory operation",
+        "bounded libc memory operation",
+        "bounded libc memory operation",
+        "bounded libc memory operation",
+        "bounded libc memory operation"
+      ]
+    }
+  ],
+  "differential": [
+    {
+      "native_strict": false,
+      "native_header_length": 26,
+      "classifier": {
+        "thrift_candidate": "legacy_complete_candidate",
+        "thrift_offset": "1to7",
+        "thrift_method_band": "9to16",
+        "thrift_args": "complete",
+        "thrift_type": "request"
+      }
+    },
+    {
+      "native_strict": true,
+      "native_header_length": 29,
+      "classifier": {
+        "thrift_candidate": "not_identified",
+        "thrift_offset": "none",
+        "thrift_method_band": "none",
+        "thrift_args": "none",
+        "thrift_type": "none"
+      }
+    }
+  ],
+  "limits": [
+    "fresh ELF per stage, fixed-address context snapshot carried forward",
+    "state3 explicitly supplied; actual auth send omitted",
+    "no-data wrapper and bounded memory/log helpers substituted",
+    "synthetic lab stages, not accepted real account or Android call trace",
+    "transport write sink substituted only for native header differential"
+  ]
+}

@@ -239,12 +239,16 @@ Canonical stale no-post-Bingo/deployment-unavailable statements superseded.
 
 Original-native static + isolated synthetic native execution. [Trace](research/SERVER_PATH.md),
 [seven-case matrix](../../coordination/ROUTED_TX_MATRIX.json), [original controls](../../experiments/native_routed_tx.py).
-Actual send_with_route builds4013 header and copies BE UID32 before application
+Actual send_with_route builds4013 header and copies BE packet-sequence32 before application
 payload; header routing/compression fields separate. State5, initialization, length,
 timeout and route-pointer guards tested. Stops before encrypt/send; no final wire,
-real UID/session or RPC inferred. Seven new methods PASS; canonical187 PASS private,
+real identity/session or RPC inferred. Seven new methods PASS; canonical187 PASS private,
 108 PASS/79 SKIP default. Incoming Bingo13/address14 tests rerun as synthetic only.
 
 ## E-31 — actual uploaded v3.8 DataHead report
 
 [Review](research/V38_BLOCKER.md), source5383 bytes SHA256031dcb5bf33eb979cd95b161708c454006fd938f50ff08893db923fa81614cb3. User-supplied phone report:2/4 routed frames, kind5, body80/85; report classifiers do not identify application. No4013 reply sent. Route/crypto claims limited to available metadata; v38 probe code absent. Independent pinned-native helper controls (four methods) distinguish mode0 copy vs encrypted no-key-31 with either compression setting; not a measurement of phone crypto.
+
+## E-32 — exact v38 source audit and native differential
+
+[Actual results, native addresses, stubs and limits](research/V38_SOURCE_AUDIT.md). User ZIP hash e3bbc31f7b93e738aff0d4205dd0d1418c7abd55b7c17b332ca5d426eb619df2. Source gap in E-31 resolved. Exact synthetic lab stages select method0 and states2/4/5 with state3 supplied. Original legacy header serializer agrees with v38 classifier on independent synthetic input. Correction to E-30: body prefix is native `dwSequence`, not UID; original counter increment verified before suppressed send. Added metadata-only observer copy; original/prepared focused suites9 PASS each, canonical205 private PASS /117 PASS+88 SKIP default. No native failing predicate identified for actual redacted phone body; no phone run/account acceptance.

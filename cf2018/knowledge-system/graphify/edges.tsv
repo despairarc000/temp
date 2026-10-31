@@ -67,3 +67,10 @@ knowledge-system/vault/research/SERVER_PATH.md	tests	tests/test_native_routed_tx
 knowledge-system/vault/research/SERVER_PATH.md	evidence	coordination/ROUTED_TX_MATRIX.json	NATIVE_WITH_SYNTHETIC_CONTEXT
 knowledge-system/vault/research/V38_BLOCKER.md	tests	tests/test_routed_encrypt_boundary.py	ACTUAL_NATIVE_SYNTHETIC_NOT_PHONE_CRYPTO
 knowledge-system/vault/research/SERVER_PATH.md	depends-on	knowledge-system/vault/research/V38_BLOCKER.md	LATEST_USER_REPORT
+knowledge-system/vault/research/V38_SOURCE_AUDIT.md	depends-on	sources/SOURCE_PROVENANCE.md	HASH_SCOPED_NATIVE
+knowledge-system/vault/research/V38_SOURCE_AUDIT.md	evidence	coordination/V38_STAGE_CONTEXT_MATRIX.json	ORIGINAL_RECEIVER_SYNTHETIC_STAGES
+knowledge-system/vault/research/V38_SOURCE_AUDIT.md	tests	tests/test_native_rpc_header.py	ACTUAL_NATIVE_HEADER_MEMORY_SINK
+knowledge-system/vault/research/V38_SOURCE_AUDIT.md	tests	tests/test_v38_observer.py	PRIVATE_SOURCE_INTEGRATION_NO_PHONE
+knowledge-system/vault/research/V38_SOURCE_AUDIT.md	describes	tools/prepare_v38_observer.py	INACTIVE_PRIVATE_COPY_ONLY
+knowledge-system/vault/research/V38_SOURCE_AUDIT.md	evidence	coordination/ROUTED_TX_MATRIX.json	PACKET_SEQUENCE_CORRECTION
+knowledge-system/vault/research/V38_BLOCKER.md	depends-on	knowledge-system/vault/research/V38_SOURCE_AUDIT.md	SOURCE_GAP_RESOLVED

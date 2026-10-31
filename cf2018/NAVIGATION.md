@@ -22,3 +22,5 @@ Application connected/account consumers: [native callback trace](knowledge-syste
 Managed editing / early exit: [native loader and integrity investigation](knowledge-system/vault/research/INTEGRITY_NATIVE.md), [read-only preflight](tools/managed_image_preflight.py). Safe modified launch remains unverified.
 
 Current priority: [server route review](knowledge-system/vault/research/SERVER_PATH.md); supersedes historical ACK/body-only checkpoints.
+
+[Latest source audit and packet-sequence correction](knowledge-system/vault/research/V38_SOURCE_AUDIT.md).

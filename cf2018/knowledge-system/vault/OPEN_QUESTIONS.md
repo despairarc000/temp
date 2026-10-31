@@ -48,8 +48,10 @@ v1.5/v1.6 real post-Bingo0x4013 in3/4. Q-05 earliest body issue now fixed in tes
 lab path. Q-03/Q-04 remain account/key/identity unknown, not inferred from state5.
 New immediate Q-10: which application request/envelope is in the real routed
 traffic, and which reciprocal RX path accepts a correlated service response?
-TX adds BE UID32 before application bytes, prior to encryption; not a length.
+TX adds BE packet-sequence32 before application bytes, prior to encryption; not a length.
 Kind-filter observer defect explains why absence of hint is inconclusive.
 DLL Q-09 remains unresolved and parked; no source round trip or safe edit.
 
 Q-10 latest: [v3.8 report](research/V38_BLOCKER.md) confirms kind5 observed and compression off, but operation remains unidentified. Require actual v3.8 source to verify DataHead mapping/slicing/recognizer policy before another experiment. Compression is independent of encryption. No reply was attempted, so no response rejection diagnosed.
+
+Q-10 source gap resolved by [exact v38 audit](research/V38_SOURCE_AUDIT.md). The native four-byte prefix is packet sequence; earlier UID interpretation corrected. Exact lab stages select method0 and native legacy header passes observer. Actual phone operation still unknown. Prepared fixed-label boundary diagnostic; no new reply until producer/reciprocal receiver evidence.

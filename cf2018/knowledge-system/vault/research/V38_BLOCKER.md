@@ -1,3 +1,7 @@
+# Current source audit supersedes the source-availability gap below
+
+The user supplied the exact v38 ZIP. [Native replay, sequence correction and integrated metadata diagnostics](V38_SOURCE_AUDIT.md) are complete. Exact lab stages select method0; no native rejection of the actual phone body has been established. The four-byte prefix is packet sequence, not UID. Historical review follows.
+
 # v3.8 DataHead — latest user-supplied test and exact remaining boundary
 
 2026-10-31, coordinator, base d04cfe9a1e54f8c5e01e5839476e84beb834468a.
@@ -78,7 +82,7 @@ helpers only if reached; method3/4 stop at real missing-key predicate, no crypto
 success stub. Fresh synthetic context, no socket or game,100000 instructions/1s.
 These controls do not identify the actual v38 connection's crypto method/key.
 
-The earlier verified BE UID32 + application-data prefix is PRE-encryption with
+The earlier BE packet-sequence32 + application-data prefix is PRE-encryption with
 compression disabled. Only if that exact unencrypted path is established for
 the real connection would80/85-body bytes imply76/81 application bytes. This
 conditional arithmetic is not a decoding of the uploaded report.
@@ -87,7 +91,7 @@ conditional arithmetic is not a decoding of the uploaded report.
 
 Recover v3.8 source/installer or authorized private ZIP, not raw auth or packet
 payload. Compare its actual header/body slicing, DataHead field ordering, flag
-mapping, UID-prefix handling, route union and classifier offset policy with the
+mapping, packet-sequence-prefix handling, route union and classifier offset policy with the
 original serializer. Then connect MsgBuffer/protocol serialization to the actual
 routed payload and reciprocal receiver. Preserve successful stages and inspect
 only in-memory data with allowlisted metadata; no arbitrary route-name logging.

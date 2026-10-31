@@ -4,12 +4,12 @@
   "repository": "despairarc000/temp",
   "branch": "main",
   "coordinator": "CF18-00",
-  "reviewed_main": "5d76e82696984717e394552cc6fb9c076e77e01f",
+  "reviewed_main": "44bb53ebf7aee223840a9fb87f8e5765e25de000",
   "priority": {
     "earliest_unmet": "G0_CURRENT_INSTALLED_AND_OBB_IDENTITY",
     "next_native_gate": "G2_ROUTED_APPLICATION_IDENTIFICATION",
     "G2_first_hop": "CONFIRMED_ON_PHONE_0x2001",
-    "G2_status": "PHONE_POST_BINGO_4013_OBSERVED_3_OF_4_NOT_VALIDATED_SESSION",
+    "G2_status": "V38_PHONE_2_OF_4_ROUTED_APPLICATION_UNIDENTIFIED_NO_REPLY_TESTED",
     "native_AB_C_ready": false,
     "v14_envelope_comparison": "JUSTIFIED_IN_PRINCIPLE_BLOCKED_DEPLOYED_BRIDGE_REVIEW"
   },
@@ -162,12 +162,12 @@
   ],
   "validation": {
     "canonical_private_selected": {
-      "passed": 191,
+      "passed": 205,
       "skipped": 0
     },
     "canonical_source_free": {
-      "passed": 109,
-      "skipped": 82
+      "passed": 117,
+      "skipped": 88
     },
     "auth_incoming": {
       "passed": 25,
@@ -195,6 +195,14 @@
     },
     "managed_preflight_tests": {
       "passed": 7,
+      "skipped": 0
+    },
+    "v38_original_focused": {
+      "passed": 9,
+      "skipped": 0
+    },
+    "v38_prepared_focused": {
+      "passed": 9,
       "skipped": 0
     }
   },
@@ -225,11 +233,13 @@
   "execution_policy": "USER_PAUSED_ALL_SCHEDULES; scopes below do not reactivate workers",
   "current_investigation": {
     "task": "CF18-V38-APPLICATION-FRAMING",
-    "record": "knowledge-system/vault/research/V38_BLOCKER.md",
-    "status": "NATIVE_TX_REVIEWED",
-    "next_offline": "Obtain v38 observer source; verify slicing/DataHead flags and actual application serializer",
+    "record": "knowledge-system/vault/research/V38_SOURCE_AUDIT.md",
+    "status": "SOURCE_NATIVE_DIFFERENTIAL_REVIEWED",
+    "next_offline": "Actual application producer/reciprocal receiver; metadata-only prepared observer can distinguish sequence boundary, no guessed reply",
     "phone_result": "ACTUAL_USER_V38_REPORT_REVIEWED_2_OF_4_ROUTED",
-    "schedules": "REMAIN_PAUSED"
+    "schedules": "REMAIN_PAUSED",
+    "source_zip": "EXACT_USER_ZIP_HASH_VERIFIED",
+    "native_failure": "NOT_LOCALIZED_FOR_REDACTED_PHONE_BODY"
   },
   "direct_integrity_investigation": {
     "task": "CF18-INTEGRITY-01",

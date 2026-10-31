@@ -1,5 +1,5 @@
 {
-  "base_main": "5d76e82696984717e394552cc6fb9c076e77e01f",
+  "base_main": "44bb53ebf7aee223840a9fb87f8e5765e25de000",
   "library_sha256": "4812396e98bfba9664164c14c8973eed111c5b9d177c1b575e86bc8e9f9169d8",
   "controls": [
     {
@@ -8,13 +8,16 @@
         "return": -77,
         "before_encrypt_send": {
           "length": 5,
-          "prefix_matches_big_endian_uid": true,
+          "prefix_matches_big_endian_sequence": true,
           "payload_preserved": true
         },
         "header_type": 16403,
         "base_marker": 17254,
         "compression_flag": 0,
         "route_type": 0,
+        "sequence_incremented": false,
+        "pending_wire_length": 0,
+        "queued_body_preserved": false,
         "stubs": [
           "bounded libc memory operation"
         ],
@@ -27,13 +30,16 @@
         "return": -77,
         "before_encrypt_send": {
           "length": 68,
-          "prefix_matches_big_endian_uid": true,
+          "prefix_matches_big_endian_sequence": true,
           "payload_preserved": true
         },
         "header_type": 16403,
         "base_marker": 17254,
         "compression_flag": 0,
         "route_type": 0,
+        "sequence_incremented": false,
+        "pending_wire_length": 0,
+        "queued_body_preserved": false,
         "stubs": [
           "bounded libc memory operation"
         ],
@@ -49,6 +55,9 @@
         "base_marker": 0,
         "compression_flag": 0,
         "route_type": 0,
+        "sequence_incremented": false,
+        "pending_wire_length": 0,
+        "queued_body_preserved": false,
         "stubs": [],
         "evidence": "SYNTHETIC_NATIVE_PRE_ENCRYPT_NOT_PHONE_PAYLOAD"
       }
@@ -62,6 +71,9 @@
         "base_marker": 0,
         "compression_flag": 0,
         "route_type": 0,
+        "sequence_incremented": false,
+        "pending_wire_length": 0,
+        "queued_body_preserved": false,
         "stubs": [],
         "evidence": "SYNTHETIC_NATIVE_PRE_ENCRYPT_NOT_PHONE_PAYLOAD"
       }
@@ -75,6 +87,9 @@
         "base_marker": 0,
         "compression_flag": 0,
         "route_type": 0,
+        "sequence_incremented": false,
+        "pending_wire_length": 0,
+        "queued_body_preserved": false,
         "stubs": [
           "last-error get=0",
           "XLog no-op",
@@ -92,6 +107,9 @@
         "base_marker": 0,
         "compression_flag": 0,
         "route_type": 0,
+        "sequence_incremented": false,
+        "pending_wire_length": 0,
+        "queued_body_preserved": false,
         "stubs": [
           "last-error get=0",
           "XLog no-op",
@@ -109,10 +127,41 @@
         "base_marker": 0,
         "compression_flag": 0,
         "route_type": 0,
+        "sequence_incremented": false,
+        "pending_wire_length": 0,
+        "queued_body_preserved": false,
         "stubs": [
           "last-error get=0",
           "XLog no-op",
           "last-error set no-op"
+        ],
+        "evidence": "SYNTHETIC_NATIVE_PRE_ENCRYPT_NOT_PHONE_PAYLOAD"
+      }
+    },
+    {
+      "name": "actual_pack_copy_no_send",
+      "actual": {
+        "return": -77,
+        "before_encrypt_send": {
+          "length": 12,
+          "prefix_matches_big_endian_sequence": true,
+          "payload_preserved": true
+        },
+        "header_type": 16403,
+        "base_marker": 17254,
+        "compression_flag": 0,
+        "route_type": 0,
+        "sequence_incremented": true,
+        "pending_wire_length": 76,
+        "queued_body_preserved": true,
+        "stubs": [
+          "bounded libc memory operation",
+          "bounded libc memory operation",
+          "bounded libc memory operation",
+          "last-error get=0",
+          "XLog no-op",
+          "last-error set no-op",
+          "send-buffer submission SUPPRESSED; no socket"
         ],
         "evidence": "SYNTHETIC_NATIVE_PRE_ENCRYPT_NOT_PHONE_PAYLOAD"
       }

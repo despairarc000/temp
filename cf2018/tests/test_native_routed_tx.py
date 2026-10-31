@@ -17,7 +17,14 @@ class NativeRoutedTests(unittest.TestCase):
             self.assertEqual(r['base_marker'],0x4366)
             self.assertEqual(r['compression_flag'],0)
             self.assertEqual(r['before_encrypt_send'],{'length':len(p)+4,
-                'prefix_matches_big_endian_uid':True,'payload_preserved':True})
+                'prefix_matches_big_endian_sequence':True,'payload_preserved':True})
+    def test_actual_pack_and_mode0_copy_increment_packet_sequence_before_suppressed_send(self):
+        r=routed_tx(LIB,b'LABDATA!',finish_native=True)
+        self.assertEqual(r['return'],-77)
+        self.assertTrue(r['sequence_incremented'])
+        self.assertGreater(r['pending_wire_length'],12)
+        self.assertTrue(r['queued_body_preserved'])
+        self.assertTrue(r['before_encrypt_send']['payload_preserved'])
     def test_state4_cannot_submit(self):
         r=routed_tx(LIB,b'X',state=4);self.assertEqual(r['return'],-8);self.assertFalse(r['before_encrypt_send'])
     def test_uninitialized_cannot_submit(self):

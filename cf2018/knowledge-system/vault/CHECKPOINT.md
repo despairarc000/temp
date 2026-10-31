@@ -1,6 +1,10 @@
+# Current: v38 source and native differential reviewed
+
+[Source/native audit](research/V38_SOURCE_AUDIT.md), base44bb53ebf7aee223840a9fb87f8e5765e25de000. Source ZIP now available and audited. Exact ACK63/auth54/Bingo91 native replay selects method0 with explicit state3/no-data/runtime stubs. Native legacy serializer matches v38 classifier; no operation identified from phone bodies. Four-byte prefix corrected from UID to packet sequence (`dwSequence`), native increment verified. New metadata-only observer integration preserves replies, no automatic live run.205 canonical private PASS; source-free117 PASS/88 SKIP; doctorPASS. NOT PLAYABLE; schedules paused.
+
 # Latest reviewed test: v3.8 DataHead
 
-[Actual uploaded report and current blocker](research/V38_BLOCKER.md):2/4 routed client frames, kind5/no-compression reported, inner application unidentified; no4013 reply sent. The older v1.6 review below is historical. Need v38 parser/source, not another handshake sweep.
+[Actual uploaded report and current blocker](research/V38_BLOCKER.md):2/4 routed client frames, kind5/no-compression reported, inner application unidentified; no4013 reply sent. The older v1.6 review below is historical. Exact v38 parser/source has since been reviewed; see current audit above.
 
 # Current checkpoint — 2026-10-31 server continuation
 
@@ -13,7 +17,7 @@ The v1.6 observer had a selector-kind filter defect; missing hint is inconclusiv
 No v1.6.1 phone outcome reviewed here. Original report summaries are linked in
 SERVER_PATH; raw reports not newly reopened. No new phone run by coordinator.
 
-Native continuation verifies routed TX pre-encryption body is BE UID32 + original
+Native continuation verifies routed TX pre-encryption body is BE packet-sequence32 + original
 application payload, with actual4013/header and state/size/route guards. Stops
 before encrypt/send, not a real session.187 canonical PASS with explicit private
 sources; default108 PASS/79 SKIP; incoming Bingo13/address14 PASS; doctorPASS.

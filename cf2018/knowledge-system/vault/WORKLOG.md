@@ -146,7 +146,7 @@ Pinned Unity caller/import and seven provider constructors traced statically. Fo
 
 Reviewed latest main/phone14–16/incoming server findings. Chose local-server
 continuation on actual client progression; integrity parked, no halfway/gameplay
-claim. Native routed TX copies BE UID32+application payload; seven actual-native
+claim. Native routed TX copies BE packet-sequence32+application payload; seven actual-native
 controls stop before encryption/send and verify guards. Incoming Bingo13 and
 address14 synthetic tests rerun. Canonical187 PASS private;108 PASS/79 SKIP default;
 doctorPASS. [Decision and evidence](research/SERVER_PATH.md). No original edits,
@@ -156,3 +156,7 @@ no incoming paths included in coordinator commit.
 ## 2026-10-31 — v3.8 attachment supersedes older observer context
 
 Read/hash actual5383-byte user report. Reconciled2/4 laterframes and no4013reply. Added four native crypto-boundary tests proving compression context does not determine key/copy branch.191 canonical PASS private;109 PASS/82 SKIP default; doctorPASS. [Review and limits](research/V38_BLOCKER.md). No private capture or credentials published, no schedule/phone run.
+
+## 2026-10-31 — exact v38 source/native differential
+
+User requested active investigation. Opened exact ZIP privately; source audits PASS. Original receiver replay selects mode0 through exact lab stages with stated stubs/state3 injection. Actual native header writer agrees with v38 legacy classifier. Corrected earlier UID interpretation to native packet sequence and verified real counter increment. Prepared private metadata-only observer copy preserving all outgoing replies; original/prepared9 focused tests PASS each.205 canonical private PASS;117 PASS/88 SKIP default; doctorPASS. [Full evidence/integration](research/V38_SOURCE_AUDIT.md). No native rejection of actual phone payload localized, no guessed response or phone test. Schedules paused.

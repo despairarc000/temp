@@ -20,3 +20,5 @@ Startup/integrity/protected-assembly context includes [native integrity trace](.
 Routed/address/0x4013 context: [server-path decision and native TX](../vault/research/SERVER_PATH.md). Review latest phone reports and observer-kind limits before constructing replies.
 
 Current routed application blocker: [v3.8 review](../vault/research/V38_BLOCKER.md). Preserve report provenance and distinguish compression from encryption.
+
+[V38 source/sequence/serializer context](../vault/research/V38_SOURCE_AUDIT.md).
