@@ -81,3 +81,9 @@ coordination/CURRENT_HANDOFF.md	evidence	knowledge-system/vault/research/V38_SOU
 coordination/CURRENT_HANDOFF.md	describes	coordination/V381_TERMUX_STEPS.txt	OWNER_MANUAL_OPT_IN_ONLY
 coordination/CURRENT_HANDOFF.md	tests	tests/test_v381_patch_kit.py	ACTUAL_LOCAL_SOCKS5_NOT_ANDROID
 coordination/CURRENT_HANDOFF.md	describes	deliverables/CF2018_v381_Patch_Kit.zip	ORIGINAL_CODE_ONLY_NO_PRIVATE_INPUTS
+knowledge-system/vault/research/ADDRESS_APPLICATION.md	depends-on	sources/SOURCE_PROVENANCE.md	HASH_SCOPED_NATIVE
+knowledge-system/vault/research/ADDRESS_APPLICATION.md	evidence	coordination/ADDRESS_NATIVE_MATRIX.json	ACTUAL_NATIVE_SYNTHETIC_NO_PHONE
+knowledge-system/vault/research/ADDRESS_APPLICATION.md	tests	tests/test_native_address_fields.py	GENERATED_NATIVE_FIELDS_WITH_RUNTIME_STUBS
+knowledge-system/vault/research/ADDRESS_APPLICATION.md	tests	tests/test_address_response_gate.py	STRICT_OFFLINE_REQUIRED_REASON
+knowledge-system/vault/research/ADDRESS_APPLICATION.md	describes	experiments/address_response_gate.py	ORIGINAL_CF05_CODE_CANONICAL_CORRECTION
+coordination/CURRENT_HANDOFF.md	depends-on	knowledge-system/vault/research/ADDRESS_APPLICATION.md	CURRENT_APPLICATION_RESEARCH

@@ -4,7 +4,7 @@
   "repository": "despairarc000/temp",
   "branch": "main",
   "coordinator": "CF18-00",
-  "reviewed_main": "0d6dc5edec04e687cc677f2cce5dca20b15171da",
+  "reviewed_main": "26cc7c0fcf77dd266d4e22a5c33401dd9df9694d",
   "priority": {
     "earliest_unmet": "G0_CURRENT_INSTALLED_AND_OBB_IDENTITY",
     "next_native_gate": "G2_ROUTED_APPLICATION_IDENTIFICATION",
@@ -162,12 +162,12 @@
   ],
   "validation": {
     "canonical_private_selected": {
-      "passed": 209,
+      "passed": 236,
       "skipped": 0
     },
     "canonical_source_free": {
-      "passed": 120,
-      "skipped": 89
+      "passed": 137,
+      "skipped": 99
     },
     "auth_incoming": {
       "passed": 25,
@@ -209,6 +209,14 @@
       "passed": 4,
       "skipped": 0,
       "scope": "four local synthetic game sessions through actual SOCKS5 plus non-target passthrough; not Android"
+    },
+    "native_address_fields": {
+      "passed": 12,
+      "skipped": 0
+    },
+    "canonical_address_preflight": {
+      "passed": 15,
+      "skipped": 0
     }
   },
   "reviewed_packets": [
@@ -245,7 +253,8 @@
     "schedules": "REMAIN_PAUSED",
     "source_zip": "EXACT_USER_ZIP_HASH_VERIFIED",
     "native_failure": "NOT_LOCALIZED_FOR_REDACTED_PHONE_BODY",
-    "artifact": "deliverables/CF2018_v381_Patch_Kit.zip"
+    "artifact": "deliverables/CF2018_v381_Patch_Kit.zip",
+    "offline_continuation": "knowledge-system/vault/research/ADDRESS_APPLICATION.md"
   },
   "direct_integrity_investigation": {
     "task": "CF18-INTEGRITY-01",

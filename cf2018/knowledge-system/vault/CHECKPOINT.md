@@ -40,6 +40,10 @@ No simple endian/offset correction found. Current earliest failed boundary is
 observer application identification; no native failing predicate for actual
 redacted phone body established. See the audit for addresses/provenance/stubs.
 
+## Additional actual-native application findings
+
+[Request producer/result decoder](research/ADDRESS_APPLICATION.md): generated arguments are34+service-string-size; full native legacy and strict requests are both found at offset4 by v38 observer. Thus a simple endian/legacy-classifier switch does not explain the real unidentified body. Native response requires result AND reason STRING; absent reason fails0x39ead8 before exception allocation, empty is allowed. Integrated canonical offline preflight correction; no4013 reply or live bridge change.
+
 ## Ready next diagnostic and development continuity
 
 [Patch-only v3.8.1 kit](../../deliverables/CF2018_v381_Patch_Kit.zip) consumes the
@@ -75,8 +79,8 @@ verified historical exit cause or safe edited build. [Integrity](research/INTEGR
 
 ## Verification
 
-Canonical209 PASS with explicit private APK/Apollo/Unity/Mono/tprt, v38 source/ZIP
-and analysis dependencies. Default209 total:120 PASS/89 explicit private-input SKIP.
+Canonical236 PASS with explicit private APK/Apollo/Unity/Mono/tprt, v38 source/ZIP
+and analysis dependencies. Default236 total:137 PASS/99 explicit private-input SKIP.
 Four new patch-kit tests include complete local SOCKS5 integration; v381 default
 starter runs9 original focused synthetic tests and starts no listener. DoctorPASS.
 No new phone result, external-service experiment or scheduled worker activation.

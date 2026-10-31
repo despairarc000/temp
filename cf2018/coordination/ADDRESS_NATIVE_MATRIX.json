@@ -1,0 +1,219 @@
+{
+  "base_main": "26cc7c0fcf77dd266d4e22a5c33401dd9df9694d",
+  "library_sha256": "4812396e98bfba9664164c14c8973eed111c5b9d177c1b575e86bc8e9f9169d8",
+  "request_controls": [
+    {
+      "strict": false,
+      "synthetic_service_size": 16,
+      "argument_size": 50,
+      "routed_body_size_assuming_clear_sequence_prefix": 80,
+      "return": 50,
+      "remaining_depth": 0,
+      "stubs": [
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket"
+      ]
+    },
+    {
+      "strict": false,
+      "synthetic_service_size": 21,
+      "argument_size": 55,
+      "routed_body_size_assuming_clear_sequence_prefix": 85,
+      "return": 55,
+      "remaining_depth": 0,
+      "stubs": [
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket"
+      ],
+      "first_difference_from_prior_offset": 61
+    },
+    {
+      "strict": true,
+      "synthetic_service_size": 13,
+      "argument_size": 47,
+      "routed_body_size_assuming_clear_sequence_prefix": 80,
+      "return": 47,
+      "remaining_depth": 0,
+      "stubs": [
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket"
+      ]
+    },
+    {
+      "strict": true,
+      "synthetic_service_size": 18,
+      "argument_size": 52,
+      "routed_body_size_assuming_clear_sequence_prefix": 85,
+      "return": 52,
+      "remaining_depth": 0,
+      "stubs": [
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket",
+        "bounded synthetic memory output; no socket"
+      ],
+      "first_difference_from_prior_offset": 64
+    }
+  ],
+  "result_controls": [
+    {
+      "name": "both_required_fields",
+      "native_return": 19,
+      "stopped_before_exception_allocation": false,
+      "failed_predicate": null,
+      "consumed": 19,
+      "wrapper_presence": true,
+      "result": 0,
+      "stubs": [
+        "bounded static empty-string assignment runtime",
+        "bounded synthetic memory input; no socket",
+        "bounded synthetic memory input; no socket",
+        "bounded static empty-string assignment runtime",
+        "bounded synthetic memory input; no socket",
+        "bounded synthetic memory input; no socket",
+        "bounded synthetic memory input; no socket",
+        "bounded synthetic memory input; no socket",
+        "bounded synthetic memory input; no socket",
+        "bounded synthetic memory input; no socket",
+        "bounded synthetic memory input; no socket",
+        "temporary string destruction no-op; no allocation",
+        "bounded synthetic memory input; no socket",
+        "temporary string destruction no-op; no allocation"
+      ],
+      "limits": "generated result reader only; no pending map, endpoint or session acceptance"
+    },
+    {
+      "name": "missing_result",
+      "native_return": null,
+      "stopped_before_exception_allocation": true,
+      "failed_predicate": {
+        "address": "0x39eaae",
+        "predicate": "required_result_absent"
+      },
+      "consumed": 11,
+      "wrapper_presence": false,
+      "result": 0,
+      "stubs": [
+        "bounded static empty-string assignment runtime",
+        "bounded synthetic memory input; no socket",
+        "bounded synthetic memory input; no socket",
+        "bounded static empty-string assignment runtime",
+        "bounded synthetic memory input; no socket",
+        "bounded synthetic memory input; no socket",
+        "bounded synthetic memory input; no socket",
+        "bounded synthetic memory input; no socket"
+      ],
+      "limits": "generated result reader only; no pending map, endpoint or session acceptance"
+    },
+    {
+      "name": "missing_reason",
+      "native_return": null,
+      "stopped_before_exception_allocation": true,
+      "failed_predicate": {
+        "address": "0x39ead8",
+        "predicate": "required_reason_string_absent"
+      },
+      "consumed": 11,
+      "wrapper_presence": false,
+      "result": 0,
+      "stubs": [
+        "bounded static empty-string assignment runtime",
+        "bounded synthetic memory input; no socket",
+        "bounded synthetic memory input; no socket",
+        "bounded static empty-string assignment runtime",
+        "bounded synthetic memory input; no socket",
+        "bounded synthetic memory input; no socket",
+        "bounded synthetic memory input; no socket",
+        "bounded synthetic memory input; no socket"
+      ],
+      "limits": "generated result reader only; no pending map, endpoint or session acceptance"
+    },
+    {
+      "name": "missing_success_wrapper",
+      "native_return": 1,
+      "stopped_before_exception_allocation": false,
+      "failed_predicate": null,
+      "consumed": 1,
+      "wrapper_presence": false,
+      "result": 0,
+      "stubs": [
+        "bounded static empty-string assignment runtime",
+        "bounded synthetic memory input; no socket",
+        "temporary string destruction no-op; no allocation"
+      ],
+      "limits": "generated result reader only; no pending map, endpoint or session acceptance"
+    },
+    {
+      "name": "nonzero_result",
+      "native_return": 19,
+      "stopped_before_exception_allocation": false,
+      "failed_predicate": null,
+      "consumed": 19,
+      "wrapper_presence": true,
+      "result": 7,
+      "stubs": [
+        "bounded static empty-string assignment runtime",
+        "bounded synthetic memory input; no socket",
+        "bounded synthetic memory input; no socket",
+        "bounded static empty-string assignment runtime",
+        "bounded synthetic memory input; no socket",
+        "bounded synthetic memory input; no socket",
+        "bounded synthetic memory input; no socket",
+        "bounded synthetic memory input; no socket",
+        "bounded synthetic memory input; no socket",
+        "bounded synthetic memory input; no socket",
+        "bounded synthetic memory input; no socket",
+        "temporary string destruction no-op; no allocation",
+        "bounded synthetic memory input; no socket",
+        "temporary string destruction no-op; no allocation"
+      ],
+      "limits": "generated result reader only; no pending map, endpoint or session acceptance"
+    }
+  ]
+}

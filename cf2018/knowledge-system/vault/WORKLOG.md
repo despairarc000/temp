@@ -164,3 +164,7 @@ User requested active investigation. Opened exact ZIP privately; source audits P
 ## 2026-10-31 — owner requested proactive handoff and existing workflow continuity
 
 Read actual v38 PCAPdroid/Termux package before preparing portable patch-only kit. Added CURRENT_HANDOFF to mandatory entrypoints and every ICM route; consolidated checkpoint/cold-start so historical missing-source/no-first-hop blocks cannot replace current facts. Kit consumes existing owner ZIP, preserves replies/handler, adds fixed diagnostics and versioned report/IDs. Four synthetic sessions through actual SOCKS5 redirector/server and unrelated binary passthrough PASS.209 canonical private PASS;120 PASS/89 SKIP default; doctorPASS. No phone run, original edit or schedule restart.
+
+## 2026-10-31 — continued real native application investigation
+
+User asked for concrete blocker/action. Executed generated QueryAddrInfo args/result instructions with explicit memory/string-runtime substitutions. Native args34+N and full legacy/strict positive controls show observer can recognize those complete forms; real request still unknown. Native result requires reason STRING; missing field reaches0x39ead8. Integrated corrected original CF05 preflight canonically; incoming files unchanged.12 native controls and15 preflight methods PASS;236 canonical private PASS /137 PASS+99 SKIP default; doctorPASS. No new phone response/run or kit change.

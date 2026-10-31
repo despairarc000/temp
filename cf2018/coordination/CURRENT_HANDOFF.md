@@ -57,6 +57,19 @@ corrected. For the current v38 routed request, only observer identification has
 failed; no native failing predicate or rejected service response is established.
 EOF is not proof of authentication rejection. No new4013 reply is justified yet.
 
+## Additional offline finding after this handoff
+
+[Native application fields](../knowledge-system/vault/research/ADDRESS_APPLICATION.md):
+actual generated request arguments execute and both complete native legacy/strict
+requests are recognized by the existing v38 application parser at offset4. Plain
+legacy size80/85 would first differ at61, inconsistent with the reported64plus
+prefix under that simple model. Producer/encoding still unknown; do not swap RPC
+formats by guess. Actual native response requires BOTH result and reason STRING;
+empty reason allowed, absent reaches0x39ead8 missing-field path. Canonical offline
+preflight now rejects missing reason; this is not a phone fix or valid reply.
+236 canonical private PASS /137 PASS+99 SKIP default; source-native12 and canonical
+preflight15 PASS. Delivered v381 kit and latest real phone result unchanged.
+
 ## Ready next artifact and exact test
 
 [Patch-only ZIP](../deliverables/CF2018_v381_Patch_Kit.zip),

@@ -28,3 +28,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 [V38_SOURCE_AUDIT — native stage/serializer differential and metadata diagnostic](research/V38_SOURCE_AUDIT.md).
 
 **All task routes now include [CURRENT_HANDOFF](../../coordination/CURRENT_HANDOFF.md)**: actual PCAPdroid/Termux workflow and next diagnostic; old task summaries do not reset progress.
+
+- [ADDRESS_APPLICATION](research/ADDRESS_APPLICATION.md) — actual native arguments, required reason field, strict preflight correction and remaining runtime evidence.
