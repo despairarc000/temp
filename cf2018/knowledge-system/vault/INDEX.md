@@ -22,3 +22,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [INTEGRITY_NATIVE](research/INTEGRITY_NATIVE.md) — protected on-disk assembly, Mono provider detour and bounded termination predicate; historical phone cause still unknown.
 
 - [SERVER_PATH](research/SERVER_PATH.md) — latest phone progression, server-vs-integrity priority and actual routed TX boundary.
+
+- [V38_BLOCKER](research/V38_BLOCKER.md) — latest uploaded report, classifier/source gap and native compression/encryption distinction.

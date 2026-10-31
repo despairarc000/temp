@@ -1,3 +1,7 @@
+# Latest evidence: v3.8
+
+Start with [v3.8 report review](knowledge-system/vault/research/V38_BLOCKER.md). Actual kind5 routed traffic is observed; application payload remains unidentified. Source code for v38 is missing on this runner. No new phone run or guessed reply. Earlier version-specific checkpoints below are historical.
+
 # Current startup — local-server routed application gate
 
 Read AGENTS/NAVIGATION and current CHECKPOINT. [Server priority](knowledge-system/vault/research/SERVER_PATH.md)

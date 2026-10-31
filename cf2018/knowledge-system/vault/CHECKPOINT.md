@@ -1,3 +1,7 @@
+# Latest reviewed test: v3.8 DataHead
+
+[Actual uploaded report and current blocker](research/V38_BLOCKER.md):2/4 routed client frames, kind5/no-compression reported, inner application unidentified; no4013 reply sent. The older v1.6 review below is historical. Need v38 parser/source, not another handshake sweep.
+
 # Current checkpoint — 2026-10-31 server continuation
 
 **Priority: original-client local server; integrity editing parked. NOT PLAYABLE.**
@@ -138,3 +142,7 @@ started. TGCP/Bingo/session findings and separate pending work remain intact.
 ## Integrity caller continuation
 
 [Native investigation](research/INTEGRITY_NATIVE.md) now locates actual original Unity->Mono call0x20f87c and its buffer preparation. Supplied null-image or nonzero-status controls take diagnostic branch, distinct from explicit native termination. Stored APK bytes are not yet proven identical to Mono input because virtual/file-reader and initialization effects remain unresolved. No decoded image or unchanged round trip achieved.180 canonical PASS private-selected; default107 PASS/73 SKIP; doctorPASS.
+
+## Latest supplied phone test: v3.8 (supersedes v1.6 recency)
+
+[Actual report review](research/V38_BLOCKER.md): four synthetic-stage trials, two later4013 frames/header79/body80 or85; kind5, named-route candidate, compression reportedoff, no recognized inner operation. No4013 reply sent; post-route-window completion is not reply rejection. Native crypto helper controls demonstrate compression off does not establish plaintext. Current blocker: actual application framing and v3.8 classifier/source review. No new phone run.191 canonical PASS private;109 PASS/82 SKIP default; doctorPASS.

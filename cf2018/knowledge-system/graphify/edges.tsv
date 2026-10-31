@@ -65,3 +65,5 @@ knowledge-system/vault/research/SERVER_PATH.md	evidence	coordination/incoming/CF
 knowledge-system/vault/research/SERVER_PATH.md	evidence	coordination/incoming/CF18-05/PHONE_V16_AND_V161_FIX.md	PHONE_AND_OBSERVER_DEFECT
 knowledge-system/vault/research/SERVER_PATH.md	tests	tests/test_native_routed_tx.py	ACTUAL_NATIVE_PRE_ENCRYPT_NOT_SESSION
 knowledge-system/vault/research/SERVER_PATH.md	evidence	coordination/ROUTED_TX_MATRIX.json	NATIVE_WITH_SYNTHETIC_CONTEXT
+knowledge-system/vault/research/V38_BLOCKER.md	tests	tests/test_routed_encrypt_boundary.py	ACTUAL_NATIVE_SYNTHETIC_NOT_PHONE_CRYPTO
+knowledge-system/vault/research/SERVER_PATH.md	depends-on	knowledge-system/vault/research/V38_BLOCKER.md	LATEST_USER_REPORT

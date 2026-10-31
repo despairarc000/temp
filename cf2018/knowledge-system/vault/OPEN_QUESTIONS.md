@@ -51,3 +51,5 @@ traffic, and which reciprocal RX path accepts a correlated service response?
 TX adds BE UID32 before application bytes, prior to encryption; not a length.
 Kind-filter observer defect explains why absence of hint is inconclusive.
 DLL Q-09 remains unresolved and parked; no source round trip or safe edit.
+
+Q-10 latest: [v3.8 report](research/V38_BLOCKER.md) confirms kind5 observed and compression off, but operation remains unidentified. Require actual v3.8 source to verify DataHead mapping/slicing/recognizer policy before another experiment. Compression is independent of encryption. No reply was attempted, so no response rejection diagnosed.

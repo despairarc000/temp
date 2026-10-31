@@ -244,3 +244,7 @@ payload; header routing/compression fields separate. State5, initialization, len
 timeout and route-pointer guards tested. Stops before encrypt/send; no final wire,
 real UID/session or RPC inferred. Seven new methods PASS; canonical187 PASS private,
 108 PASS/79 SKIP default. Incoming Bingo13/address14 tests rerun as synthetic only.
+
+## E-31 — actual uploaded v3.8 DataHead report
+
+[Review](research/V38_BLOCKER.md), source5383 bytes SHA256031dcb5bf33eb979cd95b161708c454006fd938f50ff08893db923fa81614cb3. User-supplied phone report:2/4 routed frames, kind5, body80/85; report classifiers do not identify application. No4013 reply sent. Route/crypto claims limited to available metadata; v38 probe code absent. Independent pinned-native helper controls (four methods) distinguish mode0 copy vs encrypted no-key-31 with either compression setting; not a measurement of phone crypto.

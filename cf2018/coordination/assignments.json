@@ -162,12 +162,12 @@
   ],
   "validation": {
     "canonical_private_selected": {
-      "passed": 187,
+      "passed": 191,
       "skipped": 0
     },
     "canonical_source_free": {
-      "passed": 108,
-      "skipped": 79
+      "passed": 109,
+      "skipped": 82
     },
     "auth_incoming": {
       "passed": 25,
@@ -224,11 +224,11 @@
   },
   "execution_policy": "USER_PAUSED_ALL_SCHEDULES; scopes below do not reactivate workers",
   "current_investigation": {
-    "task": "CF18-G2-ROUTED-TX-01",
-    "record": "knowledge-system/vault/research/SERVER_PATH.md",
+    "task": "CF18-V38-APPLICATION-FRAMING",
+    "record": "knowledge-system/vault/research/V38_BLOCKER.md",
     "status": "NATIVE_TX_REVIEWED",
-    "next_offline": "Actual routed reciprocal RX and AddressService outer-to-inner RPC framing",
-    "phone_result": "CF05_SUMMARIES_V14_V15_V16_REVIEWED",
+    "next_offline": "Obtain v38 observer source; verify slicing/DataHead flags and actual application serializer",
+    "phone_result": "ACTUAL_USER_V38_REPORT_REVIEWED_2_OF_4_ROUTED",
     "schedules": "REMAIN_PAUSED"
   },
   "direct_integrity_investigation": {

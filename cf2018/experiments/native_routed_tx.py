@@ -35,3 +35,25 @@ def routed_tx(library, payload, *, state=5, initialized=True, maximum=64,
             'compression_flag':n.read(CTX+0x2340,1),
             'route_type':n.read(CTX+0x2342,1),
             'stubs':n.calls,'evidence':'SYNTHETIC_NATIVE_PRE_ENCRYPT_NOT_PHONE_PAYLOAD'}
+
+
+def encrypt_boundary(library, *, method=0, compression=0, capacity=8):
+    """Original native helper; mode0 copy or encrypted-method missing-key failure.
+
+    No keys, socket, ciphertext or phone input; compression field is independent.
+    """
+    if method not in (0,3,4) or compression not in (0,1) or capacity not in (0,4,8):
+        raise ValueError('bounded crypto/compression controls required')
+    from native_control import OUT
+    n=NativeControl(library)
+    payload=b'LABDATA!'
+    n.uc.mem_write(BUF,payload);n.uc.mem_write(AUX,b'R'*8)
+    n.write(CTX+0x11c,method)
+    n.write(CTX+0x33f4,compression)
+    n.write(CTX+0x458,0,1)
+    n.write(OUT,capacity);n.write(STACK+0xf000,OUT)
+    code=n.execute(0x3ab296,(CTX,BUF,len(payload),AUX))
+    return {'return':code,'output_length':n.read(OUT),
+            'payload_copied':bytes(n.uc.mem_read(AUX,8))==payload,
+            'output_unchanged':bytes(n.uc.mem_read(AUX,8))==b'R'*8,
+            'stubs':n.calls,'evidence':'SYNTHETIC_NATIVE_NO_KEY_NOT_V38_CRYPTO_OBSERVATION'}

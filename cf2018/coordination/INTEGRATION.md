@@ -288,3 +288,7 @@ BE UID32 + application bytes, guards and4013 header; intercept encrypt/send.
 187 canonical PASS private-selected;108 PASS/79 SKIP default; doctorPASS.
 [Full decision, addresses, stubs and limits](../knowledge-system/vault/research/SERVER_PATH.md).
 No generated server reply/valid identity, original modification or phone run.
+
+## Latest v3.8 report review
+
+Base d04cfe9a1e54f8c5e01e5839476e84beb834468a. Read original attached metadata text, actual SHA/size recorded in [review](../knowledge-system/vault/research/V38_BLOCKER.md). Only rights-safe summary published, no private payload. Four native helper methods PASS;191 canonical PASS private,109 PASS/82 SKIP default, doctorPASS. Probe source absent; no invented decoder/reply or phone rerun.

@@ -87,3 +87,5 @@ No new phone experiment or schedule started. Latest source-free canonical suite:
 187 total108 PASS/79 explicit private-source SKIP. Explicit all-private source
 suite187 PASS/no skips. DoctorPASS; incoming Bingo13 and address14 PASS. This
 continues the chosen path with native evidence, not a claim of playable progress.
+
+Latest reviewed test is now [v3.8 DataHead](V38_BLOCKER.md), not v1.6. It contains observed kind5/no-compression labels but no identified inner operation and no4013 reply. Prior phone observations remain historical; focus on actual v38 parser/source and application serialization.

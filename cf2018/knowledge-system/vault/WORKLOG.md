@@ -152,3 +152,7 @@ address14 synthetic tests rerun. Canonical187 PASS private;108 PASS/79 SKIP defa
 doctorPASS. [Decision and evidence](research/SERVER_PATH.md). No original edits,
 phone test or scheduled worker restart. Incoming remote files hydrated read-only;
 no incoming paths included in coordinator commit.
+
+## 2026-10-31 — v3.8 attachment supersedes older observer context
+
+Read/hash actual5383-byte user report. Reconciled2/4 laterframes and no4013reply. Added four native crypto-boundary tests proving compression context does not determine key/copy branch.191 canonical PASS private;109 PASS/82 SKIP default; doctorPASS. [Review and limits](research/V38_BLOCKER.md). No private capture or credentials published, no schedule/phone run.

@@ -18,3 +18,5 @@ Connection/callback/account-consumer context routes through [connection callback
 Startup/integrity/protected-assembly context includes [native integrity trace](../vault/research/INTEGRITY_NATIVE.md). Separate stored format, structural headers, original-native guard and phone termination causality.
 
 Routed/address/0x4013 context: [server-path decision and native TX](../vault/research/SERVER_PATH.md). Review latest phone reports and observer-kind limits before constructing replies.
+
+Current routed application blocker: [v3.8 review](../vault/research/V38_BLOCKER.md). Preserve report provenance and distinguish compression from encryption.
