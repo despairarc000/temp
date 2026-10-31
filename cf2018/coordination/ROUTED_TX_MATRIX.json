@@ -1,0 +1,121 @@
+{
+  "base_main": "5d76e82696984717e394552cc6fb9c076e77e01f",
+  "library_sha256": "4812396e98bfba9664164c14c8973eed111c5b9d177c1b575e86bc8e9f9169d8",
+  "controls": [
+    {
+      "name": "one_byte",
+      "actual": {
+        "return": -77,
+        "before_encrypt_send": {
+          "length": 5,
+          "prefix_matches_big_endian_uid": true,
+          "payload_preserved": true
+        },
+        "header_type": 16403,
+        "base_marker": 17254,
+        "compression_flag": 0,
+        "route_type": 0,
+        "stubs": [
+          "bounded libc memory operation"
+        ],
+        "evidence": "SYNTHETIC_NATIVE_PRE_ENCRYPT_NOT_PHONE_PAYLOAD"
+      }
+    },
+    {
+      "name": "64_bytes",
+      "actual": {
+        "return": -77,
+        "before_encrypt_send": {
+          "length": 68,
+          "prefix_matches_big_endian_uid": true,
+          "payload_preserved": true
+        },
+        "header_type": 16403,
+        "base_marker": 17254,
+        "compression_flag": 0,
+        "route_type": 0,
+        "stubs": [
+          "bounded libc memory operation"
+        ],
+        "evidence": "SYNTHETIC_NATIVE_PRE_ENCRYPT_NOT_PHONE_PAYLOAD"
+      }
+    },
+    {
+      "name": "state4",
+      "actual": {
+        "return": -8,
+        "before_encrypt_send": {},
+        "header_type": 0,
+        "base_marker": 0,
+        "compression_flag": 0,
+        "route_type": 0,
+        "stubs": [],
+        "evidence": "SYNTHETIC_NATIVE_PRE_ENCRYPT_NOT_PHONE_PAYLOAD"
+      }
+    },
+    {
+      "name": "uninitialized",
+      "actual": {
+        "return": -4,
+        "before_encrypt_send": {},
+        "header_type": 0,
+        "base_marker": 0,
+        "compression_flag": 0,
+        "route_type": 0,
+        "stubs": [],
+        "evidence": "SYNTHETIC_NATIVE_PRE_ENCRYPT_NOT_PHONE_PAYLOAD"
+      }
+    },
+    {
+      "name": "oversize",
+      "actual": {
+        "return": -16,
+        "before_encrypt_send": {},
+        "header_type": 0,
+        "base_marker": 0,
+        "compression_flag": 0,
+        "route_type": 0,
+        "stubs": [
+          "last-error get=0",
+          "XLog no-op",
+          "last-error set no-op"
+        ],
+        "evidence": "SYNTHETIC_NATIVE_PRE_ENCRYPT_NOT_PHONE_PAYLOAD"
+      }
+    },
+    {
+      "name": "negative_timeout",
+      "actual": {
+        "return": -2,
+        "before_encrypt_send": {},
+        "header_type": 0,
+        "base_marker": 0,
+        "compression_flag": 0,
+        "route_type": 0,
+        "stubs": [
+          "last-error get=0",
+          "XLog no-op",
+          "last-error set no-op"
+        ],
+        "evidence": "SYNTHETIC_NATIVE_PRE_ENCRYPT_NOT_PHONE_PAYLOAD"
+      }
+    },
+    {
+      "name": "missing_route",
+      "actual": {
+        "return": -2,
+        "before_encrypt_send": {},
+        "header_type": 0,
+        "base_marker": 0,
+        "compression_flag": 0,
+        "route_type": 0,
+        "stubs": [
+          "last-error get=0",
+          "XLog no-op",
+          "last-error set no-op"
+        ],
+        "evidence": "SYNTHETIC_NATIVE_PRE_ENCRYPT_NOT_PHONE_PAYLOAD"
+      }
+    }
+  ]
+}

@@ -274,3 +274,17 @@ injected CRC-mismatch termination branch verified; historical phone cause and
 safe modification remain unknown.176 canonical PASS private-selected; default
 106 PASS/70 SKIP; all16 affected methods PASS; source matrix reproduced exactly.
 No patch, original modification, installation, game execution or phone request.
+
+## Server-priority reconciliation and routed TX
+
+Base5d76e82696984717e394552cc6fb9c076e77e01f. Reviewed CF05 published phone14,
+15,16 summaries, Bingo/Address static reports; reran Bingo13/address14 synthetic
+controls. Incoming files downloaded for read-only local context, never modified
+or included in this commit. No newly retrieved raw phone capture. Canonical
+latest checkpoint supersedes historical no-post-Bingo statements. Integrity parked
+by user-directed priority comparison; schedules remain paused. New original
+native routed-TX runner, seven controls and metadata matrix verify pre-encryption
+BE UID32 + application bytes, guards and4013 header; intercept encrypt/send.
+187 canonical PASS private-selected;108 PASS/79 SKIP default; doctorPASS.
+[Full decision, addresses, stubs and limits](../knowledge-system/vault/research/SERVER_PATH.md).
+No generated server reply/valid identity, original modification or phone run.

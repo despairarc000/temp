@@ -61,3 +61,7 @@ knowledge-system/vault/research/INTEGRITY_NATIVE.md	tests	tests/test_native_inte
 knowledge-system/vault/research/INTEGRITY_NATIVE.md	tests	tests/test_managed_image_preflight.py	SYNTHETIC_HEADERS_NOT_LOADABILITY
 knowledge-system/vault/research/INTEGRITY_NATIVE.md	evidence	coordination/CF18-INTEGRITY-01/NATIVE_MATRIX.json	REPRODUCED_NATIVE_AND_SOURCE_MATRIX
 knowledge-system/vault/research/INTEGRITY_NATIVE.md	tests	tests/test_unity_loader_result.py	INJECTED_RESULT_NATIVE_CALLER_NOT_DLL_LOAD
+knowledge-system/vault/research/SERVER_PATH.md	evidence	coordination/incoming/CF18-05/PHONE_V15_RESULT.md	USER_REDACTED_PHONE_REPORT_SUMMARY
+knowledge-system/vault/research/SERVER_PATH.md	evidence	coordination/incoming/CF18-05/PHONE_V16_AND_V161_FIX.md	PHONE_AND_OBSERVER_DEFECT
+knowledge-system/vault/research/SERVER_PATH.md	tests	tests/test_native_routed_tx.py	ACTUAL_NATIVE_PRE_ENCRYPT_NOT_SESSION
+knowledge-system/vault/research/SERVER_PATH.md	evidence	coordination/ROUTED_TX_MATRIX.json	NATIVE_WITH_SYNTHETIC_CONTEXT

@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-30",
+  "updated_at": "2026-10-31",
   "repository": "despairarc000/temp",
   "branch": "main",
   "coordinator": "CF18-00",
-  "reviewed_main": "6a0ecc16877adbdc4eed03cefebb5b4144f7bd6f",
+  "reviewed_main": "5d76e82696984717e394552cc6fb9c076e77e01f",
   "priority": {
     "earliest_unmet": "G0_CURRENT_INSTALLED_AND_OBB_IDENTITY",
-    "next_native_gate": "G2_AUTH_BINGO_SESSION",
+    "next_native_gate": "G2_ROUTED_APPLICATION_IDENTIFICATION",
     "G2_first_hop": "CONFIRMED_ON_PHONE_0x2001",
-    "G2_status": "AUTH_RESPONSE_BLOCKED",
+    "G2_status": "PHONE_POST_BINGO_4013_OBSERVED_3_OF_4_NOT_VALIDATED_SESSION",
     "native_AB_C_ready": false,
     "v14_envelope_comparison": "JUSTIFIED_IN_PRINCIPLE_BLOCKED_DEPLOYED_BRIDGE_REVIEW"
   },
@@ -162,12 +162,12 @@
   ],
   "validation": {
     "canonical_private_selected": {
-      "passed": 180,
+      "passed": 187,
       "skipped": 0
     },
     "canonical_source_free": {
-      "passed": 107,
-      "skipped": 73
+      "passed": 108,
+      "skipped": 79
     },
     "auth_incoming": {
       "passed": 25,
@@ -224,12 +224,12 @@
   },
   "execution_policy": "USER_PAUSED_ALL_SCHEDULES; scopes below do not reactivate workers",
   "current_investigation": {
-    "task": "CF18-G2-CALLBACK-01",
-    "record": "knowledge-system/vault/research/CONNECTION_CALLBACKS.md",
-    "base_main": "c9b1d3555f8dd4036d64d1d34cb47a440b881c4c",
-    "status": "VALIDATED_IN_THIS_TREE",
-    "next_offline": "QueryAddrInfo request/response consumers",
-    "phone_result": "NOT_OBSERVED"
+    "task": "CF18-G2-ROUTED-TX-01",
+    "record": "knowledge-system/vault/research/SERVER_PATH.md",
+    "status": "NATIVE_TX_REVIEWED",
+    "next_offline": "Actual routed reciprocal RX and AddressService outer-to-inner RPC framing",
+    "phone_result": "CF05_SUMMARIES_V14_V15_V16_REVIEWED",
+    "schedules": "REMAIN_PAUSED"
   },
   "direct_integrity_investigation": {
     "task": "CF18-INTEGRITY-01",
@@ -240,6 +240,7 @@
     "schedules": "REMAIN_PAUSED",
     "next": "Provider initialization/format round trip and actual historical edited bytes/diff; no blind patch",
     "safe_modified_build": "NOT_ESTABLISHED",
-    "continuation": "CF18-INTEGRITY-02 original Unity caller traced; reader/provider initialization and unchanged round trip unresolved"
+    "continuation": "CF18-INTEGRITY-02 original Unity caller traced; reader/provider initialization and unchanged round trip unresolved",
+    "priority": "PARKED_IN_FAVOR_OF_PHONE_GROUNDED_SERVER_PATH"
   }
 }

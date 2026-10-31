@@ -40,3 +40,14 @@ round-trip feasibility, before any changed assembly or bypass. Headers alone do
 not establish valid IL/Mono loadability. Safe modified build NOT_ESTABLISHED.
 
 Q-09 refinement: original Unity reads through virtual/file paths before Mono. Reproduce that exact buffer and provider initialization; do not assume ciphertext from APK is directly passed unchanged, or that a plain PE replacement is safe. Actual caller diagnostic branch is now controlled separately from protection termination.
+
+## Current priority supersedes earlier ACK/body blockers — 2026-10-31
+
+[Latest reviewed evidence](research/SERVER_PATH.md): v1.4 body fix tested on phone;
+v1.5/v1.6 real post-Bingo0x4013 in3/4. Q-05 earliest body issue now fixed in tested
+lab path. Q-03/Q-04 remain account/key/identity unknown, not inferred from state5.
+New immediate Q-10: which application request/envelope is in the real routed
+traffic, and which reciprocal RX path accepts a correlated service response?
+TX adds BE UID32 before application bytes, prior to encryption; not a length.
+Kind-filter observer defect explains why absence of hint is inconclusive.
+DLL Q-09 remains unresolved and parked; no source round trip or safe edit.

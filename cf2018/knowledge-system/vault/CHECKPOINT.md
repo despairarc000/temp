@@ -1,3 +1,24 @@
+# Current checkpoint — 2026-10-31 server continuation
+
+**Priority: original-client local server; integrity editing parked. NOT PLAYABLE.**
+Reviewed main5d76e82696984717e394552cc6fb9c076e77e01f. [Decision/native continuation](research/SERVER_PATH.md).
+Latest CF05 phone reports supersede earlier historical sections below: v1.4 body
+correction removes immediate EOF2/2; v1.5/v1.6 synthetic Bingo elicits authentic
+0x4013 in3/4 trials. No identified application RPC, accepted account, lobby or bots.
+The v1.6 observer had a selector-kind filter defect; missing hint is inconclusive.
+No v1.6.1 phone outcome reviewed here. Original report summaries are linked in
+SERVER_PATH; raw reports not newly reopened. No new phone run by coordinator.
+
+Native continuation verifies routed TX pre-encryption body is BE UID32 + original
+application payload, with actual4013/header and state/size/route guards. Stops
+before encrypt/send, not a real session.187 canonical PASS with explicit private
+sources; default108 PASS/79 SKIP; incoming Bingo13/address14 PASS; doctorPASS.
+Schedules remain paused. Next: actual inner RPC/envelope identification and native
+reciprocal routed receiver; preserve working sequence, no guessed reply sweep.
+
+The following sections are historical records with their original limits;
+statements of no later packet or v1.4 result are superseded by this checkpoint.
+
 # CHECKPOINT — 2026-10-30, auth receive failure integrated
 
 CrossFire: Legends 2018 v1.0.11.11 com.tencent.tmgp.cfmnac, Mono.

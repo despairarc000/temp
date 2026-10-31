@@ -16,3 +16,5 @@ Authentication/auth/0x2001/0x2002/Bingo/session now route to [AUTH_RECEIVER](../
 Connection/callback/account-consumer context routes through [connection callbacks](../vault/research/CONNECTION_CALLBACKS.md), including explicit observer/RTTI/UI substitutions and the next address-query boundary.
 
 Startup/integrity/protected-assembly context includes [native integrity trace](../vault/research/INTEGRITY_NATIVE.md). Separate stored format, structural headers, original-native guard and phone termination causality.
+
+Routed/address/0x4013 context: [server-path decision and native TX](../vault/research/SERVER_PATH.md). Review latest phone reports and observer-kind limits before constructing replies.

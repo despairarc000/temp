@@ -1,3 +1,13 @@
+# Current startup — local-server routed application gate
+
+Read AGENTS/NAVIGATION and current CHECKPOINT. [Server priority](knowledge-system/vault/research/SERVER_PATH.md)
+reviews latest CF05 v1.4–v1.6 reports: corrected auth removes immediate EOF and
+synthetic Bingo produces genuine0x4013 in3/4 trials. No real account/session,
+identified RPC, lobby or gameplay. Continue actual routed application boundary;
+DLL integrity is parked until the server path needs it. Schedules remain paused.
+The older instructions below are historical; do not restart ACK/body guesses or
+claim the latest phone report is missing. No automatic phone or network test.
+
 # CODEX START — CF2018 auth receive gate
 
 Read [AGENTS](AGENTS.md), [NAVIGATION](NAVIGATION.md), [IDEA_PLAN](IDEA_PLAN.md),

@@ -225,3 +225,22 @@ source verifier in suite PASS with prior trust-chain limitation. No original edi
 ## E-28 — Unity caller versus provider initialization
 
 Original native static + bounded emulation with injected results. [Integrity continuation](research/INTEGRITY_NATIVE.md): Unity JUMP_SLOT0xaa924c/PLT0x55f60 called at0x20f87c. Actual return-check controls distinguish nonnull/status0 from null or nonzero-status diagnostics. Four tests PASS; caller input/Android initialization not reproduced; no decode/round trip/phone exit cause claimed.
+
+## E-29 — reconciled phone14–16 and chosen server continuation
+
+Reviewed at5d76e82696984717e394552cc6fb9c076e77e01f. CF05 user-uploaded redacted
+report summaries: v1.4 correction removes immediate EOF2/2; synthetic Bingo causes
+real0x4013 in3/4 trials across v1.5/v1.6. Original raw report not newly fetched;
+no coordinator phone run. [Server path](research/SERVER_PATH.md) links precise
+reports, outcomes and observer-kind defect. No authenticated account/RPC identified.
+Canonical stale no-post-Bingo/deployment-unavailable statements superseded.
+
+## E-30 — actual original routed TX pre-encryption dataflow
+
+Original-native static + isolated synthetic native execution. [Trace](research/SERVER_PATH.md),
+[seven-case matrix](../../coordination/ROUTED_TX_MATRIX.json), [original controls](../../experiments/native_routed_tx.py).
+Actual send_with_route builds4013 header and copies BE UID32 before application
+payload; header routing/compression fields separate. State5, initialization, length,
+timeout and route-pointer guards tested. Stops before encrypt/send; no final wire,
+real UID/session or RPC inferred. Seven new methods PASS; canonical187 PASS private,
+108 PASS/79 SKIP default. Incoming Bingo13/address14 tests rerun as synthetic only.

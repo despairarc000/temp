@@ -12,13 +12,13 @@
 | G7 | Bomb/S&D bots | objectives, bombs, rounds, AI, end & replay |
 | G8 | packaging and recovery | repeatable launch, reboot/reinstall controls, no proprietary distribution |
 
-**Immediate queue:** [CF18-G2-AUTH-RX-02](knowledge-system/vault/research/AUTH_RECEIVER.md)
-localizes all three v1.2 failures to a missing TGCPBody preamble, before account
-parsing. Original correction/native regressions are integrated; deployment is
-unverified because actual v1.2 bridge source is missing. Continue Bingo/session
-predicates offline; recover directional relay evidence before a targeted phone
-comparison. ACK -> authentic0x2001 is already confirmed; no handshake reset.
-Bot implementation remains deferred until actual auth/session progression.
+**Immediate queue:** [server path review and native routed TX](knowledge-system/vault/research/SERVER_PATH.md).
+Phone v1.4 corrected auth removes immediate EOF; v1.5/v1.6 synthetic Bingo elicits
+authentic0x4013 in3/4 trials. Identify inner application RPC and reciprocal routed
+receiver before issuing a reply. Auth/account and G3 service acceptance remain
+unverified. This is beyond first transport hop, still early in the playable-game
+mission. Park managed editing: no decoded round trip and no verified safe patch.
+Do not discard its findings. No new phone experiment or schedule automatically.
 
 ## Current source and implementation boundary
 

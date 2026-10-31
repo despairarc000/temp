@@ -141,3 +141,14 @@ All originals untouched; scheduled workers and session track stayed paused.
 ## Integrity-02 continuation
 
 Pinned Unity caller/import and seven provider constructors traced statically. Four actual caller-result controls PASS, injected results explicitly distinct from a DLL load. No unchanged round trip yet.180 canonical PASS private;107 PASS/73 SKIP default; doctorPASS. Originals untouched/schedules paused.
+
+## 2026-10-31 — user requested route comparison and continued best-supported path
+
+Reviewed latest main/phone14–16/incoming server findings. Chose local-server
+continuation on actual client progression; integrity parked, no halfway/gameplay
+claim. Native routed TX copies BE UID32+application payload; seven actual-native
+controls stop before encryption/send and verify guards. Incoming Bingo13 and
+address14 synthetic tests rerun. Canonical187 PASS private;108 PASS/79 SKIP default;
+doctorPASS. [Decision and evidence](research/SERVER_PATH.md). No original edits,
+phone test or scheduled worker restart. Incoming remote files hydrated read-only;
+no incoming paths included in coordinator commit.
