@@ -1,5 +1,13 @@
 # Guarded second-service dispatch integration
 
+## R067: exact non-route/security-context gate
+
+2026-11-01 UTC. `second_service_syn_gate.py` now requires a133-byte trusted reference and131-byte candidate, validated client SYN framing, no body/trailing bytes, the expected12→10-byte named-route change, identical encoded base, identical ordered SYN keys/kinds, and identical encoded values for every SYN field except14. Route union/name tags must use the expected encoding. It emits only MATCH_EXCEPT_ROUTE or REFUSED; matching does not authorize ACK.
+
+This is stricter than R036/R037 observer summaries. Their `_deltas` computes field-size changes and counts same-size changed values; these are observations, not the new complete-byte comparison. Redacted historical reports cannot be retroactively passed through this new predicate. No real phone candidate was available or tested in this continuation.
+
+The R037 copy-only preparer records `SYN_CONTEXT` labels before the existing hold, and exports them without values. Removing all insertions recovers the pinned original handler. Default disposition stays HOLD_NO_ACK. Five source-only tests PASS, including independent133/131 fixtures, same-length security change, changed base value, altered encoding, malformed/extra bytes; the actual prepared R037 two-connection loopback test additionally requires SYN_CONTEXT slot2 MATCH_EXCEPT_ROUTE while still sending no second ACK. Original input kit, game and proxy remain unchanged. This narrows a future ACK experiment's gate; it is not an observed phone security match or new session acceptance.
+
 ## R065: exact supplied R037 recovered and integrated
 
 2026-11-01 UTC. Owner attached the original R037 kit: 35,193 bytes, SHA256 `c9837375ed0d5b37606e9619d1597c544d60de8d2684c3e8ea6eb657378fc380`, matching R037's recorded receipt. ZIP integrity passed. Its preparer chain validated all60 original V3.8 files and reproduced `routed_probe_r037.py`, SHA256 `2c28c09944770a66ffca7c7bdf19dd6065fce7ea59766b98bf58e5078e2e2e01`.

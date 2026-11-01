@@ -27,6 +27,8 @@ class Tests(unittest.TestCase):
                 text = result.read_text()
                 self.assertIn('FIRST_SYN slot=1 class=REFERENCE_NAMED_ROUTE_CANDIDATE', text)
                 self.assertIn('FIRST_SYN slot=2 class=TEN_BYTE_NAMED_ROUTE_CANDIDATE disposition=HOLD_NO_ACK', text)
+                self.assertIn('SYN_CONTEXT slot=1 class=REFERENCE_EXACT', text)
+                self.assertIn('SYN_CONTEXT slot=2 class=MATCH_EXCEPT_ROUTE', text)
                 observed.append(True)
                 return result
             with patch.object(m, 'report', report):

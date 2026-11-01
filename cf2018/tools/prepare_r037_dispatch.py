@@ -18,6 +18,16 @@ from prepare_second_service_dispatch import ROOT, INSERT, REPORT_ANCHOR, REPORT_
 KIT_SHA = 'c9837375ed0d5b37606e9619d1597c544d60de8d2684c3e8ea6eb657378fc380'
 PROBE_SHA = '2c28c09944770a66ffca7c7bdf19dd6065fce7ea59766b98bf58e5078e2e2e01'
 GATE = "                        if frame['sha256'] != expected or sel != [[0x1001, 5]]:\n"
+CONTEXT_INSERT = (
+    '                        from second_service_syn_gate import compare_security_context\n'
+    "                        assessment = 'REFERENCE_EXACT' if raw_frame == original else compare_security_context(raw_frame, original)\n"
+    "                        run.record('syn_security_context',cid,slot=slot,assessment=assessment)\n"
+)
+CONTEXT_REPORT = (
+    '    for e in ev:\n'
+    "        if e['action'] == 'syn_security_context':\n"
+    "            out.append(f\"SYN_CONTEXT slot={e['slot']} class={e['assessment']}\")\n"
+)
 
 
 def patch_probe(text):
@@ -25,8 +35,10 @@ def patch_probe(text):
         raise ValueError('exact generated R037 handler required')
     if text.count(GATE) != 1 or text.count(REPORT_ANCHOR) != 1:
         raise ValueError('R037 integration anchor changed')
-    patched = text.replace(GATE, INSERT + GATE).replace(REPORT_ANCHOR, REPORT_INSERT + REPORT_ANCHOR)
-    assert patched.replace(INSERT, '', 1).replace(REPORT_INSERT, '', 1) == text
+    patched = text.replace(GATE, CONTEXT_INSERT + INSERT + GATE).replace(
+        REPORT_ANCHOR, CONTEXT_REPORT + REPORT_INSERT + REPORT_ANCHOR)
+    assert patched.replace(CONTEXT_INSERT, '', 1).replace(INSERT, '', 1).replace(
+        CONTEXT_REPORT, '', 1).replace(REPORT_INSERT, '', 1) == text
     compile(patched, 'routed_probe_r037.py', 'exec')
     return patched
 
@@ -57,7 +69,8 @@ def prepare(source, kit, output):
                        check=True, capture_output=True, text=True, timeout=60, env=env)
         original = (generated / 'routed_probe_r037.py').read_text()
         patched = patch_probe(original)
-        modules = {n: (ROOT / 'experiments' / n).read_bytes() for n in MODULES}
+        modules = {n: (ROOT / 'experiments' / n).read_bytes()
+                   for n in (*MODULES, 'second_service_syn_gate.py')}
         shutil.copytree(generated, output)
         (output / 'routed_probe_r037.py').write_text(patched)
         for n, data in modules.items():
