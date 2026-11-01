@@ -18,6 +18,12 @@ The source-free [inbound response preflight](../../../experiments/inbound_4013_r
 
 [Synthetic tests](../../../tests/test_inbound_4013_reply_preflight.py) include a positive **offline structural candidate**, wrong pending RPC64 sequence (distinct from TGCP32), accidentally prepended four-byte word, unsupported compression, unknown extension, missing route field, malformed/truncated frame and invalid pending metadata. These deliberately apply stricter conservative policies than what the full native decoder may accept; passing them is **not proof** of native session/connection success. No phone or original client was exercised by these tests.
 
+## Further route-parser distinction (source inspection)
+
+The original nested `TGCPRouteInfo::unpackTLVWithVarint` at `0x3b2422` dispatches among different route variants: field1 to `SpecifyZoneRouteInfo` (`0x3b246e`), field2 to `SpecifyServerRouteInfo` (`0x3b2488`), field3 to a standalone UInt8 (`0x3b2492`), and field4 to `SpecifyNameRouteInfo` (`0x3b24ac`). The latter's own name decoder at `0x3b1ba2` handles a field1 byte string capped at 127 bytes (`0x3b1bfe`), then reads the supplied length. These are original **static** branches, not proof of the route variant sent by a server.
+
+Thus the offline `inbound_4013_reply_preflight.py` restriction requiring a name-route nested field4 is a **deliberately narrow fixture**, not a native universal requirement. Do not conclude that all alternative server-origin route types are invalid from that model. No live return route is identified.
+
 ## Remaining uncertainties and next checkpoint
 
 - The live client session's **inbound** decrypt flag/mode has not been observed; historical synthetic ACK behavior is not enough to assert it.
