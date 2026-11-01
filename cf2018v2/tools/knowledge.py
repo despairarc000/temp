@@ -4,7 +4,7 @@ import argparse,csv,re
 ROOT=Path(__file__).resolve().parents[1]
 REPO=ROOT.parent
 GROUPS={
- 'producer':('vault/CURRENT.md','../cf2018/knowledge-system/vault/research/REPOSITORY_SOURCE_AUDIT.md','../cf2018/knowledge-system/vault/research/ADDRESS_APPLICATION.md'),
+ 'producer':('vault/CURRENT.md','../cf2018/knowledge-system/vault/research/REPOSITORY_SOURCE_AUDIT.md','../cf2018/knowledge-system/vault/research/ADDRESS_APPLICATION.md','../cf2018/knowledge-system/vault/research/UPSTREAM_REQUEST_CHAIN.md'),
  'phone':('vault/WORKFLOW.md','../cf2018/knowledge-system/vault/research/PHONE_V381.md'),
  'source':('vault/SOURCES.md',),
  'auth':('vault/CURRENT.md','../cf2018/knowledge-system/vault/research/AUTH_RECEIVER.md'),

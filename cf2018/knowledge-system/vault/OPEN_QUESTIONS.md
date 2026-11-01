@@ -68,3 +68,5 @@ Q-10 original-native continuation (2026-11-01): [UPSTREAM_REQUEST_CHAIN](researc
 
 
 Q-10 producer check R010 (2026-11-01): [UPSTREAM_REQUEST_CHAIN](research/UPSTREAM_REQUEST_CHAIN.md) now includes a runnable 24-pin original static verifier with six tests. Validates exact callsite and conditional gates, NOT a memory-to-memory native message run. Required next evidence remains the actual full `Send_QueryAddrInfo` message through `MsgBuffer` and its callback, or a grounded proof of why it cannot execute under bounded synthetic context. No live reply is justified.
+
+Q-10 R011 (2026-11-01): Two original-native direct MsgBuffer::bind callsites verified in AddressService::OnConnectProc and RpcConnector::OnConnectProc, 26/26 pinned audit PASS. This adds a concrete alternative bound producer; do not equate the observed QueryAddrSvr route with one bound MsgBuffer without proving ownership. [UPSTREAM_REQUEST_CHAIN](research/UPSTREAM_REQUEST_CHAIN.md). Next: connector/receiver ownership and bounded full-message differential, no phone replay or guessed response.

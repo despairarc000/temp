@@ -56,7 +56,7 @@ class SourceFreeTests(unittest.TestCase):
 @unittest.skipUnless(os.environ.get('CF18_APOLLO_LIBRARY'),
                      'exact owner-authorized private source required')
 class OriginalNativeReadOnlyTests(unittest.TestCase):
-    def test_actual_24_native_callsite_pins(self):
+    def test_actual_26_native_callsite_pins(self):
         result = p.audit(Path(os.environ['CF18_APOLLO_LIBRARY']))
         self.assertEqual(result['checks'], 24)
         self.assertEqual(result['passed'], 24, result['failed'])

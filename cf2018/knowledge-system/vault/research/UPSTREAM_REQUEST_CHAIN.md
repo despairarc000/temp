@@ -52,3 +52,14 @@ Added [read-only audit](../../../experiments/producer_boundary_audit.py) and [te
 New confirmed static details beyond R009: generated `Send_QueryAddrInfo` calls multiple virtual protocol operations before end-of-message; `MsgBuffer::writeEnd` uses a virtual check and a bound callback (and has a distinct alternate path); `CGCloudConnector::Write` checks size/connection and calls `AString::assign` before routed TGCP submission. **These native instructions do not establish that the real phone's 80/85-byte 0x4013 bodies came from that code path.** This rules out simplistic arguments-only byte equivalence as proven and reduces the next task to testing a whole bounded protocol-message-write through the callback, then reciprocal RX. If native emulation dependencies or initialized objects are unavailable, the blocker is explicit rather than silently substituting a synthetic response.
 
 Reproduction with an independently authorized local original: `CF18_APOLLO_LIBRARY=/private/path/libapollo.so python -m unittest discover -s tests -p 'test_producer_boundary_audit.py' -v`; `python experiments/producer_boundary_audit.py --lib /private/path/libapollo.so`. Requires `llvm-objdump` for original-source control. This is a **static source verifier**, not a functioning in-memory execution harness or a phone experiment.
+
+## R011 — Two independently bound connector owners (2026-11-01)
+
+A **read-only whole-text instruction scan** of the exact pinned Apollo source located two direct `bl MsgBuffer::bind` callers, with enclosing named native functions verified through the original ELF symbols:
+
+- `AddressService::OnConnectProc`: call at `0x39cb68`, passes connector pointer loaded from object field at `0x39cb66`.
+- `RpcConnector::OnConnectProc`: call at `0x3c2934`, passes connector pointer loaded from its corresponding field at `0x3c2932`.
+
+These are two **direct** bindings seen in the original source, not proof all indirect callers are enumerated or that either was used for the phone's routed 0x4013 request. They make a single global MsgBuffer/AddressService producer assumption unsafe. The source-pinned read-only verifier now covers **26/26** static pins (nine bounded ranges); six local tests PASS with exact original library, five PASS/one explicit SKIP without it. The original code was **not natively emulated** and no client/network test was performed.
+
+**Next discriminating investigation:** trace which connector instance and buffer owns the phone's `QueryAddrSvr` route and where the corresponding response receiver dispatch is registered. Do not generate a reply based only on these static bind sites. The earlier virtual-callback/serialization comparison remains unexecuted.

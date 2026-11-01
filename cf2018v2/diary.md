@@ -31,3 +31,6 @@ Pinned original Apollo and traced 11 native instruction checkpoints: AddressServ
 
 ## R010 — Additional producer branches verified, read-only (2026-11-01)
 24/24 original-native static pins confirm the virtual protocol operations, MsgBuffer bound callback and connector's size/connection gates. Six tests PASS with private Apollo; no full message execution, phone reply, login or gameplay. Next bounded whole-message comparison remains open. [Evidence](../cf2018/knowledge-system/vault/research/UPSTREAM_REQUEST_CHAIN.md).
+
+## R011 — Two connector bind owners found (2026-11-01)
+The exact original native source has two direct callers of MsgBuffer::bind: AddressService::OnConnectProc and RpcConnector::OnConnectProc. Updated original-source audit passes 26/26 instruction pins; six tests pass with original private Apollo. This is not a phone-runtime identification. Determine which bound connector and response handler owns the QueryAddrSvr request before proposing a reply. [Evidence](../cf2018/knowledge-system/vault/research/UPSTREAM_REQUEST_CHAIN.md).

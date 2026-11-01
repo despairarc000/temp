@@ -19,6 +19,8 @@ EXPECTED_SHA256 = '4812396e98bfba9664164c14c8973eed111c5b9d177c1b575e86bc8e9f916
 BOUNDS = (
     (0x3998d4, 0x3999ac),
     (0x39ad50, 0x39ae50),
+    (0x39cb64, 0x39cb76),  # AddressService connection binding
+    (0x3c2930, 0x3c2942),  # RpcConnector connection binding
     (0x3c18ec, 0x3c1946),
     (0x3c1ed0, 0x3c1f68),
     (0x3c5fd0, 0x3c6055),
@@ -35,6 +37,8 @@ PINS = (
     ('QueryAddrInfo_calls_inner_virtual_method', 0x399958, 'blx', 'r10'),
     ('QueryAddrInfo_calls_second_inner_virtual', 0x39997e, 'blx', 'r3'),
     ('QueryAddrInfo_calls_third_inner_virtual', 0x39999a, 'blx', 'r3'),
+    ('address_service_connect_binds_msgbuffer', 0x39cb68, 'bl', '0x3c18ec'),
+    ('rpc_connector_connect_binds_msgbuffer', 0x3c2934, 'bl', '0x3c18ec'),
     ('msg_buffer_bind_captures_connector', 0x3c191e, 'str', '[r0, #0xc]'),
     ('msg_buffer_bind_stores_callback', 0x3c193e, 'str', '[r4, #0x50]'),
     ('write_end_reads_first_buffer_pointer', 0x3c1ee0, 'ldr.w', '[r0, #0x4]'),
@@ -121,7 +125,8 @@ def audit(path: Path, objdump: str = 'llvm-objdump') -> dict:
             'passed': len(passed), 'failed': failed,
             'verified_source_hash': True, 'native_execution': False,
             'runtime_producer_identified': False,
-            'boundaries': ['generated_protocol_virtuals', 'msgbuffer_bound_callback',
+            'boundaries': ['generated_protocol_virtuals', 'two_connection_binding_callers',
+                           'msgbuffer_bound_callback',
                            'connector_size_and_connection_gates', 'routed_tgcp_queue'],
             'phone_test': False, 'gameplay': False}
 
