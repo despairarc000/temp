@@ -76,3 +76,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [R044_DRIVE_MANAGED](research/R044_DRIVE_MANAGED_CALLGRAPH.md) — original CF2018 Unity application DLL located in Drive, hash verified, real login/lobby Apollo client callgraph, ten-byte named route still unknown.
 
 - [R045_MANAGED_NATIVE](research/R045_MANAGED_NATIVE_ROUTE_ORIGIN.md) — original game managed lobby connector traced into hash-pinned native type4 named-route selection; 17 native pins verified, 9 local tests PASS; next route still unknown.
+
+- [R046_GCLOUD_ROUTE](research/R046_GCLOUD_ROUTE_INTO_SYN.md) — 26 original GCloud static pins trace route type4 setter -> transport handle -> SYN writer, with separate endpoint/ACK gates; phone route value unknown.
