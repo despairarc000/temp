@@ -36,16 +36,20 @@ def synthetic_ack(*, magic=0x4366, key_mode=0):
     return b'\xaa' + (5 + len(h)).to_bytes(4, 'big') + h
 
 
-def probe(library, *, name_size=10, variant='valid', relay=False):
-    if (type(relay) is not bool or name_size not in (10, 12)
-            or variant not in ('valid', 'wrong_magic', 'bad_key', 'prefixed', 'truncated')):
-        raise ValueError('bounded synthetic case required')
+APPLICATION_FIELDS = {'none': None, 'game_id': 8, 'unit_id': 0x10, 'client_type': 0x114}
+
+
+def _prepare_syn(library, name_size, relay, attribute):
+    if attribute not in APPLICATION_FIELDS:
+        raise ValueError('bounded synthetic application attribute required')
     n = NativeControl(library)
     name = b'S' * name_size
     n.write(CTX + 4, 42)
     n.write(CTX + 0x3400, 4)
     n.write(CTX + 0x6cc, int(relay))
     n.uc.mem_write(CTX + 0x3408, name + b'\0')
+    if APPLICATION_FIELDS[attribute] is not None:
+        n.write(CTX + APPLICATION_FIELDS[attribute], 1)
 
     def strncpy(dest, source, count, unused):
         if count != 127:
@@ -59,6 +63,14 @@ def probe(library, *, name_size=10, variant='valid', relay=False):
         0x3ab430: ('outgoing pack/encrypt/send suppressed', 0)})
     if sent != 0:
         raise ValueError('SYN preparation failed')
+    return n, name
+
+
+def probe(library, *, name_size=10, variant='valid', relay=False, attribute='none'):
+    if (type(relay) is not bool or name_size not in (10, 12)
+            or variant not in ('valid', 'wrong_magic', 'bad_key', 'prefixed', 'truncated')):
+        raise ValueError('bounded synthetic case required')
+    n, name = _prepare_syn(library, name_size, relay, attribute)
     route_prepared = n.read(CTX + 0x2de1, 1) == 4
     name_prepared = bytes(n.uc.mem_read(CTX + 0x2de8, name_size + 1)) == name + b'\0'
     # Transfer actual prepared handle to a fresh runner at the same addresses,
@@ -83,3 +95,31 @@ def probe(library, *, name_size=10, variant='valid', relay=False):
             'auth_send_boundary': 'auth send suppressed' in rx.calls,
             'consumed': rx.read(CTX + 0x710), 'relay_requested': relay,
             'syn_stubs': n.calls, 'receive_stubs': rx.calls}
+
+
+def application_prefix(library, attribute='none'):
+    """Original serializer fields1..7 on fixed synthetic data, then STOP.
+
+    Returns only independently synthetic encoded fields to regression tests.
+    No actual account/token values or full packets are accepted as input.
+    """
+    from native_control import AUX, OUT, STOP
+    from second_service_syn_gate import _records
+    from unicorn import UC_HOOK_CODE
+    from unicorn.arm_const import UC_ARM_REG_R0, UC_ARM_REG_PC
+    n, _ = _prepare_syn(library, 10, False, attribute)
+    w = NativeControl(library)
+    w.uc.mem_write(CTX, bytes(n.uc.mem_read(CTX, 0x40000)))
+    w.write(AUX, OUT); w.write(AUX+4, 0); w.write(AUX+8, 4096)
+    stopped = []
+    def boundary(u, address, size, unused):
+        if address == 0x3b293e:
+            stopped.append(True)
+            u.reg_write(UC_ARM_REG_R0, 0)
+            u.reg_write(UC_ARM_REG_PC, STOP | 1)
+    w.uc.hook_add(UC_HOOK_CODE, boundary)
+    rc = w.execute(0x3b2826, (CTX+0x2340, AUX))
+    if rc != 0 or not stopped:
+        raise ValueError('original serializer prefix failed')
+    data = bytes(w.uc.mem_read(OUT, w.read(AUX+4)))
+    return {f[0]: f[3] for f in _records(data)}

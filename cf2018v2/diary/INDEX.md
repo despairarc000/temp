@@ -10,6 +10,7 @@
 | [006](006.md) | R045–R051 | Native route-init and standalone entry research | ARCHIVED |
 | [007](007.md) | R052–R057 | Training-path source work, then fake-server SYN and original address-lookup callers | ARCHIVED |
 | [008](008.md) | R058–R063 | GCloud wiring, dual receiver contracts and legacy framing controls | ARCHIVED |
-| [009](../diary.md) | R064 onward | Termux dispatch integration and client-header compatibility correction | CURRENT |
+| [009](009.md) | R064–R069 | Dispatch, SYN/ACK controls, phone context refusal and field diagnostic | ARCHIVED |
+| [010](../diary.md) | R070 onward | Native application-field meaning and ACK compatibility research | CURRENT |
 
 At 30 entries OR 8 KB archive the current diary to the next numbered page, update this index, and start a fresh `../diary.md` with a previous-page link. Keep stable R IDs; do not fabricate results. Archive pages are historical; current vault wins.

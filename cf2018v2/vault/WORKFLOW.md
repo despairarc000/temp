@@ -6,4 +6,4 @@ Termux runs BOTH redirector and fake server. Stop old probes before starting ano
 
 Latest V3.8.1 test already completed. Do not ask owner to repeat it. [Full setup](../../cf2018/coordination/CURRENT_HANDOFF.md), [existing kit steps](../../cf2018/coordination/V381_TERMUX_STEPS.txt). A scheduled/cloud run does not provide a phone or shared disk.
 
-Owner update preference (2026-11-01): use **Progress made:** and **Next: research/test** so research, offline checks and phone milestones are easy to follow; recommend an intelligence level at the end of each turn. Latest optional test: [one second-service ACK](../../cf2018/knowledge-system/vault/research/SECOND_SERVICE_ACK_EXPERIMENT.md).
+Owner update preference (2026-11-01, supersedes earlier format): use plain, brief language. Do not use Progress made / Next headings. Say clearly whether the assistant is researching or the owner needs to test, and put that action at the end. Recommend an intelligence level each turn. Give necessary Termux commands directly in chat; downloads should contain only needed code. No new phone run is requested during R070 source research.
