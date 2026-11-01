@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'cf2018/**'
+      - 'cf2018v2/**'
       - '.github/workflows/cf2018-knowledge.yml'
   pull_request:
     paths:
@@ -31,3 +32,11 @@ jobs:
         run: cd cf2018 && python tools/knowledge.py route tgcp ack
       - name: Render Graphify relationships
         run: cd cf2018 && python tools/knowledge.py graph > /tmp/cf2018-graph.md
+
+      - name: Validate CF2018v2 knowledge links, graph and diary limits
+        run: cd cf2018v2 && python tools/knowledge.py doctor
+      - name: Verify CF2018v2 gameplay evidence route
+        run: |
+          cd cf2018v2
+          python tools/knowledge.py route training map > /tmp/cf2018v2-route.txt
+          grep -q 'vault/R055_OBB_SPLIT_ASSET_TRIAGE.md' /tmp/cf2018v2-route.txt
