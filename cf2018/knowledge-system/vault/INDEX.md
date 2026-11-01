@@ -63,3 +63,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [R037_SYN_ROUTE_FIELD14](research/R037_ROUTE_FIELD14.md) — actual R036 131-byte phone SYNs differ only in route field14; exact native route encoder verified; route-shape diagnostic ready.
 
 - [R038_CLOSE_CONTROL](research/R038_CLOSE_CONTROL.md) — real R037 shorter named-route reconnects; source-only early-close-without-4013-reply causal control, phone result pending.
+
+- [R039_RPC64_NEGATIVE](research/R039_RPC64_NEGATIVE_CONTROL.md) — real R038 no-reply close control restored 4/4 original SYNs; R039 wrong RPC64 one-bit A/B phone diagnostic, offline tested.
