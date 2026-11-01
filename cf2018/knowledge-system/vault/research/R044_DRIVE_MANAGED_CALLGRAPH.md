@@ -1,0 +1,17 @@
+# R044 — Real application-side CF2018 DLL found in connected Drive
+
+2026-11-01. Original-game **static managed-code evidence**. No live phone test, authenticated login or lobby.
+
+The user's connected Drive folder ["CrossFire Legends 2018 - Unpacked OBB"](https://drive.google.com/drive/folders/1LecNOIlsGybp9V-3JqP6X5JrgU8IXW6Z) also contains an **app/** subtree and a 30,884,905-byte APK. Under **app/assets/bin/Data/Managed**, the actual [Assembly-CSharp.dll](https://drive.google.com/file/d/1ktt82byz3GXUQRe3bYJD1_GuUgUuhE6M/view) is 13,423,104 bytes; SHA256 `174a30cea9dba4f84b90a446f247cc0d212b7c83d462889d57703e7875e249e9` matches the previous owner's original XAPK report. Related original managed DLLs include Assembly-CSharp-firstpass, CSProto, CSProtoSerializer and DataProto. Original binaries remain private; do not commit.
+
+Using the source-only R043 static CIL inspector against **this actual original** reveals 10,238 TypeDefs, 75,087 MethodDefs, 22,646 MemberRefs, 72,435 valid method bodies, 72,429 fully walked bodies and 208 target-call references. Its bounded route-literal scanner examines 8,193 contextual methods and finds 11 ten-character literal candidates; **none confirms the name of the 10-byte named-route SYN**. R043's first original-file invocation caught a REAL bug missed by its 16 synthetic tests: `Metadata` parsed `streams` but did not assign `self.streams=streams`, breaking `decode_ldstr`. Locally fixed the source-only scanner; **original DLL unchanged**, and both scans then completed. Do not claim unpatched R043 package is ready for use.
+
+**Actual managed client connection code:**
+- `WNGameBase.ApolloLoginConnector.DoConnect` MethodDef RID 4123, RVA `0x63c30`, code length 697, calls `ServerListData.GetLobbyServerUrl` (CIL +0x10c), `Apollo.IApollo.CreateApolloConnection` (+0x192), registers connect/reconnect/disconnect/error/data/route-changed handlers, obtains `ProjectSetting.ServerLobbyDHP` (+0x243), invokes `SetSecurityInfo` (+0x248), then `IApolloConnector.Connect` (+0x2af).
+- `ApolloLoginConnector.OnAccountLoginHandler` invokes `DoConnect`; `OnConnectorConnect` handles result/waiting status/retry and login callback. `RetryOtherIp` can call `DoConnect` again.
+- `ServerListData.GetLobbyServerUrl` (RVAs 0x67900 and 0x679bc) selects review/server-list/lobby fallback addresses; related methods call `ProjectSetting.GetLobbyUrl`. `ProjectSetting.GetLobbyUrl` includes format `tcp://{0}:{1}` and a **65010** fallback port, **NOT proof of runtime traffic on port 65010**.
+- `GCloud.RouteInfoBase.CreateApolloRouteInfo` RVA 0x35f098 constructs server, zone or name route objects. Their actual runtime selection in the R037 10-byte SYN is not yet traced.
+
+Previous R037 correct-RPC64 replies produced 131-byte/10-byte-named-route SYNs, while R039 deliberately wrong RPC64 and R038 no-reply close produced original QueryAddrSvr route SYNs. That supports response-dependent address routing, but these managed CIL methods have **not** been instrumented in the running phone; the ten-byte name remains unidentified.
+
+**Next:** follow `ServerListData` and `ProjectSetting` configuration provenance and managed-to-native `IApollo.CreateApolloConnection`; then independently verify the next-service SYN/ACK contract. **The user does not need to run R043 in Termux or repeat the original XAPK extraction: the Drive copy is available and verified.** This supersedes R043's source-access limitation.
