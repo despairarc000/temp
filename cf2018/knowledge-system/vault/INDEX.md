@@ -36,3 +36,6 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [REPOSITORY_SOURCE_AUDIT](research/REPOSITORY_SOURCE_AUDIT.md) — exact local source availability, repository reconciliation and upstream queue trace.
 
 - [UPSTREAM_REQUEST_CHAIN](research/UPSTREAM_REQUEST_CHAIN.md) — source-verified AddressService/MsgBuffer/connector/routed-TGCP send chain and on-phone limits.
+
+- [R024_PROTOCOL_CALLS](research/RPC_PROTOCOL_CALLSITE_R024.md) — original RpcConnector direct initialization caller audit; three use binary type 0x20.
+- [R025_QUALIFIED_ADDRESS](research/QUALIFIED_ADDRESS_ROUTE_R025.md) — original colon-qualified RPC and route setter, explaining diagnostic false negatives; supersedes bare-name exclusion.
