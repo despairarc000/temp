@@ -95,3 +95,4 @@ knowledge-system/vault/research/REPOSITORY_SOURCE_AUDIT.md	depends-on	sources/MI
 knowledge-system/vault/research/REPOSITORY_SOURCE_AUDIT.md	depends-on	knowledge-system/vault/research/PHONE_V381.md	CURRENT_PHONE_CONTEXT
 knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/research/SECOND_SERVICE_DISPATCH_PATCH.md	CONFIRMED
 knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/research/NATIVE_SYN_ACK_HANDOFF.md	CONFIRMED
+knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/research/SECOND_SERVICE_ACK_EXPERIMENT.md	CONFIRMED
