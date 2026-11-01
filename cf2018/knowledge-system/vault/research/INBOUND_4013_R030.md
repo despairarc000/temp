@@ -2,6 +2,8 @@
 
 **Date:** 2026-11-01. **Evidence:** Original owner-supplied Apollo ELF, 5,243,704 bytes, SHA-256 `4812396e98bfba9664164c14c8973eed111c5b9d177c1b575e86bc8e9f9169d8`. Read-only original Thumb disassembly: **26/26 exact instruction checks PASS**. Seven local tests passed (six source-free checks and one private-original audit). No original-native dynamic execution, return packet sent, or phone response accepted.
 
+**Correction from R032 (2026-11-01):** The incoming decryption selector at handle+0x72c is not simply a connection-state flag. The exact original decoder shows it is **TGCP Base field 6 decoded per incoming frame** (readUInt8 at base-header offset+0xc). Zero selects the clear-copy path. See [R032 original native audit](INBOUND_BASE_SECURITY_R032.md). This correction supersedes the older description below, which remains for historical traceability.
+
 ## Narrower ingress requirements — confirmed static
 
 - `tgcpapi_gather_and_split_entire_pkg` checks a 32-byte fixed header threshold (`0x3ab6a0`), compares packet magic against `0x4366` (`0x3ab6f6–0x3ab6fe`), then invokes its native TGCP header TLV parser (`0x3ab722`). These are **necessary checks**, not a complete server-frame specification.
