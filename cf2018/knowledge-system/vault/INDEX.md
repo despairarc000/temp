@@ -78,3 +78,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [R045_MANAGED_NATIVE](research/R045_MANAGED_NATIVE_ROUTE_ORIGIN.md) — original game managed lobby connector traced into hash-pinned native type4 named-route selection; 17 native pins verified, 9 local tests PASS; next route still unknown.
 
 - [R046_GCLOUD_ROUTE](research/R046_GCLOUD_ROUTE_INTO_SYN.md) — 26 original GCloud static pins trace route type4 setter -> transport handle -> SYN writer, with separate endpoint/ACK gates; phone route value unknown.
+
+- [R047_CONNECTOR_SOURCE](research/R047_CONNECTOR_ROUTE_SOURCE.md) — native GCloud connector clones the route into +0x19c, conditionally applies it to TGCP, then starts; 14 original pins/7 tests passed, upstream caller unknown.
