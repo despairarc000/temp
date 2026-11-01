@@ -45,3 +45,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [R028_ADDRESS_RECEIVER](research/ADDRESS_RX_BRANCH_R028.md) — original pending-session and typed response control-flow audit plus loopback-only offline reply construction.
 
 - [R029_INBOUND_CHAIN](research/ADDRESS_INGRESS_R029.md) — original TGCP receive/unpack, queue, connector and address RPC session-dispatch path (static only).
+
+- [R030_4013_INBOUND](research/INBOUND_4013_R030.md) — original native incoming 0x4013 handling, uncompressed/LZ4 branch, and reply-prefix negative controls.
