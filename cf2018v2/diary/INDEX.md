@@ -2,6 +2,7 @@
 
 | Page | Entries | Topics | Status |
 |---|---|---|---|
-| [001](../diary.md) | R001–R008 | Auth correction through V3.8.1, sources, workspace migration | CURRENT |
+| [001](001.md) | R001–R016 | Auth, routed requests, native producer, protocol and diagnostic deductions | ARCHIVED |
+| [002](../diary.md) | R017 onward | New current research | CURRENT |
 
-At30 entries OR8KB: move current diary to001.md here, change its index link, create a fresh ../diary.md page002 with previous-page link and next research ID. Never create an empty archive just to fill the index. Archive pages are historical; current vault wins.
+At 30 entries OR 8 KB archive the current diary to the next numbered page, update this index, and start a fresh `../diary.md` with a previous-page link. Keep stable R IDs; do not fabricate results. Archive pages are historical; current vault wins.
