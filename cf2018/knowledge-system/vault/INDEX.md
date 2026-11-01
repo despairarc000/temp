@@ -49,3 +49,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [R030_4013_INBOUND](research/INBOUND_4013_R030.md) — original native incoming 0x4013 handling, uncompressed/LZ4 branch, and reply-prefix negative controls.
 
 - [R031_INBOUND_PAYLOAD](research/INBOUND_BOUNDARY_R031.md) — 45 original-native instruction pins identifying clear-payload boundaries and offline AA/4013 reply preflight.
+
+- [R032_PER_FRAME_SECURITY](research/INBOUND_BASE_SECURITY_R032.md) — native TGCP base field6 controls per-frame inbound decrypt branch; clear-mode offline validation.
