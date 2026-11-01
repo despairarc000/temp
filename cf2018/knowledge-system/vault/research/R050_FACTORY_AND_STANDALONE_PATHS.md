@@ -26,3 +26,11 @@ Original protected Assembly-CSharp.dll from connected Drive, 13,423,104 bytes, S
 Login is NOT the game's final challenge. The eventual offline goal still requires assets/map loading, match startup, local AI controllers/pawns, combat rules, and persistence. StandalonePVE may offer an alternate local-game route, but does not itself establish offline PvP BOT matchmaking, launch or bots. Do not replace server emulation work prematurely: retain two lanes: (A) native GCloud route source and correct ACK/session handling; (B) original scene/map/standalone entrypoint and bot spawning. Prioritize offline static checks until one falsifiable, bounded phone test is defined.
 
 Current verified outcome: original connector initially has no route, and original Unity code has a local simulation branch. The unknown route-name source, authentication and playable game remain unsolved.
+
+## Further standalone map classification (original Unity CIL)
+
+`WNEngine.LogicalMapStore.IsStandalonePVE` (RID24181, RVA0x1e4aac) calls `IsMapModeType` with mode class constant 2. `CheckMatchTypeStandalonePVEByMapID` (RID24248, RVA0x1e5a88) calls `GetMatchTypeByMapID` and compares the match type against three original constants **0x3001, 0x3002 and 0x3003**. This narrows standalone map eligibility; it does not establish that any desired PvP bot map is in that set.
+
+`LoadingStage.OnLoadMapComplete` uses two distinct `EnterGame` overloads: its standalone subtype-2 branch invokes RID37917/RVA0x3405e8, the 12-byte overload that activates a stage; the other branch invokes RID37918/RVA0x3405f8, whose longer 67-byte body also calls `BaseGame.PlayerLogin` and `LocalPlayer.CreateInitialPlayer`. Do not assume that the simple standalone stage activation performs all player initialization or bypasses game startup checks.
+
+`WNTrainGame.AITrainGameBuilder.CreateGame` (RID54387/RVA0x460b70) calls the local `AITrainGame` constructor. `GameConstructFuncCenter.GetGameConstructFuncByMode` (RID22978/RVA0x1d2ae4) resolves builder types using `GameDefManager`, reflection, and `Delegate.CreateDelegate`; `WNStageManger.ProcessInitWorldGame` uses that construct-function center. This supports a **separate offline scene/bot-research lane**, not confirmation that PvP TDM/Bomb bots launch without lobby.
