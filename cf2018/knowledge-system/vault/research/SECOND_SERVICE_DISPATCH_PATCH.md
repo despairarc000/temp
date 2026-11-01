@@ -1,5 +1,22 @@
 # Guarded second-service dispatch integration
 
+## R065: exact supplied R037 recovered and integrated
+
+2026-11-01 UTC. Owner attached the original R037 kit: 35,193 bytes, SHA256 `c9837375ed0d5b37606e9619d1597c544d60de8d2684c3e8ea6eb657378fc380`, matching R037's recorded receipt. ZIP integrity passed. Its preparer chain validated all60 original V3.8 files and reproduced `routed_probe_r037.py`, SHA256 `2c28c09944770a66ffca7c7bdf19dd6065fce7ea59766b98bf58e5078e2e2e01`.
+
+`tools/prepare_r037_dispatch.py` pins both the attachment and reproduced handler, then adds only the R056 first-frame decision and fixed-label report lines. Removing those two insertions recovers the original R037 handler exactly. Existing R035/R036/R037 diagnostics run before the hold. Address-reply bytes, RPC64 matching, one-reply guard, original exact-SYN gate, redirector, limits and live opt-in remain unchanged. R037 input and baseline sources are not edited.
+
+Validation: **113 original prepared-copy regression tests PASS; 30 original R033–R037 focused tests PASS; one new real-loopback two-connection integration test PASS; two source-refusal tests PASS**. The new lifecycle check runs the supplied R037 socket test and additionally requires exactly one ACK and one address reply across both connections, exported reference classification for slot1 and ten-byte-route HOLD_NO_ACK for slot2. Original test assertions compare ACK/auth/Bingo/address reply and check existing redacted labels. No game client, internet service or phone participated. This supersedes the missing-R037-source limitation below; historical R064 baseline-only status remains accurate for that run.
+
+Offline preparation:
+
+```sh
+python cf2018/tools/prepare_r037_dispatch.py --source /absolute/path/to/v38_source --kit /absolute/path/to/CF2018_R037_ROUTE_DELTA_Kit.zip --output cf2018/private/r037_dispatch
+CF18_R037_PREPARED=/absolute/path/to/cf2018/private/r037_dispatch python -m unittest discover -s cf2018/tests -p test_r037_dispatch_lifecycle.py -v
+```
+
+No new experiment version or phone run. Next remains route-specific ACK/session evidence; do not run another HOLD-only phone capture. The preparer does not enable a second-service ACK.
+
 2026-11-01 UTC. Owner authorized server patch/tests and diary archival. No client edits, schedule changes or phone test.
 
 The baseline V3.8 Termux handler and SOCKS5 redirector match the public 60-file manifest. The handler's first-frame reference hash/type gate precedes ACK send. This patch inserts R056 classification there and a fixed-label TXT exporter. Only a reference-route candidate reaches the existing exact-byte gate. Other routes receive no ACK. Removing the two insertions recovers the original handler character for character.
