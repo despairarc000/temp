@@ -28,3 +28,7 @@ Original libapollo.so: 5,243,704 bytes; SHA256 4812396e98bfba9664164c14c8973eed1
 ## Open blocker / next
 
 The caller that configures the observed 10-byte route, its actual name, the relevant managed-to-GCloud runtime bridge and the second-service ACK/session/key requirements remain unverified. R037 vs R038/R039 shows strong RPC64-dependent route-switch behavior, NOT a completed login. Continue tracing calls into GCloud::CTGcp::SetRouteInfo and the original ACK/session parser. Do not rerun R039, assume the NApollo and GCloud paths are identical, or blindly ACK the 131-byte SYN.
+
+## R047 native caller clarification
+
+The immediate native caller of GCloud::CTGcp::SetRouteInfo is now **GCloud::CGCloudConnector::connectTConnd** at original 0x3c6c4a. The connector's own SetRouteInfo clones the caller-provided route into connector+0x19c, then connectTConnd conditionally applies it to TGCP. This resolves the first upstream native hop, but the *external caller that supplies the ten-byte value* is still unknown. See [R047](R047_CONNECTOR_ROUTE_SOURCE.md).
