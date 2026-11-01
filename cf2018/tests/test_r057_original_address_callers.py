@@ -98,6 +98,19 @@ class Tests(unittest.TestCase):
         self.assertEqual(set(r057.EXPECTED[r057.ADDRESS_SERVICE_GET]),
                          {0x3A6890, 0x3C334E})
 
+
+    def test_callback_symbol_checks_are_distinct_from_execution(self):
+        sample = [
+            r057.Func(0x1000, 20, "_ZN6GCloud19CDefaultNameService19OnGetServiceAddressEiPv"),
+            r057.Func(0x1100, 20, "_ZN6GCloud5CTGcp17OnQueryNameResultEiPv"),
+            r057.Func(0x1200, 20, "_ZNSt3tr117_Function_handler_foo_CDefaultNameService"),
+        ]
+        self.assertTrue(all(r057.callback_symbol_evidence(sample).values()))
+        for i in range(len(sample)):
+            with self.subTest(missing_index=i):
+                self.assertFalse(all(r057.callback_symbol_evidence(
+                    sample[:i] + sample[i+1:]).values()))
+
     def test_exact_private_original_optional(self):
         original = os.environ.get("CF18_APOLLO_LIBRARY")
         if not original:
