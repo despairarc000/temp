@@ -36,7 +36,9 @@ def synthetic_ack(*, magic=0x4366, key_mode=0):
     return b'\xaa' + (5 + len(h)).to_bytes(4, 'big') + h
 
 
-APPLICATION_FIELDS = {'none': None, 'game_id': 8, 'unit_id': 0x10, 'client_type': 0x114}
+APPLICATION_FIELDS = {'none': None, 'game_id': (8, 1), 'unit_id': (0x10, 1),
+                      'client_type': (0x114, 1), 'platform_101': (0x114, 101),
+                      'platform_102': (0x114, 102)}
 
 
 def _prepare_syn(library, name_size, relay, attribute):
@@ -49,7 +51,8 @@ def _prepare_syn(library, name_size, relay, attribute):
     n.write(CTX + 0x6cc, int(relay))
     n.uc.mem_write(CTX + 0x3408, name + b'\0')
     if APPLICATION_FIELDS[attribute] is not None:
-        n.write(CTX + APPLICATION_FIELDS[attribute], 1)
+        offset, value = APPLICATION_FIELDS[attribute]
+        n.write(CTX + offset, value)
 
     def strncpy(dest, source, count, unused):
         if count != 127:
