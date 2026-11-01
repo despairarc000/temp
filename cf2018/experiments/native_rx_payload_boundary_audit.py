@@ -42,7 +42,18 @@ app_input_pointer|39b99a|mov|r1, r6
 app_input_length|39b99c|mov|r2, r7
 app_read_buffer|39b9a0|bl|0x3c180e
 msg_buffer_construct_reader|3c1818|bl|0x3c1510
-app_read_rpc_header|39b9d4|blx|r12"""
+app_read_rpc_header|39b9d4|blx|r12
+tgcp_parse_base_head|3b720e|bl|0x3af4cc
+tgcp_parse_extension_head|3b7244|bl|0x3b6a3c
+extension_recognizes_4013|3b6a62|movw|r3, #0x4013
+extension_compare_4013|3b6a68|cmp|r5, r3
+extension_branch_to_datahead|3b6a6a|beq|0x3b6b00
+extension_calls_datahead_parser|3b6b14|bl|0x3b6138
+datahead_decode_field_number|3b617c|lsrs|r3, r1, #0x4
+datahead_switch_four_fields|3b6180|cmp|r3, #0x3
+datahead_read_uint8|3b61b6|bl|0x1f4842
+datahead_read_nested_route_length|3b61ec|bl|0x1a333e
+datahead_parse_nested_route|3b6200|bl|0x3b2422"""
 PINS=tuple((label,int(address,16),op,operand)
            for label,address,op,operand in
            (line.split('|',3) for line in SPEC.splitlines()))
@@ -51,7 +62,11 @@ WINDOWS=((0x3ab6dc,0x3ab6e8),(0x3abf08,0x3abf1a),
  (0x3a8de4,0x3a8df6),(0x3a8ed8,0x3a8ee6),
  (0x3a4fea,0x3a5002),(0x3a4014,0x3a401e),
  (0x3a4038,0x3a4042),(0x39b998,0x39b9a4),
- (0x3c1814,0x3c181c),(0x39b9d0,0x39b9d8))
+ (0x3c1814,0x3c181c),(0x39b9d0,0x39b9d8),
+ (0x3b7208,0x3b7212),(0x3b7240,0x3b724a),
+ (0x3b6a5e,0x3b6a70),(0x3b6b10,0x3b6b1a),
+ (0x3b6178,0x3b6184),(0x3b61b2,0x3b61bc),
+ (0x3b61e8,0x3b61f2),(0x3b61fc,0x3b6204))
 LINE=re.compile(r'^\s*([0-9a-fA-F]{6,8}):\s+(?:[0-9a-fA-F]{4}\s+){1,2}([a-zA-Z.][\w.]*)\s*(.*)$')
 def parse_instructions(source):
     found={}
