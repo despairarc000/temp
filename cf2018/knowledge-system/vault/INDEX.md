@@ -86,3 +86,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [R049_MANAGED_ROUTE_BOUNDARY](research/R049_MANAGED_ROUTE_BOUNDARY.md) — original managed CIL has just wrapper->NApollo P/Invoke direct setter call; native GCloud init route is distinct and its runtime source remains unknown.
 - [R051_STANDALONE](research/R051_STANDALONE_MATCH_ENTRY_AUDIT.md) — original CIL startup sequencing, menu latency-vs-offline gate, data-driven builder and AI-spawn prerequisites; 36 exact pins, nine offline tests.
 - [R052_TRAINING_SPAWN](research/R052_TRAINING_PLAYER_SPAWN_INHERITANCE.md) — AITrainGame inherits PVE StartMatch, which calls actual controller and initial pawn spawn; seven inherited TypeDef pins and 14 CIL method pins, seven offline tests.
+
+- [R050_FACTORY_STANDALONE](research/R050_FACTORY_AND_STANDALONE_PATHS.md) — original GCloud connector factory has null route until initialization, plus original Unity standalone PVE mode existence and limitations.
