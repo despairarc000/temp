@@ -21,3 +21,7 @@ Native reproducible [14-pin R047 auditor](../../../experiments/native_gcloud_con
 ## Decision
 
 Continue read-only caller/vtable and config provenance research. Do **not** run another broad socket trial or blindly ACK unknown 131-byte named-route SYNs. A targeted later phone experiment is justified only once the correct second-service ACK/session policy and a falsifiable route predicate are established. Game is not authenticated or playable.
+
+## Managed CIL cross-check (original game assembly)
+
+The hash-verified original Assembly-CSharp.dll (SHA256 174a30cea9dba4f84b90a446f247cc0d212b7c83d462889d57703e7875e249e9) contains 72,429 fully decoded CIL method bodies. An offline instruction-aware scan of **383,258 direct CIL call/newobj/ldftn references** found **zero direct targets whose resolved method name includes SetRouteInfo or CreateApolloRouteInfo**. The related Apollo managed wrapper methods **do exist**. This is evidence against a simple direct managed callsite in this one assembly, **not** evidence no route can be assigned: calls from other DLLs, native code, virtual/interface dispatch, reflection, generated data and name-service callbacks remain possible. Static original scan only; no game runtime observation. This narrows further work to the connector interface dispatch and its native/configurable route supplier.
