@@ -41,6 +41,29 @@ class Tests(unittest.TestCase):
     def test_unmatched_sequence(self):
         self.assertEqual(assess_response(parse_response(fixture()), pending_sequences={8}),
                          'REJECT_NO_PENDING_SEQUENCE')
+    def test_original_qualified_method_response_is_an_offline_structural_candidate(self):
+        qualified = fixture(method='QueryAddrSvr:QueryAddrInfo')
+        item = parse_response(qualified)
+        self.assertEqual(item.method, 'QueryAddrSvr:QueryAddrInfo')
+        self.assertEqual(assess_response(item, pending_sequences={7}),
+                         'STRUCTURAL_CANDIDATE_ONLY_NOT_GAME_ACCEPTANCE')
+        self.assertEqual(assess_response(item, pending_sequences={8}),
+                         'REJECT_NO_PENDING_SEQUENCE')
+
+    def test_qualified_method_rejects_missing_native_required_fields(self):
+        with self.assertRaisesRegex(ResponseError, 'native-required reason'):
+            parse_response(fixture(method='QueryAddrSvr:QueryAddrInfo', reason=None))
+        with self.assertRaisesRegex(ResponseError, 'missing success'):
+            parse_response(fixture(method='QueryAddrSvr:QueryAddrInfo', success=False))
+        with self.assertRaisesRegex(ResponseError, 'not an RPC reply'):
+            parse_response(fixture(method='QueryAddrSvr:QueryAddrInfo', msgtype=1))
+
+    def test_qualified_method_allowlist_not_general_colon_wildcard(self):
+        for name in ('Other:QueryAddrInfo', 'QueryAddrSvr:Other',
+                     'QueryAddrSvr:QueryAddrInfo:extra', 'QUERYADDRSVR:QueryAddrInfo'):
+            with self.subTest(name=name), self.assertRaisesRegex(ResponseError, 'unexpected method'):
+                parse_response(fixture(method=name))
+
     def test_nonzero_response_result(self):
         self.assertEqual(assess_response(parse_response(fixture(result=-3)), pending_sequences={7}),
                          'REJECT_RESPONSE_RESULT')
