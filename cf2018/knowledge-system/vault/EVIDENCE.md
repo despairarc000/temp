@@ -1,5 +1,7 @@
 # Evidence registry — initial historical import (2026-10-30)
 
+2026-11-01 UTC — Guarded Termux dispatch patch: corrected R056's use of inbound reply grammar on client SYNs (client base kind0 except field6 kind1). Exact private baseline and redirector fingerprints verified; copy-only preparer verifies 60 files. 11 classifier tests + 6 patch controls PASS with private source; 113 original prepared-copy regression tests PASS. No new ACK, phone run or login; actual R037 active-reply source integration remains outstanding. [Details](research/SECOND_SERVICE_DISPATCH_PATCH.md).
+
 Historical results described here come from the user's Termux runs and TXT reports, plus native static review described in the conversation. Reports/hashes and original binaries are **not** checked into this public repo; verify them before stronger claims.
 
 | ID | Class | Evidence | Supports / limits |

@@ -1,5 +1,7 @@
 # Current checkpoint — 2026-10-31
 
+2026-11-01 UTC — Guarded Termux dispatch patch: corrected R056's use of inbound reply grammar on client SYNs (client base kind0 except field6 kind1). Exact private baseline and redirector fingerprints verified; copy-only preparer verifies 60 files. 11 classifier tests + 6 patch controls PASS with private source; 113 original prepared-copy regression tests PASS. No new ACK, phone run or login; actual R037 active-reply source integration remains outstanding. [Details](research/SECOND_SERVICE_DISPATCH_PATCH.md).
+
 **NOT PLAYABLE. No validated account/session, accepted service reply, lobby or bot match.**
 Target2018 v1.0.11.11 com.tencent.tmgp.cfmnac, Mono. Prioritize original-client
 local server; integrity editing parked. Scheduled workers remain paused.

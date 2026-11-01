@@ -1,5 +1,7 @@
 # OPEN QUESTIONS — current auth receive gate
 
+2026-11-01 UTC — Guarded Termux dispatch patch: corrected R056's use of inbound reply grammar on client SYNs (client base kind0 except field6 kind1). Exact private baseline and redirector fingerprints verified; copy-only preparer verifies 60 files. 11 classifier tests + 6 patch controls PASS with private source; 113 original prepared-copy regression tests PASS. No new ACK, phone run or login; actual R037 active-reply source integration remains outstanding. [Details](research/SECOND_SERVICE_DISPATCH_PATCH.md).
+
 | ID | Remaining question | Current evidence / next falsifiable action | State |
 |---|---|---|---|
 | Q-01 | Actual runtime path and framing boundary behavior? | AA_DIRECT advances real phone; pinned GCloud decodes AA/99 then marker4366. CF18-01 boundary0019 submitted; path-selection/wrapper draft unfinished. Review separately; no raw-prefix retry. | PHONE_HOP_CONFIRMED / PATH_PARTIAL |

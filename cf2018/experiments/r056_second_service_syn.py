@@ -4,7 +4,7 @@ Read-only, source-only parser for the exact 2018 GCloud AA-framing subset.
 It has no listener, writer or ACK generator; the existing reference-SYN handler
 remains the only justified active handler. NEVER auto-ACK a 10-byte route.
 """
-from rx_envelope import Receiver, FrameError
+from rx_envelope import FrameError
 from inbound_4013_reply_preflight import _fields
 
 MAX_FIRST_FRAME = 1024
@@ -24,16 +24,22 @@ def first_syn_decision(wire):
     if not wire.startswith(b"\x43\x66\xaa"):
         return refused
     try:
-        # Native original client sends 43 66 before the AA length-delimited
-        # packet. Our strict Receiver starts at AA, so strip exactly two bytes.
-        receiver = Receiver(MAX_FIRST_FRAME)
-        complete = receiver.feed(wire[2:])
-        receiver.finish()
-        if len(complete) != 1 or complete[0].body:
+        # Client TX uses kind0 varuint base fields except kind1 byte field6.
+        # The inbound server-reply
+        # Receiver requires kind1 and must NOT be applied to this boundary.
+        declared = int.from_bytes(wire[3:7], 'big')
+        if declared != len(wire) - 2:
             return refused
-        header_end = complete[0].header_size
-        outer = _fields(wire[7:2 + header_end])
+        outer = _fields(wire[7:])
         if set(outer) != {1, 2} or outer[1][0] != 5 or outer[2][0] != 5:
+            return refused
+        base = _fields(outer[1][1])
+        if base.get(1) != (0, 0x4366) or base.get(9) != (0, 0):
+            return refused
+        if any(k not in range(1, 10) or v[0] != (1 if k == 6 else 0)
+               for k, v in base.items()):
+            return refused
+        if 4 in base and base[4] != (0, 0x1001):
             return refused
         extension = _fields(outer[2][1])
         if set(extension) != {0x1001} or extension[0x1001][0] != 5:
@@ -62,3 +68,4 @@ def first_syn_decision(wire):
         return ("OTHER_NAMED_ROUTE", "HOLD_NO_ACK")
     except (FrameError, ValueError, OverflowError, IndexError, TypeError):
         return refused
+

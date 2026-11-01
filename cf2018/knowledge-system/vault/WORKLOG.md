@@ -1,5 +1,7 @@
 # WORKLOG — initial handoff (2026-10-30)
 
+2026-11-01 UTC — Guarded Termux dispatch patch: corrected R056's use of inbound reply grammar on client SYNs (client base kind0 except field6 kind1). Exact private baseline and redirector fingerprints verified; copy-only preparer verifies 60 files. 11 classifier tests + 6 patch controls PASS with private source; 113 original prepared-copy regression tests PASS. No new ACK, phone run or login; actual R037 active-reply source integration remains outstanding. [Details](research/SECOND_SERVICE_DISPATCH_PATCH.md).
+
 - Earlier: signed-only original-code client reached update checking. DLL patch and one-byte DLL control exited early; APK/OBB editing frozen.
 - v0.1–v0.3: local PCAPdroid SOCKS5 and Termux bridge captured real 133-byte TGCP SYN for `QueryAddrSvr`. Framing/decoder prototyped.
 - v0.4: synthesized 65-byte ACK; massive retries, immediate socket closes, no new client frame; diagnostic IDs/log accumulation defective.

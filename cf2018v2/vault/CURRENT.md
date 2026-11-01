@@ -1,5 +1,7 @@
 # Current state
 
+R064 (2026-11-01 UTC), **SERVER PATCH / OFFLINE TESTED**: Guarded Termux dispatch patch: corrected R056's use of inbound reply grammar on client SYNs (client base kind0 except field6 kind1). Exact private baseline and redirector fingerprints verified; copy-only preparer verifies 60 files. 11 classifier tests + 6 patch controls PASS with private source; 113 original prepared-copy regression tests PASS. No new ACK, phone run or login; actual R037 active-reply source integration remains outstanding. [Patch details](../../cf2018/knowledge-system/vault/research/SECOND_SERVICE_DISPATCH_PATCH.md). This supersedes R056 baseline integration unavailability, not its unknown-route ACK hold. R062/R063 narrow the native wire-family boundary; R063 was originally formatted R63 in the prior diary page. Schedules remain paused.
+
 Migrated knowledge baseline: main79dd8892042c7dc871fca279c22c6082194f9079. Migration adds no phone/gameplay progress.
 
 Goal: original CF2018 v1.0.11.11 Mono, functional offline TDM/Bomb bots. NOT PLAYABLE. No accepted service response, validated account/session, lobby or match.

@@ -26,7 +26,8 @@ def scalar(field, value):
 
 def fixture(name=b"QueryAddrSvr", *, syn_type=0x1001, route_kind=4,
             add_second_route=False, have_route=True, body=b""):
-    base = scalar(1, 0x4366) + scalar(9, len(body))
+    base = varuint(1 << 4) + varuint(0x4366) + varuint(9 << 4) + varuint(len(body))
+    base += scalar(6, 0)
     # Synthetic minimal nested route shape: this is NOT an original SYN.
     syn = scalar(1, 1)
     if have_route:
@@ -98,6 +99,13 @@ class Tests(unittest.TestCase):
             self.assertEqual(first_syn_decision(wire)[1], "HOLD_NO_ACK")
         self.assertEqual(wire, before)
 
+    def test_client_base_byte_field_must_keep_its_kind(self):
+        wire = fixture()
+        self.assertEqual(wire.count(b'\x61\x00'), 1)
+        self.assertEqual(first_syn_decision(wire.replace(b'\x61\x00', b'\x60\x00')),
+                         ('UNRECOGNIZED_OR_INCOMPLETE_SYN', 'NO_ACK'))
+
 
 if __name__ == "__main__":
     unittest.main()
+
