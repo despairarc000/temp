@@ -8,8 +8,8 @@ from native_rx_payload_boundary_audit import PINS,parse_instructions,failures,au
 
 class Tests(unittest.TestCase):
     def test_unique_pins(self):
-        self.assertEqual(len(PINS),34)
-        self.assertEqual(len({addr for _,addr,_,_ in PINS}),34)
+        self.assertEqual(len(PINS),45)
+        self.assertEqual(len({addr for _,addr,_,_ in PINS}),45)
     def test_positive_source_free_control(self):
         self.assertEqual(failures({addr:(op,arg) for _,addr,op,arg in PINS}),[])
     def test_each_changed_pin_is_rejected(self):
@@ -34,7 +34,7 @@ class Tests(unittest.TestCase):
         path=os.getenv('CF18_APOLLO_LIBRARY')
         if not path:self.skipTest('original private Apollo not supplied')
         result=audit(path)
-        self.assertEqual((result['checks'],result['passed'],result['failed']),(34,34,[]))
+        self.assertEqual((result['checks'],result['passed'],result['failed']),(45,45,[]))
         self.assertTrue(result['conditional_payload_preservation'])
         self.assertFalse(result['removes_four_byte_prefix'])
         self.assertFalse(result['server_envelope_verified'])
