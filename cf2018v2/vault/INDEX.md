@@ -5,3 +5,5 @@
 - [SOURCES](SOURCES.md): present originals versus missing archive/resources.
 
 Detailed source findings remain linked in the original workspace. [Diary](../diary.md) records how our understanding changed, not an alternate authority.
+
+- [R053 original source and asset preflight](R053_ASSET_SOURCE_PREFLIGHT.md): fresh SHA-pinned Unity DLL verification, rerun offline tests, and bounded Drive asset inventory; game-mode definitions unresolved.
