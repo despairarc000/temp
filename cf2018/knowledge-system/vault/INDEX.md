@@ -69,3 +69,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [R040_RPC64_PHONE](research/R040_RPC64_PHONE_CONTROL.md) — real R039 wrong-RPC64 phone result: 4 original SYNs, no route transition; original 0x5001 stop-session native attribution and audit.
 
 - [R041_ADDRESS_CALLBACK](research/R041_ADDRESS_CALLBACK_TRACE.md) — original-native 34-pin QueryAddrInfo parse/result0/queued DNS/callback trace; downstream 10-byte route still unknown.
+
+- [R042_ACK_ROUTE_SCOPE](research/R042_ACK_ROUTE_SCOPE.md) — original 12-pin ACK head six-field route-independent serialization; 7 tests, client 0x1002 gate and missing original managed game DLL.
