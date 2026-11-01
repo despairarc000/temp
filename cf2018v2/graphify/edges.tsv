@@ -12,3 +12,4 @@ vault/R055_OBB_SPLIT_ASSET_TRIAGE.md	tested-by	../cf2018/tests/test_r055_unity_s
 vault/CURRENT.md	evidence	../cf2018/knowledge-system/vault/research/R058_NAME_SERVICE_OBSERVER_WIRING.md
 vault/CURRENT.md	evidence	../cf2018/knowledge-system/vault/research/R059_SERVICE_QUERY_ENDPOINT.md
 vault/CURRENT.md	evidence	../cf2018/knowledge-system/vault/research/R060_DUAL_ACK_RECEIVERS.md
+vault/CURRENT.md	evidence	../cf2018/knowledge-system/vault/research/R061_ACK_BODY_DECODER_FORK.md
