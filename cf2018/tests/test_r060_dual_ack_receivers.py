@@ -7,7 +7,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "experiments"))
 from r060_dual_ack_receivers import (
-    RECEIVER_CALLS, RECEIVERS, validate_edges, validate_function_identities, audit
+    RECEIVER_CALLS, SYN_CALLS, RECEIVERS, validate_edges, validate_function_identities, audit
 )
 from r057_original_address_callers import Func
 
@@ -17,7 +17,7 @@ def symbols():
             in RECEIVERS.values()]
     # Every direct caller belongs to a separate mock method of size two.
     seen = {}
-    for target, entries in RECEIVER_CALLS.items():
+    for target, entries in list(RECEIVER_CALLS.items()) + list(SYN_CALLS.items()):
         for site, part in entries.items():
             seen.setdefault(site, part)
     objs += [Func(site, 4, "Fake::" + part) for site, part in seen.items()]
@@ -32,6 +32,17 @@ class Tests(unittest.TestCase):
     def test_all_six_receivers_have_expected_callers(self):
         self.assertEqual(len(RECEIVER_CALLS), 6)
         self.assertEqual(sum(map(len, RECEIVER_CALLS.values())), 14)
+
+    def test_separate_original_syn_senders(self):
+        self.assertEqual(set(SYN_CALLS), {0x1C1544, 0x3ABA5C})
+        self.assertEqual(sum(map(len, SYN_CALLS.values())), 6)
+
+    def test_syn_sender_owners_and_negative_control(self):
+        paths = {target: set(calls) for target, calls in SYN_CALLS.items()}
+        validate_edges(paths, symbols(), SYN_CALLS)
+        paths[0x3ABA5C].add(0x1BAC32)
+        with self.assertRaises(ValueError):
+            validate_edges(paths, symbols(), SYN_CALLS)
 
     def test_distinct_ack_symbols(self):
         self.assertNotEqual(RECEIVERS["legacy_ack"][0],
@@ -93,6 +104,7 @@ class Tests(unittest.TestCase):
             self.skipTest("private original Apollo not present in public CI")
         result = audit(path)
         self.assertEqual(result["direct_receiver_calls_checked"], 14)
+        self.assertEqual(result["direct_syn_sender_calls_checked"], 6)
         self.assertFalse(result["second_service_handshake_accepted"])
 
 
