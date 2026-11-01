@@ -39,3 +39,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 
 - [R024_PROTOCOL_CALLS](research/RPC_PROTOCOL_CALLSITE_R024.md) — original RpcConnector direct initialization caller audit; three use binary type 0x20.
 - [R025_QUALIFIED_ADDRESS](research/QUALIFIED_ADDRESS_ROUTE_R025.md) — original colon-qualified RPC and route setter, explaining diagnostic false negatives; supersedes bare-name exclusion.
+
+- [R027_PHONE_QUALIFIED_RPC](research/PHONE_R027_QUALIFIED_RPC.md) — live-phone structural match for both routed 0x4013 requests, original RX pending-session constraints and offline correlation tests.
