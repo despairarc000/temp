@@ -22,6 +22,17 @@ Same original 2018 ARM ELF: **5,243,704 bytes**, SHA256 **`4812396e98bfba9664164
 
 These are **14 independently matched original native direct-call sites across 6 receiver targets**, not packet captures. For each direct caller the method owner is verified against the original symbol table. The two receiver families have different actual code lengths and function owners; although they may share protocol ancestry or some compatible field types, **they are NOT assumed interchangeable**.
 
+## Original native SYN transmission branches (additional confirmation)
+
+The original also contains **two independent outbound SYN builders**, closing the source-level TX-to-RX ownership comparison:
+
+| Lane | Actual original SYN builder | Original native callsites |
+|---|---|---|
+| Legacy | `tgcpapi_send_syn_msg` **0x1c1544** | `tgcpapi_start_connection` **0x1bac32**, `tgcpapi_relay_connection` **0x1bb276**, legacy `OnStateTcpSyning` **0x1beafa** |
+| GCloud | `gcloud_tgcpapi_send_syn_msg` **0x3aba5c** | `gcloud_tgcpapi_start_connection` **0x3a83c6**, `gcloud_tgcpapi_relay_connection` **0x3a8936**, GCloud `OnStateTcpSyning` **0x3a9f52** |
+
+All **six additional native direct-call sites** were independently found from the owner-original ELF; source-owner symbol checks were added to the R060 auditor and synthetic mutation tests. **Total audited direct-call edges: 20 (14 ACK/auth/gather + 6 SYN send)**. The original functions and callsites are distinct, but **this alone does not prove the wire layouts differ**, or which one generated the real R037 131-byte SYN.
+
 ## Why that changes the next fake-server decision
 
 The currently examined R042 `0x1002` acceptance, key modes, GCloud TGCPBody and timestamp-to-auth behavior are original GCloud-path findings. R037's later 131-byte SYN is a named route, but that does not independently establish whether the phone selected a GCloud connector or a legacy/NApollo connector. An ACK that reaches authentication in one original pipeline could fail a different receiver. This report does NOT assert that the two expect different ACK wire bytes; it establishes **different receiving functions and states** and demands an actual contract comparison.
@@ -30,9 +41,9 @@ Previously verified real-phone facts remain: first 133-byte SYN → 63-byte synt
 
 ## Code / controls
 
-- [Exact-original gated callgraph auditor](../../../experiments/r060_dual_ack_receivers.py): verifies file size, SHA256, original ELF executable/symbol parser, **four ACK/auth function identities**, **14 direct Thumb BL callsites**, receiver owner labels and distinct gather functions. Read-only, fixed-label summary; no credentials, route strings, packet bytes or original game bytes in GitHub.
-- [Source-only controls](../../../tests/test_r060_dual_ack_receivers.py): 11 public synthetic cases for receiver identity, distinct paths, wrong/missing original call owner, call graph mutations, altered source and original-only gating; **one optional private-original test SKIPPED in public CI**. Correct count is 11 source-free + 1 private-only test.
-- Source-only CI can verify auditor/test logic but **does not read the original private ELF**. This turn separately examined the owner original native file and verified the 14 callsites/receiver function symbols. CI PASS once observed: [GitHub Actions 41348636553](https://github.com/despairarc000/temp/actions/runs/41348636553).
+- [Exact-original gated callgraph auditor](../../../experiments/r060_dual_ack_receivers.py): verifies file size, SHA256, original ELF executable/symbol parser, **four ACK/auth function identities**, **14 direct Thumb BL receiver callsites and six SYN-send callsites**, receiver owner labels and distinct gather functions. Read-only, fixed-label summary; no credentials, route strings, packet bytes or original game bytes in GitHub.
+- [Source-only controls](../../../tests/test_r060_dual_ack_receivers.py): 13 public synthetic cases for receiver identity, distinct paths, wrong/missing original call owner, call graph mutations, altered source and original-only gating; **one optional private-original test SKIPPED in public CI**. Correct count is 13 source-free + 1 private-only test.
+- Source-only CI can verify auditor/test logic but **does not read the original private ELF**. This turn separately examined the owner original native file and verified the 14 callsites/receiver function symbols. CI PASS once observed: [GitHub Actions 41348920273](https://github.com/despairarc000/temp/actions/runs/41348920273).
 
 ## Next discriminating test
 
