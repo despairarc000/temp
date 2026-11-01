@@ -74,3 +74,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 
 - [R043_MANAGED_ROUTE](research/R043_MANAGED_SERVICE_ROUTE.md) — build-hash-pinned offline Unity managed service-name scanner; source-only kit 16 synthetic tests, real game DLL scan pending.
 - [R044_DRIVE_MANAGED](research/R044_DRIVE_MANAGED_CALLGRAPH.md) — original CF2018 Unity application DLL located in Drive, hash verified, real login/lobby Apollo client callgraph, ten-byte named route still unknown.
+
+- [R045_MANAGED_NATIVE](research/R045_MANAGED_NATIVE_ROUTE_ORIGIN.md) — original game managed lobby connector traced into hash-pinned native type4 named-route selection; 17 native pins verified, 9 local tests PASS; next route still unknown.
