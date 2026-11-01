@@ -132,6 +132,25 @@ def containing_symbol(functions, site):
     return min(options, key=lambda f: f.size).name
 
 
+def callback_symbol_evidence(functions):
+    """Symbol presence only; no virtual dispatch/runtime binding claim."""
+    names = [f.name for f in functions]
+    signals = {
+        "default_nameservice_callback": "CDefaultNameService19OnGetServiceAddress",
+        "tgcp_name_result_observer": "CTGcp17OnQueryNameResult",
+        "name_service_bound_function_handler": "Function_handler",
+    }
+    found = {
+        "default_nameservice_callback": any(signals["default_nameservice_callback"] in n for n in names),
+        "tgcp_name_result_observer": any(signals["tgcp_name_result_observer"] in n for n in names),
+        "name_service_bound_function_handler": any(
+            signals["name_service_bound_function_handler"] in n and "CDefaultNameService" in n
+            for n in names
+        ),
+    }
+    return found
+
+
 def audit(original):
     path = Path(original)
     if path.stat().st_size != ORIGINAL_SIZE:
@@ -150,6 +169,9 @@ def audit(original):
                 mismatches.append("caller_symbol_mismatch")
     if mismatches:
         raise ValueError("source call graph did not match pinned original")
+    callback_symbols = callback_symbol_evidence(functions)
+    if not all(callback_symbols.values()):
+        raise ValueError("native callback symbol evidence missing")
     return {
         "evidence": "EXACT_ORIGINAL_NATIVE_STATIC_DIRECT_BL",
         "sha256_match": True,
@@ -161,6 +183,8 @@ def audit(original):
         "rpc_lb_init_is_called_by": "pebble.rpc.RpcConnector.Init",
         "independent_controls": "GCloud.CTGcp.SetRouteInfo + GCloud ACK receiver",
         "original_direct_edges_verified": sum(len(x) for x in EXPECTED.values()),
+        "callback_symbols": callback_symbols,
+        "virtual_callback_invocation": "NOT_EXECUTION_VERIFIED",
         "caller_selected_on_phone": "NOT_DETERMINED",
         "actual_ten_byte_route_name": "NOT_IDENTIFIED",
         "second_service_ack_session": "UNVERIFIED",
