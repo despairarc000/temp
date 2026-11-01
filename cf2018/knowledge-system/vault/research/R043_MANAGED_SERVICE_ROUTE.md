@@ -1,5 +1,7 @@
 # R043 — Original Unity game-side route caller: source-only offline inspection handoff
 
+**Superseded source-access note (R044, 2026-11-01):** The connected Drive folder was updated with an `app/` tree containing the exact original `Assembly-CSharp.dll`. Its SHA-256 matches the original expected value, and the real game-side login call graph has now been inspected. **Do not require the owner to run this old Termux extraction kit.** Furthermore, the initial R043 scanner raised `AttributeError` on the actual DLL because `Metadata.streams` was not assigned, despite passing synthetic tests; the local inspector was corrected before the real scan. See [R044 verified original managed callgraph](R044_DRIVE_MANAGED_CALLGRAPH.md).
+
 Date 2026-11-01. **State: original managed DLL identified by prior static investigation; R043 new source-only scanner verified with synthetic tests; real original DLL NOT available to this session, no real scan / ten-byte service identity.** No new phone packet experiments, authentication or lobby.
 
 ## Why research rather than more network tests
