@@ -73,3 +73,4 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [R042_ACK_ROUTE_SCOPE](research/R042_ACK_ROUTE_SCOPE.md) — original 12-pin ACK head six-field route-independent serialization; 7 tests, client 0x1002 gate and missing original managed game DLL.
 
 - [R043_MANAGED_ROUTE](research/R043_MANAGED_SERVICE_ROUTE.md) — build-hash-pinned offline Unity managed service-name scanner; source-only kit 16 synthetic tests, real game DLL scan pending.
+- [R044_DRIVE_MANAGED](research/R044_DRIVE_MANAGED_CALLGRAPH.md) — original CF2018 Unity application DLL located in Drive, hash verified, real login/lobby Apollo client callgraph, ten-byte named route still unknown.
