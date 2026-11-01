@@ -189,3 +189,7 @@ Added original-code read-only `producer_boundary_audit.py` plus synthetic and pr
 ## 2026-11-01 — source-pinned reciprocal RX ownership audit
 
 Read exact original Apollo and added seven new pinned checks across AddressService::OnDataRecvedProc, its session-lookup response processor, RpcConnector::OnDataRecvedProc and its typed message dispatcher. Auditor now 33/33 native **static** instruction pins PASS; six Python tests PASS with original private source (source-free 5 PASS/1 SKIP). No original-native whole-message execution, phone observation, response generated, network/server modification or gameplay progress. [UPSTREAM_REQUEST_CHAIN](research/UPSTREAM_REQUEST_CHAIN.md).
+
+## 2026-11-01 — conditional byte-copy dataflow and regression fix
+
+Original hash-pinned Apollo Thumb scan verifies exact buffer pointer/count through MsgBuffer::writeEnd callback, CGCloudConnector::Write, AString/AData and PLT-identified memcpy; 10 new static checks passed, total43/43; six local Python tests PASS with private original. Fixed stale 24-check assertions that did not match prior 33-pin script. The phone's runtime concrete connector and later transforms remain unidentified. [Details](research/UPSTREAM_REQUEST_CHAIN.md).

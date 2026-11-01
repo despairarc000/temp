@@ -276,3 +276,7 @@ real identity/session or RPC inferred. Seven new methods PASS; canonical187 PASS
 ## E-38 — source-pinned producer and reciprocal receive ownership, 2026-11-01
 
 [Native trace and audit](research/UPSTREAM_REQUEST_CHAIN.md). Exact privately provided original Apollo (5,243,704 bytes, SHA256 4812396e98bfba9664164c14c8973eed111c5b9d177c1b575e86bc8e9f9169d8) checked; read-only LLVM Thumb instruction audit: **33/33 static pins PASS** in 13 bounded regions. Two direct MsgBuffer::bind callsites belong to AddressService and RpcConnector connection callbacks. AddressService::OnDataRecvedProc calls ProcessResponse, whose processing includes QuerySession lookup. RpcConnector::OnDataRecvedProc calls ProcessMessage and its own typed response dispatcher. Six Python tests PASS with original private source; source-free five PASS/one explicit SKIP. No original-native whole-message execution, owner phone run, new 0x4013 reply, authenticated account, lobby or gameplay. Runtime connector ownership of the phone's two 80/85-byte requests remains UNKNOWN.
+
+## E-39 — verified native pointer/length copy boundary, 2026-11-01
+
+[Evidence](research/UPSTREAM_REQUEST_CHAIN.md): 10 added instruction pins prove MsgBuffer's original buffer pointer/count reach the conditional CGCloudConnector/AString/AData copy call, ending at PLT `memcpy` in the original Apollo. Expanded static verifier 43/43 PASS and 6/6 Python tests with hash-pinned original. Earlier canonical 24-pin test regression repaired. Connector selection on the actual phone and final wire encoding are NOT established.
