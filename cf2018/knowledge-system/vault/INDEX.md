@@ -47,3 +47,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [R029_INBOUND_CHAIN](research/ADDRESS_INGRESS_R029.md) — original TGCP receive/unpack, queue, connector and address RPC session-dispatch path (static only).
 
 - [R030_4013_INBOUND](research/INBOUND_4013_R030.md) — original native incoming 0x4013 handling, uncompressed/LZ4 branch, and reply-prefix negative controls.
+
+- [R031_INBOUND_PAYLOAD](research/INBOUND_BOUNDARY_R031.md) — 45 original-native instruction pins identifying clear-payload boundaries and offline AA/4013 reply preflight.
