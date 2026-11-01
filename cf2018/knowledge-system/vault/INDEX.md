@@ -34,3 +34,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [PHONE_V381](research/PHONE_V381.md) — latest actual phone evidence and next producer target.
 
 - [REPOSITORY_SOURCE_AUDIT](research/REPOSITORY_SOURCE_AUDIT.md) — exact local source availability, repository reconciliation and upstream queue trace.
+
+- [UPSTREAM_REQUEST_CHAIN](research/UPSTREAM_REQUEST_CHAIN.md) — source-verified AddressService/MsgBuffer/connector/routed-TGCP send chain and on-phone limits.

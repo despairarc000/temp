@@ -6,6 +6,10 @@ Current target: **2018 v1.0.11.11 com.tencent.tmgp.cfmnac, Mono**. End goal rema
 real offline TDM/Bomb bot matches. **Not playable; no validated login/session.**
 All scheduled workers remain paused. Do not recreate/resume schedules.
 
+## New original-native upstream trace (2026-11-01)
+
+[UPSTREAM_REQUEST_CHAIN](../knowledge-system/vault/research/UPSTREAM_REQUEST_CHAIN.md) independently rechecked the exact original Apollo and verified 11 static instruction pins: `ProcessRequest -> Send_QueryAddrInfo -> generated args`; `MsgBuffer::bind/writeEnd` bound connector callback; concrete `CGCloudConnector::Write -> CTGcp routed Write -> queue -> onDataOutEvent`. The concrete virtual runtime path and phone operation remain unidentified. Next bounded original-code synthetic MsgBuffer/connector differential, then response handling. No repeat phone v381, guessed 4013 response, source download, XAPK patch or schedule restart.
+
 ## Latest update: owner completed v3.8.1 phone run
 
 [Actual phone review](../knowledge-system/vault/research/PHONE_V381.md) supersedes

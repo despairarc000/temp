@@ -176,3 +176,7 @@ User asked for concrete blocker/action. Executed generated QueryAddrInfo args/re
 ## 2026-10-31 — owner requested full source and repository context check
 
 [Audit](research/REPOSITORY_SOURCE_AUDIT.md): no full XAPK/OBB downloaded; verified APK/Apollo/storedDLLs rehashed. Complete live tree and23 incoming reports reviewed; historical missing-source/no-post-ACK summaries superseded. Continued original-static producer trace to CTGcp Write overloads/queue; next upstream caller buffer construction. Default236 total137 PASS/99 SKIP, doctorPASS. Originals unchanged, no repeated phone test or source download.
+
+## 2026-11-01 — upstream original-native request construction traced
+
+Pinned local original Apollo SHA2564812396e98bfba9664164c14c8973eed111c5b9d177c1b575e86bc8e9f9169d8, size5243704, ELF32 LE ARM. LLVM Thumb disassembly/readelf used for 11 explicit source instruction checks; 11/11 PASS. Traced ProcessRequest -> Send_QueryAddrInfo / generated args writer and MsgBuffer bind/writeEnd bound IConnector callback -> CGCloudConnector::Write -> CTGcp route queue -> send event. The bridge between the virtual endpoint and the phone's actual concrete invocation is **not** measured. [Finding](research/UPSTREAM_REQUEST_CHAIN.md); no new service operation, reply, phone test, decoder fix, binaries or credentials. DLL work and schedules remain parked.

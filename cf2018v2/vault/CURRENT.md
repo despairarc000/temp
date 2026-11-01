@@ -6,7 +6,7 @@ Goal: original CF2018 v1.0.11.11 Mono, functional offline TDM/Bomb bots. NOT PLA
 
 Latest actual phone run: V3.8.1. Four auth requests; two routed4013 frames161/166 bytes, bodies80/85. Both match packet-sequence prefix AND exact QueryAddrSvr route. Offset4 fails method-name lexical policy; operation/encoding unknown. No4013 response sent. EOF is not proof of auth rejection.
 
-Next task: trace upstream callers of CTGcp::Write at0x3a45bc/0x3a4708 and their AString construction/wrapper/transform, then reciprocal receive. Known chain: Write -> send queue -> PopOneSendBuffer0x3a43ac -> onDataOutEvent -> routed send0x3a5476. Native static, not phone runtime producer identification. No repeat of the same boundary test needed.
+New original-native source trace (2026-11-01): 11/11 instruction pins PASS from AddressService::ProcessRequest -> Send_QueryAddrInfo -> generated args writer, and MsgBuffer::bind/writeEnd callback -> concrete CGCloudConnector::Write -> CTGcp routed queue -> onDataOutEvent. Dynamic/virtual bridges are not yet confirmed for the actual phone. [Details](../../cf2018/knowledge-system/vault/research/UPSTREAM_REQUEST_CHAIN.md). Next: bounded original-code/synthetic comparison at MsgBuffer::writeEnd and connector callback before network send, then reciprocal RX. Do not repeat V3.8.1 or guess a 4013 response.
 
 Preserve working SYN133/ACK63/auth117 -> synthetic auth54/Bingo91 sequence. Earlier missing-body-preamble failure was corrected. Four-byte prefix is packet sequence, not UID. Native result reader requires result AND reason STRING; empty reason allowed. Canonical preflight corrected. Native parser success/state5 does not establish authentication.
 

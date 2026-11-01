@@ -268,3 +268,7 @@ real identity/session or RPC inferred. Seven new methods PASS; canonical187 PASS
 ## E-36 — fresh source/repository audit and upstream queue trace
 
 [Descriptive audit](research/REPOSITORY_SOURCE_AUDIT.md): actual4 source file hashes recalculated; full XAPK/OBB not present in workspace/attachments, receipt whole_archive_downloaded false. Live complete181-file tree and23 incoming reports reviewed; stale receipt progress distinguished from v381. Original-static CTGcp Write -> queue -> PopOneSendBuffer -> onDataOutEvent pointer/size handoff traced; upstream Write callers/constructors next. No queue runtime/phone acceptance. Default236 total137 PASS/99 SKIP, doctorPASS.
+
+## E-37 — pinned native upstream producer and connector path, 2026-11-01
+
+[Original-source static investigation](research/UPSTREAM_REQUEST_CHAIN.md). Re-hashed original Apollo5,243,704 bytes/SHA2564812396e98bfba9664164c14c8973eed111c5b9d177c1b575e86bc8e9f9169d8; 11/11 direct callsite/field instruction pins PASS with LLVM Thumb disassembly and ELF symbols. New evidence connects AddressService::ProcessRequest -> Send_QueryAddrInfo -> pargs writer, plus MsgBuffer::bind callback, MsgBuffer::writeEnd dispatch, concrete CGCloudConnector::Write -> CTGcp routed queue -> onDataOutEvent send. Dynamic concrete dispatch and full phone producer **not proven**; no new phone data/4013 response/auth/login progress. Next bounded memory-only original-code differential between MsgBuffer and connector; no raw original code or account bytes committed.

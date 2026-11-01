@@ -25,3 +25,6 @@ Verified APK/native/storedDLLs exist privately. Full XAPK/OBB absent locally. Fo
 
 ## R008 — Workspace v2 established
 Created selective ICM, vault, explicit graph and paged diary. Original code/evidence stays in cf2018. Workspace migration does not advance the game's acceptance gates.
+
+## R009 — Upstream request producer chain, static native (2026-11-01)
+Pinned original Apollo and traced 11 native instruction checkpoints: AddressService args writer, MsgBuffer callback binding/dispatch, concrete CGCloudConnector buffer submission and routed TGCP queue. Static trace narrows the producer boundary but does not identify the on-phone 4013 application operation. Next: bounded synthetic MsgBuffer-to-connector differential and reciprocal RX; no phone run or new reply. [Evidence](../cf2018/knowledge-system/vault/research/UPSTREAM_REQUEST_CHAIN.md).
