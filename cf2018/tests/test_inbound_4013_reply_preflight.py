@@ -19,8 +19,9 @@ def tlv(number,kind,value):
     if kind==0:return tag+vi(value)
     raise ValueError('fixture field kind')
 
-def frame(body,*,compression=0,variant=0x4013,include_route=True):
+def frame(body,*,compression=0,variant=0x4013,include_route=True,security_mode=0,include_security=True):
     base=b'\x11'+vi(0x4366)+b'\x91\x01'+vi(len(body))
+    if include_security:base+=tlv(6,1,security_mode)
     head=tlv(1,1,compression)+tlv(2,1,0)+tlv(3,1,1)
     if include_route:
         head+=tlv(4,5,tlv(4,5,tlv(1,5,b'QueryAddrSvr')))
@@ -43,6 +44,13 @@ class Tests(unittest.TestCase):
         body=fixture(method='QueryAddrSvr:QueryAddrInfo',seq=0x100000001)
         self.assertEqual(inspect_inbound_4013_reply(
             frame(b'\x00\x00\x00\x01'+body),{0x100000001}),'INVALID_RPC_RESPONSE')
+
+    def test_base_security_mode_one_and_absent_are_rejected(self):
+        body=fixture(method='QueryAddrSvr:QueryAddrInfo')
+        self.assertEqual(inspect_inbound_4013_reply(frame(body,security_mode=1),{7}),
+                         'UNSUPPORTED_ENCRYPTION_MODE')
+        self.assertEqual(inspect_inbound_4013_reply(frame(body,include_security=False),{7}),
+                         'UNSUPPORTED_ENCRYPTION_MODE')
 
     def test_unsupported_compression_refused(self):
         body=fixture(method='QueryAddrSvr:QueryAddrInfo')
