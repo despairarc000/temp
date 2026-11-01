@@ -61,3 +61,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [R036_SYN_LENGTH](research/R036_SYN_LENGTH_INVESTIGATION.md) — real 131-byte 0x1001 SYNs retain base-field shape; source-only nested-length diagnostic, not phone tested.
 
 - [R037_SYN_ROUTE_FIELD14](research/R037_ROUTE_FIELD14.md) — actual R036 131-byte phone SYNs differ only in route field14; exact native route encoder verified; route-shape diagnostic ready.
+
+- [R038_CLOSE_CONTROL](research/R038_CLOSE_CONTROL.md) — real R037 shorter named-route reconnects; source-only early-close-without-4013-reply causal control, phone result pending.
