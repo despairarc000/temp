@@ -57,3 +57,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [R034_PHONE_OUTCOME](research/R034_PHONE_REPLY_OUTCOME.md) — one 169-byte send on phone, no observed follow-up, three 131-byte first frames and zero-reply passive diagnostic kit.
 
 - [R035_FIRSTFRAME_CONTROL](research/R035_REPLY_FIRSTFRAME_CONTROL.md) — R034 real-phone four 133-byte reference first frames and source-only R035 active one-reply structural diagnostic, not phone-tested.
+
+- [R036_SYN_LENGTH](research/R036_SYN_LENGTH_INVESTIGATION.md) — real 131-byte 0x1001 SYNs retain base-field shape; source-only nested-length diagnostic, not phone tested.
