@@ -64,6 +64,25 @@ class ExtraWordModelTests(unittest.TestCase):
         self.assertEqual(first_diff, 7)
         # The observed long shared prefix is only modeled if this word is stable.
 
+    def test_current_phone_labels_do_not_uniquely_select_four_byte_width(self):
+        # Alternative constant-width preambles can imitate the same old labels.
+        # Offset-8 is a discriminating structural test, not yet observed on phone.
+        for width in range(4, 11):
+            prefix = (1).to_bytes(4, 'big') + bytes(width - 4)
+            bodies = [candidate_body(n)[:4] + prefix + candidate_body(n)[4:]
+                      for n in (16 - width, 21 - width)]
+            self.assertEqual([len(b) for b in bodies], [80, 85])
+            first_diff = next(i for i, pair in enumerate(zip(*bodies)) if pair[0] != pair[1])
+            self.assertEqual(first_diff, 61 + width)
+            self.assertIn(first_diff, range(64, 72))
+            for body in bodies:
+                labels = diagnose_body(body, 1)
+                self.assertEqual(labels['legacy_at_start'], 'METHOD_BYTES_POLICY')
+                self.assertEqual(labels['legacy_after_sequence'], 'METHOD_BYTES_POLICY')
+                self.assertEqual(header_reason(body, 8),
+                                 'LEGACY_HEADER_PLAUSIBLE' if width == 4 else
+                                 'NAME_LENGTH_POLICY')
+
     def test_no_unvalidated_word_or_real_capture_required(self):
         for value in (-1, 2**32, True, 1.0):
             with self.assertRaises(ValueError):
