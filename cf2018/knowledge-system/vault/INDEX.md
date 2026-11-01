@@ -53,3 +53,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [R032_PER_FRAME_SECURITY](research/INBOUND_BASE_SECURITY_R032.md) — native TGCP base field6 controls per-frame inbound decrypt branch; clear-mode offline validation.
 
 - [R033_ONE_REPLY](research/R033_ONE_REPLY_TEST.md) — source-only, opt-in one-response phone experiment with 113 original and 8 synthetic offline tests; no phone response yet.
+
+- [R034_PHONE_OUTCOME](research/R034_PHONE_REPLY_OUTCOME.md) — one 169-byte send on phone, no observed follow-up, three 131-byte first frames and zero-reply passive diagnostic kit.
