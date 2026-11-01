@@ -1,3 +1,6 @@
 # Diary — page002, current
 
 Previous page: [page001](diary/001.md). Current status: [vault/CURRENT](vault/CURRENT.md). Research IDs continue at R017. Log only new grounded findings, possible leads or dead ends; distinguish static/synthetic work from phone evidence. Limit: 30 entries or 8 KB, then archive this page.
+
+## R017 — [FINDING] Neither unmodified RPC-header model matches offset-4 phone label (2026-11-01)
+SOURCE_FREE_SYNTHETIC + deduction from existing V3.8.1 phone metadata, not new native/phone execution. Five new locally run regression methods PASS in cf2018/tests/test_routed_label_implications.py, including 18 independently constructed 80/85-byte cases confirming R016's dependent dual METHOD_BYTES_POLICY labels. Synthetic complete legacy QueryAddrInfo headers classify LEGACY_HEADER_PLAUSIBLE; synthetic strict/versioned headers classify VERSIONED_PREFIX_CANDIDATE. Actual V3.8.1 reports METHOD_BYTES_POLICY after the 4-byte sequence. Thus neither unmodified standard header at that boundary explains the report, assuming the original observer slices and labels accurately. This does not prove encryption, different connector, credentials or client acceptance. Next: private-original bounded whole-message writer/connector capture or precise runtime producer/transform evidence; no guessed 4013 reply. GitHub CI/full suite not verified for this change.
