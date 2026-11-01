@@ -19,3 +19,6 @@ Owner requested whether to research more or test: **TEST NOW**. Generated source
 
 ## R034–R036 — [PHONE OBSERVED / OFFLINE TESTED] (2026-11-01)
 R034 passive: 4/4 exact 133-byte SYNs. R035 active: one 169-byte local 4013 response send, then three 131-byte SYN-family frames retaining identical Base field shapes; no subsequent auth because exact-golden gate rejected them. This repeats the R033 size pattern, but proves neither causality nor client reply acceptance. Prior 131-byte synthetic fixture *dropped* Base field5 and is not representative. R036 source-only probe locates relative serialized nested SYN field-length differences without values; original 113 PASS, focused 23 PASS, including local socket test. No phone R036 run. [Detailed evidence](../cf2018/knowledge-system/vault/research/R036_SYN_LENGTH_INVESTIGATION.md).
+
+## R037 — [PHONE + OFFLINE] 2026-11-01
+R036 phone: 3/3 131-byte SYNs differ only at nested route field14 (-2 bytes). Original native route encoder verified; R037 source-only kit passed 113+30 tests. R037 phone run pending.
