@@ -9,3 +9,4 @@ Detailed source findings remain linked in the original workspace. [Diary](../dia
 - [R053 original source and asset preflight](R053_ASSET_SOURCE_PREFLIGHT.md): fresh SHA-pinned Unity DLL verification, rerun offline tests, and bounded Drive asset inventory; game-mode definitions unresolved.
 
 - [R054 Unity resource surface probe](R054_UNITY_RESOURCE_PROBE.md): verified format-research premise and 10-test source-only probe; original map/resource decode remains open.
+- [R055 OBB split asset triage](R055_OBB_SPLIT_ASSET_TRIAGE.md): source evidence for OBB-first search, directly verified split-part family metadata and 10-test read-only virtual scanner; original resource decode still open.
