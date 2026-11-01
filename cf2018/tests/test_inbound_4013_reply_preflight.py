@@ -68,7 +68,7 @@ class Tests(unittest.TestCase):
     def test_no_network_and_invalid_pending_metadata(self):
         import inspect,inbound_4013_reply_preflight as module
         source=inspect.getsource(module)
-        for banned in ('import socket','connect(','.send(','.listen('):
+        for banned in ('import socket', 'connect(', 'send(', 'listen('):
             self.assertNotIn(banned,source)
         with self.assertRaises(ValueError):
             inspect_inbound_4013_reply(frame(fixture()),{True})
