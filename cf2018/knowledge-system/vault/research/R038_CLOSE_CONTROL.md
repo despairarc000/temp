@@ -1,5 +1,8 @@
 # R038 — route switch after a 0x4013 reply: no-reply immediate-close control
 
+**UPDATE — R038 phone run completed (2026-11-01):** Owner's R038 report confirms `R038_CONTROL slot=1 ... reply_sent=False`, then **all four original exact 133-byte reference SYNs**, four auth requests and two qualified 0x4013 requests (slots1/4); **zero 131-byte shorter-route SYNs**. Thus a no-reply immediate-close did *not* reproduce the route switch, strengthening the response-associated hypothesis. The sections below preserve the original pre-test plan and should be read as historical. [Outcome and next R039 control](R039_RPC64_NEGATIVE_CONTROL.md). No client application acceptance or login was demonstrated.
+
+
 Date 2026-11-01. **Status:** R037 real-phone evidence analyzed; R038 synthetic socket and original V3.8 tests PASS. **R038 NOT run on phone.**
 
 ## Phone observation, R037
