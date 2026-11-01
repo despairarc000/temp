@@ -47,6 +47,22 @@ RECEIVER_CALLS = {
     },
 }
 
+
+# Matching original SYN transmission lanes (three callsites per sender).
+# Pin both directions before selecting a second-service ACK implementation.
+SYN_CALLS = {
+    0x1C1544: {
+        0x1BAC32: "tgcpapi_start_connection",
+        0x1BB276: "tgcpapi_relay_connection",
+        0x1BEAFA: "OnStateTcpSyning",
+    },
+    0x3ABA5C: {
+        0x3A83C6: "gcloud_tgcpapi_start_connection",
+        0x3A8936: "gcloud_tgcpapi_relay_connection",
+        0x3A9F52: "OnStateTcpSyning",
+    },
+}
+
 # Full receiving-function identities, NOT payload compatibility assertions.
 # Exact original symbol starts/sizes were verified in the 2018 ELF.
 RECEIVERS = {
@@ -88,11 +104,15 @@ def audit(path):
     validate_function_identities(funcs)
     callsets = direct_calls(raw, executable, RECEIVER_CALLS)
     validate_edges(callsets, funcs)
+    syn_calls = direct_calls(raw, executable, SYN_CALLS)
+    validate_edges(syn_calls, funcs, SYN_CALLS)
     return {
         "evidence": "ORIGINAL_APOLLO_DIRECT_CALL_STATIC",
         "original_sha_valid": True,
         "original_receiver_identities_checked": len(RECEIVERS),
         "direct_receiver_calls_checked": sum(len(c) for c in RECEIVER_CALLS.values()),
+        "direct_syn_sender_calls_checked": sum(len(c) for c in SYN_CALLS.values()),
+        "legacy_and_gcloud_syn_senders_differ": True,
         "legacy_and_gcloud_ack_receiver_differ": True,
         "legacy_and_gcloud_auth_receiver_differ": True,
         "legacy_and_gcloud_gather_receiver_differ": True,
