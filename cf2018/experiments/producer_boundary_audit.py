@@ -18,6 +18,10 @@ EXPECTED_BYTES = 5243704
 EXPECTED_SHA256 = '4812396e98bfba9664164c14c8973eed111c5b9d177c1b575e86bc8e9f9169d8'
 BOUNDS = (
     (0x3998d4, 0x3999ac),
+    (0x39a070, 0x39a08b),  # AddressService default protocol selection
+    (0x399d90, 0x399db0),  # ProtocolFactory binary selector
+    (0x399e4c, 0x399e58),  # Binary factory strict flag initialization
+    (0x39c3c0, 0x39c3d2),  # Binary message writer strict/legacy branch
     (0x39ad50, 0x39ae50),
     (0x39cb64, 0x39cb76),  # AddressService connection binding
     (0x3c2930, 0x3c2942),  # RpcConnector connection binding
@@ -36,6 +40,14 @@ BOUNDS = (
 )
 # Source-relative instruction checks; no original disassembly/payload is published.
 PINS = (
+    ('address_selects_binary_protocol_20', 0x39a078, 'movs', 'r2, #0x20'),
+    ('address_invokes_protocol_factory', 0x39a07e, 'bl', '0x399d90'),
+    ('address_stores_selected_protocol', 0x39a086, 'str', 'r3, [r6, #0x28]'),
+    ('protocol_factory_binary_case', 0x399daa, 'cmp', 'r2, #0x20'),
+    ('binary_factory_sets_zero_register', 0x399e4e, 'movs', 'r3, #0x0'),
+    ('binary_factory_initializes_non_strict', 0x399e54, 'strb.w', 'r3, [r4, #0x21]'),
+    ('binary_message_reader_uses_strict_flag', 0x39c3c2, 'ldrb.w', 'r3, [r0, #0x21]'),
+    ('binary_message_branches_to_legacy', 0x39c3ce, 'cbz', 'r3, 0x39c3f8'),
     ('request_invokes_QueryAddrInfo', 0x39ae3c, 'bl', '0x3998d4'),
     ('QueryAddrInfo_calls_args_writer', 0x39991c, 'bl', '0x39ed4c'),
     ('QueryAddrInfo_calls_virtual_message_begin', 0x399904, 'blx', 'r3'),
@@ -149,7 +161,7 @@ def audit(path: Path, objdump: str = 'llvm-objdump') -> dict:
             'passed': len(passed), 'failed': failed,
             'verified_source_hash': True, 'native_execution': False,
             'runtime_producer_identified': False,
-            'boundaries': ['generated_protocol_virtuals', 'two_connection_binding_callers',
+            'boundaries': ['default_non_strict_binary_protocol', 'generated_protocol_virtuals', 'two_connection_binding_callers',
                            'msgbuffer_bound_callback', 'exact_pointer_length_passthrough',
                            'adata_copy_to_memcpy',
                            'connector_size_and_connection_gates', 'routed_tgcp_queue',

@@ -13,8 +13,8 @@ import producer_boundary_audit as p
 
 class SourceFreeTests(unittest.TestCase):
     def test_pin_counts_and_unique_addresses(self):
-        self.assertEqual(len(p.PINS), 43)
-        self.assertEqual(len({item[1] for item in p.PINS}), 43)
+        self.assertEqual(len(p.PINS), 51)
+        self.assertEqual(len({item[1] for item in p.PINS}), 51)
 
     def test_parser_strips_symbol_text_and_opcode_values(self):
         sample = ('  39991c: f005 fa16     bl 0x39ed4c <private-native-symbol> @ imm=0x542c\n'
@@ -28,7 +28,7 @@ class SourceFreeTests(unittest.TestCase):
     def test_absent_or_mismatched_pin_fails_closed(self):
         good = {addr: (mnemonic, operand) for _, addr, mnemonic, operand in p.PINS}
         passed, failed = p.audit_instructions(good)
-        self.assertEqual(len(passed), 43)
+        self.assertEqual(len(passed), 51)
         self.assertFalse(failed)
         del good[0x3c1f46]
         _, failed = p.audit_instructions(good)
@@ -56,10 +56,10 @@ class SourceFreeTests(unittest.TestCase):
 @unittest.skipUnless(os.environ.get('CF18_APOLLO_LIBRARY'),
                      'exact owner-authorized private source required')
 class OriginalNativeReadOnlyTests(unittest.TestCase):
-    def test_actual_43_native_callsite_pins(self):
+    def test_actual_51_native_callsite_pins(self):
         result = p.audit(Path(os.environ['CF18_APOLLO_LIBRARY']))
-        self.assertEqual(result['checks'], 43)
-        self.assertEqual(result['passed'], 43, result['failed'])
+        self.assertEqual(result['checks'], 51)
+        self.assertEqual(result['passed'], 51, result['failed'])
         self.assertEqual(result['failed'], [])
         self.assertFalse(result['native_execution'])
         self.assertFalse(result['phone_test'])
