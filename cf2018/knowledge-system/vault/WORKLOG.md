@@ -193,3 +193,7 @@ Read exact original Apollo and added seven new pinned checks across AddressServi
 ## 2026-11-01 — conditional byte-copy dataflow and regression fix
 
 Original hash-pinned Apollo Thumb scan verifies exact buffer pointer/count through MsgBuffer::writeEnd callback, CGCloudConnector::Write, AString/AData and PLT-identified memcpy; 10 new static checks passed, total43/43; six local Python tests PASS with private original. Fixed stale 24-check assertions that did not match prior 33-pin script. The phone's runtime concrete connector and later transforms remain unidentified. [Details](research/UPSTREAM_REQUEST_CHAIN.md).
+
+## 2026-11-01 — R015 native factory selection
+
+Original pinned Apollo: 8/8 new static checks PASS for AddressService type0x20 default binary protocol and initialized non-strict header branch. Verifier now 51 declared pins; default GitHub Actions knowledge validation PASS; CI skips private native control. No phone request decoding, server reply, account, lobby or gameplay. [Trace](research/UPSTREAM_REQUEST_CHAIN.md).

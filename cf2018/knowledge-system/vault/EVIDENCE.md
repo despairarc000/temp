@@ -280,3 +280,7 @@ real identity/session or RPC inferred. Seven new methods PASS; canonical187 PASS
 ## E-39 — verified native pointer/length copy boundary, 2026-11-01
 
 [Evidence](research/UPSTREAM_REQUEST_CHAIN.md): 10 added instruction pins prove MsgBuffer's original buffer pointer/count reach the conditional CGCloudConnector/AString/AData copy call, ending at PLT `memcpy` in the original Apollo. Expanded static verifier 43/43 PASS and 6/6 Python tests with hash-pinned original. Earlier canonical 24-pin test regression repaired. Connector selection on the actual phone and final wire encoding are NOT established.
+
+## E-40 — default AddressService binary protocol is non-strict, 2026-11-01
+
+[Original source trace](research/UPSTREAM_REQUEST_CHAIN.md): 8/8 new original-native static pins PASS: InitProtocol factory type0x20, binary branch, strict flag+0x21 initialized 0, message writer's legacy branch. Expanded verifier declares51 pins, GitHub Actions source-free suite and knowledge doctor PASS. Real phone producer, later flag mutation, accepted reply remain UNKNOWN.
