@@ -51,3 +51,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [R031_INBOUND_PAYLOAD](research/INBOUND_BOUNDARY_R031.md) — 45 original-native instruction pins identifying clear-payload boundaries and offline AA/4013 reply preflight.
 
 - [R032_PER_FRAME_SECURITY](research/INBOUND_BASE_SECURITY_R032.md) — native TGCP base field6 controls per-frame inbound decrypt branch; clear-mode offline validation.
+
+- [R033_ONE_REPLY](research/R033_ONE_REPLY_TEST.md) — source-only, opt-in one-response phone experiment with 113 original and 8 synthetic offline tests; no phone response yet.
