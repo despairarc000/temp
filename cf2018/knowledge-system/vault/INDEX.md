@@ -84,3 +84,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [R048_INIT_ROUTE](research/R048_CONNECTOR_INIT_ROUTE.md) — GCloud serialized route discriminator +0x44, optional route object +0x48, verified virtual SetRouteInfo slot +0x20, and downstream named-route SYN chain; 23 original pins, 8 tests.
 
 - [R049_MANAGED_ROUTE_BOUNDARY](research/R049_MANAGED_ROUTE_BOUNDARY.md) — original managed CIL has just wrapper->NApollo P/Invoke direct setter call; native GCloud init route is distinct and its runtime source remains unknown.
+- [R051_STANDALONE](research/R051_STANDALONE_MATCH_ENTRY_AUDIT.md) — original CIL startup sequencing, menu latency-vs-offline gate, data-driven builder and AI-spawn prerequisites; 36 exact pins, nine offline tests.
+- [R052_TRAINING_SPAWN](research/R052_TRAINING_PLAYER_SPAWN_INHERITANCE.md) — AITrainGame inherits PVE StartMatch, which calls actual controller and initial pawn spawn; seven inherited TypeDef pins and 14 CIL method pins, seven offline tests.
