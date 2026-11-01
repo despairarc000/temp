@@ -70,9 +70,9 @@ def validate_identifiers(funcs, identities=DECODER_IDENTITIES):
 def validate_calls(sets, funcs, expected=DECODER_CALLS):
     if set(sets) != set(expected):
         raise ValueError("original decoder targets mismatch")
-    for target, callers in expected.items():
-        if sets[target] != set(callers):
-            raise ValueError("original decoder callsites mismatch")
+    # Original generic readUInt8/readUInt32 and body decoders have other\n    # legitimate callers. Require specific pinned edges, not sole ownership.\n    for target, callers in expected.items():
+        if not set(callers).issubset(sets[target]):
+            raise ValueError("required original decoder callsite absent")
         for site, needle in callers.items():
             if needle not in (containing_symbol(funcs, site) or ""):
                 raise ValueError("original decoder call owner mismatch")
