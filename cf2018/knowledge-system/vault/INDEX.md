@@ -71,3 +71,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [R041_ADDRESS_CALLBACK](research/R041_ADDRESS_CALLBACK_TRACE.md) — original-native 34-pin QueryAddrInfo parse/result0/queued DNS/callback trace; downstream 10-byte route still unknown.
 
 - [R042_ACK_ROUTE_SCOPE](research/R042_ACK_ROUTE_SCOPE.md) — original 12-pin ACK head six-field route-independent serialization; 7 tests, client 0x1002 gate and missing original managed game DLL.
+
+- [R043_MANAGED_ROUTE](research/R043_MANAGED_SERVICE_ROUTE.md) — build-hash-pinned offline Unity managed service-name scanner; source-only kit 16 synthetic tests, real game DLL scan pending.
