@@ -9,6 +9,11 @@ field correction; see coordination/ADDRESS_NATIVE_MATRIX.json and Vault trace.
 from dataclasses import dataclass
 from ipaddress import ip_address
 
+# The original client sends a colon-qualified request; the response's exact
+# method-name policy has not yet been confirmed in a live receiver. Allow only
+# these two evidence-backed structural controls for offline preflight.
+ALLOWED_ADDRESS_METHODS = frozenset(('QueryAddrInfo', 'QueryAddrSvr:QueryAddrInfo'))
+
 class ResponseError(ValueError):
     pass
 
@@ -69,7 +74,7 @@ def parse_response(data):
     """
     rd = Reader(data)
     method = rd.string(96)
-    if method != 'QueryAddrInfo':
+    if method not in ALLOWED_ADDRESS_METHODS:
         raise ResponseError('unexpected method')
     msg_type = rd.num(1)
     if msg_type != 2:
@@ -116,7 +121,7 @@ def assess_response(response, *, pending_sequences):
         raise TypeError('ParsedResponse required')
     if response.sequence not in pending_sequences:
         return 'REJECT_NO_PENDING_SEQUENCE'
-    if response.message_type != 2 or response.method != 'QueryAddrInfo':
+    if response.message_type != 2 or response.method not in ALLOWED_ADDRESS_METHODS:
         return 'REJECT_UNEXPECTED_RPC'
     if response.result != 0:
         return 'REJECT_RESPONSE_RESULT'
