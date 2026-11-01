@@ -80,3 +80,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [R046_GCLOUD_ROUTE](research/R046_GCLOUD_ROUTE_INTO_SYN.md) — 26 original GCloud static pins trace route type4 setter -> transport handle -> SYN writer, with separate endpoint/ACK gates; phone route value unknown.
 
 - [R047_CONNECTOR_SOURCE](research/R047_CONNECTOR_ROUTE_SOURCE.md) — native GCloud connector clones the route into +0x19c, conditionally applies it to TGCP, then starts; 14 original pins/7 tests passed, upstream caller unknown.
+
+- [R048_INIT_ROUTE](research/R048_CONNECTOR_INIT_ROUTE.md) — GCloud serialized route discriminator +0x44, optional route object +0x48, verified virtual SetRouteInfo slot +0x20, and downstream named-route SYN chain; 23 original pins, 8 tests.
