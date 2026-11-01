@@ -1,12 +1,8 @@
-# ChatGPT Browser Android
+# temp
 
-Experimental Android WebView wrapper for https://chatgpt.com. The login provider may reject embedded WebViews. The APK is unsigned for production (debug signed) and not affiliated with OpenAI.
+Repository containing independent projects.
 
-Build: GitHub Actions > Android APK > latest run > artifact `chatgpt-browser-debug-apk`.
-
-## Other workspaces
-
-- [CF2018 offline restoration](cf2018/README.md) — isolated research and emulator workspace; [Codex start](cf2018/CODEX_START.md). Large original files stay in connected DespairArc Drive, not this public repository.
-
-- [CF2018 workspace v2](cf2018v2/START.md) — current AI navigation, selective knowledge loading and paged research diary; implementation/evidence retained in cf2018/.
-- [Root AI map](AGENTS.md) and [navigation](NAVIGATION.md).
+- [ChatGPT Browser Android](chatgptbrowser/README.md) — Android WebView wrapper, app sources and Gradle build.
+- [CrossFire: Legends 2018 research](cf2018/README.md) — original offline-restoration implementation and evidence.
+- [CrossFire 2018 knowledge workspace v2](cf2018v2/START.md) — current research status and navigation.
+- [Repository directory signpost](AGENTS.md) — locations of topics and projects.

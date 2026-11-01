@@ -1,8 +1,8 @@
 # Root map
 
-- [AI instructions](AGENTS.md): workspace boundaries.
-- [Original app](README.md): Android WebView project in app/; root Gradle files and .github/ support builds.
-- [CF2018 v2 start](cf2018v2/START.md): current AI entrypoint for the offline restoration mission.
-- [Original CF2018 workspace](cf2018/README.md): implementation and detailed historical evidence, retained in place.
+- [Repository signpost](AGENTS.md): project locations and topics.
+- [ChatGPT Browser Android](chatgptbrowser/README.md): WebView app, Gradle build and its Android workflow.
+- [CF2018 v2](cf2018v2/START.md): current CrossFire research knowledge and navigation.
+- [CF2018 original workspace](cf2018/README.md): offline-restoration implementation and historical evidence.
 
-cf2018v2 means workspace organization version 2, not a different game version or a completed replacement server.
+`cf2018v2` refers to knowledge organization version 2, not a different game version.

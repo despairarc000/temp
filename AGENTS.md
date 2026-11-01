@@ -4,10 +4,10 @@ A directory of what exists in this repository and where to find it. This is not 
 
 | Location | Contents |
 |---|---|
-| `app/` | Android WebView wrapper project for ChatGPT. |
-| `.github/` | GitHub Actions workflows, including Android builds. |
-| `build.gradle`, `settings.gradle`, `gradle.properties` | Root Android build configuration. |
-| `README.md` | Original Android app overview and workspace links. |
+| `chatgptbrowser/` | Android WebView wrapper project for ChatGPT, with its `app/` source and Gradle build files. |
+| `chatgptbrowser/README.md` | ChatGPT Browser app description and build instructions. |
+| `.github/` | GitHub Actions workflows for Android builds and CrossFire knowledge validation. |
+| `README.md` | Repository-wide project overview and links. |
 | `NAVIGATION.md` | Broad repository directory map. |
 | `cf2018/` | CrossFire: Legends 2018 offline-restoration implementation, experiments, historical research and evidence. |
 | `cf2018/knowledge-system/vault/research/` | Detailed technical findings about CrossFire networking, startup and DLL protection. |
