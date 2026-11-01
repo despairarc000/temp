@@ -5,7 +5,7 @@ source-pinned 4013/DataHead shape and offline RPC64/reason validator.
 No network, listener, original native execution or client-acceptance claim.
 It neither exports nor persists payload, IDs, keys or sequences.
 """
-from rx_envelope import Receiver, FrameError, _uint
+from rx_envelope import Receiver, FrameError, _uint, _base
 from address_response_gate import parse_response, assess_response, ResponseError
 
 CAP=8192
@@ -49,6 +49,12 @@ def inspect_inbound_4013_reply(frame,pending_rpc_sequences):
         outer=_fields(frame[5:header_size])
         if set(outer)!={1,2} or outer[1][0]!=5 or outer[2][0]!=5:
             return 'INBOUND_DATAHEAD_NOT_RECOGNIZED'
+        base=_base(outer[1][1],0,len(outer[1][1]))
+        # Original native TGCPBase field 6 is the inbound per-frame
+        # decrypt-mode byte. Require an explicit zero for this conservative
+        # cleartext-only candidate, not an unknown runtime default.
+        if base.get(6)!=0:
+            return 'UNSUPPORTED_ENCRYPTION_MODE'
         ext=_fields(outer[2][1])
         if set(ext)!={0x4013} or ext[0x4013][0]!=5:
             return 'INBOUND_DATAHEAD_NOT_RECOGNIZED'
