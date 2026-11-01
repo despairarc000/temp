@@ -20,7 +20,7 @@ def tlv(number,kind,value):
     raise ValueError('fixture field kind')
 
 def frame(body,*,compression=0,variant=0x4013,include_route=True):
-    base=tlv(1,1,0x66) if False else b'\x11'+vi(0x4366)+b'\x91\x01'+vi(len(body))
+    base=b'\x11'+vi(0x4366)+b'\x91\x01'+vi(len(body))
     head=tlv(1,1,compression)+tlv(2,1,0)+tlv(3,1,1)
     if include_route:
         head+=tlv(4,5,tlv(4,5,tlv(1,5,b'QueryAddrSvr')))
