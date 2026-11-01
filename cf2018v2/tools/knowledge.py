@@ -7,10 +7,11 @@ GROUPS={
  'producer':('vault/CURRENT.md','../cf2018/knowledge-system/vault/research/REPOSITORY_SOURCE_AUDIT.md','../cf2018/knowledge-system/vault/research/ADDRESS_APPLICATION.md','../cf2018/knowledge-system/vault/research/UPSTREAM_REQUEST_CHAIN.md'),
  'phone':('vault/WORKFLOW.md','../cf2018/knowledge-system/vault/research/PHONE_V381.md'),
  'source':('vault/SOURCES.md',),
+ 'gameplay':('vault/R055_OBB_SPLIT_ASSET_TRIAGE.md','../cf2018/knowledge-system/vault/research/R051_STANDALONE_MATCH_ENTRY_AUDIT.md','../cf2018/knowledge-system/vault/research/R052_TRAINING_PLAYER_SPAWN_INHERITANCE.md'),
  'auth':('vault/CURRENT.md','../cf2018/knowledge-system/vault/research/AUTH_RECEIVER.md'),
  'integrity':('../cf2018/knowledge-system/vault/research/INTEGRITY_NATIVE.md',),
  'timeline':('diary/INDEX.md',)}
-ALIASES={'native':'producer','encoding':'producer','termux':'phone','pcapdroid':'phone','apk':'source','xapk':'source','obb':'source','dll':'integrity','ack':'auth','bingo':'auth','older':'timeline'}
+ALIASES={'native':'producer','encoding':'producer','termux':'phone','pcapdroid':'phone','apk':'source','xapk':'source','obb':'source','dll':'integrity','ack':'auth','bingo':'auth','older':'timeline','bots':'gameplay','offline':'gameplay','map':'gameplay','training':'gameplay','assets':'gameplay','resource':'gameplay','standalone':'gameplay'}
 def doctor():
  errors=[]
  for p in ROOT.rglob('*.md'):
