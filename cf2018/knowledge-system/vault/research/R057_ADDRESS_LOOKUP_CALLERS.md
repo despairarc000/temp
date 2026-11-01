@@ -34,7 +34,7 @@ These support a **concrete next trace**: `CDefaultNameService::Query` registerin
 ## Reproducible, bounded, public source-only verifier
 
 - [R057 native auditor](../../../experiments/r057_original_address_callers.py): Python stdlib only; exact private original SHA and size required; ELF32LE ARM section/symbol bounds, Thumb BL target decode, caller enclosing-symbol checks, six original BL call-edge pins plus callback-symbol presence. Reports only fixed function labels and status—not service strings, credentials, route names or raw disassembly. No network and read-only.
-- [R057 tests](../../../tests/test_r057_original_address_callers.py): **11 synthetic/negative test methods**, including forward/backward Thumb BL, BLX rejection, ELF/function-symbol fixture, altered-header/size rejection, six-edge uniqueness, and independent callback-symbol absence negatives; optional private-original test SKIPPED in public CI.
+- [R057 tests](../../../tests/test_r057_original_address_callers.py): **10 source-free synthetic/negative tests PASS, and one private-original gate SKIPPED in public CI**, including forward/backward Thumb BL, BLX rejection, ELF/function-symbol fixture, altered-header/size rejection, six-edge uniqueness, and independent callback-symbol absence negatives; optional private-original test SKIPPED in public CI.
 - [GitHub Actions run 41343787854](https://github.com/despairarc000/temp/actions/runs/41343787854) **SUCCESS**. This is public CI source-only. Exact-original xrefs were separately verified in-memory in this conversation; CI does not have the private Apollo binary.
 
 ## Decision and next gate
