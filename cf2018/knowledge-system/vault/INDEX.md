@@ -82,3 +82,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [R047_CONNECTOR_SOURCE](research/R047_CONNECTOR_ROUTE_SOURCE.md) — native GCloud connector clones the route into +0x19c, conditionally applies it to TGCP, then starts; 14 original pins/7 tests passed, upstream caller unknown.
 
 - [R048_INIT_ROUTE](research/R048_CONNECTOR_INIT_ROUTE.md) — GCloud serialized route discriminator +0x44, optional route object +0x48, verified virtual SetRouteInfo slot +0x20, and downstream named-route SYN chain; 23 original pins, 8 tests.
+
+- [R049_MANAGED_ROUTE_BOUNDARY](research/R049_MANAGED_ROUTE_BOUNDARY.md) — original managed CIL has just wrapper->NApollo P/Invoke direct setter call; native GCloud init route is distinct and its runtime source remains unknown.
