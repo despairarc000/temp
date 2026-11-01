@@ -26,6 +26,9 @@ BOUNDS = (
     (0x3c5fd0, 0x3c6055),
     (0x3a4708, 0x3a47e8),
     (0x3a53d0, 0x3a5480),
+    (0x397316, 0x39731c),  # AString assign delegation
+    (0x396080, 0x3960a2),  # AData assign: clear and append
+    (0x395fc4, 0x396004),  # AData append: memory copy
     (0x39d4a4, 0x39d565),  # AddressService receive callback
     (0x39c1a8, 0x39c1d0),  # AddressService response session lookup
     (0x3c4ee4, 0x3c4f40),  # RpcConnector receive callback
@@ -59,6 +62,16 @@ PINS = (
     ('route_write_enqueues', 0x3a47dc, 'bl', '0x3a4594'),
     ('queue_pop', 0x3a53e0, 'bl', '0x3a43ac'),
     ('queued_routed_send', 0x3a5476, 'bl', '0x3a91ec'),
+    ('msg_buffer_computes_exact_length', 0x3c1eec, 'rsb', 'r6, r11, r10'),
+    ('msg_buffer_forwards_existing_pointer', 0x3c1f42, 'mov', 'r2, r11'),
+    ('msg_buffer_forwards_existing_length', 0x3c1f44, 'mov', 'r3, r6'),
+    ('connector_forwards_source_ptr_to_assign', 0x3c601a, 'mov', 'r1, r8'),
+    ('connector_forwards_source_len_to_assign', 0x3c601c, 'mov', 'r2, r7'),
+    ('astring_assign_dispatches_adata_assign', 0x397318, 'b.w', '0x396080'),
+    ('adata_assign_clears_previous_bytes', 0x396088, 'bl', '0x39605e'),
+    ('adata_assign_dispatches_append', 0x39609c, 'b.w', '0x395fc4'),
+    ('adata_append_passes_exact_length', 0x395ff4, 'mov', 'r2, r5'),
+    ('adata_append_calls_memcpy', 0x395ffa, 'blx', '0x193ed8'),
     ('address_receive_virtual_read', 0x39d4d4, 'blx', 'r12'),
     ('address_receive_calls_response_parser', 0x39d558, 'bl', '0x39b90c'),
     ('address_response_looks_up_session', 0x39c1b4, 'bl', '0x39a3c0'),
@@ -137,7 +150,8 @@ def audit(path: Path, objdump: str = 'llvm-objdump') -> dict:
             'verified_source_hash': True, 'native_execution': False,
             'runtime_producer_identified': False,
             'boundaries': ['generated_protocol_virtuals', 'two_connection_binding_callers',
-                           'msgbuffer_bound_callback',
+                           'msgbuffer_bound_callback', 'exact_pointer_length_passthrough',
+                           'adata_copy_to_memcpy',
                            'connector_size_and_connection_gates', 'routed_tgcp_queue',
                            'address_session_response_dispatch', 'rpc_general_response_dispatch'],
             'phone_test': False, 'gameplay': False}
