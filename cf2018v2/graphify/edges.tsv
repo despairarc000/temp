@@ -6,3 +6,6 @@ vault/WORKFLOW.md	describes	../cf2018/coordination/CURRENT_HANDOFF.md
 diary.md	summarizes	vault/CURRENT.md
 START.md	routes-through	icm/ROUTES.md
 vault/CURRENT.md	evidence	../cf2018/knowledge-system/vault/research/UPSTREAM_REQUEST_CHAIN.md
+vault/CURRENT.md	evidence	vault/R055_OBB_SPLIT_ASSET_TRIAGE.md
+vault/R055_OBB_SPLIT_ASSET_TRIAGE.md	depends-on	../cf2018/tools/r055_unity_split_probe.py
+vault/R055_OBB_SPLIT_ASSET_TRIAGE.md	tested-by	../cf2018/tests/test_r055_unity_split_probe.py
