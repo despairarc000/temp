@@ -26,6 +26,10 @@ BOUNDS = (
     (0x3c5fd0, 0x3c6055),
     (0x3a4708, 0x3a47e8),
     (0x3a53d0, 0x3a5480),
+    (0x39d4a4, 0x39d565),  # AddressService receive callback
+    (0x39c1a8, 0x39c1d0),  # AddressService response session lookup
+    (0x3c4ee4, 0x3c4f40),  # RpcConnector receive callback
+    (0x3c3ab0, 0x3c3bac),  # RpcConnector message dispatch
 )
 # Source-relative instruction checks; no original disassembly/payload is published.
 PINS = (
@@ -55,6 +59,13 @@ PINS = (
     ('route_write_enqueues', 0x3a47dc, 'bl', '0x3a4594'),
     ('queue_pop', 0x3a53e0, 'bl', '0x3a43ac'),
     ('queued_routed_send', 0x3a5476, 'bl', '0x3a91ec'),
+    ('address_receive_virtual_read', 0x39d4d4, 'blx', 'r12'),
+    ('address_receive_calls_response_parser', 0x39d558, 'bl', '0x39b90c'),
+    ('address_response_looks_up_session', 0x39c1b4, 'bl', '0x39a3c0'),
+    ('rpc_receive_virtual_read', 0x3c4f14, 'blx', 'r3'),
+    ('rpc_receive_calls_message_parser', 0x3c4f2e, 'bl', '0x3c3a24'),
+    ('rpc_message_populates_input_buffer', 0x3c3ab8, 'bl', '0x3c180e'),
+    ('rpc_message_dispatches_response', 0x3c3ba0, 'bl', '0x3c382c'),
 )
 LINE = re.compile(r'^\s*([0-9a-fA-F]{6,8}):\s+(?:[0-9a-fA-F]{4}\s+){1,2}([a-zA-Z.][\w.]*)\s*(.*)$')
 
@@ -127,7 +138,8 @@ def audit(path: Path, objdump: str = 'llvm-objdump') -> dict:
             'runtime_producer_identified': False,
             'boundaries': ['generated_protocol_virtuals', 'two_connection_binding_callers',
                            'msgbuffer_bound_callback',
-                           'connector_size_and_connection_gates', 'routed_tgcp_queue'],
+                           'connector_size_and_connection_gates', 'routed_tgcp_queue',
+                           'address_session_response_dispatch', 'rpc_general_response_dispatch'],
             'phone_test': False, 'gameplay': False}
 
 

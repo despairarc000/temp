@@ -185,3 +185,7 @@ Pinned local original Apollo SHA2564812396e98bfba9664164c14c8973eed111c5b9d177c1
 ## 2026-11-01 — static source-pinned producer verifier, no new phone data
 
 Added original-code read-only `producer_boundary_audit.py` plus synthetic and private-source-gated tests. Exact original Apollo SHA-256 pinned; 24/24 instruction checks PASS across seven Thumb regions, five source-free tests PASS and one original-source test PASS when provided (otherwise SKIP). Confirmed original virtual calls/message callback/size and connection guards. No whole-message native execution or matched runtime producer/response; all schedule and client modification freezes unchanged. See [UPSTREAM_REQUEST_CHAIN](research/UPSTREAM_REQUEST_CHAIN.md).
+
+## 2026-11-01 — source-pinned reciprocal RX ownership audit
+
+Read exact original Apollo and added seven new pinned checks across AddressService::OnDataRecvedProc, its session-lookup response processor, RpcConnector::OnDataRecvedProc and its typed message dispatcher. Auditor now 33/33 native **static** instruction pins PASS; six Python tests PASS with original private source (source-free 5 PASS/1 SKIP). No original-native whole-message execution, phone observation, response generated, network/server modification or gameplay progress. [UPSTREAM_REQUEST_CHAIN](research/UPSTREAM_REQUEST_CHAIN.md).

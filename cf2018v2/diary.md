@@ -34,3 +34,6 @@ Pinned original Apollo and traced 11 native instruction checkpoints: AddressServ
 
 ## R011 — Two connector bind owners found (2026-11-01)
 The exact original native source has two direct callers of MsgBuffer::bind: AddressService::OnConnectProc and RpcConnector::OnConnectProc. Updated original-source audit passes 26/26 instruction pins; six tests pass with original private Apollo. This is not a phone-runtime identification. Determine which bound connector and response handler owns the QueryAddrSvr request before proposing a reply. [Evidence](../cf2018/knowledge-system/vault/research/UPSTREAM_REQUEST_CHAIN.md).
+
+## R012 — Distinct receive paths traced (2026-11-01)
+Pinned native instructions link AddressService receive callback to its response parser and QuerySession lookup, versus RpcConnector receive callback to its message parser and typed response handler. Verifier now 33/33 static pins PASS, six local tests with original Apollo PASS; no on-phone receipt, server reply or authenticated session proven. Next decide which connector owns the observed 4013 and establish pending-correlation predicates. [Evidence](../cf2018/knowledge-system/vault/research/UPSTREAM_REQUEST_CHAIN.md).

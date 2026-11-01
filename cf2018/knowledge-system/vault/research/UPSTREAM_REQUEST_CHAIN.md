@@ -63,3 +63,18 @@ A **read-only whole-text instruction scan** of the exact pinned Apollo source lo
 These are two **direct** bindings seen in the original source, not proof all indirect callers are enumerated or that either was used for the phone's routed 0x4013 request. They make a single global MsgBuffer/AddressService producer assumption unsafe. The source-pinned read-only verifier now covers **26/26** static pins (nine bounded ranges); six local tests PASS with exact original library, five PASS/one explicit SKIP without it. The original code was **not natively emulated** and no client/network test was performed.
 
 **Next discriminating investigation:** trace which connector instance and buffer owns the phone's `QueryAddrSvr` route and where the corresponding response receiver dispatch is registered. Do not generate a reply based only on these static bind sites. The earlier virtual-callback/serialization comparison remains unexecuted.
+
+## R012 — Reciprocal native receive ownership traced (2026-11-01)
+
+Source-pinned original Thumb instruction inspection established two separately named **receiving** chains:
+
+| Owner | Original-source direct callsites | Limit |
+|---|---|---|
+| AddressService | `OnDataRecvedProc` reads via connector virtual function at `0x39d4d4`, calls `AddressService::ProcessResponse(unsigned char const*,int)` at `0x39d558`; the no-argument response processing path finds a `QuerySession` at `0x39c1b4` | Static call graph; input identity and on-phone session membership unknown |
+| RpcConnector | `OnDataRecvedProc` reads via connector virtual function at `0x3c4f14`, invokes `RpcConnector::ProcessMessage` at `0x3c4f2e`; its message parser invokes `MsgBuffer::setMessage` at `0x3c3ab8` and a typed response dispatcher at `0x3c3ba0` | Static calls; not proof the actual response has been sent or accepted |
+
+**Why it matters:** AddressService receipt/QuerySession matching is structurally distinct from the general RpcConnector message dispatcher. A valid-looking RPC response might still be ignored without matching the correct owner, pending sequence/session and route. No server response can be justified from caller names or a synthetic decoder result alone.
+
+The verifier now includes **33/33** source-pinned original-native instruction checks (13 bounded regions) and six Python test cases (six PASS with exact private Apollo; five PASS and one explicit SKIP without). The fuller send/receive chain remains static; no native whole-message execution, Android acceptance, network reply, or gameplay was observed. The previous R010/R011 counts remain as historical checkpoints.
+
+**Next discriminating action:** establish whether the real on-phone 0x4013 frame was emitted by AddressService or RpcConnector, then verify response callback registration and pending sequence/session matching in the source. Only then build a bounded original decoder-positive test for a potential reply, keeping it offline until accepted predicates are known.
