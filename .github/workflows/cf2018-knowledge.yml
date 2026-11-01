@@ -9,6 +9,7 @@ on:
   pull_request:
     paths:
       - 'cf2018/**'
+      - 'cf2018v2/**'
       - '.github/workflows/cf2018-knowledge.yml'
   workflow_dispatch:
 
