@@ -17,7 +17,7 @@ This closes the source-level **name-service observer-registration** link that wa
 
 ## Source-only verification
 
-[Auditor](../../../experiments/r058_name_service_wiring.py) validates 3 direct-call sites, 7 instruction halfwords and 6 original virtual/function pointers behind an exact original-file hash gate. [Nine public synthetic tests plus one optional private-source test](../../../tests/test_r058_name_service_wiring.py) plus optional private-only original gate; public [GitHub Actions 41345156313](https://github.com/despairarc000/temp/actions/runs/41345156313) **SUCCESS**. The optional original-binary test is **SKIPPED** on public CI; original byte observations above were separately checked privately.
+[Auditor](../../../experiments/r058_name_service_wiring.py) validates 3 direct-call sites, 7 instruction halfwords and 6 original virtual/function pointers behind an exact original-file hash gate. [Nine public synthetic tests plus one optional private-source test](../../../tests/test_r058_name_service_wiring.py) ; public [GitHub Actions 41345156313](https://github.com/despairarc000/temp/actions/runs/41345156313) **SUCCESS**. The optional original-binary test is **SKIPPED** on public CI; original byte observations above were separately checked privately.
 
 ## Next
 
