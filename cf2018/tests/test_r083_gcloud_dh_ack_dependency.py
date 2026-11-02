@@ -94,7 +94,7 @@ class Tests(unittest.TestCase):
 
     def test_wrong_direct_edge_owner_refused(self):
         fs=funcs()
-        fs=[Func(x.address,x.size,"wrong") if x.address==0x3AC5E6 else x
+        fs=[Func(x.address,x.size,"wrong") if x.address==0x3AC4B0 else x
             for x in fs]
         with self.assertRaises(ValueError):
             verify_calls(calls(),fs)
