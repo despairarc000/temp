@@ -1,3 +1,5 @@
+R095 (2026-11-02): [Identified BY_ID request and original response layers](research/DIRECTORY_BY_ID_RESPONSE_CONTRACT.md). Phone structural method match confirmed; original binary tree node parsers and64-bit pending correlation traced. Six bounded native node controls PASS; complete directory response/UI acceptance remains unverified. No new phone test or guessed response; game-screen description requested for menu-consumer research.
+
 R094 (2026-11-02): [Directory application traffic and request identification](research/DIRECTORY_REQUEST_IDENTIFICATION.md). Phone emitted171B routed frame/92B body after directory-stage replies; method UNKNOWN. All three original native request writers fit92B. Tested fixed-label identifier prepared; no guessed directory response, authenticated login or gameplay.
 
 R093 (2026-11-02): [Phone directory ACK continuation and offline auth/Bingo readiness](research/DIRECTORY_AUTH_STAGE_PHONE_RESULT.md). Phone sent0x2001 after directory ACK; probe then deliberately closed. No directory auth/Bingo response or login yet. Existing reply pair passes original-native controls; next bounded owner stage observation prepared, default disabled.
