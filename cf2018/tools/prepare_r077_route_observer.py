@@ -31,24 +31,21 @@ def verify_r073(text):
            "                        run.record('syn_security_context',cid,slot=slot,assessment=assessment,**diagnose(raw_frame,original))\n")
     reverse = [
         (new, old),
-        ("False", "__import__('os').environ.get('CF2018_SECOND_SERVICE_ACK') == 'YES'"),
         ("class={e['assessment']} reason={e['reason']} base_changed={e['base_changed']} syn_changed={e['syn_changed']}",
          "class={e['assessment']}"),
-        (OUTPUT_NAME, OUTPUT_NAME),  # no-op reserved, not applied
         (REPORT_NAME, "CF2018_SECOND_SERVICE_ACK_Result.txt"),
         ("cf2018_syn_difference_runs", "cf2018_second_service_ack_runs"),
         ("CF2018 SYN difference diagnostic; second-service ACK disabled",
          "CF2018 second-service one-ACK experiment; not an authenticated session"),
     ]
     # The ACK guard is matched by *surrounding source*, never arbitrary False.
-    guard = "if False:"
-    original_guard = "if __import__('os').environ.get('CF2018_SECOND_SERVICE_ACK') == 'YES':"
+    guard = "assessment == 'MATCH_EXCEPT_ROUTE' and\\n                            False):"
+    original_guard = ("assessment == 'MATCH_EXCEPT_ROUTE' and\\n"
+                      "                            __import__('os').environ.get('CF2018_SECOND_SERVICE_ACK') == 'YES'):")
     if text.count(guard) != 1:
         raise ValueError("R073 hard-disabled ACK guard not recognized")
     reconstructed = text.replace(guard, original_guard)
     for current, past in reverse:
-        if current == "False" or current == OUTPUT_NAME:
-            continue
         if reconstructed.count(current) != 1:
             raise ValueError("R073 expected source anchor missing or duplicated")
         reconstructed = reconstructed.replace(current, past)
@@ -83,7 +80,7 @@ def patch_handler(text):
     out = out.replace(report, report + report_add)
     out = out.replace(old_header, "CF2018 CTDir route equality diagnostic; second-service ACK disabled")
     out = out.replace(REPORT_NAME, OUTPUT_NAME)
-    if "if False:" not in out:
+    if "assessment == 'MATCH_EXCEPT_ROUTE' and\\n                            False):" not in out:
         raise ValueError("ACK disable guard missing")
     compile(out, "routed_probe_r037.py", "exec")
     return out
