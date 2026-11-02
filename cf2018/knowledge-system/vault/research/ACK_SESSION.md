@@ -115,3 +115,6 @@ remain limited as originally described. No authenticated account/session or game
 Historical reported APK parity is separate from installed/OBB identity. V1.4
 wrapper-only comparison is justified in principle but blocked on bridge/lifecycle
 integration; no automatic phone run. Follow current assignments, not old task cues.
+
+## R083 — session/key binding caveat
+The original native flow is conditional on the active GCloud DH parameter string and ACK key mode. If DH setup is active and the ACK selects mode 3, `tgcpapi_compute_k` uses the current handle's DH object and the ACK's RawDH response before `tgcpapi_set_key`. The second service's actual mode/configuration has not been recovered from the phone trace. R077 route equality does not establish cryptographic/session equivalence. See [R083](R083_GCLOUD_DH_ACK_DEPENDENCY.md).
