@@ -102,3 +102,6 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [R080_GCLOUD_FACTORY_DISPATCH](research/R080_GCLOUD_FACTORY_DISPATCH.md) — exact original virtual dispatch from RpcConnector CreateConnection through CGCloud::CreateApolloConnection to GCloud connector construction; runtime receiver/login still unproven.
 
 - [R081_ICONNECTOR_VTABLE](research/R081_ICONNECTOR_VTABLE.md) — SHA-verified secondary CGCloudConnector IConnector virtual Initialize/Connect slots and conditional native transport Start/route path; second-service ACK remains withheld.
+
+- [R082_ICONNECTOR_CONNECT_DISPATCH](research/R082_ICONNECTOR_CONNECT_DISPATCH.md) — exact original factory return adjustment and CreateConnection virtual Connect callsite; Connect reaches connectTConnd route/start.
+- [R083_GCLOUD_DH_ACK_DEPENDENCY](research/R083_GCLOUD_DH_ACK_DEPENDENCY.md) — conditional per-handle DH key generation, SYN public-value serialization, ACK mode-3 DH compute/key setup; phone mode remains unknown.
