@@ -69,6 +69,7 @@ REQUIRED_CALLS = {
 # Symbol start/size identity pins: this prevents a similar-named or legacy
 # receiver from being substituted into the GCloud source chain.
 FUNCTIONS = {
+    0x3C6D94: (704, "CGCloudConnector7Connect"),
     0x3C68E0: (1204, "CGCloudConnector13connectTConnd"),
     0x3A3D18: (624, "CTGcp10Initialize"),
     0x3A7E40: (684, "gcloud_tgcpapi_init"),
