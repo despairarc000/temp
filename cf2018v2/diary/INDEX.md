@@ -11,6 +11,7 @@
 | [007](007.md) | R052–R057 | Training-path source work, then fake-server SYN and original address-lookup callers | ARCHIVED |
 | [008](008.md) | R058–R063 | GCloud wiring, dual receiver contracts and legacy framing controls | ARCHIVED |
 | [009](009.md) | R064–R069 | Dispatch, SYN/ACK controls, phone context refusal and field diagnostic | ARCHIVED |
-| [010](../diary.md) | R070 onward | Native application-field meaning and ACK compatibility research | CURRENT |
+| [010](010.md) | R070–R076 | Unit-field phone evidence, original directory connector, offline route equality | ARCHIVED |
+| [011](../diary.md) | R077 onward | Pinned observer integration and next route-identity diagnostic | CURRENT |
 
 At 30 entries OR 8 KB archive the current diary to the next numbered page, update this index, and start a fresh `../diary.md` with a previous-page link. Keep stable R IDs; do not fabricate results. Archive pages are historical; current vault wins.
