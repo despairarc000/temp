@@ -92,3 +92,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [R075_DIRECTORY_CALLERS](research/R075_DIRECTORY_CALLER_DISCRIMINATOR.md) — original native directory-service 10-byte route shape, distinct RPC initializer call parameters, and limits on real-phone attribution.
 
 - [R076_OFFLINE_ROUTE_EQUALITY](research/R076_OFFLINE_ROUTE_EQUALITY.md) — SHA-pinned original directory-route literal comparison using private transient SYNs; synthetic tests passed, not phone-tested or an ACK gate.
+
+- [R077_ROUTE_ID_INTEGRATION](research/R077_ROUTE_ID_INTEGRATION.md) — copy-only original-pinned R073 observer adds a label for CTDir route equality; private prepared-source and phone tests are still gated.
