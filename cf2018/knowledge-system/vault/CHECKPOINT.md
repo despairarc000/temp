@@ -1,4 +1,14 @@
-# Current checkpoint — 2026-10-31
+# Current checkpoint — 2026-11-02
+
+**R085 (latest source research, 2026-11-02):** [GCloud sender conditional DH branch](research/R085_GCLOUD_SYN_DH_GUARD.md) verified original Thumb compare/BEQ skips DH serialization when current handle has no DH state; the helper also independently guards its state pointer. Hash-gated original auditor + public synthetic mutation tests; [GitHub CI](https://github.com/despairarc000/temp/actions/runs/41408351093) SUCCESS, optional exact-private Python test skipped in public CI. No phone ACK or gameplay.
+
+**R084 (2026-11-02):** [RPC default DH config provenance](research/R084_RPC_DH_CONFIG_SOURCE.md) verifies the specific RpcConnector constructor default-constructs an empty AString at init-info+0x10, copies into GCloud connector+0x3c and forwards that string to CTGcp/GCloud DH setter on both Connect branches. Original privately inspected, 24 independently matched instruction pins; [GitHub CI](https://github.com/despairarc000/temp/actions/runs/41407851874) SUCCESS, optional private original-only audit skipped. This does not establish the phone's actual handle/string or expected server ACK key mode.
+
+**Latest confirmed phone evidence remains R077:** three 131-byte next-service SYNs matched original static CTDir 10-byte route, with changed field5 unit ID, but all three received **zero second-service ACK** by deliberate HOLD policy. The local REFUSED label is not native client/server rejection. No authenticated account, session, lobby, TDM or Bomb bots.
+
+**Next highest-value:** offline-only bounded original-native comparisons of no-DH ACK mode 0 versus mode 2, using synthetic fixture and suppressed network/auth sends. No replay of the 63-byte first-service ACK, no new phone test until a separately justified and explicitly owner-approved experiment.
+
+## Historical checkpoints
 
 R077 (2026-11-02): [R077 copy-only observer integration](research/R077_ROUTE_ID_INTEGRATION.md) from original R073 pinned SYN diagnostic, requiring exact local Apollo SHA; stage responses and second-service ACK-disabled gate preserved, report-only route equality and isolated output. [R077 public CI](https://github.com/despairarc000/temp/actions/runs/41372943974) PASS, original-private integration SKIPPED, no phone test. Actual matched route still UNKNOWN. Next owner-local prepared-source and original loopback checks before opt-in 4-connection phone route-label diagnostic; do not claim session authentication, ACK success or gameplay.
 
