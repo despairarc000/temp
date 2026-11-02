@@ -88,3 +88,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [R052_TRAINING_SPAWN](research/R052_TRAINING_PLAYER_SPAWN_INHERITANCE.md) — AITrainGame inherits PVE StartMatch, which calls actual controller and initial pawn spawn; seven inherited TypeDef pins and 14 CIL method pins, seven offline tests.
 
 - [R050_FACTORY_STANDALONE](research/R050_FACTORY_AND_STANDALONE_PATHS.md) — original GCloud connector factory has null route until initialization, plus original Unity standalone PVE mode existence and limitations.
+
+- [R075_DIRECTORY_CALLERS](research/R075_DIRECTORY_CALLER_DISCRIMINATOR.md) — original native directory-service 10-byte route shape, distinct RPC initializer call parameters, and limits on real-phone attribution.
