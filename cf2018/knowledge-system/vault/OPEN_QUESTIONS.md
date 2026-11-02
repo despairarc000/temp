@@ -1,5 +1,7 @@
 # OPEN QUESTIONS — current auth receive gate
 
+R077 (2026-11-02): Original-pinned route observer is source-only tested, not owner-local or phone-tested. The remaining test is offline preparation against the user's private R073/Apollo. Results will determine whether the static CTDir route matches the phone; neither outcome establishes login. [R077 integration](research/R077_ROUTE_ID_INTEGRATION.md).
+
 R076 (2026-11-02): [Offline route-equality module](research/R076_OFFLINE_ROUTE_EQUALITY.md) is source-free tested, not yet inserted into owner-side R073/TGCP session handling. Unknown: whether phone route equals CTDir original embedded route; even equality will not establish runtime caller or ACK/security compatibility. The R074 redacted report cannot reconstruct route values. Next separately pin safe listener-copy integration and only later request one authorized label-only phone run.
 
 
