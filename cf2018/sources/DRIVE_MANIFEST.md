@@ -1,3 +1,5 @@
+R100 source availability update (2026-11-02): owner directly supplied [original XAPK](https://drive.google.com/file/d/10GUAbzSZALUBQNAu5FIFV5Wcf3Ck3lef/view), metadata768008878B. Bounded ZIP/OBB reads locate exact base settings and resource version; contained APK matches known source SHA33045335685284385866e8b0e2df55285009399c285294c2f428b451ee00d3d9. Whole-package download remains partial, not a fully hashed XAPK/OBB. Full private [Assets.png](https://drive.google.com/file/d/1FhiklIa2KRg-pLt08GOQIktGlUZddAcF/view)431231509B has SHA9cda9c149b6e9c03bba295e5dfa9641d76d5318b345acf5eeafcd5d0acb265f9 and NIFS format. [Detailed provenance/limits](../knowledge-system/vault/research/ORIGINAL_PACKAGE_SETTINGS.md). This supersedes historical missing/unverified-source statements below; no originals or decoding parameters published.
+
 # Source locators — connected Drive and recovered mirror
 
 **Verified through the connected Google Drive account (2026-10-30):**

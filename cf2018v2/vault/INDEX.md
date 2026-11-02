@@ -16,3 +16,7 @@ Detailed source findings remain linked in the original workspace. [Diary](../dia
 - [R098 settings phone result and resource follow-up](../../cf2018/knowledge-system/vault/research/DIRECTORY_CONFIG_PHONE_RESOURCE_FOLLOWUP.md): reported screen change, timeout alternative, separate updater source.
 
 - [R099 dispatcher and resource reference](../../cf2018/knowledge-system/vault/research/DISPATCH_AND_RESOURCE_REFERENCE.md): baseline UI correction, combined original correlation controls, decoded config pointer, bounded source-container check.
+
+- [R100 NIFS archive and manifests](../../cf2018/knowledge-system/vault/research/NIFS_ARCHIVE_READ.md): source access resolved, original reader/checksum controls, decoded asset maps, remaining base-resource pointer.
+
+- [R100 original package settings and bundled version](../../cf2018/knowledge-system/vault/research/ORIGINAL_PACKAGE_SETTINGS.md): exact base references resolved; source selection control, runtime choice unknown.

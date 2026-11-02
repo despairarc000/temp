@@ -25,6 +25,15 @@ class Tests(unittest.TestCase):
     def test_similar_name_is_not_exact_target(self):
         r=self.run_input(self.archive(TARGET+'.other'))
         self.assertEqual(r['configuration_entry'],'NOT_IN_THIS_ZIP')
+    def test_nifs_header_is_recognized_and_checksum_verified(self):
+        b=bytearray(172);b[:4]=b'nifs';b[4:8]=(172).to_bytes(4,'little')
+        b[156:]=hashlib.md5(b[:156]).digest();r=self.run_input(bytes(b))
+        self.assertEqual((r['header_kind'],r['nifs_header_checksum']),('NIFS','MATCH'))
+        self.assertEqual(r['configuration_entry'],'UNKNOWN')
+    def test_nifs_header_mutation_is_not_accepted(self):
+        b=bytearray(172);b[:4]=b'nifs';b[4:8]=(172).to_bytes(4,'little')
+        b[156:]=hashlib.md5(b[:156]).digest();b[100]^=1
+        self.assertEqual(self.run_input(bytes(b))['nifs_header_checksum'],'MISMATCH')
     def test_png_signature_does_not_hide_appended_zip_index(self):
         r=self.run_input(b'\x89PNG\r\n\x1a\n'+self.archive(TARGET))
         self.assertEqual((r['header_kind'],r['configuration_entry']),('PNG','PRESENT'))

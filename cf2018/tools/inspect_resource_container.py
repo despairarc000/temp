@@ -4,7 +4,7 @@ No game launch, socket, game-file edit, raw header/content export or extraction.
 Only a small text report is written. Handles a renamed ZIP without trusting its
 extension; bounds central-directory metadata before opening it.
 """
-import argparse,json,struct,zipfile
+import argparse,hashlib,json,struct,zipfile
 from pathlib import Path
 TARGET='7346236864af94314bae0701e3cddcd2'
 MAX_INDEX=8*1024*1024
@@ -13,15 +13,19 @@ def inspect(path):
     path=Path(path);size=path.stat().st_size
     if not path.is_file() or size<1:raise ValueError('nonempty regular source file required')
     with path.open('rb') as stream:
-        head=stream.read(32)
+        head=stream.read(172)
         stream.seek(max(0,size-65557));tail=stream.read(65557)
     signature='UNKNOWN'
-    for magic,label in ((b'\x89PNG\r\n\x1a\n','PNG'),(b'PK\x03\x04','ZIP'),
+    for magic,label in ((b'nifs','NIFS'),(b'\x89PNG\r\n\x1a\n','PNG'),(b'PK\x03\x04','ZIP'),
                         (b'UnityFS\0','UNITYFS'),(b'UnityRaw\0','UNITYRAW'),
                         (b'UnityWeb\0','UNITYWEB'),(b'UnityArchive\0','UNITYARCHIVE')):
         if head.startswith(magic):signature=label;break
     result={'source_bytes':size,'expected_drive_size_match':size==431231509,'header_kind':signature,
             'zip_index':'NOT_IDENTIFIED','configuration_entry':'UNKNOWN'}
+    if signature=='NIFS':
+        result['nifs_header_checksum']='NOT_CHECKED'
+        if len(head)==172 and int.from_bytes(head[4:8],'little')==172:
+            result['nifs_header_checksum']=('MATCH' if hashlib.md5(head[:156]).digest()==head[156:172] else 'MISMATCH')
     end=tail.rfind(b'PK\x05\x06')
     if end<0 or len(tail)-end<22:return result
     record=struct.unpack_from('<4s4H2LH',tail,end)
