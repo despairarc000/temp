@@ -142,3 +142,5 @@ knowledge-system/vault/research/NIFS_ARCHIVE_READ.md	tests	tests/test_original_b
 knowledge-system/vault/research/NIFS_ARCHIVE_READ.md	continued-by	knowledge-system/vault/research/ORIGINAL_PACKAGE_SETTINGS.md	EXACT_BASE_REFERENCE_RESOLVED
 knowledge-system/vault/research/ORIGINAL_PACKAGE_SETTINGS.md	describes	experiments/original_gcloud_settings.py	READ_ONLY_SOURCE_AUDIT
 knowledge-system/vault/research/ORIGINAL_PACKAGE_SETTINGS.md	tests	tests/test_original_gcloud_settings.py	ORIGINAL_ASSET_AND_SYNTHETIC_CIL
+knowledge-system/vault/research/RESOURCE_OBSERVATION_LIFETIME.md	describes	tools/prepare_directory_config.py	OPTIONAL_BOUNDED_OBSERVATION
+knowledge-system/vault/research/RESOURCE_OBSERVATION_LIFETIME.md	tests	tests/test_directory_config_observation.py	SYNTHETIC_CLOCK_AND_SOCKET
