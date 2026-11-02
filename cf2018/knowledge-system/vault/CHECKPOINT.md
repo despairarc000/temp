@@ -1,5 +1,8 @@
 # Current checkpoint — 2026-10-31
 
+R077 (2026-11-02): [R077 copy-only observer integration](research/R077_ROUTE_ID_INTEGRATION.md) from original R073 pinned SYN diagnostic, requiring exact local Apollo SHA; stage responses and second-service ACK-disabled gate preserved, report-only route equality and isolated output. [R077 public CI](https://github.com/despairarc000/temp/actions/runs/41372943974) PASS, original-private integration SKIPPED, no phone test. Actual matched route still UNKNOWN. Next owner-local prepared-source and original loopback checks before opt-in 4-connection phone route-label diagnostic; do not claim session authentication, ACK success or gameplay.
+
+
 R076 (2026-11-02) LOCAL_TEST_ONLY: private-source-hash-gated offline route-equality module can label a transient 131-byte named-route SYN as equal or different from original native CTDir constant, never emitting values or permitting ACK. 12 synthetic public tests PASS/one private original SKIP in [CI 41372103406](https://github.com/despairarc000/temp/actions/runs/41372103406). Existing R074 phone report lacks route bytes; no route equality or connector ownership has been measured on phone. [R076 report](research/R076_OFFLINE_ROUTE_EQUALITY.md). Next prepare/verify a copy-only, observer-only private diagnostic; no repeated R074 capture, guessed ACK or new game patch.
 
 
