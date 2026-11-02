@@ -12,3 +12,5 @@ Detailed source findings remain linked in the original workspace. [Diary](../dia
 - [R055 OBB split asset triage](R055_OBB_SPLIT_ASSET_TRIAGE.md): source evidence for OBB-first search, directly verified split-part family metadata and 10-test read-only virtual scanner; original resource decode still open.
 
 - [R097 default startup-directory control](../../cf2018/knowledge-system/vault/research/STARTUP_DIRECTORY_CONFIG_CONTROL.md): source fallback, original native synthetic correlation checks, bounded owner-run test.
+
+- [R098 settings phone result and resource follow-up](../../cf2018/knowledge-system/vault/research/DIRECTORY_CONFIG_PHONE_RESOURCE_FOLLOWUP.md): reported screen change, timeout alternative, separate updater source.
