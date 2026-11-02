@@ -91,7 +91,7 @@ def audit(original):
         "verified_chain_components": EXPECTED_CHAIN,
         "unproven_dynamic_handoffs": GAPS,
         "conditional_receiver_if_gcloud_path": "GCLOUD_TGCP_ACK_THEN_TLV_BODY",
-        "legacy_receiver_interchangeable": False,
+        "legacy_receiver_wire_compatibility": "NOT_ESTABLISHED",
         "phone_ctdir_runtime_execution": "NOT_PROVEN",
         "second_service_ack_accepted": False,
         "game_login_verified": False,
