@@ -107,3 +107,4 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [R083_GCLOUD_DH_ACK_DEPENDENCY](research/R083_GCLOUD_DH_ACK_DEPENDENCY.md) — conditional per-handle DH key generation, SYN public-value serialization, ACK mode-3 DH compute/key setup; phone mode remains unknown.
 - [R084_RPC_DH_CONFIG_SOURCE](research/R084_RPC_DH_CONFIG_SOURCE.md) — exact RPC init-info AString default, connector-owned +0x3c propagation into CTGcp/DH setter; actual phone key mode and ACK remain unproven.
 - [R085_GCLOUD_SYN_DH_GUARD](research/R085_GCLOUD_SYN_DH_GUARD.md) — original sender checks current DH state and skips RawDH serialization when absent; second-service ACK mode still unverified.
+- [R086_GCLOUD_ACK_KEY_MODE_MATRIX](research/R086_GCLOUD_ACK_KEY_MODE_MATRIX.md) — exact-original GCloud ACK key modes 0/2/3 and conservative source-only branch controls; Android receiver and accepted session remain unknown.
