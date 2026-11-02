@@ -17,3 +17,11 @@ NEXT resolve configuration parser/defaults and native node-property mapping befo
 **SYNTHETIC_ONLY / ORIGINAL_NATIVE_EMULATION:** Hash-verified Apollo writer emits97B result containing47B selected node0x01010100; independent bytes match. Both result readers and segmented GCloud/RPC/result parsing pass. Original ProcessResponse0x3c382c rejects wrong64-bit high/low words; callback/runtime boundaries remain substituted.21 new test methods PASS; existing node6/baseline113 PASS. Doctors blocked by86 local snapshot omissions, all verified present on GitHub. [Proof, limits, test](../cf2018/knowledge-system/vault/research/STARTUP_DIRECTORY_CONFIG_CONTROL.md).
 
 **HYPOTHESIS, not phone finding:** one selected category with empty settings may advance startup. Copy-only opt-in preparer permits one qualified response. NEXT owner run/report plus screen outcome. UNKNOWN actual managed callback, semantic acceptance/login/gameplay; no phone run performed.
+
+## R098 — [FINDING] Settings reply written; Checking resources reported; timeout alternative verified (2026-11-02)
+
+**PHONE_REPORTED:** DIRECTORY_CONFIG SHA256 `6589c0501c249baf4dae35a5bd62d0d9858b6be44d751841afb2a9991b9fd6aa`: slot2 complete legacy64 BY_ID,223B reply written, no later frame before12s deadline. Owner reports quicker Checking resources, without timing/final state.
+
+**CONFIRMED_MANAGED_STATIC:** Exact original DLL verified. Directory RunTimeLimitation0x0600a7eb=30s; base OnFlowStart0x06005df0 registers virtual timeout, and OnOverTime0x0600a7ef can finish. Screen advance therefore does not prove reply acceptance. Separate resource flow reaches IIPS manager/update; local extraction also exists. **CONFIRMED_NATIVE_STATIC:** Hash-verified Apollo GCloud updater constructs/initializes its own RpcConnector and VersionUpdateClient (0x32fbe2/32fc74/32e6f8).3 tests PASS:23 managed predicates,6 native edges, wrong-build refusal. [Evidence/limits](../cf2018/knowledge-system/vault/research/DIRECTORY_CONFIG_PHONE_RESOURCE_FOLLOWUP.md).
+
+UNKNOWN actual callback/selected updater, resource completion, login/gameplay. NEXT exact current resource text/percentage/error to distinguish local checking from version work; no guessed update reply or repeat directory test. Server/game unchanged; doctors still flag historical local snapshot omissions.
