@@ -3,12 +3,12 @@ No directory reply, callback acceptance, endpoint, account or network operation.
 """
 from native_control import NativeControl,CTX,BUF,OUT,AUX,STACK
 
-def pack(library,selector=0):
- if selector not in (0,1):raise ValueError('synthetic category/leaf only')
+def pack(library,selector=0,node_id=0):
+ if selector not in (0,1) or node_id not in (0,0x01010100,0x01010300):raise ValueError('bounded synthetic category/leaf only')
  obj=AUX+0x1000;n=NativeControl(library);assert n.execute(0x36eb4c,(obj,))==0
  if selector:
   n=copy(library,n);n.write(obj,1,2);assert n.execute(0x36e7f0,(obj+4,0,1,0))==0
- z=copy(library,n);z.write(STACK+0xf000,1)
+ z=copy(library,n);z.write(obj+8,node_id);z.write(STACK+0xf000,1)
  def length(ptr,cap,*_):
   if not 0<=cap<=1024:raise ValueError('string bound')
   return len(bytes(z.uc.mem_read(ptr,cap)).split(b'\0',1)[0])
@@ -32,7 +32,8 @@ def conversion_probe(library,wire,count=1):
  """
  if type(wire) is not bytes or not 0<len(wire)<=2048 or count not in (0,1,2):raise ValueError('bounded synthetic node control required')
  n=NativeControl(library);raw=AUX+0x1000;out=AUX+0x2000
- n.write(raw+4,count);n.write(raw+8,BUF);n.write(BUF-12,len(wire));n.uc.mem_write(BUF,wire);added=[]
- def add(arr,obj,*_):added.append(n.read(obj+0xc));return arr
- rc=n.execute(0x370bf4,(raw,out),{0x36ffcc:('NodeWrapper constructor boundary',lambda obj,*_:obj),0x3707e4:('NodeWrapper destructor boundary',0),0x39739c:('AString assignment boundary',lambda dest,*_:dest),0x395d22:('AArray add observation boundary',add)})
- return {'return':rc,'added_types':added,'stubs':n.calls}
+ n.write(raw+4,count);n.write(raw+8,BUF);n.write(BUF-12,len(wire));n.uc.mem_write(BUF,wire);added=[];ids=[];empty=[]
+ def add(arr,obj,*_):added.append(n.read(obj+0xc));ids.append(n.read(obj+0x1c));return arr
+ def assign(dest,source,*_):empty.append(n.read(source,1)==0);return dest
+ rc=n.execute(0x370bf4,(raw,out),{0x36ffcc:('NodeWrapper constructor boundary',lambda obj,*_:obj),0x3707e4:('NodeWrapper destructor boundary',0),0x39739c:('AString assignment boundary',assign),0x395d22:('AArray add observation boundary',add)})
+ return {'return':rc,'added_types':added,'added_ids':ids,'assignment_count':len(empty),'empty_assignments':bool(empty) and all(empty),'stubs':n.calls}
