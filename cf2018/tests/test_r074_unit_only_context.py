@@ -25,8 +25,8 @@ def nest(n, payload):
 
 def mock_syn(name=b"QueryAddrSvr", *, unit=1, security=b"K"*20,
              client_type=None, base_extra=0, kind_unit=0):
-    base = (b"\\x10" + vi(0x4366) + b"\\x40" + vi(0x1001) + b"\\x61\\x00"
-            + vi(9 << 4) + b"\\x00\\x50" + vi(base_extra))
+    base = (b"\x10" + vi(0x4366) + b"\x40" + vi(0x1001) + b"\x61\x00"
+            + vi(9 << 4) + b"\x00\x50" + vi(base_extra))
     route = nest(4, nest(1, name))
     syn = nest(1, security)
     if kind_unit == 0:
@@ -43,7 +43,7 @@ def mock_syn(name=b"QueryAddrSvr", *, unit=1, security=b"K"*20,
         raise ValueError("synthetic target overflow")
     syn += nest(15, b"P" * padding)
     head = nest(1, base) + nest(2, nest(0x1001, syn))
-    result = b"\\x43\\x66\\xaa" + (5 + len(head)).to_bytes(4, "big") + head
+    result = b"\x43\x66\xaa" + (5 + len(head)).to_bytes(4, "big") + head
     expected_len = 133 if name == b"QueryAddrSvr" else 131
     assert len(result) == expected_len
     return result
