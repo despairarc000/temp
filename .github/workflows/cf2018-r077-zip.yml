@@ -1,0 +1,32 @@
+name: CF2018 R077 ZIP download
+on:
+  push:
+    paths:
+      - .github/workflows/cf2018-r077-zip.yml
+      - cf2018/kits/CF2018_R077_ROUTE_ID_Kit.zip.b64
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  zip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Decode and validate R077 archive
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cf2018_r077_kit
+          base64 -d cf2018/kits/CF2018_R077_ROUTE_ID_Kit.zip.b64 > /tmp/cf2018_r077_original.zip
+          unzip -t /tmp/cf2018_r077_original.zip
+          unzip -q /tmp/cf2018_r077_original.zip -d /tmp/cf2018_r077_kit
+          test -f /tmp/cf2018_r077_kit/START_HERE.txt
+          test -f /tmp/cf2018_r077_kit/cf2018/tools/prepare_r077_route_id.py
+      - name: Downloadable R077 ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: CF2018_R077_ROUTE_ID_Kit
+          path: /tmp/cf2018_r077_kit/
+          retention-days: 30
+          if-no-files-found: error
