@@ -105,3 +105,4 @@ Every new claim requires date, status, source, what was observed, what is inferr
 
 - [R082_ICONNECTOR_CONNECT_DISPATCH](research/R082_ICONNECTOR_CONNECT_DISPATCH.md) — exact original factory return adjustment and CreateConnection virtual Connect callsite; Connect reaches connectTConnd route/start.
 - [R083_GCLOUD_DH_ACK_DEPENDENCY](research/R083_GCLOUD_DH_ACK_DEPENDENCY.md) — conditional per-handle DH key generation, SYN public-value serialization, ACK mode-3 DH compute/key setup; phone mode remains unknown.
+- [R084_RPC_DH_CONFIG_SOURCE](research/R084_RPC_DH_CONFIG_SOURCE.md) — exact RPC init-info AString default, connector-owned +0x3c propagation into CTGcp/DH setter; actual phone key mode and ACK remain unproven.
