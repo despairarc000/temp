@@ -1,5 +1,8 @@
 # Current checkpoint — 2026-10-31
 
+R076 (2026-11-02) LOCAL_TEST_ONLY: private-source-hash-gated offline route-equality module can label a transient 131-byte named-route SYN as equal or different from original native CTDir constant, never emitting values or permitting ACK. 12 synthetic public tests PASS/one private original SKIP in [CI 41372103406](https://github.com/despairarc000/temp/actions/runs/41372103406). Existing R074 phone report lacks route bytes; no route equality or connector ownership has been measured on phone. [R076 report](research/R076_OFFLINE_ROUTE_EQUALITY.md). Next prepare/verify a copy-only, observer-only private diagnostic; no repeated R074 capture, guessed ACK or new game patch.
+
+
 R074 (2026-11-02) **REAL ORIGINAL PHONE DIFFERENTIAL**: Uploaded sanitized SYN diagnostic confirms second-service slots2/3/4 each `syn_changed=[[5,0]]` (**field5=iUnitID, encoding kind0, value NOT exposed**), plus field14 named-route shortened2B. Base unchanged, no other non-route SYN differences; *all three had ACK0 intentionally*, so no second-service auth or ACK rejection. Supports R072/R073 unit-change explanation but CTDir/runtime source unverified. Added source-only read-only R074 class-only route+unit predicate, 13 negative/positive tests PASS in [corrected CI 41369763827](https://github.com/despairarc000/temp/actions/runs/41369763827), never authorizes ACK. [R074 report](research/R074_PHONE_UNIT_FIELD_CONFIRMED.md). Next source research concrete connector/receiver, not repeated phone test.
 
 
