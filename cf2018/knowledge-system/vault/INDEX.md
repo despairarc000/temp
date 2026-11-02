@@ -98,3 +98,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [R078_CT_DIR_ACK_LINEAGE](research/R078_CT_DIR_ACK_LINEAGE.md) — conditional CTDir→RPC/GCloud ACK receiver callgraph, explicit runtime gaps and joint route/unit synthetic controls; original-native combined test private-gated.
 
 - [R079_CT_DIR_TAIL_UPDATE](research/R079_CT_DIR_TAIL_UPDATE.md) — original-SHA-verified CTDir Thumb B.W wrappers tail-branch into RPC Update; CreateConnection constructs GCloud route metadata and obtains GCloud instance; actual Android runtime remains unknown.
+
+- [R080_GCLOUD_FACTORY_DISPATCH](research/R080_GCLOUD_FACTORY_DISPATCH.md) — exact original virtual dispatch from RpcConnector CreateConnection through CGCloud::CreateApolloConnection to GCloud connector construction; runtime receiver/login still unproven.
