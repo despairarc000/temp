@@ -45,3 +45,13 @@ NEXT owner read-only container report from Drive Assets.png:431,231,509B exceeds
 **CONFIRMED_MANAGED_STATIC / SYNTHETIC_ONLY:** GetValueString0x06002b61 original CIL interpreted on synthetic fields disproves Default-only inference. Initial global mode can change via zone switching; phone mode/language and reply acceptance remain UNKNOWN.15 test methods PASS; doctors retain identical snapshot omissions. [Proof/limits](../cf2018/knowledge-system/vault/research/ORIGINAL_PACKAGE_SETTINGS.md).
 
 NEXT exact sustained resource-screen text/progress/error, then selected updater/setup/transport trace. No owner asset scan, new phone run/reply variant, game patch, login/lobby/bots; schedules paused.
+
+## R101 — [FINDING] Probe lifetime confounds the resource error (2026-11-02)
+
+**PHONE_REPORTED:** Checking resources ran then errored; script had finished near entry to that stage. Faster Loading remains untimed; exact error/cause UNKNOWN.
+
+**CONFIRMED_REPOSITORY_SOURCE:** Handler12s ceiling plus four finished sessions→done→main proxy termination can remove service during checking. Optional copy-only --observe-seconds180 holds proxy for180s despite completed budget and extends connection ceiling. Same replies/security/one-shot/four-session caps; duration/stop labels added.
+
+**SYNTHETIC_ONLY:**6 timer/control methods PASS, including actual handler/fake socket surviving12s until180s, completed-budget hold, proxy death and Ctrl+C. Existing4 preparer/7 loopback/113 baseline PASS; no phone execution. [Proof/control](../cf2018/knowledge-system/vault/research/RESOURCE_OBSERVATION_LIFETIME.md).
+
+NEXT owner180s run/result/exact error and whether proxy still active. Error during healthy window falsifies shutdown as sufficient explanation. No new response/game patch/login/bots; doctors unchanged historical omissions; schedules paused.
