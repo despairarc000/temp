@@ -42,3 +42,6 @@ An **offline-only draft** [`r076_private_route_equality.py`](../../../experiment
 Keep the existing live second-service **ACK disabled** until independently verified receiver/keys/session conditions are understood and an owner-approved bounded phone experiment is prepared.
 
 **Current functional gate unchanged:** no accepted second-service ACK, real authenticated login, lobby, TDM or Bomb bot match.
+
+## Superseding observation from R079 (2026-11-02)
+The prior negative result is **limited to Thumb BL**, as stated. [R079 exact-original SHA-pinned audit](R079_CT_DIR_TAIL_UPDATE.md) decoded 10-byte CTDir wrappers and found a **B.W tail branch from `CTDir::UpdateByManual` (site `0x36f02e`) to `RpcConnector::Update` (`0x3c5248`)**. The B.W tail branch was not a BL and therefore was absent from R075's direct-BL caller list. Thus do **not** infer no CTDir→RPC Update source edge. The edge exists, but *whether Android executes the wrapper is still unknown*. No R075 phone or ACK outcome changes.
