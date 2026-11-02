@@ -54,6 +54,26 @@ class Tests(unittest.TestCase):
             p.write_bytes(b"test")
             self.assertEqual(classify_against_original(make(b"ALPHA12345"), p), "REFUSED")
 
+    def test_original_optional_source_gate(self):
+        import os
+        original = os.environ.get("CF18_APOLLO_LIBRARY")
+        if not original:
+            self.skipTest("original native library is absent from public CI")
+        label = classify_against_original(make(b"ALPHA12345"), original)
+        self.assertIn(label, ("CTDIR_STATIC_ROUTE_MATCH",
+                              "CTDIR_STATIC_ROUTE_DIFFERENT"))
+
+    def test_source_does_not_start_network_listener(self):
+        text = (ROOT/"experiments/r076_private_route_equality.py").read_text()
+        for operation in ("create_server(", "socket.", "sendall(", "start_server("):
+            self.assertNotIn(operation, text)
+
+    def test_nonroute_structural_mutation_is_not_echoed(self):
+        modified = make(b"ALPHA12345", base_extra=1)
+        self.assertEqual(classify_transient_frame(modified, b"ALPHA12345"),
+                         "CTDIR_STATIC_ROUTE_MATCH")
+        # This is route equality only, not permission to send an ACK.
+
 
 if __name__ == "__main__":
     unittest.main()
