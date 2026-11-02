@@ -2,6 +2,10 @@
 
 Previous [page011 archive](diary/011.md): R077–R081, including owner-phone CTDir route MATCH 3/3 and exact-original CTDir→RPC→GCloud factory / IConnector static path. See [current status](vault/CURRENT.md).
 
+## R088 — Original GCloud ACK body/decrypt/type gates verified (2026-11-02)
+
+Read-only audit of connected Drive's exact original Apollo SHA `4812396e98bfba9664164c14c8973eed111c5b9d177c1b575e86bc8e9f9169d8` confirms that R086 ACK key-mode selection alone cannot establish ACK or login. Original native `recv_and_decrypt_pkg` uses separate body-length `+0x738`, decrypt flag `+0x72c` and `0x5002` stop-session branches. GCloud ACK receiver requires `0x1002`, then for positive length calls `gcloud_gcp::TGCPBody::unpackTLV`. Private local source-only auditor checked **39/39 original halfwords, 6/6 branch targets, 4/4 call targets**; 7 local tests PASS, including pin-mutation refusals. Source/test ZIP is local (not in GitHub). [R088 evidence](../cf2018/knowledge-system/vault/research/R088_GCLOUD_ACK_BODY_STATE_GATES.md). No phone test, real ACK2, authenticated login, lobby or bots; **phone remains R077**. NEXT offline research identify active handle flag/type/body-length setters and determine real second-service receiver/ACK ownership before any send.
+
 ## R081 continuation — exact original source proven; handshake still unresolved (2026-11-02)
 
 Original private Apollo SHA reverified and source-only R079/R080/R081 committed and tested. R081 verifies the original secondary IConnector vtable `Initialize` / `Connect` thunk entries and the conditional downstream GCloud route/start source chain. **No owner phone ACK2 accepted, login/lobby/bots**, and no phone test was requested. [R081 evidence](../cf2018/knowledge-system/vault/research/R081_ICONNECTOR_VTABLE.md), [CI SUCCESS 41387077303](https://github.com/despairarc000/temp/actions/runs/41387077303), 657 tests (152 skipped for optional/private sources). Next research priority: actual original key/nonce/session ACK receiver path and remaining indirect call site `0x3c5138`; avoid guessing second-service replies. Any owner result TXT must go to Android Download.
