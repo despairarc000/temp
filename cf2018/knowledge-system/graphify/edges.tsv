@@ -109,3 +109,6 @@ knowledge-system/vault/research/DIRECTORY_ACK_OFFLINE_READINESS.md	depends-on	to
 knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/research/DIRECTORY_AUTH_STAGE_PHONE_RESULT.md	CONFIRMED
 knowledge-system/vault/research/DIRECTORY_AUTH_STAGE_PHONE_RESULT.md	depends-on	tools/prepare_directory_stage.py	LOCAL_TEST_ONLY
 knowledge-system/vault/research/DIRECTORY_AUTH_STAGE_PHONE_RESULT.md	depends-on	tests/test_directory_stage_native.py	CONFIRMED
+knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/research/DIRECTORY_REQUEST_IDENTIFICATION.md	CONFIRMED
+knowledge-system/vault/research/DIRECTORY_REQUEST_IDENTIFICATION.md	depends-on	experiments/native_directory_writer_controls.py	CONFIRMED
+knowledge-system/vault/research/DIRECTORY_REQUEST_IDENTIFICATION.md	depends-on	tools/prepare_directory_identify.py	LOCAL_TEST_ONLY
