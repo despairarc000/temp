@@ -22,3 +22,5 @@ Detailed source findings remain linked in the original workspace. [Diary](../dia
 - [R100 original package settings and bundled version](../../cf2018/knowledge-system/vault/research/ORIGINAL_PACKAGE_SETTINGS.md): exact base references resolved; source selection control, runtime choice unknown.
 
 - [R101 resource observation lifetime](../../cf2018/knowledge-system/vault/research/RESOURCE_OBSERVATION_LIFETIME.md): shutdown confound and optional same-reply180s control.
+
+- [R102 three-minute result, updater wait error and unique reports](../../cf2018/knowledge-system/vault/research/RESOURCE_WAIT_ERROR_AND_REPORT_ID.md).

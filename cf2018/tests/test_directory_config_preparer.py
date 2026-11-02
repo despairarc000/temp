@@ -1,5 +1,5 @@
 """Source refusal and copy-only preparation controls; no listener starts."""
-import hashlib,os,sys,tempfile,unittest
+import ast,hashlib,json,os,sys,tempfile,unittest
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'tools'))
@@ -19,6 +19,25 @@ class Public(unittest.TestCase):
 
 @unittest.skipUnless(os.environ.get('CF18_DIRECTORY_IDENTIFY_PREPARED'),'explicit private prepared source required')
 class Prepared(unittest.TestCase):
+ def test_unique_report_names_and_existing_file_protection(self):
+  source=Path(os.environ['CF18_DIRECTORY_IDENTIFY_PREPARED'])
+  changed=patch((source/'routed_probe_r037.py').read_text(),180)
+  self.assertIn("'CF2018_DIRECTORY_CONFIG_Result_'+run.base.name+'.txt'",changed)
+  self.assertNotIn("/CF2018_DIRECTORY_CONFIG_Result.txt'",changed)
+  tree=ast.parse(changed)
+  report=next(node for node in tree.body if isinstance(node,ast.FunctionDef) and node.name=='report')
+  module=ast.Module(body=[report],type_ignores=[]);env={'json':json,'RESOURCE_OBSERVATION_SECONDS':180}
+  exec(compile(module,'report control','exec'),env)
+  from types import SimpleNamespace
+  with tempfile.TemporaryDirectory() as folder:
+   p=Path(folder);log=p/'events.jsonl'
+   log.write_text(json.dumps({'action':'accepted','slot':2,'port':8085})+'\n')
+   run=SimpleNamespace(log=log,max_sessions=4,base=p/'run_20261102T000000Z_1234abcd')
+   target=p/'report.txt';env['report'](run,target);before=target.read_bytes()
+   self.assertIn('REPORT_ID run_20261102T000000Z_1234abcd',before.decode())
+   self.assertIn('SESSION_OPEN_AT_REPORT slot=2',before.decode())
+   with self.assertRaises(FileExistsError):env['report'](run,target)
+   self.assertEqual(target.read_bytes(),before)
  def test_pinned_source_copied_and_mutation_refused(self):
   source=Path(os.environ['CF18_DIRECTORY_IDENTIFY_PREPARED']).resolve()
   original=(source/'routed_probe_r037.py').read_text()

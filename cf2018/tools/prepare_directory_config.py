@@ -50,6 +50,19 @@ def patch(text,observe_seconds=None):
             out.append('DIRECTORY_CONFIG slot='+str(e['slot'])+' event='+e['action']+' status='+str(e.get('status','UNKNOWN'))+' type='+str(e.get('variant','none'))+' bytes='+str(e.get('reply_bytes',e.get('frame_bytes',0)))+' request='+str(e.get('directory_request','NOT_APPLICABLE')))
 """
  text=text.replace(anchor,extra+anchor,1)
+ # A run start timestamp plus its random suffix identifies every deliverable.
+ old="Path.home()/'storage/downloads/CF2018_DIRECTORY_CONFIG_Result.txt'"
+ new="Path.home()/'storage/downloads'/('CF2018_DIRECTORY_CONFIG_Result_'+run.base.name+'.txt')"
+ if text.count(old)!=1:raise ValueError('result filename anchor changed')
+ text=text.replace(old,new,1)
+ old="    target.write_text('\\n'.join(out)+'\\n',encoding='utf8')"
+ new="    with target.open('x',encoding='utf8') as stream:stream.write('\\n'.join(out)+'\\n')"
+ if text.count(old)!=1:raise ValueError('result writer anchor changed')
+ text=text.replace(old,new,1)
+ anchor="    target.parent.mkdir(parents=True,exist_ok=True)"
+ extra="    out.insert(1,'REPORT_ID '+run.base.name)\n    for slot in sorted(set(accepted)-{e['slot'] for e in rows}):\n        out.append('SESSION_OPEN_AT_REPORT slot='+str(slot))\n"
+ if text.count(anchor)!=1:raise ValueError('report identity anchor changed')
+ text=text.replace(anchor,extra+anchor,1)
  if observe_seconds is not None:text=observation_patch(text,observe_seconds)
  compile(text,'directory configuration control','exec');return text
 

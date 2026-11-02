@@ -1,0 +1,29 @@
+# R102 — Three-minute phone result, updater wait error and unique report identity
+
+2026-11-02. No additional phone run or reply was generated here.
+
+## What was actually received
+
+**PHONE_REPORT:** Uploaded directory configuration result10,607B/SHA256 `4e7915e3e0853ffee7d07f42b36bb3926d6a282302c343c1a4af7bf5d72f2c8a` contains one report header and one observation summary. `RESOURCE_OBSERVATION configured_seconds=180 elapsed_seconds=180.18 stop=window_elapsed` verifies the longer script's normal bounded completion. Slot2 identifies complete legacy64 BY_ID and writes223B configuration reply. No subsequent slot2 application frame is reported. Completed-session rows exist for1/3/4, while slot2 has events but no completed row; absence from completed rows is not absence of the connection.879 CONNECTED relay events do not identify an updater method or successful downloads.
+
+**PHONE_VISUAL / PHONE_REPORTED:** Screenshot reads `Checking for update packages...` and `Failed to download. We recommend connecting to WiFi before trying again.(ErrorCode:154140712)`. Owner says the script ended a few seconds before this error. Exact synchronized error time is unknown; shutdown remains a confound. This is not resource completion/login, and not evidence the old result text was appended. The old writer used write_text, which overwrote a fixed filename. Reusing the same filename nevertheless makes owner-side selection ambiguous.
+
+## Exact original error branch
+
+**CONFIRMED_NATIVE_STATIC:** Exact Apollo5,243,704B/SHA256 `4812396e98bfba9664164c14c8973eed111c5b9d177c1b575e86bc8e9f9169d8`, ARM32/Thumb verified by NativeControl. The exact error integer154140712=`0x09300028` occurs once as a little-endian literal, atVA/file offset0x32ff3c, within `dolphin::gcloud_version_action_imp::run`0x32fa98/size1592. No corresponding managed enum constant was found; this negative is not an absence claim for every code form.
+
+Run polls RpcConnector::IsConnected at0x32fd3c→0x3c27dc and can issue doGetVersion0x32fd9a→0x32e6d4. Counter threshold is initialized as current counter+1000 at0x32fd20/24. Equality comparison0x32fda0/a2, BNE0x32fda4, routes equality to literal load0x32fdf2, then error store0x32fe4c. Poll continuation sleeps via imported usleep0x1941b4 with argument10000 at0x32fed0/4, increments counter0x32fed8, and returns to the loop. This supports a **version-query waiting-budget error**, not necessarily a failed TCP connect: a missing application result can also leave the loop waiting. The nominal sleep budget is about10s plus processing/scheduling; no original elapsed-time run was performed.
+
+RpcConnector::Update failure takes a different literal `0x09300024`=154140708 at0x32fe4a/32ff40. Stored failure later feeds GetVersionFailed0x32ff2c/30→0x32e0b8 when cancellation/other flags permit. Do not call the screenshot a verified trace through every branch or infer that a specific updater request was observed. The native-code mapping is static plus isolated block execution; actual phone transport, peer, retry count and accepted response remain UNKNOWN.
+
+**ORIGINAL_NATIVE_EMULATION / SYNTHETIC_ONLY:** Original comparison/store blocks execute with synthetic registers/stack, disabled logging pointer and explicit Update/continuation/exit boundaries. Counter1000 stores154140712;999 and1001 take continuation without storing it (actual comparison is equality). Synthetic Update status1 stores154140708; status0 reaches poll continuation. Three methods PASS, covering these five cases plus six exact-source instruction/literal predicates. Runtime functions/full updater/network/Android scheduling are not executed. See [control](../../../experiments/native_version_wait_error.py) and [test](../../../tests/test_native_version_wait_error.py).
+
+## Unique deliverables
+
+Owner requests unique names for future deliverables. Directory configuration preparation now emits `CF2018_DIRECTORY_CONFIG_Result_run_<UTC timestamp>_<random suffix>.txt`, using the existing unique run directory name. Each report contains REPORT_ID with that same identity. Exclusive-create mode refuses an existing destination instead of overwriting or appending. Other future owner-facing result tools should use the same naming rule.
+
+`SESSION_OPEN_AT_REPORT slot=N` explicitly marks accepted sessions lacking a completed row at snapshot time. It does not invent their ending or claim a full connection was observed. Reply bytes, security gates, one-shot budgets, four-session cap and optional observation duration are unchanged. Existing prepared copies retain old code until prepared again; no repeat phone run is needed merely to validate this naming fix.
+
+Verification: preparer5 PASS (new filename/identity/exclusive-writer/open-session control), observation6 PASS, new native-error3 PASS, extended prepared-copy loopback7 PASS: **21 test methods PASS**. Original-only methods skip without explicit private inputs. Earlier113 baseline passes were not relabeled as rerun. Knowledge doctors remain blocked by local snapshot omissions; the refreshed archive index exposes missing local pages001–013, all verified present through GitHub directory metadata. Public original files, screenshot/report contents, keys and assets are not uploaded.
+
+**Next bounded check:** trace the original version-query registration/route and expected result/callback, then compare against available safe phone metadata before selecting another test. Wrong Update status provides a directly tested alternative-error negative control. Another longer window alone cannot establish a working version service; screenshot/report timing does not prove shutdown caused the error. No new game version label, live experiment, game patch, accepted login/lobby or bots. Diary page014 entry text preserved before exceeding8KiB, with relative link targets rebased for its archive directory.
