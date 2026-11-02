@@ -1,5 +1,13 @@
 # Current checkpoint — 2026-11-02
 
+**R086 (latest):** [GCloud ACK key-mode matrix](research/R086_GCLOUD_ACK_KEY_MODE_MATRIX.md) confirmed original read-only mode 0 (skip key setup), mode 2 (supplied key → setup), mode 3 (derived key → setup), and unsupported-mode branches. Owner-original in-memory review: 32/32 native instruction pins, three function identities, two callsites matched. [GitHub CI 41410971298](https://github.com/despairarc000/temp/actions/runs/41410971298) PASS 735 tests (157 skipped), private full-source audit skipped in public CI. **No second-service ACK accepted, no login/lobby/bots.**
+
+**R084–R085:** the traced RPC constructor initializes an empty DH config string and GCloud SYN code skips DH serialization when no handle DH pointer exists; this narrows an *offline conditional source path*, not the actual phone's runtime mode. [R084](research/R084_RPC_DH_CONFIG_SOURCE.md), [R085](research/R085_GCLOUD_SYN_DH_GUARD.md).
+
+**Latest phone:** R077 route equality 3/3, changed field5 unit ID, **zero second ACK by observer policy**. Actual ACK mode, key, receiver execution, authenticated session, lobby and playable bots remain unknown. Next: offline GCloud body/state constraints without live traffic.
+
+## Earlier research checkpoints
+
 **R085 (latest source research, 2026-11-02):** [GCloud sender conditional DH branch](research/R085_GCLOUD_SYN_DH_GUARD.md) verified original Thumb compare/BEQ skips DH serialization when current handle has no DH state; the helper also independently guards its state pointer. Hash-gated original auditor + public synthetic mutation tests; [GitHub CI](https://github.com/despairarc000/temp/actions/runs/41408351093) SUCCESS, optional exact-private Python test skipped in public CI. No phone ACK or gameplay.
 
 **R084 (2026-11-02):** [RPC default DH config provenance](research/R084_RPC_DH_CONFIG_SOURCE.md) verifies the specific RpcConnector constructor default-constructs an empty AString at init-info+0x10, copies into GCloud connector+0x3c and forwards that string to CTGcp/GCloud DH setter on both Connect branches. Original privately inspected, 24 independently matched instruction pins; [GitHub CI](https://github.com/despairarc000/temp/actions/runs/41407851874) SUCCESS, optional private original-only audit skipped. This does not establish the phone's actual handle/string or expected server ACK key mode.
