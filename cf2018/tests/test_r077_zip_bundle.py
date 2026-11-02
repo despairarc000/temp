@@ -1,6 +1,9 @@
 """Validate the exact R077 source-only Termux ZIP bundle in CI."""
 import base64
 from io import BytesIO
+import subprocess
+import sys
+import tempfile
 from pathlib import Path
 import unittest
 from zipfile import ZipFile, BadZipFile
@@ -13,6 +16,8 @@ SOURCES = (
     "cf2018/experiments/r056_second_service_syn.py",
     "cf2018/experiments/second_service_syn_gate.py",
     "cf2018/experiments/rx_envelope.py",
+    "cf2018/experiments/inbound_4013_reply_preflight.py",
+    "cf2018/experiments/address_response_gate.py",
     "cf2018/experiments/r057_original_address_callers.py",
     "cf2018/experiments/r058_name_service_wiring.py",
     "cf2018/experiments/r075_directory_connector_discriminator.py",
@@ -36,6 +41,20 @@ class Tests(unittest.TestCase):
         with self.load_zip() as z:
             for name in SOURCES:
                 self.assertEqual(z.read(name), (ROOT.parent / name).read_bytes(), name)
+
+    def test_extracted_bundle_imports_r076_in_isolation(self):
+        # Running imports under -I prevents this repository's working tree
+        # from silently rescuing a missing dependency in the distributed ZIP.
+        with tempfile.TemporaryDirectory() as folder, self.load_zip() as z:
+            z.extractall(folder)
+            experiment_dir = str(Path(folder) / "cf2018/experiments")
+            code = ("import sys; sys.path.insert(0, " + repr(experiment_dir) +
+                    "); import r076_private_route_equality; "
+                    "assert callable(r076_private_route_equality._original_route_name)")
+            child = subprocess.run(
+                [sys.executable, "-I", "-c", code],
+                cwd=folder, capture_output=True, text=True, timeout=15)
+            self.assertEqual(child.returncode, 0, child.stderr)
 
     def test_readme_and_originals_not_embedded(self):
         with self.load_zip() as z:
