@@ -123,3 +123,6 @@ remain limited as originally described. No authenticated account/session or game
 Historical reported APK parity is separate from installed/OBB identity. V1.4
 wrapper-only comparison is justified in principle but blocked on bridge/lifecycle
 integration; no automatic phone run. Follow current assignments, not old task cues.
+
+## R083 — per-handle DH condition now traced to initialization
+[R083](R083_GCLOUD_DH_ACK_DEPENDENCY.md) traces the Connect path into a newly constructed CTGcp object and its GCloud TGCP handle initialization. The `gcloud_tgcpapi_set_dh` wrapper only tail-branches to DH setup for a nonempty parameter string; that setup calls `DH_generate_key`. The SYN path serializes the local DH public component. In ACK key mode 3, the receive path computes a shared key from the ACK RawDH response using the current handle's DH state, then sets the transport key. The actual phone DH parameter string and ACK key mode remain unknown; do not reuse the first-service ACK on assumption.
