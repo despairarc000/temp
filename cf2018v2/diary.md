@@ -35,3 +35,13 @@ UNKNOWN actual callback/selected updater, resource completion, login/gameplay. N
 **CONFIRMED_ORIGINAL_ASSET_STATIC:** Exact APK mainData ResourceManager maps config/system/gcloudsetting_ to fileID518/pathID1/external7346236864af94314bae0701e3cddcd2.15 tests PASS (7 dispatch,1 original resource,7 container). [Proof/limits](../cf2018/knowledge-system/vault/research/DISPATCH_AND_RESOURCE_REFERENCE.md).
 
 NEXT owner read-only container report from Drive Assets.png:431,231,509B exceeds connector268,435,456B limit; actual format/config presence UNKNOWN. Inspector exports labels/index metadata only, no contents or game changes. No new game run/reply variant/login/bots; doctor limitations remain historical snapshot omissions.
+
+## R100 — [FINDING] Original package settings and bundled resource version resolved (2026-11-02)
+
+**ORIGINAL_ASSET_STATIC:** Owner XAPK link grounded by its contained APK matching the known exact source hash. Bounded OBB ZIP reads/central CRC resolve GCloudSetting fileID518/pathID1 (10,540B) and VersionFile fileID755/pathID1 (4,128B); bundled resource version1.0.9.0 is not a new game/experiment label. Whole-package transfer remains partial.
+
+**ORIGINAL_NATIVE_EMULATION:** Private Assets.png is NIFS; original header controls0/109/109 and bounded archive open/read verified. Source-defined decoding yields seven complete manifests (7,973 assets/195 local bundles), then actual base settings24 CSV rows/20 columns/22 settings/17 regional columns. Parameters/table values stay private.
+
+**CONFIRMED_MANAGED_STATIC / SYNTHETIC_ONLY:** GetValueString0x06002b61 original CIL interpreted on synthetic fields disproves Default-only inference. Initial global mode can change via zone switching; phone mode/language and reply acceptance remain UNKNOWN.15 test methods PASS; doctors retain identical snapshot omissions. [Proof/limits](../cf2018/knowledge-system/vault/research/ORIGINAL_PACKAGE_SETTINGS.md).
+
+NEXT exact sustained resource-screen text/progress/error, then selected updater/setup/transport trace. No owner asset scan, new phone run/reply variant, game patch, login/lobby/bots; schedules paused.
