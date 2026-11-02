@@ -34,3 +34,6 @@ The new [R081 auditor](../../../experiments/r081_iconnector_virtual_chain.py) is
 The user's real R077 result remains **3/3 CTDir static route equality** with second SYN field5 changed and **HOLD_NO_ACK**. The static route/connector/transport branch is now much better supported, but it **does not establish that Android invoked these methods, selected the same vtable, passed ACK/key checks, authenticated, or loaded a match**.
 
 **Next task (offline):** distinguish the later `0x3c5138` indirect dispatch and the specific CGCloudConnector/CTGcp ACK key and session validation on the same created connection, ideally using bounded original-native synthetic emulation. A separately owner-approved phone ACK experiment should wait until that evidence is available. Do not redo the R077 route test.
+
+## R082 correction/continuation — actual Connect dispatch identified
+R081's later indirect call at `0x3c5138` is the `AddObserver` virtual thunk, not Connect. [R082](R082_ICONNECTOR_CONNECT_DISPATCH.md) verified the factory's `+0x14` IConnector return adjustment and the actual Connect virtual call at **`0x3c5154`**, loading secondary IConnector vtable slot `+0x18` → `0x3c7055` (`CGCloudConnector::Connect` adjusting thunk). The Connect method directly calls `connectTConnd` at `0x3c6f4a` / `0x3c6fc2`. The source path is now static-code verified, not phone-runtime verified.
