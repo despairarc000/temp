@@ -101,3 +101,4 @@ knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/research/
 knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/research/SYN_ATTRIBUTE_SUPPLIERS.md	CONFIRMED
 knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/research/RPC_DOMAIN_UNIT_SOURCE.md	CONFIRMED
 knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/research/R073_RPC_INITIALIZATION_ORDER.md	CONFIRMED_ORIGINAL_STATIC
+knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/research/R074_PHONE_UNIT_FIELD_CONFIRMED.md	PHONE_OBSERVED
