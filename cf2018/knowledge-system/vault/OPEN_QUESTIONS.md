@@ -1,3 +1,5 @@
+R092 (2026-11-02): [Complete offline encrypted ACK controls and optional one-ACK readiness](research/DIRECTORY_ACK_OFFLINE_READINESS.md). Original-native synthetic positives/negatives and loopback checks passed; actual phone remains R077. No login or gameplay. Next bounded owner-phone observation; supplied-key variants remain offline only.
+
 # OPEN QUESTIONS — current auth receive gate
 
 R077 (2026-11-02): Original-pinned route observer is source-only tested, not owner-local or phone-tested. The remaining test is offline preparation against the user's private R073/Apollo. Results will determine whether the static CTDir route matches the phone; neither outcome establishes login. [R077 integration](research/R077_ROUTE_ID_INTEGRATION.md).

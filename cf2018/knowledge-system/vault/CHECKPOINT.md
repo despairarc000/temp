@@ -1,3 +1,5 @@
+R092 (2026-11-02): [Complete offline encrypted ACK controls and optional one-ACK readiness](research/DIRECTORY_ACK_OFFLINE_READINESS.md). Original-native synthetic positives/negatives and loopback checks passed; actual phone remains R077. No login or gameplay. Next bounded owner-phone observation; supplied-key variants remain offline only.
+
 # Current checkpoint — 2026-11-02
 
 **R086 (latest):** [GCloud ACK key-mode matrix](research/R086_GCLOUD_ACK_KEY_MODE_MATRIX.md) confirmed original read-only mode 0 (skip key setup), mode 2 (supplied key → setup), mode 3 (derived key → setup), and unsupported-mode branches. Owner-original in-memory review: 32/32 native instruction pins, three function identities, two callsites matched. [GitHub CI 41410971298](https://github.com/despairarc000/temp/actions/runs/41410971298) PASS 735 tests (157 skipped), private full-source audit skipped in public CI. **No second-service ACK accepted, no login/lobby/bots.**

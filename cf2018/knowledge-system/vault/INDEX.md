@@ -1,3 +1,5 @@
+R092 (2026-11-02): [Complete offline encrypted ACK controls and optional one-ACK readiness](research/DIRECTORY_ACK_OFFLINE_READINESS.md). Original-native synthetic positives/negatives and loopback checks passed; actual phone remains R077. No login or gameplay. Next bounded owner-phone observation; supplied-key variants remain offline only.
+
 # Vault — evidence and operating memory
 - [CHECKPOINT](CHECKPOINT.md) — latest verified project status.
 - [EVIDENCE](EVIDENCE.md) — evidence IDs and limitations.

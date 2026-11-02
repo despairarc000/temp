@@ -103,3 +103,6 @@ knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/research/
 knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/research/R073_RPC_INITIALIZATION_ORDER.md	CONFIRMED_ORIGINAL_STATIC
 knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/research/R074_PHONE_UNIT_FIELD_CONFIRMED.md	PHONE_OBSERVED
 knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/research/R075_DIRECTORY_CALLER_DISCRIMINATOR.md	CONFIRMED
+knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/research/DIRECTORY_ACK_OFFLINE_READINESS.md	CONFIRMED
+knowledge-system/vault/research/DIRECTORY_ACK_OFFLINE_READINESS.md	depends-on	experiments/native_ack_crypto_controls.py	CONFIRMED
+knowledge-system/vault/research/DIRECTORY_ACK_OFFLINE_READINESS.md	depends-on	tools/prepare_directory_ack.py	LOCAL_TEST_ONLY
