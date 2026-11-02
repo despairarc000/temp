@@ -29,7 +29,7 @@ jobs:
           cp /tmp/cf2018_r077_original.zip cf2018/kits/CF2018_R077_ROUTE_ID_Kit.zip
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add cf2018/kits/CF2018_R077_ROUTE_ID_Kit.zip
+          git add -f cf2018/kits/CF2018_R077_ROUTE_ID_Kit.zip
           if ! git diff --cached --quiet; then
             git commit -m "kit(cf2018): publish direct R077 ZIP download"
             git push origin "HEAD:${GITHUB_REF_NAME}"
