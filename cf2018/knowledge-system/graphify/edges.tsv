@@ -115,3 +115,5 @@ knowledge-system/vault/research/DIRECTORY_REQUEST_IDENTIFICATION.md	depends-on	t
 knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/research/DIRECTORY_BY_ID_RESPONSE_CONTRACT.md	CONFIRMED
 knowledge-system/vault/research/DIRECTORY_BY_ID_RESPONSE_CONTRACT.md	depends-on	experiments/native_directory_node_controls.py	CONFIRMED
 knowledge-system/vault/research/DIRECTORY_BY_ID_RESPONSE_CONTRACT.md	depends-on	tests/test_native_directory_nodes.py	CONFIRMED
+knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/research/LOADING_DIRECTORY_CONSUMER.md	CONFIRMED
+knowledge-system/vault/research/LOADING_DIRECTORY_CONSUMER.md	depends-on	knowledge-system/vault/research/DIRECTORY_BY_ID_RESPONSE_CONTRACT.md	CONFIRMED
