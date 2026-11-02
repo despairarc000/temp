@@ -60,7 +60,7 @@ class Tests(unittest.TestCase):
 
     def test_full_dh_ack_source_edges(self):
         self.assertTrue(verify_calls(calls(),funcs()))
-        self.assertEqual(len(REQUIRED_CALLS),16)
+        self.assertEqual(len(REQUIRED_CALLS),17)
 
     def test_missing_new_ctgcp_initialization_refused(self):
         c=calls();c[0x3A3D18].remove(0x3C6A70)
