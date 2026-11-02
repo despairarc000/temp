@@ -99,3 +99,4 @@ knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/research/
 knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/research/SECOND_SERVICE_ACK_PHONE_RESULT.md	CONFIRMED
 knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/research/NATIVE_SYN_APPLICATION_FIELDS.md	CONFIRMED
 knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/research/SYN_ATTRIBUTE_SUPPLIERS.md	CONFIRMED
+knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/research/RPC_DOMAIN_UNIT_SOURCE.md	CONFIRMED

@@ -38,7 +38,7 @@ def synthetic_ack(*, magic=0x4366, key_mode=0):
 
 APPLICATION_FIELDS = {'none': None, 'game_id': (8, 1), 'unit_id': (0x10, 1),
                       'client_type': (0x114, 1), 'platform_101': (0x114, 101),
-                      'platform_102': (0x114, 102)}
+                      'platform_102': (0x114, 102), 'unit_3': (0x10, 3)}
 
 
 def _prepare_syn(library, name_size, relay, attribute):
