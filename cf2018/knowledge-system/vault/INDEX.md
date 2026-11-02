@@ -96,3 +96,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [R077_ROUTE_ID_INTEGRATION](research/R077_ROUTE_ID_INTEGRATION.md) — copy-only original-pinned R073 observer adds a label for CTDir route equality; private prepared-source and phone tests are still gated.
 
 - [R078_CT_DIR_ACK_LINEAGE](research/R078_CT_DIR_ACK_LINEAGE.md) — conditional CTDir→RPC/GCloud ACK receiver callgraph, explicit runtime gaps and joint route/unit synthetic controls; original-native combined test private-gated.
+
+- [R079_CT_DIR_TAIL_UPDATE](research/R079_CT_DIR_TAIL_UPDATE.md) — original-SHA-verified CTDir Thumb B.W wrappers tail-branch into RPC Update; CreateConnection constructs GCloud route metadata and obtains GCloud instance; actual Android runtime remains unknown.
