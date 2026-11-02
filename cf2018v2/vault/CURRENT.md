@@ -1,5 +1,8 @@
 # Current state
 
+R076 (2026-11-02) **OFFLINE VALIDATED, NOT PHONE-RUN**: confirmed R075 CTDir original 10-byte route literal length and distinct RPC caller signatures. Added original-SHA-pinned, privacy-preserving route equality checker returning only fixed MATCH/DIFFERENT/REFUSED labels; it neither sends ACK nor operates on the prior redacted R074 TXT. 12 new public R076 synthetic controls PASS, one private-original SKIP, CI green [run 41372103406](https://github.com/despairarc000/temp/actions/runs/41372103406). [R076 details](../../cf2018/knowledge-system/vault/research/R076_OFFLINE_ROUTE_EQUALITY.md). R075 Vault index-link failure fixed. Next hash-pin copy-only local observer for a later separate phone run; do not claim CTDir identified or allow next-service ACK.
+
+
 R074 (2026-11-02) **NEW REAL PHONE RESULT**: User's sanitized `CF2018_SYN_DIFFERENCE_Result.txt` identifies non-route SYN `syn_changed=[[5,0]]` in all three 131-byte next-service SYNs. **Field5=iUnitID; kind0 is NOT a unit value.** Field14 is 2B shorter due to named route, base_changed=[]; no other changed non-route fields. All next-service ACK0 (probe explicitly disabled) and no auth after reconnect; no rejection or login. This substantiates R072/R073's changed-unit mechanism but does **not** establish numeric unit, CTDir/runtime connector ownership or ACK/key/session acceptance. New **observer-only** route+field5 classifier, 13 public synthetic tests PASS, corrected [CI 41369763827](https://github.com/despairarc000/temp/actions/runs/41369763827). [R074 evidence](../../cf2018/knowledge-system/vault/research/R074_PHONE_UNIT_FIELD_CONFIRMED.md). NEXT trace real connector choice/ACK receiver; do not repeat the completed field-number phone test or enable second ACK.
 
 
