@@ -1,3 +1,5 @@
+R093 (2026-11-02): [Phone directory ACK continuation and offline auth/Bingo readiness](research/DIRECTORY_AUTH_STAGE_PHONE_RESULT.md). Phone sent0x2001 after directory ACK; probe then deliberately closed. No directory auth/Bingo response or login yet. Existing reply pair passes original-native controls; next bounded owner stage observation prepared, default disabled.
+
 R092 (2026-11-02): [Complete offline encrypted ACK controls and optional one-ACK readiness](research/DIRECTORY_ACK_OFFLINE_READINESS.md). Original-native synthetic positives/negatives and loopback checks passed; actual phone remains R077. No login or gameplay. Next bounded owner-phone observation; supplied-key variants remain offline only.
 
 # OPEN QUESTIONS — current auth receive gate

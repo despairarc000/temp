@@ -106,3 +106,6 @@ knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/research/
 knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/research/DIRECTORY_ACK_OFFLINE_READINESS.md	CONFIRMED
 knowledge-system/vault/research/DIRECTORY_ACK_OFFLINE_READINESS.md	depends-on	experiments/native_ack_crypto_controls.py	CONFIRMED
 knowledge-system/vault/research/DIRECTORY_ACK_OFFLINE_READINESS.md	depends-on	tools/prepare_directory_ack.py	LOCAL_TEST_ONLY
+knowledge-system/vault/CHECKPOINT.md	depends-on	knowledge-system/vault/research/DIRECTORY_AUTH_STAGE_PHONE_RESULT.md	CONFIRMED
+knowledge-system/vault/research/DIRECTORY_AUTH_STAGE_PHONE_RESULT.md	depends-on	tools/prepare_directory_stage.py	LOCAL_TEST_ONLY
+knowledge-system/vault/research/DIRECTORY_AUTH_STAGE_PHONE_RESULT.md	depends-on	tests/test_directory_stage_native.py	CONFIRMED
