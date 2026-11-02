@@ -13,6 +13,7 @@
 | [009](009.md) | R064–R069 | Dispatch, SYN/ACK controls, phone context refusal and field diagnostic | ARCHIVED |
 | [010](010.md) | R070–R076 | Unit-field phone evidence, original directory connector, offline route equality | ARCHIVED |
 | [011](011.md) | R077–R081 | Owner CTDir route match, original branch/factory/vtable and offline controls | ARCHIVED |
-| [012](../diary.md) | R081 onward | Current ACK/key receiver research after GCloud source-path audit | CURRENT |
+| [012](012.md) | R081–R090 | ACK modes/body gates, Bot Mode research and header omission controls | ARCHIVED |
+| [013](../diary.md) | R091 onward | Original transport crypto and remaining handshake checks | CURRENT |
 
 At 30 entries OR 8 KB archive the current diary to the next numbered page, update this index, and start a fresh `../diary.md` with a previous-page link. Keep stable R IDs; do not fabricate results. Archive pages are historical; current vault wins.
