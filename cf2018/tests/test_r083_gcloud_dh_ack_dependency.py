@@ -49,7 +49,7 @@ class Tests(unittest.TestCase):
 
     def test_all_gcloud_function_identities(self):
         self.assertTrue(verify_functions(funcs()))
-        self.assertEqual(len(FUNCTIONS),11)
+        self.assertEqual(len(FUNCTIONS),12)
 
     def test_function_size_or_symbol_mutation_refused(self):
         broken=funcs()
