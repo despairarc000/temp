@@ -12,6 +12,7 @@
 | [008](008.md) | R058–R063 | GCloud wiring, dual receiver contracts and legacy framing controls | ARCHIVED |
 | [009](009.md) | R064–R069 | Dispatch, SYN/ACK controls, phone context refusal and field diagnostic | ARCHIVED |
 | [010](010.md) | R070–R076 | Unit-field phone evidence, original directory connector, offline route equality | ARCHIVED |
-| [011](../diary.md) | R077 onward | Pinned observer integration and next route-identity diagnostic | CURRENT |
+| [011](011.md) | R077–R081 | Owner CTDir route match, original branch/factory/vtable and offline controls | ARCHIVED |
+| [012](../diary.md) | R081 onward | Current ACK/key receiver research after GCloud source-path audit | CURRENT |
 
 At 30 entries OR 8 KB archive the current diary to the next numbered page, update this index, and start a fresh `../diary.md` with a previous-page link. Keep stable R IDs; do not fabricate results. Archive pages are historical; current vault wins.
