@@ -1,3 +1,5 @@
+**R099 OWNER CORRECTION (2026-11-02):** Checking resources is reached in every test; the latest only seemed faster, untimed. No newly reached screen or response-caused progression is established. The prior request to identify that same baseline screen is superseded by [R099's configuration-source check](DISPATCH_AND_RESOURCE_REFERENCE.md).
+
 # R098 — Settings reply written; owner reports Checking resources; updater traced
 
 2026-11-02. No new reply variation, game modification or additional phone run during this review.

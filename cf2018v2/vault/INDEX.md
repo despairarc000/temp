@@ -14,3 +14,5 @@ Detailed source findings remain linked in the original workspace. [Diary](../dia
 - [R097 default startup-directory control](../../cf2018/knowledge-system/vault/research/STARTUP_DIRECTORY_CONFIG_CONTROL.md): source fallback, original native synthetic correlation checks, bounded owner-run test.
 
 - [R098 settings phone result and resource follow-up](../../cf2018/knowledge-system/vault/research/DIRECTORY_CONFIG_PHONE_RESOURCE_FOLLOWUP.md): reported screen change, timeout alternative, separate updater source.
+
+- [R099 dispatcher and resource reference](../../cf2018/knowledge-system/vault/research/DISPATCH_AND_RESOURCE_REFERENCE.md): baseline UI correction, combined original correlation controls, decoded config pointer, bounded source-container check.
