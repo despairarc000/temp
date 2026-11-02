@@ -1,5 +1,8 @@
 # OPEN QUESTIONS — current auth receive gate
 
+R076 (2026-11-02): [Offline route-equality module](research/R076_OFFLINE_ROUTE_EQUALITY.md) is source-free tested, not yet inserted into owner-side R073/TGCP session handling. Unknown: whether phone route equals CTDir original embedded route; even equality will not establish runtime caller or ACK/security compatibility. The R074 redacted report cannot reconstruct route values. Next separately pin safe listener-copy integration and only later request one authorized label-only phone run.
+
+
 R074 (2026-11-02): **R069 unknown field NUMBER CLOSED via real phone report**: every next SYN has only field5 varuint changed apart from route14 (reported `[[5,0]]`). Unit ID's VALUE, whether CTDir or another caller, actual route literal/domain, and next-service ACK/session/auth remain OPEN. [Evidence](research/R074_PHONE_UNIT_FIELD_CONFIRMED.md). No repeat field diagnostic, no second ACK without source-verified receiver path and explicit bounded user authorization.
 
 
