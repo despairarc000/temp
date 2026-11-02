@@ -25,3 +25,11 @@ Researched historical 2018 guides (BlueStacks and Uptodown). The original **Bot 
 **Seven inline controls PASS** using existing `native_control.NativeControl.execute(0x3aab44,…)` and independently synthetic `_field` headers: explicit fields overwrite seeded state; omit4,6,9 individually or together returns0 and retains corresponding seeded values; fresh-zero omission retains zeros; overstated header length returns−12. Actual header/base parsers execute; only bounded libc memory stub used. No complete ACK, socket, authentication or phone execution.
 
 **UNKNOWN:** phone receiver/state and whether upstream initialization prevents retention. This is not a mandatory-field specification. NEXT trace packet-boundary clearing and presence checks before interpreting omitted values or proposing ACK2. Phone remains R077.
+
+## R090 — [FINDING] Original receive path retains omitted fields differently across read boundaries (2026-11-02)
+
+**ORIGINAL_NATIVE_EMULATION_WITH_STUBS / CONFIRMED_NATIVE_STATIC; SYNTHETIC_ONLY inputs.** Rehashed exact R089 Apollo. Native gather decodes directly into active header (`0x3ab6d4`) or lookahead cache (`0x3ab722`), later copying cache to active storage (`0x3ab64a–58`, size0xb5c). No blanket clear precedes these decodes in this path.
+
+**13 inline streams /23 receive calls PASS**, executing original `0x3abe34` with existing NativeControl: two synthetic zero-body type0x6001/6002 headers, delivered together versus successive bounded read stubs. Omitted second-header type or decrypt flag retains first-header values with separate reads, but inherits zero-initialized cache values when coalesced. Explicit fields yield identical results across both schedules. Omitted length stays0 in these controls; nonzero-length retention not tested. Fresh-zero omission, malformed marker(−18), truncated packet(−12) controls PASS. Only network-read, bounded libc and logging/error boundaries stubbed; no sends, decryption execution, auth or phone run.
+
+**UNKNOWN:** actual phone state/header presence and connection-reset behavior. This narrows R089's packet-path question, not a login result. NEXT check explicit-field ACK receiver predicates; avoid attributing phone stalls to this synthetic omission effect. Phone remains R077.
