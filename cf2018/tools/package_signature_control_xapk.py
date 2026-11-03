@@ -36,7 +36,11 @@ def main():
         if shutil.disk_usage(downloads).free < sum(i.file_size for i in infos)+len(payload)+64*1024*1024:raise ValueError('Not enough space for a separate XAPK.')
         if old.getinfo('manifest.json').file_size>65536:raise ValueError('Unexpected manifest size.')
         manifest=json.loads(old.read('manifest.json'))
-        if str(manifest.get('manifest_version')) not in ('1','2') or manifest.get('package_name')!='com.tencent.tmgp.cfmnac':raise ValueError('Unsupported XAPK manifest.')
+        if not isinstance(manifest,dict):raise ValueError('Unsupported XAPK manifest object.')
+        version=manifest.get('xapk_version',manifest.get('manifest_version'))
+        if 'xapk_version' in manifest and 'manifest_version' in manifest and str(manifest['xapk_version'])!=str(manifest['manifest_version']):
+            raise ValueError('Conflicting XAPK manifest versions.')
+        if str(version) not in ('1','2') or manifest.get('package_name')!='com.tencent.tmgp.cfmnac':raise ValueError('Unsupported XAPK manifest schema or package.')
         original_apk=old.read(apk)
         replacements={}
         for algorithm in ('md5','sha1','sha256'):

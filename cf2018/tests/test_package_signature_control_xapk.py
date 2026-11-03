@@ -13,8 +13,9 @@ class Packaging(unittest.TestCase):
         download=root/'storage/shared/Download';download.mkdir(parents=True)
         stage=root/'cf2018_control_test';stage.mkdir()
         original=b'synthetic-original-apk';control=b'synthetic-signed-control-apk';obb=b'synthetic resource'*100
-        manifest={'manifest_version':2,'package_name':'com.tencent.tmgp.cfmnac','total_size':len(original)+len(obb),
+        manifest={'xapk_version':2,'package_name':'com.tencent.tmgp.cfmnac','total_size':len(original)+len(obb),
                   'apks':[{'file':'base.apk','size':str(len(original)),'sha256':m.sha(original)}],
+                  'split_apks':[{'file':'base.apk','id':'base'}],
                   'expansions':[{'file':OBB,'size':len(obb)}]}
         (stage/'control.apk').write_bytes(control)
         with ZipFile(download/'Original.xapk','w') as z:
@@ -40,6 +41,9 @@ class Packaging(unittest.TestCase):
                 self.assertEqual(meta['apks'][0]['sha256'],m.sha(control))
                 self.assertEqual(meta['apks'][0]['size'],str(len(control)))
                 self.assertEqual(meta['expansions'],manifest['expansions'])
+                self.assertEqual(meta['xapk_version'],2)
+                self.assertNotIn('manifest_version',meta)
+                self.assertEqual(meta['split_apks'],manifest['split_apks'])
             self.assertEqual((download/'Original.xapk').read_bytes(),before)
             receipt=json.loads(target.with_suffix('.txt').read_text())
             self.assertTrue(receipt['all_output_payloads_verified']);self.assertFalse(receipt['installation_performed'])
@@ -68,5 +72,28 @@ class Packaging(unittest.TestCase):
             root=Path(d);download,original,control,obb,_=self.fixture(root)
             self.invoke(root,original,control,obb);self.invoke(root,original,control,obb)
             self.assertEqual(len(list(download.glob('CF2018_SIGNATURE_CONTROL_*.xapk'))),2)
+
+    def rewrite_manifest(self,download,change):
+        path=download/'Original.xapk'
+        with ZipFile(path) as z:items={n:z.read(n) for n in z.namelist()}
+        meta=json.loads(items['manifest.json']);change(meta);items['manifest.json']=json.dumps(meta).encode()
+        with ZipFile(path,'w') as z:
+            for n,b in items.items():z.writestr(n,b)
+
+    def test_legacy_schema_retained_without_invented_xapk_field(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);download,original,control,obb,_=self.fixture(root)
+            self.rewrite_manifest(download,lambda v:v.update(manifest_version=v.pop('xapk_version')))
+            self.invoke(root,original,control,obb)
+            with ZipFile(next(download.glob('CF2018_SIGNATURE_CONTROL_*.xapk'))) as z:
+                meta=json.loads(z.read('manifest.json'));self.assertEqual(meta['manifest_version'],2)
+                self.assertNotIn('xapk_version',meta)
+
+    def test_conflicting_schema_versions_refused(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);download,original,control,obb,_=self.fixture(root)
+            self.rewrite_manifest(download,lambda v:v.update(manifest_version=1))
+            with self.assertRaisesRegex(ValueError,'Conflicting'):self.invoke(root,original,control,obb)
+            self.assertEqual(list(download.glob('CF2018*')),[])
 
 if __name__=='__main__':unittest.main()
