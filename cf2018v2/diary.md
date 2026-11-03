@@ -11,3 +11,11 @@ Previous [page014 archive](diary/014.md): R096–R101. See [current state](vault
 **CONFIRMED_REPOSITORY_SOURCE:** Timestamp/random-suffix result names, matching REPORT_ID, exclusive creation and open-session snapshot labels prevent overwriting/ambiguity. Same replies/gates/budgets.5 preparer,6 observation,7 loopback PASS; doctors blocked by historical snapshot omissions. Page014 entries preserved with relative links rebased before8KiB overflow.
 
 NEXT original version-query route/result/callback trace; no repeat phone test just for naming. Future owner deliverables use unique names. No new reply/game patch/login/bots; schedules paused.
+
+## R103 — [FINDING] Version reply schema and callback predicates verified (2026-11-03 Asia/Manila)
+
+**CONFIRMED_NATIVE_STATIC:** Exact Apollo generated sender0x33e400 names VersionUpdate:ReqUpdateVersion; separate updater connector/client source chain verified. Callback0x32d864 tests RPC status then reply.result; either nonzero sets failure0x66, both zero reach completion0x65.
+
+**ORIGINAL_NATIVE_EMULATION / SYNTHETIC_ONLY:** Actual writer exposes result/comm_info and optional package/config schema. Pointer reader0x33ddfc consumes a5B nested empty result with outer presence true/inner flags0; explicit result0 sets flags1. Parsing alone is not usable updater acceptance. Callback scalar negative controls and zero/zero positive execute original branches; assignment/text/destruction boundaries substituted.10 methods PASS; source-free1 PASS/9 SKIP. [Proof/limits](../cf2018/knowledge-system/vault/research/VERSION_REPLY_CALLBACK_CONTRACT.md).
+
+Faster Loading remains untimed/causality UNKNOWN; settings reply might shorten a wait, but directory timeout also finishes. No all-replies acceptance, packet sent, full updater/Android/download/login/bots claim. NEXT original assignment/CreateNextAction/configuration-mode and receiver-correlation trace before a version reply; no new phone test. Doctors unchanged snapshot omissions; unique deliverables/schedules paused.
