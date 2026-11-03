@@ -20,3 +20,5 @@ Login after resource screens: [R112 lobby selection/logs](../../cf2018/knowledge
 Provider/account login: [R114 DEX/managed chain](../../cf2018/knowledge-system/vault/research/ACCOUNT_PROVIDER_AND_IMSDK_STAGES.md).
 
 Account parser/HTTPS: [R115](../../cf2018/knowledge-system/vault/research/ACCOUNT_RESPONSE_GATE_AND_HTTPS.md).
+
+Account regional-config priority/error read: [R116](../../cf2018/knowledge-system/vault/research/ACCOUNT_CONFIGURATION_PRIORITY_AND_ERROR_READ.md).

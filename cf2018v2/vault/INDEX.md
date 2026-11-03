@@ -44,3 +44,5 @@ Detailed source findings remain linked in the original workspace. [Diary](../dia
 - R114: [Provider/account/game login stages](../../cf2018/knowledge-system/vault/research/ACCOUNT_PROVIDER_AND_IMSDK_STAGES.md).
 
 - R115: [Account response and HTTPS](../../cf2018/knowledge-system/vault/research/ACCOUNT_RESPONSE_GATE_AND_HTTPS.md).
+
+Account regional-config priority/error read: [R116](../../cf2018/knowledge-system/vault/research/ACCOUNT_CONFIGURATION_PRIORITY_AND_ERROR_READ.md).

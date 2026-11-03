@@ -40,3 +40,5 @@ Login source: [R112 endpoint selection and existing-log check](../vault/research
 Account SDK: [R114 stages and HTTPS](../vault/research/ACCOUNT_PROVIDER_AND_IMSDK_STAGES.md).
 
 Account parser/transport: [R115](../vault/research/ACCOUNT_RESPONSE_GATE_AND_HTTPS.md).
+
+Account regional-config priority/error read: [R116](../vault/research/ACCOUNT_CONFIGURATION_PRIORITY_AND_ERROR_READ.md).
