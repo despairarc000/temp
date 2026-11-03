@@ -54,27 +54,29 @@ class Prepared(unittest.TestCase):
                 with t.connect(server,t.syn) as c:
                     wire=frame(address_body(b'download',1));c.sendall(wire);t.m.recv_exact(c,len(make_candidate(wire)))
                 with t.connect(server,t.named(b'VersionUpdate')) as c:
-                    for product,rpc in ((1,0x100000002),(2,0x100000003)):
-                        wire=frame(body(mode=product,rpc=rpc),route=b'VersionUpdate');expected,label=response(wire)
+                    for product,request_type,rpc in ((1,1,0x100000002),(2,1,0x100000003),(1,2,0x100000004),(2,2,0x100000005)):
+                        payload=body(mode=product,rpc=rpc).replace(b'\x08\0\4'+(1).to_bytes(4,'big'),b'\x08\0\4'+request_type.to_bytes(4,'big'))
+                        wire=frame(payload,route=b'VersionUpdate');expected,label=response(wire)
                         c.sendall(wire);self.assertEqual(t.m.recv_exact(c,len(expected)),expected)
+                        c.sendall(t.m.make_client_frame(0x5001,b'Q'*14)) if product==1 and request_type==1 else None
                     c.sendall(frame(body(),route=b'VersionUpdate'));self.assertEqual(c.recv(1),b'')
                 events=[json.loads(x) for x in run.log.read_text().splitlines()]
                 results=[e for e in events if e['action']=='version_result_written']
-                self.assertEqual([e['version_mode'] for e in results],['APPLICATION','RESOURCES'])
-                self.assertEqual(run.max_sessions,8);self.assertFalse(run.observation_abort.is_set())
-                self.assertEqual(run.version_products_claimed,{'APPLICATION','RESOURCES'})
+                self.assertEqual([e['version_mode'] for e in results],['APPLICATION','RESOURCES','APPLICATION','RESOURCES'])
+                self.assertEqual(run.max_sessions,12);self.assertFalse(run.observation_abort.is_set())
+                self.assertEqual(run.version_products_claimed,{'APPLICATION:NORMAL','RESOURCES:NORMAL','APPLICATION:CUSTOM','RESOURCES:CUSTOM'})
                 report=t.m.report(run,Path(tmp)/'safe.txt').read_text()
-                self.assertEqual(report.count('event=version_result_written'),2)
+                self.assertEqual(report.count('event=version_result_written'),4)
                 self.assertNotIn('PRIVATE_CANARY',report)
             finally:server.shutdown();server.server_close();thread.join(3)
-    def test_second_lookup_and_handshake_are_bounded_by_two(self):
+    def test_extra_lookup_and_handshake_are_bounded_by_four(self):
         import socket
         from r033_reply import make_candidate
         t=self.t
         with tempfile.TemporaryDirectory() as tmp:
             run=t.m.Run(Path(tmp)/'run');run.directory_config_written=True
-            run.version_products_written={'APPLICATION'};run.version_products_claimed={'APPLICATION'}
-            run.version_lookup_claimed=1;run.version_ack_claimed=1;run.r033_reply_claimed=True
+            run.version_products_written={'APPLICATION:NORMAL'};run.version_products_claimed={'APPLICATION:NORMAL'}
+            run.version_lookup_claimed=3;run.version_ack_claimed=3;run.r033_reply_claimed=True
             server,thread=t.start(run)
             try:
                 with t.connect(server,t.syn) as c:
@@ -86,7 +88,7 @@ class Prepared(unittest.TestCase):
                     c.sendall(frame(address_body(b'download',1)));self.assertEqual(c.recv(1),b'')
                 with socket.create_connection(server.server_address,timeout=3) as c:
                     c.settimeout(3);c.sendall(t.named(b'VersionUpdate'));self.assertEqual(c.recv(1),b'')
-                self.assertEqual((run.version_lookup_claimed,run.version_ack_claimed),(2,2))
+                self.assertEqual((run.version_lookup_claimed,run.version_ack_claimed),(4,4))
             finally:server.shutdown();server.server_close();thread.join(3)
 
 @unittest.skipUnless(os.environ.get('CF18_APOLLO_LIBRARY') and os.environ.get('CF18_VERSION_DISCOVERY_PREPARED'),'original and prepared source required')

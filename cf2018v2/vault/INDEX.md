@@ -36,3 +36,5 @@ Detailed source findings remain linked in the original workspace. [Diary](../dia
 - R107: [Phone update-address lookup and scoped version discovery](../../cf2018/knowledge-system/vault/research/VERSION_ADDRESS_PHONE_AND_DISCOVERY.md).
 
 - R108: [Phone version request and combined no-update control](../../cf2018/knowledge-system/vault/research/VERSION_REQUEST_PHONE_AND_NO_UPDATE.md).
+
+- R110: [Version follow-up/profile controls](../../cf2018/knowledge-system/vault/research/VERSION_FOLLOWUP_AND_OPERATION_PROFILES.md).

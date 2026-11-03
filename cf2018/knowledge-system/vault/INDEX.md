@@ -145,3 +145,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - R107: [Phone update-address lookup and scoped version discovery](research/VERSION_ADDRESS_PHONE_AND_DISCOVERY.md).
 
 - R108: [Phone version request and combined no-update control](research/VERSION_REQUEST_PHONE_AND_NO_UPDATE.md).
+
+- R110: [Version follow-up/profile controls](research/VERSION_FOLLOWUP_AND_OPERATION_PROFILES.md).

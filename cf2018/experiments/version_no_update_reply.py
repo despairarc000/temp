@@ -6,11 +6,10 @@ this is an offline-server experiment, not an original-server update verdict.
 def field(kind,ident,value):return bytes([kind])+ident.to_bytes(2,'big')+value
 def string(ident,value=b''):return field(11,ident,len(value).to_bytes(4,'big')+value)
 
-def response(frame):
+def _request(frame):
     from version_discovery_control import classify_frame,METHOD
     from routed_fingerprint_v21 import route_value_and_body
     from tgcp_wire import fields,require_field
-    from directory_config_reply import field as tag
     profile=classify_frame(frame)
     if profile['version_request']!='COMPLETE_LEGACY64' or profile['version_mode'] not in ('APPLICATION','RESOURCES'):raise ValueError('complete known version request required')
     _,body=route_value_and_body(frame)
@@ -35,6 +34,17 @@ def response(frame):
     if product not in (1,2) or request_type not in (1,2):raise ValueError('unsupported version product/request type')
     version=comm[5 if product==1 else 6][1]
     if version==0:raise ValueError('installed version missing')
+    return comm,version,rpcseq,profile
+
+def operation_label(frame):
+    comm,version,rpcseq,profile=_request(frame)
+    return 'NORMAL' if comm[4][1]==1 else 'CUSTOM'
+
+def response(frame):
+    from directory_config_reply import field as tag
+    from version_discovery_control import METHOD
+    from tgcp_wire import fields,require_field
+    comm,version,rpcseq,profile=_request(frame)
     # Known shared response comm fields only; optional request platform fields
     # are not added to the response schema.
     echoed=b''.join(comm[i][2] for i in range(1,8))+b'\0'

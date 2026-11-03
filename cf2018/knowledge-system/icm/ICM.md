@@ -32,3 +32,5 @@ R106 startup resource/version evidence: [Cap failure and exact address-target di
 R107 startup version evidence: [Phone update lookup and scoped next-service discovery](../vault/research/VERSION_ADDRESS_PHONE_AND_DISCOVERY.md).
 
 R108 version next step: [Actual request and combined reply](../vault/research/VERSION_REQUEST_PHONE_AND_NO_UPDATE.md).
+
+R110: [Version control/operation profiles](../vault/research/VERSION_FOLLOWUP_AND_OPERATION_PROFILES.md).
