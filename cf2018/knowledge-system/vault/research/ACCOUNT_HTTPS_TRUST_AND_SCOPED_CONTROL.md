@@ -1,3 +1,5 @@
+UPDATE2026-11-03: owner approved private preparation/offline checks. [Actual resulting controls and limits](SCOPED_TRUST_APK_OFFLINE_PREPARATION.md) supersede the pending-preparation status below. Installation is not authorized.
+
 # R120 — Account HTTPS transport and proposed isolated trust control
 
 2026-11-03 UTC. Read-only investigation; no APK/DLL/OBB/native library, trust store or account database modified. No new phone/provider/game-server run. This proposal awaits owner approval.

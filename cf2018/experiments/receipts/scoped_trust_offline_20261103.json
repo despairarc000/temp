@@ -1,0 +1,38 @@
+{
+  "source_apk_sha256": "33045335685284385866e8b0e2df55285009399c285294c2f428b451ee00d3d9",
+  "original_non_signature_entries": 1212,
+  "control_changed_original_payloads": 0,
+  "candidate_changed_original_payloads": [
+    "AndroidManifest.xml",
+    "resources.arsc"
+  ],
+  "candidate_added_payloads": [
+    "res/xml/cf18_scoped_trust.xml",
+    "res/raw/cf18_local_ca.pem"
+  ],
+  "original_resource_ids_preserved": 2999,
+  "added_resource_ids": 2,
+  "original_type_chunks_byte_identical": true,
+  "original_string_indices_preserved": true,
+  "manifest_only_added_attribute": true,
+  "scoped_sdk_host_count": 7,
+  "google_facebook_trust_change": false,
+  "signatures_verified": true,
+  "zip_alignment_verified": true,
+  "correct_ca_offline_chain_pass": true,
+  "wrong_ca_offline_chain_rejected": true,
+  "android_runtime_tested": false,
+  "phone_installation_performed": false,
+  "apk_hashes": {
+    "signature_only": "781a96bb5d719f15edc0f926812d3a671809e2bd0c48b3d33be5a095440d4c1a",
+    "scoped_trust": "069c57c864492388ee9aeb936a74eaadfa1adc6aa15841948e45b1c7df14b0b0"
+  },
+  "protected_dll_sha256": "174a30cea9dba4f84b90a446f247cc0d212b7c83d462889d57703e7875e249e9",
+  "same_signer_sha256": "2d1c98faa90b15ded8696d5d869e07a59f266874233176e532e73c5345fe9c1b",
+  "signing_schemes": [
+    "v1",
+    "v2"
+  ],
+  "build_tools_archive_sha256": "bd3a4966912eb8b30ed0d00b0cda6b6543b949d5ffe00bea54c04c81e1561d88",
+  "official_android_repository_archive_checksum_matched": true
+}

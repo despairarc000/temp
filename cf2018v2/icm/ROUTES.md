@@ -26,3 +26,5 @@ Account regional-config priority/error read: [R116](../../cf2018/knowledge-syste
 SDK DNS report/hostname-role discriminator: [R117](../../cf2018/knowledge-system/vault/research/ACCOUNT_DNS_REPORT_AND_ROLE_DISCRIMINATOR.md).
 
 Account HTTPS/trust/isolated APK proposal: [R120](../../cf2018/knowledge-system/vault/research/ACCOUNT_HTTPS_TRUST_AND_SCOPED_CONTROL.md).
+
+Approved APK offline controls: [Preparation/limits](../../cf2018/knowledge-system/vault/research/SCOPED_TRUST_APK_OFFLINE_PREPARATION.md).

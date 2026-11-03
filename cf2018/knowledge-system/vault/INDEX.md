@@ -159,3 +159,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - R115: [Account response and HTTPS](research/ACCOUNT_RESPONSE_GATE_AND_HTTPS.md).
 
 [R120 — Account HTTPS trust and isolated control proposal](research/ACCOUNT_HTTPS_TRUST_AND_SCOPED_CONTROL.md).
+
+[Approved scoped-trust APK offline preparation](research/SCOPED_TRUST_APK_OFFLINE_PREPARATION.md).

@@ -185,3 +185,6 @@ knowledge-system/vault/CHECKPOINT.md	evidence	knowledge-system/vault/research/AC
 knowledge-system/vault/research/ACCOUNT_DNS_REPORT_AND_ROLE_DISCRIMINATOR.md	describes	tools/summarize_account_log.py	LOCAL_TEST_ONLY
 knowledge-system/vault/research/ACCOUNT_DNS_REPORT_AND_ROLE_DISCRIMINATOR.md	tests	tests/test_summarize_account_log.py	SYNTHETIC_ONLY
 knowledge-system/vault/CHECKPOINT.md	evidence	knowledge-system/vault/research/ACCOUNT_HTTPS_TRUST_AND_SCOPED_CONTROL.md	ORIGINAL_PLATFORM_STATIC_PROPOSAL
+knowledge-system/vault/CHECKPOINT.md	evidence	knowledge-system/vault/research/SCOPED_TRUST_APK_OFFLINE_PREPARATION.md	OFFLINE_BUILD_ONLY
+knowledge-system/vault/research/SCOPED_TRUST_APK_OFFLINE_PREPARATION.md	describes	experiments/scoped_trust_resources.py	OFFLINE_BUILD_ONLY
+knowledge-system/vault/research/SCOPED_TRUST_APK_OFFLINE_PREPARATION.md	tests	tests/test_scoped_trust_resources.py	SYNTHETIC_ONLY
