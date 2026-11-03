@@ -1,4 +1,4 @@
-import importlib.util, json, subprocess, sys, tempfile, unittest
+import hashlib, importlib.util, json, subprocess, sys, tempfile, unittest
 from pathlib import Path
 from unittest.mock import patch
 
@@ -9,6 +9,28 @@ spec.loader.exec_module(reader)
 
 
 class Summary(unittest.TestCase):
+    def test_dns_roles_use_exact_normalized_fingerprint(self):
+        digest = hashlib.sha256(b'synthetic.invalid').hexdigest()
+        known = {digest: 'ACCOUNT_API_ENDPOINT'}
+        self.assertEqual(reader.dns_role('SYNTHETIC.INVALID.', known), 'ACCOUNT_API_ENDPOINT')
+        self.assertEqual(reader.dns_role('prefix.synthetic.invalid', known), 'OTHER_HOST_UNKNOWN_ROLE')
+
+    def test_shared_host_is_not_forced_to_account_role(self):
+        digest = hashlib.sha256(b'synthetic.invalid').hexdigest()
+        self.assertEqual(reader.dns_role('synthetic.invalid', {digest: 'SHARED_ACCOUNT_CONFIG_ENDPOINT'}),
+                         'SHARED_ACCOUNT_CONFIG_ENDPOINT')
+
+    def test_dns_host_never_leaves_report_even_when_escaped(self):
+        raw = b'D/iMSDK(123): UnknownHostException: Unable to resolve host \\"synthetic.invalid\\": No address associated\n'
+        report = reader.summarize(raw)
+        self.assertEqual(report['dns_host_mentions'], {'OTHER_HOST_UNKNOWN_ROLE': 1})
+        self.assertNotIn('synthetic.invalid', json.dumps(report))
+        self.assertEqual(report['stage_attribution'], 'UNKNOWN')
+
+    def test_exception_or_unrelated_host_text_cannot_identify_service(self):
+        raw = b'D/iMSDK(123): UnknownHostException url=https://synthetic.invalid\nD/Other(123): Unable to resolve host "synthetic.invalid"\n'
+        self.assertEqual(reader.summarize(raw)['dns_host_mentions'], {})
+
     def test_fixed_status_and_exception_mentions_only(self):
         raw = b'D/iMSDK  ( 123): {"imsdkRetCode":4,"code":-111}\nD/iMSDK(123): SSLHandshakeException\n'
         result = reader.summarize(raw)

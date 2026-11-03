@@ -42,3 +42,5 @@ Account SDK: [R114 stages and HTTPS](../vault/research/ACCOUNT_PROVIDER_AND_IMSD
 Account parser/transport: [R115](../vault/research/ACCOUNT_RESPONSE_GATE_AND_HTTPS.md).
 
 Account regional-config priority/error read: [R116](../vault/research/ACCOUNT_CONFIGURATION_PRIORITY_AND_ERROR_READ.md).
+
+SDK DNS report/hostname-role discriminator: [R117](../vault/research/ACCOUNT_DNS_REPORT_AND_ROLE_DISCRIMINATOR.md).

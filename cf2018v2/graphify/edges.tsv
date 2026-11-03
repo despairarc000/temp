@@ -42,3 +42,4 @@ vault/CURRENT.md	evidence	../cf2018/knowledge-system/vault/research/ACCOUNT_RESP
 vault/CURRENT.md	evidence	../cf2018/knowledge-system/vault/research/ACCOUNT_CONFIGURATION_PRIORITY_AND_ERROR_READ.md
 vault/CURRENT.md	next-discriminator	../cf2018/tools/summarize_account_log.py
 ../cf2018/tools/summarize_account_log.py	tested-by	../cf2018/tests/test_summarize_account_log.py
+vault/CURRENT.md	evidence	../cf2018/knowledge-system/vault/research/ACCOUNT_DNS_REPORT_AND_ROLE_DISCRIMINATOR.md

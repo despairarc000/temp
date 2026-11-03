@@ -22,3 +22,5 @@ Provider/account login: [R114 DEX/managed chain](../../cf2018/knowledge-system/v
 Account parser/HTTPS: [R115](../../cf2018/knowledge-system/vault/research/ACCOUNT_RESPONSE_GATE_AND_HTTPS.md).
 
 Account regional-config priority/error read: [R116](../../cf2018/knowledge-system/vault/research/ACCOUNT_CONFIGURATION_PRIORITY_AND_ERROR_READ.md).
+
+SDK DNS report/hostname-role discriminator: [R117](../../cf2018/knowledge-system/vault/research/ACCOUNT_DNS_REPORT_AND_ROLE_DISCRIMINATOR.md).
