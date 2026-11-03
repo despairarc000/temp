@@ -24,3 +24,5 @@ Detailed source findings remain linked in the original workspace. [Diary](../dia
 - [R101 resource observation lifetime](../../cf2018/knowledge-system/vault/research/RESOURCE_OBSERVATION_LIFETIME.md): shutdown confound and optional same-reply180s control.
 
 - [R102 three-minute result, updater wait error and unique reports](../../cf2018/knowledge-system/vault/research/RESOURCE_WAIT_ERROR_AND_REPORT_ID.md).
+
+- [R103 version reply schema and callback contract](../../cf2018/knowledge-system/vault/research/VERSION_REPLY_CALLBACK_CONTRACT.md).
