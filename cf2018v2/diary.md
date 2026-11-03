@@ -45,3 +45,11 @@ Technical blocker: actual phone version request/connection not identified in upl
 **ORIGINAL_NATIVE_EMULATION / SYNTHETIC_ONLY:** Original ParseDomainName0x3993c8 plus whole RPC writer0x3998d4 matches independent80/85B fixtures for synthetic dir.3.42/download.1.42 keys, including a separately modeled packet prefix. Qualified-name issue was already R025.29 methods PASS; source-free target4 PASS/4 SKIP. [Proof/limits](../cf2018/knowledge-system/vault/research/RESOURCE_CAP_AND_ADDRESS_TARGET.md).
 
 **HYPOTHESIS:** Second address candidate requests the update endpoint; actual phone target/owner, reply acceptance and UI timing cause UNKNOWN. NEXT one bounded manual fixed-label identification, no new reply. Doctors unchanged snapshot omissions; no game patch/resource completion/login/bots; schedules paused.
+
+## R107 — [FINDING] Phone update-address lookup identified (2026-11-03 Asia/Manila)
+
+**PHONE_REPORT:** run_20261103T022837Z_202f1c3f identifies directory then update-address queries; intentional53.52s identification stop. Settings223B written; no updater-address reply or VersionUpdate RPC observed. UI timing is not acceptance.
+
+**ORIGINAL_NATIVE_EMULATION / SYNTHETIC_ONLY:** Original route operand, typed request writer and FillReq product/request mapping verified. **CONFIRMED_REPOSITORY_SOURCE:** Separate manual copy allows one correlated update-address reply after settings, exact-context one-shot version handshake, then typed-request identification without update result. Four-session/180s/first-excess abort retained.15 methods PASS; source-free4 PASS/8 SKIP. [Proof/limits](../cf2018/knowledge-system/vault/research/VERSION_ADDRESS_PHONE_AND_DISCOVERY.md).
+
+NEXT one manual discovery run; real version-channel acceptance/resource completion/login/bots UNKNOWN. Schedules paused; doctors unchanged snapshot omissions.
