@@ -38,3 +38,5 @@ R110: [Version control/operation profiles](../vault/research/VERSION_FOLLOWUP_AN
 Login source: [R112 endpoint selection and existing-log check](../vault/research/LOGIN_LOBBY_SELECTION_AND_METADATA.md).
 
 Account SDK: [R114 stages and HTTPS](../vault/research/ACCOUNT_PROVIDER_AND_IMSDK_STAGES.md).
+
+Account parser/transport: [R115](../vault/research/ACCOUNT_RESPONSE_GATE_AND_HTTPS.md).

@@ -18,3 +18,5 @@ Update a route when its evidence changes. Current facts take precedence over his
 Login after resource screens: [R112 lobby selection/logs](../../cf2018/knowledge-system/vault/research/LOGIN_LOBBY_SELECTION_AND_METADATA.md).
 
 Provider/account login: [R114 DEX/managed chain](../../cf2018/knowledge-system/vault/research/ACCOUNT_PROVIDER_AND_IMSDK_STAGES.md).
+
+Account parser/HTTPS: [R115](../../cf2018/knowledge-system/vault/research/ACCOUNT_RESPONSE_GATE_AND_HTTPS.md).

@@ -32,6 +32,21 @@ def audit(path):
     error=methods('tools/net/IMSDKHttpClient$2','onErrorResponse')
     if len(error)!=1:raise ValueError('original error callback changed')
     ins=dict(error[0].get_instructions_idx())
+    handlers=methods('base/login/IMSDKLoginBase','handleServerData')
+    if len(handlers)!=1:raise ValueError('original server handler changed')
+    gate=dict(handlers[0].get_instructions_idx())
+    https_methods=methods('base/IMSDKManagerBase','enableHttps')
+    https_ops=list(https_methods[0].get_instructions()) if len(https_methods)==1 else []
+    def field_annotations(cls,field_name):
+        c=dex.get_class(root+cls+';');directory=dex.CM.get_annotations_directory_item(c.get_annotations_off())
+        out=[]
+        for f in directory.get_field_annotations():
+            if dex.CM.get_field(f.get_field_idx())[-1]!=field_name:continue
+            for off in dex.CM.get_annotation_set_item(f.get_annotations_off()).get_annotation_off_item():
+                ann=off.get_annotation_item().get_annotation()
+                if not dex.CM.get_type(ann.get_type_idx()).endswith('/JsonProp;'):continue
+                out.extend(e.get_value().get_value() for e in ann.get_elements() if dex.CM.get_string(e.get_name_idx())=='value')
+        return out
     checks={
         'google_starts_android_provider':has('login/google/GoogleLogin','login2Channel','->connectGoogleApiClient()'),
         'google_success_notifies_sdk':has('login/google/GoogleLogin$GoogleAuthConnectListener','handleConnectSuccess','->onNotify(Ljava/util/Map;)'),
@@ -46,6 +61,17 @@ def audit(path):
         'http_error_callback_sets_primary_four':ins[0x8e].get_name()=='const/4' and ins[0x8e].get_operands()==[(0,2),(1,4)] and ins[0xf2].get_name()=='invoke-direct',
         'http_client_uses_volley':has('tools/net/IMSDKHttpClient','post','->executeVolley('),
         'standard_queue_uses_hurlstack':has('tools/net/volley/toolbox/Volley','newRequestQueue','HurlStack;-><init>()'),
+        'backend_status_maps_to_code':field_annotations('api/IMSDKResult','thirdRetCode')==['code'],
+        'sdk_primary_is_separate':field_annotations('api/IMSDKResult','imsdkRetCode')==['imsdkRetCode'],
+        'internal_identity_maps_to_iopenid':field_annotations('api/login/IMSDKLoginResult','openId')==['iOpenid'],
+        'internal_token_maps_to_sinnertoken':field_annotations('api/login/IMSDKLoginResult','innerToken')==['sInnerToken'],
+        'backend_success_comparator_is_one':gate[4].get_name()=='const/4' and gate[4].get_operands()==[(0,7),(1,1)] and gate[0x68].get_name()=='if-ne' and gate[0x68].get_operands()[:2]==[(0,5),(0,7)],
+        'backend_branch_reads_third_status':gate[0x64].get_name()=='iget' and '->thirdRetCode I' in gate[0x64].get_operands()[-1][-1],
+        'success_primary_set_after_gate':gate[0x6c].get_name()=='const/4' and gate[0x6c].get_operands()==[(0,5),(1,1)] and '->imsdkRetCode I' in gate[0x6e].get_operands()[-1][-1],
+        'default_https_enabled':len(https_ops)==2 and https_ops[0].get_name()=='const/4' and https_ops[0].get_operands()==[(0,0),(1,1)] and https_ops[1].get_name()=='return',
+        'config_url_consults_https_default':has('base/config/IMSDKConfigManager','getUrl','->enableHttps()'),
+        'json_reflection_uses_optional_values_and_defaults':has('tools/json/JsonSerializable','fillWithJSON','JSONObject;->opt(') and has('tools/json/JsonSerializable','fillWithJSON','->getDefaultValue(') and has('tools/json/JsonSerializable','fillWithJSON','reflect/Field;->set('),
+        'configuration_update_api_calls_user_database':has('api/config/IMSDKConfig','updateConfigs','->updateUserDB('),
     }
     if not all(checks.values()):raise ValueError('account chain changed: '+','.join(k for k,v in checks.items() if not v))
     return checks

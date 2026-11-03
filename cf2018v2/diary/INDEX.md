@@ -17,6 +17,7 @@
 | [013](013.md) | R091–R095 | Original crypto, directory phone progression and binary response layers | ARCHIVED |
 | [014](014.md) | R096–R101 | Loading settings, original resources and probe lifetime | ARCHIVED |
 | [015](015.md) | R102–R107 | Updater decisions, probe caps and version discovery | ARCHIVED |
-| [016](../diary.md) | R108 onward | Real version request and combined reply controls | CURRENT |
+| [016](016.md) | R108–R114 | Version replies, sign-in milestone and account-SDK stages | ARCHIVED |
+| [017](../diary.md) | R115 onward | Account response acceptance and HTTPS configuration | CURRENT |
 
 At 30 entries OR 8 KB archive the current diary to the next numbered page, update this index, and start a fresh `../diary.md` with a previous-page link. Keep stable R IDs; do not fabricate results. Archive pages are historical; current vault wins.

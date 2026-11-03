@@ -13,4 +13,4 @@ class Public(unittest.TestCase):
 class Original(unittest.TestCase):
     def test_original_provider_and_separate_account_server_chain(self):
         checks=audit(os.environ['CF18_ORIGINAL_APK'])
-        self.assertEqual(len(checks),13);self.assertTrue(all(checks.values()))
+        self.assertEqual(len(checks),24);self.assertTrue(all(checks.values()))

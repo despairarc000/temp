@@ -151,3 +151,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - R112: [Lobby selection and saved logs](research/LOGIN_LOBBY_SELECTION_AND_METADATA.md).
 
 - R114: [Provider/account/game login stages](research/ACCOUNT_PROVIDER_AND_IMSDK_STAGES.md).
+
+- R115: [Account response and HTTPS](research/ACCOUNT_RESPONSE_GATE_AND_HTTPS.md).
