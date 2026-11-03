@@ -19,3 +19,11 @@ NEXT configuration entry and identity/internal-session acceptance trace; no new 
 [Proof/limits and tested reader](../cf2018/knowledge-system/vault/research/ACCOUNT_CONFIGURATION_PRIORITY_AND_ERROR_READ.md). Read-only PID-filtered account-log summary:7 synthetic tests PASS, fixed status/exception mentions, unique filename; no Android execution or acceptance claim. Existing account-chain audit2 PASS. Doctors: no new errors, historical omissions remain.
 
 UNKNOWN actual phone callback, selected host/cache, TLS trust and accepted session. Owner confirms Wireless debugging available. NEXT manual Termux adb pairing/connection, then existing-buffer read; no new login/resource run yet. Schedules paused; originals/account/cache/trust unchanged.
+
+## R117 — [FINDING] Phone SDK logs contain DNS errors; failed service still unknown (2026-11-03 UTC)
+
+**PHONE_REPORT:** CF2018_ACCOUNT_ERRORS_20261103T081313_118563Z_d012dd28.txt, SHA256 a5e4ab28f3d0af197a632dcb390abdd010f0ab950638ecdf6b4b764ab62c9fb1:610 PID-filtered SDK lines; UnknownHostException2, NoConnectionError2, HTTP_NO_CONNECTION1. Success-status mentions are not paired login callbacks or acceptance. Failed host/operation omitted.
+
+**CONFIRMED_ORIGINAL_RESOURCE_STATIC:** original account/config rows yield7 distinct hostname fingerprints:3 account-only,3 config-only,1 shared. Updated reader hashes explicit DNS-error hostnames privately and reports fixed roles; shared stays ambiguous. **SYNTHETIC_ONLY:**11 methods PASS, including normalized exact-match/subdomain negative, ambiguous role and hostname suppression. Exact original fingerprint map and7 private-host in-memory cases PASS; no host values exported.
+
+[Proof and reader](../cf2018/knowledge-system/vault/research/ACCOUNT_DNS_REPORT_AND_ROLE_DISCRIMINATOR.md). UNKNOWN actual failing callback/service, TLS trust, accepted session. NEXT owner download updated reader and re-read existing buffer while game remains running; no new sign-in yet. No new doctor errors; historical omissions persist. Schedules paused; game/account/trust unchanged.
