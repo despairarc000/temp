@@ -39,3 +39,11 @@ NEXT account-service outcome versus lobby URL/connector trace; no guessed login 
 **CONFIRMED_REPOSITORY_SOURCE / SYNTHETIC_ONLY:** Proxy diverts8080/8085 only. Existing-log reader now distinguishes65010 connection/failure counts without assigning service or exposing hosts/account/raw errors.8 synthetic reader tests PASS; inputs unchanged. [Proof/limits](../cf2018/knowledge-system/vault/research/LOGIN_LOBBY_SELECTION_AND_METADATA.md).
 
 NEXT owner summarize completed062154 run only; no new game run.65010 failure supports a fallback candidate; absence cannot distinguish provider failure from selected-server overrides. No new routing/login reply or login/lobby/bots claim. Schedules paused; doctors unchanged omissions.
+
+## R113 — [FINDING] No fallback-port attempt recorded; account SDK can emit same error (2026-11-03 Asia/Manila)
+
+**PHONE_REPORT:** Completed062154 log summary is stable, zero malformed/duplicate records or over-cap sessions. No65010 row; all observed TCP connects succeeded, including443/80/OTHER. TCP success does not prove sign-in success; overrides and non-proxied activity remain possible.
+
+**CONFIRMED_MANAGED_STATIC:** Exact original DLL: ConvertFromIMSDKResult0x06009582 direct switch0x34 maps input4→0xdd→Apollo RetCode2 (NetworkException), whereas1→0 and6→3. AccountService.OnLogin0x060095a3 calls it0xc7 then AccountLoginHandle.Invoke0xcd. Combined with R111's Apollo2→100011, account-service failure can explain the UI code before a lobby attempt. Actual phone result4/failed endpoint UNKNOWN. No new dynamic test, game run or account data exported.
+
+NEXT original account-SDK transport/config/error-origin research. No65010 redirection justified, no repeat resource test or guessed login reply; schedules paused.
