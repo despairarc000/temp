@@ -34,3 +34,5 @@ Detailed source findings remain linked in the original workspace. [Diary](../dia
 - R106: [Resource cap failure and address-target identification](../../cf2018/knowledge-system/vault/research/RESOURCE_CAP_AND_ADDRESS_TARGET.md).
 
 - R107: [Phone update-address lookup and scoped version discovery](../../cf2018/knowledge-system/vault/research/VERSION_ADDRESS_PHONE_AND_DISCOVERY.md).
+
+- R108: [Phone version request and combined no-update control](../../cf2018/knowledge-system/vault/research/VERSION_REQUEST_PHONE_AND_NO_UPDATE.md).
