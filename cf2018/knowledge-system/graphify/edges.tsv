@@ -188,3 +188,6 @@ knowledge-system/vault/CHECKPOINT.md	evidence	knowledge-system/vault/research/AC
 knowledge-system/vault/CHECKPOINT.md	evidence	knowledge-system/vault/research/SCOPED_TRUST_APK_OFFLINE_PREPARATION.md	OFFLINE_BUILD_ONLY
 knowledge-system/vault/research/SCOPED_TRUST_APK_OFFLINE_PREPARATION.md	describes	experiments/scoped_trust_resources.py	OFFLINE_BUILD_ONLY
 knowledge-system/vault/research/SCOPED_TRUST_APK_OFFLINE_PREPARATION.md	tests	tests/test_scoped_trust_resources.py	SYNTHETIC_ONLY
+knowledge-system/vault/CHECKPOINT.md	evidence	knowledge-system/vault/research/TERMUX_SCOPED_APK_PREPARER.md	OFFLINE_BUILD_ONLY
+knowledge-system/vault/research/TERMUX_SCOPED_APK_PREPARER.md	describes	tools/prepare_scoped_trust_apks.py	OFFLINE_BUILD_ONLY
+knowledge-system/vault/research/TERMUX_SCOPED_APK_PREPARER.md	tests	tests/test_prepare_scoped_trust_apks.py	SYNTHETIC_ONLY
