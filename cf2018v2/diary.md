@@ -27,3 +27,11 @@ Faster Loading remains untimed/causality UNKNOWN; settings reply might shorten a
 **CONFIRMED_MANAGED_STATIC:** VERSIONINFO fields areU8. APK callback0x0600a94e no-need/no-force and resource0x0600a92c no-need reach ClientState.Succeeded7.10 methods PASS (17 native cases,7 managed predicates); source-free2 PASS/8 SKIP. [Proof/limits](../cf2018/knowledge-system/vault/research/VERSION_NO_UPDATE_DECISION.md).
 
 NEXT generated version receiver/pending correlation and full typed synthetic no-update component. Real phone request/reply acceptance remains UNKNOWN. No packet sent, game patch, new phone run, resource completion/login/bots. Doctors unchanged snapshot omissions; unique deliverables/schedules paused.
+
+## R105 — [FINDING] Complete version reply dispatches; actual relay detail needed (2026-11-03 Asia/Manila)
+
+**ORIGINAL_NATIVE_EMULATION / SYNTHETIC_ONLY:** Original writer matches independent134B result/43B header. Complete177B body and265B fictitious-route frame traverse original MsgBuffer/RPC/pending/generated version receiver; matching64-bit pending delivers typed values and erases. High/low mismatches do neither. Method text, transport sequence and comm_info.seq are not substitute pending keys. Missing/empty/nonzero-result controls distinguish parser/callback success. No live reply sent.
+
+**CONFIRMED_REPOSITORY_SOURCE:** Saved-run stdlib reader exports only fixed destination classes/counts/forwarding modes and budget effects, using35 original-settings DNS fingerprints. IPs remain unclassified; server logs lack timestamps, so cross-file timing joins are not claimed. Timestamp/random-suffix reports and exclusive creation; no game/server/network run.26 methods PASS (version12,directory7,reader7). [Proof/tool](../cf2018/knowledge-system/vault/research/VERSION_COMPLETE_REPLY_AND_RELAY_GAP.md).
+
+Technical blocker: actual phone version request/connection not identified in uploaded aggregate report; detailed logs exist only in Termux. NEXT owner run read-only summary of already completed run, upload unique text; no repeat game test. Resource completion/login/bots and Loading-speed/error causality UNKNOWN. Doctors unchanged omissions; schedules paused.
