@@ -38,3 +38,5 @@ Detailed source findings remain linked in the original workspace. [Diary](../dia
 - R108: [Phone version request and combined no-update control](../../cf2018/knowledge-system/vault/research/VERSION_REQUEST_PHONE_AND_NO_UPDATE.md).
 
 - R110: [Version follow-up/profile controls](../../cf2018/knowledge-system/vault/research/VERSION_FOLLOWUP_AND_OPERATION_PROFILES.md).
+
+- R112: [Lobby selection and saved logs](../../cf2018/knowledge-system/vault/research/LOGIN_LOBBY_SELECTION_AND_METADATA.md).

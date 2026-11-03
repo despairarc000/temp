@@ -34,3 +34,5 @@ R107 startup version evidence: [Phone update lookup and scoped next-service disc
 R108 version next step: [Actual request and combined reply](../vault/research/VERSION_REQUEST_PHONE_AND_NO_UPDATE.md).
 
 R110: [Version control/operation profiles](../vault/research/VERSION_FOLLOWUP_AND_OPERATION_PROFILES.md).
+
+Login source: [R112 endpoint selection and existing-log check](../vault/research/LOGIN_LOBBY_SELECTION_AND_METADATA.md).

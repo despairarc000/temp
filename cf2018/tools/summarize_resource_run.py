@@ -60,7 +60,7 @@ def host_label(value,known=None):
     return label if label in ('DIRECTORY','VERSION','ASSET') else 'UNCLASSIFIED_NAME'
 
 def port_label(value):
-    return str(value) if type(value) is int and value in (80,443,8080,8085) else 'OTHER'
+    return str(value) if type(value) is int and value in (80,443,8080,8085,65010) else 'OTHER'
 
 def records(path):
     path=Path(path)
@@ -124,7 +124,8 @@ def summarize(run_dir,known=None):
          'RELAY duplicate_connection_ids='+str(duplicates)]
     for (role,mode,port),row in sorted(rows.items()):
         out.append('RELAY class='+role+' mode='+mode+' port='+port+' connected='+str(row['CONNECTED'])+' connect_failed='+str(row['CONNECT_FAILED'])+' client_bytes='+str(row['client->server'])+' server_bytes='+str(row['server->client']))
-    out+=['SERVICE_LABELS hostname matches only; IP/shared frontend does not identify a service or RPC method.',
+    out+=['LOBBY_PORT 65010 is an original fallback URL candidate, not proof of selected service, login stage or failure cause. No automatic redirection.',
+          'SERVICE_LABELS hostname matches only; IP/shared frontend does not identify a service or RPC method.',
           'TIMING server metadata has no timestamps; cross-file timing/connection joins are UNKNOWN.',
           'No hostnames, addresses, payloads, identifiers, credentials or raw error text exported. No game/server started.']
     return '\n'.join(out)+'\n'

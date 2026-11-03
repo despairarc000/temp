@@ -147,3 +147,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - R108: [Phone version request and combined no-update control](research/VERSION_REQUEST_PHONE_AND_NO_UPDATE.md).
 
 - R110: [Version follow-up/profile controls](research/VERSION_FOLLOWUP_AND_OPERATION_PROFILES.md).
+
+- R112: [Lobby selection and saved logs](research/LOGIN_LOBBY_SELECTION_AND_METADATA.md).

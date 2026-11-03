@@ -14,6 +14,20 @@ class Tests(unittest.TestCase):
   for path,data in ((run/'events.jsonl',server),(run/'relay'/'events.jsonl',relay)):path.write_text(''.join(json.dumps(e)+'\n' for e in data))
   return run
  def known(self):return {hashlib.sha256(b'version.synthetic.invalid').hexdigest():'VERSION'}
+ def test_lobby_port_is_distinguished_without_assigning_service_or_exporting_host(self):
+  with tempfile.TemporaryDirectory() as tmp:
+   run=self.fixture(Path(tmp));path=run/'relay'/'events.jsonl'
+   added=[{'event':'CONNECTED','connection':3,'host':'lobby.synthetic.invalid','port':65010,'status':'PASSTHROUGH'},
+          {'event':'CONNECT_FAILED','connection':4,'host':'203.0.113.7','port':65010,'reason':'PRIVATE_CANARY'},
+          {'event':'CONNECTED','connection':5,'host':'other.synthetic.invalid','port':65011,'status':'PASSTHROUGH'}]
+   with path.open('a') as f:
+    for row in added:f.write(json.dumps(row)+'\n')
+   before=path.read_bytes();text=summarize(run,self.known())
+   self.assertIn('class=UNCLASSIFIED_NAME mode=PASSTHROUGH port=65010 connected=1',text)
+   self.assertIn('class=UNCLASSIFIED_IP mode=UNKNOWN port=65010 connected=0 connect_failed=1',text)
+   self.assertIn('port=OTHER connected=1',text)
+   for private in ('lobby.synthetic.invalid','203.0.113.7','PRIVATE_CANARY','65011'):self.assertNotIn(private,text)
+   self.assertEqual(before,path.read_bytes())
  def test_fixed_labels_counts_and_no_sensitive_field_export(self):
   with tempfile.TemporaryDirectory() as tmp:
    root=Path(tmp);run=self.fixture(root);before={p:p.read_bytes() for p in run.rglob('*.jsonl')}
