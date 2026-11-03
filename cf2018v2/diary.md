@@ -31,3 +31,11 @@ NEXT offline post-reply connection/managed resource-check research; no repeat te
 **CONFIRMED_MANAGED_STATIC:** Exact original DLL: ApolloResult.NetworkException constant2; ConvertResult0x06000ffc switch index2→CIL0x135 loads100011. Account handler0x0600101a and connector callbacks0x0600101c/1e all call it: code alone cannot distinguish provider from game-connection failure. DoConnect0x0600101b separately obtains GetLobbyServerUrl0x10c, creates connector0x192, sets security0x248 and connects0x2af. Read-only source analysis, no CLR/new phone run or new tests.
 
 NEXT account-service outcome versus lobby URL/connector trace; no guessed login reply. Schedules paused.
+
+## R112 — [FINDING] Separate lobby fallback port65010; saved-log check ready (2026-11-03 Asia/Manila)
+
+**CONFIRMED_MANAGED_STATIC:** Exact original DLL: DoConnect0x0600101b→GetLobbyServerUrl0x10c; selected server/review/override branches exist. ProjectSetting.GetLobbyUrl0x0600019e formats tcp://{0}:{1} using65010. BUILD_IP_{0} comes from LocalizationSettingConfig, not GCloudSetting_ (zero matching rows in that separate resource). Actual phone selection remains UNKNOWN.
+
+**CONFIRMED_REPOSITORY_SOURCE / SYNTHETIC_ONLY:** Proxy diverts8080/8085 only. Existing-log reader now distinguishes65010 connection/failure counts without assigning service or exposing hosts/account/raw errors.8 synthetic reader tests PASS; inputs unchanged. [Proof/limits](../cf2018/knowledge-system/vault/research/LOGIN_LOBBY_SELECTION_AND_METADATA.md).
+
+NEXT owner summarize completed062154 run only; no new game run.65010 failure supports a fallback candidate; absence cannot distinguish provider failure from selected-server overrides. No new routing/login reply or login/lobby/bots claim. Schedules paused; doctors unchanged omissions.
