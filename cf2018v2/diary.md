@@ -35,3 +35,11 @@ UNKNOWN actual phone callback, selected host/cache, TLS trust and accepted sessi
 **CONFIRMED_ORIGINAL_DEX_STATIC:** hash-pinned original APK ConfigManager$1.onResult passes true0x4/0x6 to access$002; accessor sets mIsConfigProcessed0x0. Callback logs thirdRetCode/thirdRetMsg then returns0x54, with no direct account-result dispatch. This defeats inferring an unfinished-config gate solely from this DNS error; broader runtime effect UNKNOWN.
 
 [Classifier/source context](../cf2018/knowledge-system/vault/research/ACCOUNT_DNS_REPORT_AND_ROLE_DISCRIMINATOR.md). NEXT one fresh90s PID-filtered log window around owner-controlled sign-in, startup proxy kept running. No config reply guessed, raw hostname/account export, game/trust change or live request here. Schedules paused.
+
+## R119 — [FINDING] Fresh-window report identifies account-API DNS errors (2026-11-03 UTC)
+
+**PHONE_REPORT:** CF2018_ACCOUNT_ERRORS_20261103T083002_352383Z_c1482d0b.txt SHA256 f710337a8d82753c8c07c3fd27a46b11da3a269ad1e77da6e738c6d136e5c1c5:352 SDK lines; ACCOUNT_API_ENDPOINT2, UnknownHostException2, NoConnectionError2, SDK_STATUS_4=1. Owner-directed90s workflow supports account-service resolution failure during sign-in. stdin summary does not attest PID/timing or exact callback; repeated mentions are not distinct failures. Google acceptance/session remains UNKNOWN.
+
+**CONFIRMED_ORIGINAL_DEX_STATIC:** exact APK's sole classes.dex direct-invoke search finds only HurlStack.openConnection0x56 among four TLS factory/hostname setter APIs; no direct global override found. Reflection/native/runtime trust not excluded. Existing24-check original APK audit2 methods PASS.
+
+[Context](../cf2018/knowledge-system/vault/research/ACCOUNT_DNS_REPORT_AND_ROLE_DISCRIMINATOR.md). Technical gap: unchanged-client local HTTPS delivery/session acceptance unverified. NEXT SDK transport/bootstrap research; no additional phone attempt now. No game/trust/cache changes, guessed reply, Google-success or gameplay claim. Schedules paused.
