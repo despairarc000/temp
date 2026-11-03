@@ -35,3 +35,13 @@ NEXT generated version receiver/pending correlation and full typed synthetic no-
 **CONFIRMED_REPOSITORY_SOURCE:** Saved-run stdlib reader exports only fixed destination classes/counts/forwarding modes and budget effects, using35 original-settings DNS fingerprints. IPs remain unclassified; server logs lack timestamps, so cross-file timing joins are not claimed. Timestamp/random-suffix reports and exclusive creation; no game/server/network run.26 methods PASS (version12,directory7,reader7). [Proof/tool](../cf2018/knowledge-system/vault/research/VERSION_COMPLETE_REPLY_AND_RELAY_GAP.md).
 
 Technical blocker: actual phone version request/connection not identified in uploaded aggregate report; detailed logs exist only in Termux. NEXT owner run read-only summary of already completed run, upload unique text; no repeat game test. Resource completion/login/bots and Loading-speed/error causality UNKNOWN. Doctors unchanged omissions; schedules paused.
+
+## R106 — [FINDING] Probe cap closed858 retries; address-target check ready (2026-11-03 Asia/Manila)
+
+**PHONE_REPORT:** Saved-run summary SHA989ebbd0bd00ea090390be813533a0d001f9defdf3c8571e877680ce6e99f3ea shows862 accepted,858 over-cap closes after settings, two qualified address candidates; IP destinations remain unclassified. R101's full-window availability interpretation is superseded.
+
+**CONFIRMED_REPOSITORY_SOURCE:** First excess session now aborts observation as session_budget_exhausted; unchanged four-session/reply gates. Fixed-label target identifier stops before replying to a recognized download/unit1 lookup.
+
+**ORIGINAL_NATIVE_EMULATION / SYNTHETIC_ONLY:** Original ParseDomainName0x3993c8 plus whole RPC writer0x3998d4 matches independent80/85B fixtures for synthetic dir.3.42/download.1.42 keys, including a separately modeled packet prefix. Qualified-name issue was already R025.29 methods PASS; source-free target4 PASS/4 SKIP. [Proof/limits](../cf2018/knowledge-system/vault/research/RESOURCE_CAP_AND_ADDRESS_TARGET.md).
+
+**HYPOTHESIS:** Second address candidate requests the update endpoint; actual phone target/owner, reply acceptance and UI timing cause UNKNOWN. NEXT one bounded manual fixed-label identification, no new reply. Doctors unchanged snapshot omissions; no game patch/resource completion/login/bots; schedules paused.
