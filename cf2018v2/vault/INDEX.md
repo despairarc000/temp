@@ -32,3 +32,5 @@ Detailed source findings remain linked in the original workspace. [Diary](../dia
 - [R105 complete version reply dispatch and existing relay-log summary](../../cf2018/knowledge-system/vault/research/VERSION_COMPLETE_REPLY_AND_RELAY_GAP.md).
 
 - R106: [Resource cap failure and address-target identification](../../cf2018/knowledge-system/vault/research/RESOURCE_CAP_AND_ADDRESS_TARGET.md).
+
+- R107: [Phone update-address lookup and scoped version discovery](../../cf2018/knowledge-system/vault/research/VERSION_ADDRESS_PHONE_AND_DISCOVERY.md).

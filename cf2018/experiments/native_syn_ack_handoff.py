@@ -70,7 +70,7 @@ def _prepare_syn(library, name_size, relay, attribute):
 
 
 def probe(library, *, name_size=10, variant='valid', relay=False, attribute='none'):
-    if (type(relay) is not bool or name_size not in (10, 12)
+    if (type(relay) is not bool or name_size not in (10, 12, 13)
             or variant not in ('valid', 'wrong_magic', 'bad_key', 'prefixed', 'truncated')):
         raise ValueError('bounded synthetic case required')
     n, name = _prepare_syn(library, name_size, relay, attribute)

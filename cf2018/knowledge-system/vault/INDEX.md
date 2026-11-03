@@ -141,3 +141,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [R088_GCLOUD_ACK_BODY_STATE_GATES](research/R088_GCLOUD_ACK_BODY_STATE_GATES.md) — exact-original post-key-mode decrypt flag, body-length, ACK message type and TLV decode gates; 39 native pins + 6 branches + 4 calls locally verified, not phone-tested.
 
 - R106: [Resource cap failure and address-target identification](research/RESOURCE_CAP_AND_ADDRESS_TARGET.md).
+
+- R107: [Phone update-address lookup and scoped version discovery](research/VERSION_ADDRESS_PHONE_AND_DISCOVERY.md).

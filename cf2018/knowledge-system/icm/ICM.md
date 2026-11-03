@@ -28,3 +28,5 @@ Current routed application blocker: [v3.8 review](../vault/research/V38_BLOCKER.
 Address-service native producer/receiver continuation: [ADDRESS_APPLICATION](../vault/research/ADDRESS_APPLICATION.md); required response fields are distinct from pending/session/endpoint acceptance.
 
 R106 startup resource/version evidence: [Cap failure and exact address-target discriminator](../vault/research/RESOURCE_CAP_AND_ADDRESS_TARGET.md). Follow this before the historical180s observation recommendation.
+
+R107 startup version evidence: [Phone update lookup and scoped next-service discovery](../vault/research/VERSION_ADDRESS_PHONE_AND_DISCOVERY.md).
