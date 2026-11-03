@@ -23,3 +23,11 @@ NEXT offline post-reply connection/managed resource-check research; no repeat te
 **CONFIRMED_REPOSITORY_SOURCE / SYNTHETIC_ONLY:** Old version handler rejected any non-RPC follow-up and closed. New loopback control→valid RPC test passes with passive bounded observation/no control reply. Actual phone follow-up type UNKNOWN. NORMAL/CUSTOM operations now have separate application/resource budgets; at most4 update lookup/handshakes,12 total sessions/180s/first-excess abort.5 test groups PASS, including four profiles, duplicate and fifth-attempt refusal. [Proof/limits](../cf2018/knowledge-system/vault/research/VERSION_FOLLOWUP_AND_OPERATION_PROFILES.md).
 
 **CONFIRMED_MANAGED_STATIC:** Original RepairResource starter verified, but resource tick has no direct repair-starter call. Third phone lookup is not identified as repair. NEXT one combined manual follow-up/profile check; error causality, callback acceptance/resource completion/login/bots UNKNOWN. No game modification or automatic phone run; schedules paused. Doctors unchanged omissions.
+
+## R111 — [FINDING] Sign-in screen reached;100011 maps NetworkException (2026-11-03 Asia/Manila)
+
+**PHONE_VISUAL/REPORT:** run_20261103T062154Z_4daf8fe3 writes NORMAL application/resource results, observes TYPE_5001 after each, ends180.11s/window_elapsed. Screenshots show Google/Facebook sign-in, account chooser/Login Now, then100011. No CUSTOM observed; stop treating custom checks as the established blocker. Sign-in reached; successful login/lobby/bots and fully offline independence unproven. Account details remain private.
+
+**CONFIRMED_MANAGED_STATIC:** Exact original DLL: ApolloResult.NetworkException constant2; ConvertResult0x06000ffc switch index2→CIL0x135 loads100011. Account handler0x0600101a and connector callbacks0x0600101c/1e all call it: code alone cannot distinguish provider from game-connection failure. DoConnect0x0600101b separately obtains GetLobbyServerUrl0x10c, creates connector0x192, sets security0x248 and connects0x2af. Read-only source analysis, no CLR/new phone run or new tests.
+
+NEXT account-service outcome versus lobby URL/connector trace; no guessed login reply. Schedules paused.
