@@ -43,3 +43,9 @@ UNKNOWN actual phone callback, selected host/cache, TLS trust and accepted sessi
 **CONFIRMED_ORIGINAL_DEX_STATIC:** exact APK's sole classes.dex direct-invoke search finds only HurlStack.openConnection0x56 among four TLS factory/hostname setter APIs; no direct global override found. Reflection/native/runtime trust not excluded. Existing24-check original APK audit2 methods PASS.
 
 [Context](../cf2018/knowledge-system/vault/research/ACCOUNT_DNS_REPORT_AND_ROLE_DISCRIMINATOR.md). Technical gap: unchanged-client local HTTPS delivery/session acceptance unverified. NEXT SDK transport/bootstrap research; no additional phone attempt now. No game/trust/cache changes, guessed reply, Google-success or gameplay claim. Schedules paused.
+
+## R120 — [FINDING] Account HTTPS bypasses config switch; user CA absent from default trust (2026-11-03 UTC)
+
+**CONFIRMED_ORIGINAL_DEX_STATIC:** account getUrl hardcodes https0xa, has zero conditional/switch instructions and no enableHttps reference. SDK client constructor0x1a→default Volley/HurlStack. Original APK target26/debuggablefalse/no networkSecurityConfig. **CONFIRMED_PLATFORM_SOURCE:** Android15 AOSP NetworkSecurityConfig.java194–210 adds user CAs only for target<=23; ManifestConfigSource58–79 selects default absent XML. Settings-installed CA alone does not solve inspected path; Samsung runtime trust UNKNOWN.
+
+[Proof and concrete proposal](../cf2018/knowledge-system/vault/research/ACCOUNT_HTTPS_TRUST_AND_SCOPED_CONTROL.md). Original audit2 methods PASS. Historical signed-only startup supports considering DLL-preserving APK controls, not new integrity/OAuth success. Proposed isolated signature-only/scoped-trust copies require byte-identical DLL/Dex/native/assets. APK preparation awaits owner approval; no build/signing/certificate or phone action performed. Google signing-certificate risk remains. Doctors retain66/114 historical lines, no new doc errors. Schedules paused.
