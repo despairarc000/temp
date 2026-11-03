@@ -184,3 +184,4 @@ knowledge-system/vault/research/ACCOUNT_CONFIGURATION_PRIORITY_AND_ERROR_READ.md
 knowledge-system/vault/CHECKPOINT.md	evidence	knowledge-system/vault/research/ACCOUNT_DNS_REPORT_AND_ROLE_DISCRIMINATOR.md	PHONE_REPORT_STATIC_SYNTHETIC
 knowledge-system/vault/research/ACCOUNT_DNS_REPORT_AND_ROLE_DISCRIMINATOR.md	describes	tools/summarize_account_log.py	LOCAL_TEST_ONLY
 knowledge-system/vault/research/ACCOUNT_DNS_REPORT_AND_ROLE_DISCRIMINATOR.md	tests	tests/test_summarize_account_log.py	SYNTHETIC_ONLY
+knowledge-system/vault/CHECKPOINT.md	evidence	knowledge-system/vault/research/ACCOUNT_HTTPS_TRUST_AND_SCOPED_CONTROL.md	ORIGINAL_PLATFORM_STATIC_PROPOSAL

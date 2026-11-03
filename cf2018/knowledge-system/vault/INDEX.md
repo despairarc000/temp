@@ -157,3 +157,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - R114: [Provider/account/game login stages](research/ACCOUNT_PROVIDER_AND_IMSDK_STAGES.md).
 
 - R115: [Account response and HTTPS](research/ACCOUNT_RESPONSE_GATE_AND_HTTPS.md).
+
+[R120 — Account HTTPS trust and isolated control proposal](research/ACCOUNT_HTTPS_TRUST_AND_SCOPED_CONTROL.md).
