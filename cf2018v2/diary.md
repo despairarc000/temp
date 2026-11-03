@@ -18,4 +18,4 @@ NEXT configuration entry and identity/internal-session acceptance trace; no new 
 
 [Proof/limits and tested reader](../cf2018/knowledge-system/vault/research/ACCOUNT_CONFIGURATION_PRIORITY_AND_ERROR_READ.md). Read-only PID-filtered account-log summary:7 synthetic tests PASS, fixed status/exception mentions, unique filename; no Android execution or acceptance claim. Existing account-chain audit2 PASS. Doctors: no new errors, historical omissions remain.
 
-UNKNOWN actual phone callback, selected host/cache, TLS trust and accepted session. NEXT owner wireless-debugging availability, then existing-buffer read if accessible; no new login/resource run yet. Schedules paused; originals/account/cache/trust unchanged.
+UNKNOWN actual phone callback, selected host/cache, TLS trust and accepted session. Owner confirms Wireless debugging available. NEXT manual Termux adb pairing/connection, then existing-buffer read; no new login/resource run yet. Schedules paused; originals/account/cache/trust unchanged.
