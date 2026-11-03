@@ -28,3 +28,5 @@ Detailed source findings remain linked in the original workspace. [Diary](../dia
 - [R103 version reply schema and callback contract](../../cf2018/knowledge-system/vault/research/VERSION_REPLY_CALLBACK_CONTRACT.md).
 
 - [R104 no-update decision, original native callback bridge and managed success branch](../../cf2018/knowledge-system/vault/research/VERSION_NO_UPDATE_DECISION.md).
+
+- [R105 complete version reply dispatch and existing relay-log summary](../../cf2018/knowledge-system/vault/research/VERSION_COMPLETE_REPLY_AND_RELAY_GAP.md).
