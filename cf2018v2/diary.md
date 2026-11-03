@@ -17,3 +17,9 @@ NEXT one manual combined reply test. Actual phone acceptance, resource completio
 **PHONE_REPORT:** run_20261103T031251Z_097824e3 logs APPLICATION and RESOURCES no-update writes, each followed by unclassified FRAME_INVALID;89.56s/session_budget_exhausted. Later packet types were omitted; response acceptance and error causality UNKNOWN. No game login/bots, new tests or phone run by agent. Private screenshots not published.
 
 NEXT offline post-reply connection/managed resource-check research; no repeat test yet. Schedules paused.
+
+## R110 — [FINDING] Probe closes on controls; update-operation labels separated (2026-11-03 Asia/Manila)
+
+**CONFIRMED_REPOSITORY_SOURCE / SYNTHETIC_ONLY:** Old version handler rejected any non-RPC follow-up and closed. New loopback control→valid RPC test passes with passive bounded observation/no control reply. Actual phone follow-up type UNKNOWN. NORMAL/CUSTOM operations now have separate application/resource budgets; at most4 update lookup/handshakes,12 total sessions/180s/first-excess abort.5 test groups PASS, including four profiles, duplicate and fifth-attempt refusal. [Proof/limits](../cf2018/knowledge-system/vault/research/VERSION_FOLLOWUP_AND_OPERATION_PROFILES.md).
+
+**CONFIRMED_MANAGED_STATIC:** Original RepairResource starter verified, but resource tick has no direct repair-starter call. Third phone lookup is not identified as repair. NEXT one combined manual follow-up/profile check; error causality, callback acceptance/resource completion/login/bots UNKNOWN. No game modification or automatic phone run; schedules paused. Doctors unchanged omissions.
