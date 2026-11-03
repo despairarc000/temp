@@ -47,3 +47,11 @@ NEXT owner summarize completed062154 run only; no new game run.65010 failure sup
 **CONFIRMED_MANAGED_STATIC:** Exact original DLL: ConvertFromIMSDKResult0x06009582 direct switch0x34 maps input4→0xdd→Apollo RetCode2 (NetworkException), whereas1→0 and6→3. AccountService.OnLogin0x060095a3 calls it0xc7 then AccountLoginHandle.Invoke0xcd. Combined with R111's Apollo2→100011, account-service failure can explain the UI code before a lobby attempt. Actual phone result4/failed endpoint UNKNOWN. No new dynamic test, game run or account data exported.
 
 NEXT original account-SDK transport/config/error-origin research. No65010 redirection justified, no repeat resource test or guessed login reply; schedules paused.
+
+## R114 — [FINDING] Google sign-in feeds a separate Tencent account exchange (2026-11-03 Asia/Manila)
+
+**CONFIRMED_ORIGINAL_DEX_STATIC:** Exact original APK: Google success callback→onNotify→connectIMSDK; separate HTTPS/configured account backend parses login JSON. Guest also notifies that backend. SDK HTTP error callback creates primary4, which can map to100011 even after TCP success. Exact-APK auditor13 checks/2 methods PASS; default1 PASS/1 SKIP. [Proof/limits](../cf2018/knowledge-system/vault/research/ACCOUNT_PROVIDER_AND_IMSDK_STAGES.md).
+
+**CONFIRMED_MANAGED_STATIC:** Adapter0x060095af maps ChannelToken separately; InnerToken goes to ApolloToken.Value atCIL0x123/0x128. Provider choice alone is not a local game session. **HYPOTHESIS:** a local account-service stand-in may help offline restoration, but client TLS/result/session acceptance is unproven. No real provider login/token values, trust change, game patch, synthetic login reply or new phone test.
+
+NEXT response acceptance and transport/configuration source trace. Real failed stage/login/lobby/bots UNKNOWN; schedules paused; doctors unchanged omissions.
