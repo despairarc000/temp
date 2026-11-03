@@ -8,6 +8,8 @@ from zipfile import ZipFile
 
 ORIGINAL='33045335685284385866e8b0e2df55285009399c285294c2f428b451ee00d3d9'
 CONTROL='e851f9f236afe2042f21acf2cd5bd74720d087800c35e4da94996f3fa89c2797'
+APK_BYTES=30884905
+OBB_BYTES=737048867
 
 def sha(raw):return hashlib.sha256(raw).hexdigest()
 
@@ -29,8 +31,8 @@ def main():
         obbs=[i for i in infos if i.filename.endswith('.obb')]
         if len(apks)!=1 or len(obbs)!=1 or 'manifest.json' not in names:raise ValueError('Expected one APK, one OBB and manifest.')
         apk=apks[0];obb=obbs[0]
-        if apk.file_size!=30884905 or sha(old.read(apk))!=ORIGINAL:raise ValueError('Original APK fingerprint mismatch.')
-        if obb.filename!='Android/obb/com.tencent.tmgp.cfmnac/main.11.com.tencent.tmgp.cfmnac.obb' or obb.file_size!=737048867:raise ValueError('Original OBB metadata mismatch.')
+        if apk.file_size!=APK_BYTES or sha(old.read(apk))!=ORIGINAL:raise ValueError('Original APK fingerprint mismatch.')
+        if obb.filename!='Android/obb/com.tencent.tmgp.cfmnac/main.11.com.tencent.tmgp.cfmnac.obb' or obb.file_size!=OBB_BYTES:raise ValueError('Original OBB metadata mismatch.')
         if shutil.disk_usage(downloads).free < sum(i.file_size for i in infos)+len(payload)+64*1024*1024:raise ValueError('Not enough space for a separate XAPK.')
         if old.getinfo('manifest.json').file_size>65536:raise ValueError('Unexpected manifest size.')
         manifest=json.loads(old.read('manifest.json'))

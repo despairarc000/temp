@@ -191,3 +191,6 @@ knowledge-system/vault/research/SCOPED_TRUST_APK_OFFLINE_PREPARATION.md	tests	te
 knowledge-system/vault/CHECKPOINT.md	evidence	knowledge-system/vault/research/TERMUX_SCOPED_APK_PREPARER.md	OFFLINE_BUILD_ONLY
 knowledge-system/vault/research/TERMUX_SCOPED_APK_PREPARER.md	describes	tools/prepare_scoped_trust_apks.py	OFFLINE_BUILD_ONLY
 knowledge-system/vault/research/TERMUX_SCOPED_APK_PREPARER.md	tests	tests/test_prepare_scoped_trust_apks.py	SYNTHETIC_ONLY
+knowledge-system/vault/CHECKPOINT.md	evidence	knowledge-system/vault/research/SIGNATURE_CONTROL_XAPK_PACKAGING.md	OFFLINE_SYNTHETIC_MIXED_SOURCE
+knowledge-system/vault/research/SIGNATURE_CONTROL_XAPK_PACKAGING.md	describes	tools/package_signature_control_xapk.py	LOCAL_TEST_ONLY
+knowledge-system/vault/research/SIGNATURE_CONTROL_XAPK_PACKAGING.md	tests	tests/test_package_signature_control_xapk.py	SYNTHETIC_ONLY

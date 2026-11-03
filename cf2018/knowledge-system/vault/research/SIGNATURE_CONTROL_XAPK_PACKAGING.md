@@ -1,0 +1,28 @@
+# Signature-only XAPK packaging — verified route
+
+2026-11-03 UTC. Owner prefers usual XAPK delivery and installer, avoiding manual APK/OBB installation through adb. XAPK is a container, so packaging the same signed control APK with unchanged original OBB preserves the intended first control. It does not bypass Android signer checks: original may still need removal before the test copy installs. Owner says no game progress needs preserving and holds original XAPK.
+
+The [packager](../../../tools/package_signature_control_xapk.py) reads ~/storage/shared/Download/Original.xapk and the staged ~/cf2018_control_test/control.apk. It requires the exact original APK SHA33045335685284385866e8b0e2df55285009399c285294c2f428b451ee00d3d9 and the reviewed phone-control SHAe851f9f236afe2042f21acf2cd5bd74720d087800c35e4da94996f3fa89c2797. Four-entry original layout, unique safe paths, one APK/one OBB, package name, manifest version and original APK/OBB size guards apply. Wrong sources are refused before output.
+
+Creates a unique separate XAPK in Downloads, preserving internal filenames and original OBB/icon payloads. Replaces only the APK payload and standard manifest total/file-size/APK-digest metadata. OBB is streamed with source ZIP CRC checking and SHA256 calculation. Every output payload is then independently streamed/read back and compared by SHA256 before the .part file is renamed ready. Writes a separate sanitized report. Original XAPK/staged files are untouched. No game download, installation, uninstall, adb command or game execution.
+
+**Actually performed:** execution recovered after earlier canceled/unavailable environment. [Five synthetic test methods](../../../tests/test_package_signature_control_xapk.py) PASS: payload/metadata preservation and update, wrong original refusal, wrong control refusal, extra-entry refusal and distinct repeated outputs. Fixture fingerprints/sizes are explicitly mocked; production defaults stay pinned to owner's reviewed artifacts.
+
+**Full-size mixed-source packaging check actually run:** original hash-verified private30,884,905B APK, previously verified workspace signature-only APK, and a synthetic737,048,867B zero-filled OBB in a private four-entry test container. Workspace-control fingerprint was substituted only in the harness (it has a different private signer from the phone). Packaging, CRC/readback and report completed. This checks realistic size/streaming and actual APK payload handling; it is NOT a full original-XAPK/OBB verification, the owner's exact control, their installer, Android runtime, integrity-safe startup, TLS, account session or gameplay acceptance. All game-containing artifacts stayed private. The old unexecuted-helper note is superseded only for these stated checks.
+
+Manual packaging, no adb or game/server running required:
+
+```bash
+(
+set -e
+D="$HOME/storage/shared/Download"
+curl -fL --max-time 30 \
+  https://raw.githubusercontent.com/despairarc000/temp/main/cf2018/tools/package_signature_control_xapk.py \
+  -o "$D/package_signature_control_xapk.py"
+python3 "$D/package_signature_control_xapk.py"
+)
+```
+
+Needs roughly another0.8GiB free. Runtime refuses insufficient space. Share only the new CF2018_SIGNATURE_CONTROL_<timestamp>_<suffix>.txt, not the game-containing XAPK. Do not install yet: review report first, then use the owner's usual XAPK installer for signature-only control A. Scoped-trust B is not this deliverable. ADB remains useful for diagnostics but is not required by this packager; installer/OBB permissions on Android15 remain device-specific and untested here.
+
+Diary near8KiB: no new entry/rotation. No phone/live experiment performed. Schedules paused.

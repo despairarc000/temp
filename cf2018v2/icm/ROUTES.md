@@ -30,3 +30,5 @@ Account HTTPS/trust/isolated APK proposal: [R120](../../cf2018/knowledge-system/
 Approved APK offline controls: [Preparation/limits](../../cf2018/knowledge-system/vault/research/SCOPED_TRUST_APK_OFFLINE_PREPARATION.md).
 
 Termux APK preparation: [Script/evidence](../../cf2018/knowledge-system/vault/research/TERMUX_SCOPED_APK_PREPARER.md).
+
+XAPK control delivery: [Verified packager/limits](../../cf2018/knowledge-system/vault/research/SIGNATURE_CONTROL_XAPK_PACKAGING.md).

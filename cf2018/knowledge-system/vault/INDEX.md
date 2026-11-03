@@ -163,3 +163,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 [Approved scoped-trust APK offline preparation](research/SCOPED_TRUST_APK_OFFLINE_PREPARATION.md).
 
 [Standalone Termux scoped APK preparer](research/TERMUX_SCOPED_APK_PREPARER.md).
+
+[Verified signature-control XAPK packaging](research/SIGNATURE_CONTROL_XAPK_PACKAGING.md).
