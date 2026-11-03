@@ -26,3 +26,5 @@ Current routed application blocker: [v3.8 review](../vault/research/V38_BLOCKER.
 **All task routes now include [CURRENT_HANDOFF](../../coordination/CURRENT_HANDOFF.md)**: actual PCAPdroid/Termux workflow and next diagnostic; old task summaries do not reset progress.
 
 Address-service native producer/receiver continuation: [ADDRESS_APPLICATION](../vault/research/ADDRESS_APPLICATION.md); required response fields are distinct from pending/session/endpoint acceptance.
+
+R106 startup resource/version evidence: [Cap failure and exact address-target discriminator](../vault/research/RESOURCE_CAP_AND_ADDRESS_TARGET.md). Follow this before the historical180s observation recommendation.

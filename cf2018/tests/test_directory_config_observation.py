@@ -15,7 +15,7 @@ class Public(unittest.TestCase):
   env={'time':clock,'RESOURCE_OBSERVATION_SECONDS':180}
   exec(OBSERVATION_HELPER,env);return env['resource_observation_wait']
  def test_completed_session_budget_does_not_stop_proxy_window(self):
-  clock=Clock();run=types.SimpleNamespace(done=types.SimpleNamespace(is_set=lambda:True))
+  clock=Clock();run=types.SimpleNamespace(done=types.SimpleNamespace(is_set=lambda:True),observation_abort=types.SimpleNamespace(is_set=lambda:False))
   proc=types.SimpleNamespace(poll=lambda:None)
   self.helper(clock)(run,proc)
   self.assertGreaterEqual(run.observation_elapsed,180)
@@ -23,21 +23,43 @@ class Public(unittest.TestCase):
   self.assertEqual(run.observation_stop,'window_elapsed')
   self.assertGreater(clock.sleeps,800) # Sleeps rather than spinning on a set Event.
  def test_dead_proxy_is_reported_and_does_not_claim_full_window(self):
-  clock=Clock();run=types.SimpleNamespace()
+  clock=Clock();run=types.SimpleNamespace(observation_abort=types.SimpleNamespace(is_set=lambda:False))
   with self.assertRaises(RuntimeError):self.helper(clock)(run,types.SimpleNamespace(poll=lambda:1))
   self.assertEqual((run.observation_stop,run.observation_elapsed),('proxy_exit',0))
  def test_manual_stop_remains_available(self):
   clock=Clock()
   def stop(n):raise KeyboardInterrupt
-  clock.sleep=stop;run=types.SimpleNamespace()
+  clock.sleep=stop;run=types.SimpleNamespace(observation_abort=types.SimpleNamespace(is_set=lambda:False))
   with self.assertRaises(KeyboardInterrupt):self.helper(clock)(run,None)
   self.assertEqual(run.observation_stop,'manual_stop')
+ def test_first_over_cap_stops_without_claiming_full_window(self):
+  clock=Clock();run=types.SimpleNamespace(observation_abort=types.SimpleNamespace(is_set=lambda:clock.now>=.2))
+  self.helper(clock)(run,None)
+  self.assertEqual((run.observation_stop,run.observation_elapsed),('session_budget_exhausted',.2))
+  self.assertEqual(clock.sleeps,1)
+ def test_identification_stops_without_new_reply_or_full_window(self):
+  clock=Clock();run=types.SimpleNamespace(observation_abort=types.SimpleNamespace(is_set=lambda:False),version_address_identified=True)
+  self.helper(clock)(run,None)
+  self.assertEqual((run.observation_stop,run.observation_elapsed),('version_address_identified',0))
  def test_invalid_windows_refused(self):
   for value in (True,0,12,59,301,'180'):
    with self.assertRaises(ValueError):patch('',value)
 
 @unittest.skipUnless(os.environ.get('CF18_DIRECTORY_IDENTIFY_PREPARED'),'explicit private prepared source required')
 class Prepared(unittest.TestCase):
+ def test_actual_handler_over_cap_sets_abort_before_reading(self):
+  source=Path(os.environ['CF18_DIRECTORY_IDENTIFY_PREPARED'])
+  with tempfile.TemporaryDirectory() as tmp:
+   output=Path(tmp)/'copy';prepare(source,output,180);sys.path.insert(0,str(output))
+   try:
+    spec=importlib.util.spec_from_file_location('budget_observation_probe',output/'routed_probe_r037.py')
+    module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+    run=module.Run(Path(tmp)/'run',max_sessions=0)
+    handler=module.Handler.__new__(module.Handler);handler.server=types.SimpleNamespace(run=run,server_address=('127.0.0.1',0))
+    handler.request=object();handler.handle()
+    self.assertTrue(run.observation_abort.is_set())
+    self.assertIn('over_cap',run.log.read_text())
+   finally:sys.path.remove(str(output))
  def test_default_unchanged_and_long_copy_keeps_all_reply_gates(self):
   source=Path(os.environ['CF18_DIRECTORY_IDENTIFY_PREPARED']);original=(source/'routed_probe_r037.py').read_text()
   old=patch(original);new=patch(original,180)

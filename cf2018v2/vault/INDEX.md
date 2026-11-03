@@ -30,3 +30,5 @@ Detailed source findings remain linked in the original workspace. [Diary](../dia
 - [R104 no-update decision, original native callback bridge and managed success branch](../../cf2018/knowledge-system/vault/research/VERSION_NO_UPDATE_DECISION.md).
 
 - [R105 complete version reply dispatch and existing relay-log summary](../../cf2018/knowledge-system/vault/research/VERSION_COMPLETE_REPLY_AND_RELAY_GAP.md).
+
+- R106: [Resource cap failure and address-target identification](../../cf2018/knowledge-system/vault/research/RESOURCE_CAP_AND_ADDRESS_TARGET.md).

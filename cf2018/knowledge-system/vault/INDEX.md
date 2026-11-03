@@ -139,3 +139,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - [R087_ORIGINAL_BOT_MODE_ACCESS](research/R087_ORIGINAL_BOT_MODE_ACCESS.md) — historical PvP → Bot Mode route documented, compared against StandalonePVE and AITrainGame native/managed code; actual UI handler, map-builder records and first-login offline entry remain unverified.
 
 - [R088_GCLOUD_ACK_BODY_STATE_GATES](research/R088_GCLOUD_ACK_BODY_STATE_GATES.md) — exact-original post-key-mode decrypt flag, body-length, ACK message type and TLV decode gates; 39 native pins + 6 branches + 4 calls locally verified, not phone-tested.
+
+- R106: [Resource cap failure and address-target identification](research/RESOURCE_CAP_AND_ADDRESS_TARGET.md).
