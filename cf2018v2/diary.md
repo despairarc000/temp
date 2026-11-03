@@ -27,3 +27,11 @@ UNKNOWN actual phone callback, selected host/cache, TLS trust and accepted sessi
 **CONFIRMED_ORIGINAL_RESOURCE_STATIC:** original account/config rows yield7 distinct hostname fingerprints:3 account-only,3 config-only,1 shared. Updated reader hashes explicit DNS-error hostnames privately and reports fixed roles; shared stays ambiguous. **SYNTHETIC_ONLY:**11 methods PASS, including normalized exact-match/subdomain negative, ambiguous role and hostname suppression. Exact original fingerprint map and7 private-host in-memory cases PASS; no host values exported.
 
 [Proof and reader](../cf2018/knowledge-system/vault/research/ACCOUNT_DNS_REPORT_AND_ROLE_DISCRIMINATOR.md). UNKNOWN actual failing callback/service, TLS trust, accepted session. NEXT owner download updated reader and re-read existing buffer while game remains running; no new sign-in yet. No new doctor errors; historical omissions persist. Schedules paused; game/account/trust unchanged.
+
+## R118 — [FINDING] DNS-error host matches SDK configuration endpoint (2026-11-03 UTC)
+
+**PHONE_REPORT:** CF2018_ACCOUNT_ERRORS_20261103T082409_226910Z_22c63bae.txt SHA256 74ebff25eca0a159cdab9a7e5cbfa0ed1f0114bf3300e925e343a15f3e15a0e4:610 SDK lines, unchanged status counts; DNS-host mentions SDK_CONFIG_ENDPOINT2. Not account-only/shared fingerprints. Counts may repeat one failure; actual login callback remains UNKNOWN. Success mentions do not establish login.
+
+**CONFIRMED_ORIGINAL_DEX_STATIC:** hash-pinned original APK ConfigManager$1.onResult passes true0x4/0x6 to access$002; accessor sets mIsConfigProcessed0x0. Callback logs thirdRetCode/thirdRetMsg then returns0x54, with no direct account-result dispatch. This defeats inferring an unfinished-config gate solely from this DNS error; broader runtime effect UNKNOWN.
+
+[Classifier/source context](../cf2018/knowledge-system/vault/research/ACCOUNT_DNS_REPORT_AND_ROLE_DISCRIMINATOR.md). NEXT one fresh90s PID-filtered log window around owner-controlled sign-in, startup proxy kept running. No config reply guessed, raw hostname/account export, game/trust change or live request here. Schedules paused.
