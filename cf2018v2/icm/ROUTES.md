@@ -16,3 +16,5 @@ Always: START, CURRENT, current diary. Then select one row; follow only its imme
 Update a route when its evidence changes. Current facts take precedence over historical receipt progress fields.
 
 Login after resource screens: [R112 lobby selection/logs](../../cf2018/knowledge-system/vault/research/LOGIN_LOBBY_SELECTION_AND_METADATA.md).
+
+Provider/account login: [R114 DEX/managed chain](../../cf2018/knowledge-system/vault/research/ACCOUNT_PROVIDER_AND_IMSDK_STAGES.md).

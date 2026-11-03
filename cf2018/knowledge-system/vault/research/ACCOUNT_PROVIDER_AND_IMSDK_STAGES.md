@@ -1,0 +1,31 @@
+# R114 — Provider sign-in, Tencent account exchange and game connection
+
+2026-11-03 Asia/Manila. Original v1.0.11.11 APK SHA25633045335685284385866e8b0e2df55285009399c285294c2f428b451ee00d3d9 verified before reading its classes.dex in memory. No original binaries/code dumps, app keys, saved account data or credential values are published. No provider login, phone/game, network request, TLS interception or client modification performed. Schedules paused.
+
+## Original APK source chain
+
+**CONFIRMED_ORIGINAL_DEX_STATIC:** These are source callsites, not demonstrated phone execution.
+
+1. `com.tencent.imsdk.android.login.google.GoogleLogin.login2Channel` registers InnerCallback then calls connectGoogleApiClient. GoogleAuthConnectListener.handleConnectSuccess consumes GoogleSignInAccount, builds provider parameters and invokes InnerCallback.onNotify. Original code references ID-token/server-auth-code accessors; no live values were accessed. Showing the account chooser is not proof of this success callback.
+2. `base.login.IMSDKLoginBase.login` constructs `IMSDKLoginBase$2` and invokes login2Channel. That callback's **onNotify at DEX byte offset0x0c** invokes connectIMSDK. Its **onResult at0x08** instead calls access$000→returnLRByError. These are distinct success-notification versus result/error paths; not every provider callback launches the account exchange.
+3. IMSDKManagerBase.connectIMSDK selects get2IMSDKServer/post2IMSDKServer, then IMSDKHttpClient get/post→executeVolley. IMSDKLoginBase.getUrl constructs an explicit HTTPS scheme, reads IMSDK_SERVER_SDKAPI through getOrMetaData0x32 and IMSDK_SERVER_SDKAPI_VERSION through getOrDefault0x56. This is a separate Tencent account endpoint/configuration, not the game lobby TCP fallback65010.
+4. IMSDKLoginBase.handleServerData constructs IMSDKLoginResult from server JSON, modifies its channel/bind result and has a saveLoginData path. Its result declares provider identity/permissions and internal session/expiry fields. Field existence or parsing is not successful usable identity/session acceptance; no fictitious body is sent.
+5. R111–R113 original managed bridge then converts iMSDK result and invokes account-login callback. ApolloLoginConnector's successful account path can enter DoConnect, which independently selects lobby URL/security. A local offline stand-in would have to satisfy both account-result and local game-session contracts. It would not create a real Google/Facebook account login.
+
+## Failure and transport constraints
+
+**CONFIRMED_MANAGED_STATIC:** The original protected DLL inspector also resolves iMSDKAccountService.GetAccountInfoFromImsdkResult0x060095af. It maps OpenId into ApolloAccountInfo atCIL0x21/0x26 and ChannelUserId at0x2e/0x33. It separately copies ChannelToken into account.Token at0x89/0x8e, then constructs ApolloToken0x114 and copies **InnerToken into its Value at0x123/0x128**, adding it to TokenList0x141. Thus the provider/channel token and internal account token are distinct client fields. This does not establish signatures or validation rules, or show a synthetic token accepted. Only source field references were read; no account values accessed. The JSON constructor delegates to JsonSerializable, whose full response acceptance is still to be traced.
+
+**CONFIRMED_ORIGINAL_DEX_STATIC:** IMSDKHttpClient$2.onErrorResponse creates IMSDKResult with primary code4 (const/4 v2,4 at0x8e; constructor call0xf2; listener call0xfc). Its branches distinguish AuthFailureError, NetworkError/NoConnectionError, ParseError, ServerError/ClientError and TimeoutError, and can carry a separate status/detail code. Combined with R113's managed4→Apollo2 and R111's2→100011, this SDK HTTP error callback is one concrete source of the observed UI error. It does **not** establish which error or callback actually occurred on the phone. Successful TCP connection counts do not rule it out.
+
+IMSDKHttpClient's context constructor calls Volley.newRequestQueue at0x1a. The original queue factory references the no-argument HurlStack constructor0x48; HurlStack.openConnection can set a supplied SSLSocketFactory0x56. This is evidence of HTTPS plumbing, not an exhaustive runtime trust/pinning/configuration audit. No conclusion that arbitrary loopback certificates or JSON will be accepted. SOCKS destination redirection alone does not resolve client HTTPS trust or application-level response requirements. No trust-store changes or provider impersonation attempted.
+
+**Alternative checked:** Original GuestLogin.login2Channel also invokes IMSDKListener.onNotify at0x76, feeding the common account-server exchange. Its existence does not prove a guest UI is selectable, and selecting a guest provider alone does not remove the backend dependency. No guest-login success claim.
+
+## Repeatable evidence and limits
+
+[Original APK auditor](../../../experiments/original_account_sdk_chain.py) performs an exact hash gate and13 fixed class/callsite/config/error-code checks through locally installed Androguard; returns booleans only. [Tests](../../../tests/test_original_account_sdk_chain.py):2 methods PASS with explicit original (original13 checks plus unrelated-file rejection); default1 PASS/1 SKIP. Command: `PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=cf2018/private/analysis_deps CF18_ORIGINAL_APK=<private exact APK> python -m unittest discover -s cf2018/tests -p test_original_account_sdk_chain.py -v`. These are static source tests, not Android/DEX execution or server acceptance. Doctors retain historical local snapshot omissions; no new errors/CI success claimed.
+
+**HYPOTHESIS:** Provider sign-in may reach onNotify but the subsequent iMSDK HTTPS exchange may fail, explaining100011 without a recorded65010 connection. Provider-stage failure and lobby override paths remain alternatives. Screenshots plus proxy summaries cannot choose among them.
+
+**NEXT:** Validate exact account-result acceptance and propagation into local game connection, plus the source-selected account transport/configuration/trust contract. Use synthetic identities for any eventual local server; do not request real tokens/account dumps or send guessed Google/Facebook success replies. No new phone test is justified solely by this static chain. The sign-in-screen milestone remains confirmed; real login/lobby/bots and fully offline operation remain UNKNOWN.

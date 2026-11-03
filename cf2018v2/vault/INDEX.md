@@ -40,3 +40,5 @@ Detailed source findings remain linked in the original workspace. [Diary](../dia
 - R110: [Version follow-up/profile controls](../../cf2018/knowledge-system/vault/research/VERSION_FOLLOWUP_AND_OPERATION_PROFILES.md).
 
 - R112: [Lobby selection and saved logs](../../cf2018/knowledge-system/vault/research/LOGIN_LOBBY_SELECTION_AND_METADATA.md).
+
+- R114: [Provider/account/game login stages](../../cf2018/knowledge-system/vault/research/ACCOUNT_PROVIDER_AND_IMSDK_STAGES.md).

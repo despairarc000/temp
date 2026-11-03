@@ -36,3 +36,5 @@ R108 version next step: [Actual request and combined reply](../vault/research/VE
 R110: [Version control/operation profiles](../vault/research/VERSION_FOLLOWUP_AND_OPERATION_PROFILES.md).
 
 Login source: [R112 endpoint selection and existing-log check](../vault/research/LOGIN_LOBBY_SELECTION_AND_METADATA.md).
+
+Account SDK: [R114 stages and HTTPS](../vault/research/ACCOUNT_PROVIDER_AND_IMSDK_STAGES.md).

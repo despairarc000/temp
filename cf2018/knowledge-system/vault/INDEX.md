@@ -149,3 +149,5 @@ Every new claim requires date, status, source, what was observed, what is inferr
 - R110: [Version follow-up/profile controls](research/VERSION_FOLLOWUP_AND_OPERATION_PROFILES.md).
 
 - R112: [Lobby selection and saved logs](research/LOGIN_LOBBY_SELECTION_AND_METADATA.md).
+
+- R114: [Provider/account/game login stages](research/ACCOUNT_PROVIDER_AND_IMSDK_STAGES.md).
