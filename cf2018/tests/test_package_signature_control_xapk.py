@@ -96,4 +96,53 @@ class Packaging(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'Conflicting'):self.invoke(root,original,control,obb)
             self.assertEqual(list(download.glob('CF2018*')),[])
 
+    def scoped_fixture(self,root):
+        prepared=root/'private_preparation';prepared.mkdir()
+        ca=b'synthetic prepared CA'
+        (prepared/'local-ca.pem').write_bytes(ca)
+        payload=io.BytesIO()
+        with ZipFile(payload,'w') as z:
+            z.writestr('res/raw/cf18_local_ca.pem',ca)
+            z.writestr('synthetic-unchanged-payload',b'control')
+        candidate=payload.getvalue();(prepared/'scoped_trust.apk').write_bytes(candidate)
+        return prepared,candidate
+
+    def invoke_scoped(self,root,original,control,obb,prepared,candidate):
+        with patch.object(m.Path,'home',return_value=root),patch.multiple(m,ORIGINAL=m.sha(original),CONTROL=m.sha(control),SCOPED_TRUST=m.sha(candidate),APK_BYTES=len(original),OBB_BYTES=len(obb)),contextlib.redirect_stdout(io.StringIO()):
+            m.main('scoped-trust',prepared)
+
+    def test_scoped_candidate_and_ca_match_without_changing_original_or_control(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);download,original,control,obb,manifest=self.fixture(root)
+            prepared,candidate=self.scoped_fixture(root)
+            before=(download/'Original.xapk').read_bytes()
+            self.invoke_scoped(root,original,control,obb,prepared,candidate)
+            target=next(download.glob('CF2018_SCOPED_TRUST_*.xapk'))
+            with ZipFile(target) as z:
+                self.assertEqual(z.read('base.apk'),candidate);self.assertEqual(z.read(OBB),obb)
+                meta=json.loads(z.read('manifest.json'))
+                self.assertEqual(meta['apks'][0]['sha256'],m.sha(candidate))
+                self.assertEqual(meta['total_size'],len(candidate)+len(obb))
+                self.assertEqual(meta['expansions'],manifest['expansions'])
+            receipt=json.loads(target.with_suffix('.txt').read_text())
+            self.assertEqual(receipt['apk_variant'],'scoped-trust')
+            self.assertTrue(receipt['embedded_ca_matches_preparation'])
+            self.assertEqual(receipt['control_apk_sha256'],m.sha(candidate))
+            self.assertFalse(receipt['installation_performed'])
+            self.assertEqual((download/'Original.xapk').read_bytes(),before)
+            self.assertEqual((root/'cf2018_control_test/control.apk').read_bytes(),control)
+
+    def test_scoped_wrong_ca_and_wrong_apk_refused_before_output(self):
+        for changed in ('ca','apk'):
+            with self.subTest(changed=changed),tempfile.TemporaryDirectory() as d:
+                root=Path(d);download,original,control,obb,_=self.fixture(root)
+                prepared,candidate=self.scoped_fixture(root)
+                (prepared/('local-ca.pem' if changed=='ca' else 'scoped_trust.apk')).write_bytes(b'wrong')
+                with self.assertRaisesRegex(ValueError,'CA differs' if changed=='ca' else 'Control APK'):
+                    self.invoke_scoped(root,original,control,obb,prepared,candidate)
+                self.assertEqual(list(download.glob('CF2018*')),[])
+
+    def test_scoped_requires_explicit_preparation_folder(self):
+        with self.assertRaisesRegex(ValueError,'--prepared-run'):m.main('scoped-trust')
+
 if __name__=='__main__':unittest.main()

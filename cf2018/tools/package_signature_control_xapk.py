@@ -1,26 +1,37 @@
 #!/usr/bin/env python3
-"""Repackage only the verified signature-only control into the owner's XAPK.
+"""Repackage a reviewed signature-only or scoped-trust APK into the owner's XAPK.
 Creates a new archive/report; never downloads game files or installs anything.
 """
-import copy,datetime,hashlib,json,shutil,uuid
+import argparse,copy,datetime,hashlib,io,json,shutil,uuid
 from pathlib import Path,PurePosixPath
 from zipfile import ZipFile
 
 ORIGINAL='33045335685284385866e8b0e2df55285009399c285294c2f428b451ee00d3d9'
 CONTROL='e851f9f236afe2042f21acf2cd5bd74720d087800c35e4da94996f3fa89c2797'
+SCOPED_TRUST='32f31159691b413e53de4fdcf3c3f5fe5ccd35f282ecb56d5e0cc88a38a957df'
 APK_BYTES=30884905
 OBB_BYTES=737048867
 
 def sha(raw):return hashlib.sha256(raw).hexdigest()
 
-def main():
+def main(variant='signature-control',prepared_run=None):
     h=Path.home();downloads=h/'storage/shared/Download'
     source=downloads/'Original.xapk'
-    control=h/'cf2018_control_test/control.apk'
+    if variant=='signature-control':
+        control=h/'cf2018_control_test/control.apk';reviewed=CONTROL;label='SIGNATURE_CONTROL'
+    elif variant=='scoped-trust':
+        if prepared_run is None:raise ValueError('Scoped-trust packaging requires --prepared-run.')
+        prepared_run=Path(prepared_run)
+        control=prepared_run/'scoped_trust.apk';reviewed=SCOPED_TRUST;label='SCOPED_TRUST'
+    else:raise ValueError('Unsupported APK variant.')
     payload=control.read_bytes()
-    if sha(payload)!=CONTROL:raise ValueError('Control APK differs from reviewed phone report.')
+    if sha(payload)!=reviewed:raise ValueError('Control APK differs from reviewed phone report.')
+    if variant=='scoped-trust':
+        with ZipFile(io.BytesIO(payload)) as candidate:
+            if candidate.read('res/raw/cf18_local_ca.pem')!=(prepared_run/'local-ca.pem').read_bytes():
+                raise ValueError('Scoped-trust APK CA differs from original private preparation.')
     stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S_%fZ')+'_'+uuid.uuid4().hex[:8]
-    target=downloads/('CF2018_SIGNATURE_CONTROL_'+stamp+'.xapk')
+    target=downloads/('CF2018_'+label+'_'+stamp+'.xapk')
     temp=target.with_suffix('.xapk.part')
     expected={}
     with ZipFile(source) as old:
@@ -86,14 +97,22 @@ def main():
                     digest.update(block)
             if digest.hexdigest()!=want:raise ValueError('Output verification failed.')
     temp.rename(target)
-    report={'format':'CF2018_SIGNATURE_CONTROL_XAPK','control_apk_sha256':CONTROL,'original_apk_sha256':ORIGINAL,
+    report={'format':'CF2018_'+label+'_XAPK','apk_variant':variant,
+            'control_apk_sha256':reviewed,'original_apk_sha256':ORIGINAL,
             'all_output_payloads_verified':True,'obb_unchanged_sha256':expected[obb.filename],
             'xapk_file':target.name,'installation_performed':False,'android_runtime_tested':False}
+    if variant=='scoped-trust':report['embedded_ca_matches_preparation']=True
     report_path=target.with_suffix('.txt')
     with report_path.open('x') as stream:json.dump(report,stream,indent=2);stream.write('\n')
-    print('READY: '+str(target));print('Share report: '+str(report_path));print('Do not install yet.')
+    print('READY: '+str(target));print('Share report: '+str(report_path))
+    if variant=='scoped-trust':print('Packaging only; use your usual XAPK installer separately for the scoped transport test.')
+    else:print('Do not install yet.')
 if __name__=='__main__':
-    try:main()
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--variant',choices=['signature-control','scoped-trust'],default='signature-control')
+    parser.add_argument('--prepared-run',type=Path)
+    args=parser.parse_args()
+    try:main(args.variant,args.prepared_run)
     except Exception as error:
         print('STOPPED: '+str(error))
         raise SystemExit(1)

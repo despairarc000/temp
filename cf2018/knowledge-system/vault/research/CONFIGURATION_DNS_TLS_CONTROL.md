@@ -1,5 +1,65 @@
 # Configuration DNS/TLS transport control
 
+## Phone control A result — 2026-11-08 UTC
+
+PHONE_REPORT: `CF2018_CONFIG_TLS_20261108T222324_161312Z_9aa0f2d3.txt`,
+SHA256 62c04ecbc185558e6d7240f8b1cc0ed8f7d4c770814adce335d0b0d96658e0b0.
+Window elapsed at182.17s including cleanup. Counts: DNS_REQUESTS16,
+DNS_PASSTHROUGH15, CONFIG_A1/CONFIG_DNS_OVERRIDES1, TLS_TCP_CONNECTIONS1,
+TLS_MATCHED_SNI1, TLS_CLIENT_CERTIFICATE_ALERT1; no handshake-complete or
+application-byte counters. Mode LOCAL_CA, operator label signature-control;
+installed APK identity is not independently verified by the report.
+
+The report establishes delivery of one selected configuration DNS query, a local
+TLS connection with matching SNI and client certificate rejection. This is the
+expected negative transport control for A; the earlier zero-traffic/routing
+uncertainty is resolved for this particular request. The grouped alert counter
+does not preserve the precise underlying alert and cannot by itself isolate CA
+trust from other certificate checks. Unrelated DNS was forwarded, but counts
+alone do not attest all upstream resolutions succeeded. No HTTP reply was sent;
+configuration parsing, login and gameplay remain UNKNOWN.
+
+NEXT: package existing scoped-trust B without rebuilding/re-signing or generating
+new keys. [Reviewed packager](../../../tools/package_signature_control_xapk.py)
+now accepts explicit `--variant scoped-trust --prepared-run PATH`, pins phone B
+SHA256 32f31159691b413e53de4fdcf3c3f5fe5ccd35f282ecb56d5e0cc88a38a957df,
+and checks its embedded CA equals that preparation folder's local-ca.pem.
+Default signature-control behavior is retained. It copies/verifies every source
+OBB/icon payload and updates APK manifest metadata as before, creating a unique
+CF2018_SCOPED_TRUST timestamped XAPK/report. It never installs or launches.
+Original XAPK, A, certificates and B remain unchanged.
+
+SYNTHETIC_ONLY: packaging suite10 methods PASS, including B payload/metadata/OBB
+preservation, CA mismatch and APK mismatch refusal before output, and required
+private-folder guard, plus seven existing A/schema controls. No actual phone B
+package, installation, signature compatibility or TLS acceptance is claimed.
+
+Manual packaging command (no game download or ADB):
+
+```bash
+(
+set -e
+D="$HOME/storage/downloads"
+curl -fL --max-time 30 \
+  https://raw.githubusercontent.com/despairarc000/temp/main/cf2018/tools/package_signature_control_xapk.py \
+  -o "$D/package_signature_control_xapk.py"
+python3 "$D/package_signature_control_xapk.py" --variant scoped-trust \
+  --prepared-run "$HOME/cf2018_private_apk_controls/20261103T113513_850948Z_d9e0adc3"
+)
+```
+
+Owner manually installs the newly named CF2018_SCOPED_TRUST XAPK through the
+usual installer, then repeats the same bounded DNS/TLS procedure below using
+`--label scoped-trust` instead of signature-control. Use the same existing private
+preparation/CA. Do not sign in. Compare matched routing/SNI + completed handshake
+and application-byte evidence against A's certificate alert. A generic error or
+zero traffic remains inconclusive. A successful connection still does not mean
+configuration/account acceptance. Wrong-CA negative control is a later bounded
+check if B connects; it has not been run. Disable the two DNS mappings afterward.
+
+The sections below describe preparation and the now-completed A procedure;
+statements of phone routing being untested are superseded for this one A report.
+
 2026-11-08 UTC. Original CF2018 v1.0.11.11; schedules paused. This is a transport
 experiment, not a configuration-success reply or an account/login implementation.
 

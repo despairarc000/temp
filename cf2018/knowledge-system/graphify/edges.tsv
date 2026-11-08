@@ -198,3 +198,5 @@ knowledge-system/vault/research/CONFIGURATION_DNS_TLS_CONTROL.md	describes	exper
 knowledge-system/vault/research/CONFIGURATION_DNS_TLS_CONTROL.md	describes	tools/run_config_tls_control.py	REPOSITORY_SOURCE
 knowledge-system/vault/research/CONFIGURATION_DNS_TLS_CONTROL.md	tested-by	tests/test_config_tls_core.py	SYNTHETIC_ONLY
 knowledge-system/vault/CHECKPOINT.md	evidence	knowledge-system/vault/research/CONFIGURATION_DNS_TLS_CONTROL.md	SYNTHETIC_ONLY
+knowledge-system/vault/research/CONFIGURATION_DNS_TLS_CONTROL.md	uses	tools/package_signature_control_xapk.py	REPOSITORY_SOURCE
+knowledge-system/vault/research/CONFIGURATION_DNS_TLS_CONTROL.md	tested-by	tests/test_package_signature_control_xapk.py	SYNTHETIC_ONLY
