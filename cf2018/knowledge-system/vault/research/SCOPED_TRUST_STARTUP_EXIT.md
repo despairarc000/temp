@@ -1,5 +1,53 @@
 # Scoped-trust copy exits at startup
 
+## Existing exit report and attribution correction — 2026-11-08 UTC
+
+PHONE_REPORT: CF2018_STARTUP_EXIT_20261108T230135_845334Z_9a907bd0.txt,
+SHA256 f0dfe6d0c583caf680fb13f1a594d175301ebfbe6aea6be13b28e07ec7b82470.
+Both acquisition reads succeeded. Three listed main-process records are EXIT_SELF
+with NONZERO status. Crash-buffer target_java_fatal_records0/fixed_mentions{}.
+Android therefore recorded app-requested nonzero termination in this history;
+this is not a recorded unhandled Java exception. The report explicitly does not
+bind those exits to this installation/attempt. No exact exit code was retained.
+No absence-of-crash proof or B integrity-cause conclusion follows.
+
+The first reader was too coarse for this next distinction: it discarded useful
+OS exit status and installation timing. Updated reader retains only self-exit
+codes0–255 (otherwise OUT_OF_RANGE), reads package lastUpdateTime privately and
+compares each exit timestamp as BEFORE_UPDATE/AT_OR_AFTER_UPDATE/UNKNOWN. These
+are local phone timestamps, with no absolute time exported; timezone/clock
+changes and old history still limit attempt attribution. It does not claim that
+AT_OR_AFTER_UPDATE identifies a particular launch.
+
+It also reads `dumpsys package`, `pm path` and shell `sha256sum` on exactly one
+validated /data/app/.../base.apk path. No APK is pulled/downloaded. Only a fixed
+ORIGINAL/SIGNATURE_CONTROL_A/SCOPED_TRUST_B/OTHER_APK/UNKNOWN label and read
+statuses are exported, not path, package dump, signing/account data or digest.
+Multiple/unsafe paths, failed permissions or unknown date formats remain
+explicitly unresolved. No install, relaunch, log clearing or game edit.
+
+CONFIRMED_NATIVE_STATIC / NATIVE_CONTROL_WITH_EXPLICIT_SUBSTITUTIONS: original
+libtprt.so actually present this turn, SHA256
+f608b142822b888f4e5b44bbb0167e8d5c02e1680ea89bab8171aeaab59b4f0a.
+Existing [post-load comparator](../../../experiments/native_integrity_controls.py)
+rerun with independent checksum inputs1/2 requested termination18 at0x31ac;
+1/1 and0/2 reached normal-return boundary0x36a8. Actual instructions with
+synthetic lookup/context substitutions, stopped before syscall; no original
+game runtime, phone execution or termination occurred. This revalidates an
+already documented path, not a new causal finding. Exit18 alone is not unique
+call-site identification, nor proof of a manifest/resource check or checksum
+failure on this phone. See [prior limits](INTEGRITY_NATIVE.md).
+
+SYNTHETIC_ONLY: revised reader12 methods PASS (previous8 plus bounded exit-code
+retention, update-time ordering/unknown controls, installed-APK hash classification
+without export, and unsafe/multiple-path rejection before shell hashing).
+The same curl/read command below now fetches the corrected reader. NEXT owner
+read existing records again; no new game attempt. Keep the failed installation
+until evidence is read. Immediate B transport test remains paused.
+
+Earlier text below describes the pre-report state and first reader; missing
+summary/exact fixed-status wording is superseded by this update.
+
 2026-11-08 UTC. OWNER_OBSERVATION: newly packaged XAPK backs out; owner compares
 the behavior to earlier modified builds that would not run. No startup exit
 summary, B packaging receipt, installed APK hash or matched crash trace has yet

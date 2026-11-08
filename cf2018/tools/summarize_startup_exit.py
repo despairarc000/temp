@@ -19,8 +19,19 @@ MARKERS={
  'SECURITY_EXCEPTION':re.compile(r'java\.lang\.SecurityException'),
  'NULL_POINTER':re.compile(r'java\.lang\.NullPointerException')}
 BRIEF=re.compile(r'^[VDIWEF]/AndroidRuntime\s*\(\s*(\d+)\s*\):\s?(.*)$')
+APK_ROLES={
+ '33045335685284385866e8b0e2df55285009399c285294c2f428b451ee00d3d9':'ORIGINAL',
+ 'e851f9f236afe2042f21acf2cd5bd74720d087800c35e4da94996f3fa89c2797':'SIGNATURE_CONTROL_A',
+ '32f31159691b413e53de4fdcf3c3f5fe5ccd35f282ecb56d5e0cc88a38a957df':'SCOPED_TRUST_B'}
 
-def exit_records(raw):
+def timestamp(text):
+    match=re.search(r'\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}(?:\.\d{1,6})?',text)
+    if not match:return None
+    value=match[0]
+    try:return datetime.datetime.strptime(value,'%Y-%m-%d %H:%M:%S.%f' if '.' in value else '%Y-%m-%d %H:%M:%S')
+    except ValueError:return None
+
+def exit_records(raw,updated_since=None):
     if len(raw)>MAX_BYTES:raise ValueError('bounded input required')
     records=[]
     for block in re.split(r'ApplicationExitInfo\s*#\d+\s*:',raw.decode('utf8',errors='replace'))[1:]:
@@ -31,8 +42,15 @@ def exit_records(raw):
         status=re.search(r'(?<!\w)status=(-?\d{1,4})(?!\d)',block)
         if status:
             value=int(status[1])
-            if code==1:record['status']='ZERO' if value==0 else 'NONZERO'
+            if code==1:
+                record['status']='ZERO' if value==0 else 'NONZERO'
+                record['exit_status_code']=value if 0<=value<=255 else 'OUT_OF_RANGE'
             elif code==2:record['signal']={6:'SIGABRT',9:'SIGKILL',11:'SIGSEGV'}.get(value,'OTHER_SIGNAL')
+        stamp=re.search(r'(?<!\w)timestamp=([^\r\n]+)',block)
+        exited=timestamp(stamp[1]) if stamp else None
+        record['relative_to_current_package_update']='UNKNOWN'
+        if exited is not None and updated_since is not None:
+            record['relative_to_current_package_update']='AT_OR_AFTER_UPDATE' if exited>=updated_since else 'BEFORE_UPDATE'
         records.append(record)
         if len(records)==3:break
     return records
@@ -56,29 +74,48 @@ def crash_mentions(raw):
     counts=Counter(k for e in matched for k in e['markers'])
     return {'target_java_fatal_records':len(matched),'fixed_mentions':dict(sorted(counts.items()))}
 
+def adb_read(args):
+    try:
+        result=subprocess.run(['adb']+args,stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,
+                              timeout=20,check=False)
+        if result.returncode:return b'','UNAVAILABLE'
+        if len(result.stdout)>MAX_BYTES:return b'','TOO_LARGE'
+        return result.stdout,'READ'
+    except (OSError,subprocess.TimeoutExpired):return b'','UNAVAILABLE'
+
 def read_existing():
     results={};states={}
     commands={'exit_info':['shell','dumpsys','activity','exit-info',PACKAGE],
               'crash_buffer':['logcat','-b','crash','-d','-t','256','-v','brief']}
-    for key,args in commands.items():
-        try:
-            result=subprocess.run(['adb']+args,stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,
-                                  timeout=20,check=False)
-            if result.returncode:states[key]='UNAVAILABLE';results[key]=b''
-            elif len(result.stdout)>MAX_BYTES:states[key]='TOO_LARGE';results[key]=b''
-            else:states[key]='READ';results[key]=result.stdout
-        except (OSError,subprocess.TimeoutExpired):states[key]='UNAVAILABLE';results[key]=b''
+    for key,args in commands.items():results[key],states[key]=adb_read(args)
     return results,states
+
+def read_identity():
+    metadata,state=adb_read(['shell','dumpsys','package',PACKAGE])
+    dates=re.findall(r'(?m)^\s*lastUpdateTime=([^\r\n]+)',metadata.decode('utf8',errors='replace'))
+    updated=timestamp(dates[0]) if len(dates)==1 else None
+    identity={'package_metadata':state,'update_time_parsed':updated is not None,'installed_apk':'UNKNOWN'}
+    paths,path_state=adb_read(['shell','pm','path',PACKAGE]);identity['apk_path_read']=path_state
+    paths=paths.decode('utf8',errors='replace').strip().splitlines()
+    if len(paths)!=1:return identity,updated
+    match=re.fullmatch(r'package:(/data/app/[A-Za-z0-9_./~+=-]+/base\.apk)',paths[0])
+    if not match:return identity,updated
+    raw,hash_state=adb_read(['shell','sha256sum',match[1]]);identity['apk_hash_read']=hash_state
+    value=raw.split(maxsplit=1)[0].decode('ascii',errors='replace') if raw.strip() else ''
+    if re.fullmatch('[a-fA-F0-9]{64}',value):identity['installed_apk']=APK_ROLES.get(value.lower(),'OTHER_APK')
+    return identity,updated
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output-dir',type=Path,default=Path.home()/'storage/downloads')
     args=parser.parse_args()
     raw,states=read_existing()
+    identity,updated=read_identity()
     report={'format':'CF2018_STARTUP_EXIT_SUMMARY','acquisition':states,
-            'main_process_exit_records_in_dump_order':exit_records(raw['exit_info']),
+            'installed_identity':identity,
+            'main_process_exit_records_in_dump_order':exit_records(raw['exit_info'],updated),
             'crash_buffer':crash_mentions(raw['crash_buffer']),
-            'attempt_attribution':'HISTORICAL_BUFFER_NOT_BOUND_TO_THIS_INSTALL_OR_ATTEMPT',
+            'attempt_attribution':'HISTORICAL_BUFFER_UPDATE_TIME_COMPARISON_NOT_ATTEMPT_BOUND',
             'integrity_cause':'NOT_ESTABLISHED',
             'limits':'Exit-self is not integrity proof; missing crash records are not a normal-exit result.'}
     stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S_%fZ')+'_'+uuid.uuid4().hex[:8]

@@ -1,4 +1,4 @@
-import importlib.util,json,subprocess,unittest
+import datetime,importlib.util,json,subprocess,unittest
 from pathlib import Path
 from unittest.mock import patch
 
@@ -54,5 +54,35 @@ class Summary(unittest.TestCase):
         self.assertEqual(run.call_args_list[0].args[0],['adb','shell','dumpsys','activity','exit-info',m.PACKAGE])
         self.assertEqual(run.call_args_list[1].args[0],['adb','logcat','-b','crash','-d','-t','256','-v','brief'])
         self.assertEqual(raw['crash_buffer'],b'')
+
+    def test_exit_code_preserved_in_bounded_range_without_inferring_integrity(self):
+        for value in [0,18,26,255]:
+            result=m.exit_records(record(1,status=value).encode())[0]
+            self.assertEqual(result['exit_status_code'],value)
+            self.assertNotIn('integrity',json.dumps(result))
+        self.assertEqual(m.exit_records(record(1,status=-1).encode())[0]['exit_status_code'],'OUT_OF_RANGE')
+
+    def test_record_before_or_after_update_and_unknown_time(self):
+        updated=datetime.datetime(2026,11,8,22,0,0)
+        for text,label in [('2026-11-08 21:59:00.123','BEFORE_UPDATE'),('2026-11-08 22:01:00','AT_OR_AFTER_UPDATE'),('PRIVATE','UNKNOWN')]:
+            result=m.exit_records(record().replace('timestamp=PRIVATE','timestamp='+text).encode(),updated)[0]
+            self.assertEqual(result['relative_to_current_package_update'],label)
+            self.assertNotIn(text,json.dumps(result))
+
+    def test_installed_identity_reads_phone_hash_without_downloading_or_exporting_path(self):
+        path='/data/app/~~synthetic/package-synthetic/base.apk';digest=next(k for k,v in m.APK_ROLES.items() if v=='SCOPED_TRUST_B')
+        with patch.object(m,'adb_read',side_effect=[(b'  lastUpdateTime=2026-11-08 22:00:00\n','READ'),(('package:'+path+'\n').encode(),'READ'),((digest+'  '+path+'\n').encode(),'READ')]) as read:
+            identity,updated=m.read_identity()
+        self.assertEqual(identity['installed_apk'],'SCOPED_TRUST_B')
+        self.assertEqual(updated,datetime.datetime(2026,11,8,22,0,0))
+        self.assertEqual(read.call_args_list[-1].args[0],['shell','sha256sum',path])
+        self.assertNotIn(path,json.dumps(identity));self.assertNotIn(digest,json.dumps(identity))
+
+    def test_unsafe_path_or_multiple_apks_never_passed_to_shell(self):
+        for paths in [b'package:/data/app/a/$(secret)/base.apk',b'package:/data/app/a/base.apk\npackage:/data/app/a/split.apk']:
+            with patch.object(m,'adb_read',side_effect=[(b'','UNAVAILABLE'),(paths,'READ')]) as read:
+                identity,updated=m.read_identity()
+            self.assertEqual(read.call_count,2);self.assertEqual(identity['installed_apk'],'UNKNOWN')
+            self.assertIsNone(updated)
 
 if __name__=='__main__':unittest.main()
