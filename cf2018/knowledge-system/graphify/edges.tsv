@@ -194,3 +194,7 @@ knowledge-system/vault/research/TERMUX_SCOPED_APK_PREPARER.md	tests	tests/test_p
 knowledge-system/vault/CHECKPOINT.md	evidence	knowledge-system/vault/research/SIGNATURE_CONTROL_XAPK_PACKAGING.md	OFFLINE_SYNTHETIC_MIXED_SOURCE
 knowledge-system/vault/research/SIGNATURE_CONTROL_XAPK_PACKAGING.md	describes	tools/package_signature_control_xapk.py	LOCAL_TEST_ONLY
 knowledge-system/vault/research/SIGNATURE_CONTROL_XAPK_PACKAGING.md	tests	tests/test_package_signature_control_xapk.py	SYNTHETIC_ONLY
+knowledge-system/vault/research/CONFIGURATION_DNS_TLS_CONTROL.md	describes	experiments/config_tls_core.py	REPOSITORY_SOURCE
+knowledge-system/vault/research/CONFIGURATION_DNS_TLS_CONTROL.md	describes	tools/run_config_tls_control.py	REPOSITORY_SOURCE
+knowledge-system/vault/research/CONFIGURATION_DNS_TLS_CONTROL.md	tested-by	tests/test_config_tls_core.py	SYNTHETIC_ONLY
+knowledge-system/vault/CHECKPOINT.md	evidence	knowledge-system/vault/research/CONFIGURATION_DNS_TLS_CONTROL.md	SYNTHETIC_ONLY
