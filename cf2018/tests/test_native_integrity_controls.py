@@ -8,7 +8,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'experiments'))
 from native_integrity_controls import (classify_branch, native_crc,
                                       postload_comparison, mono_handoff,
                                       startup_status_predicate, startup_exit_boundary,
-                                      simple_rtti_name, startup_checker_identity, rtti_name)
+                                      simple_rtti_name, startup_checker_identity, rtti_name,
+                                      jni_registration_gate)
 TPRT, MONO = os.environ.get('CF18_TPRT_LIBRARY'), os.environ.get('CF18_MONO_LIBRARY')
 
 
@@ -32,12 +33,27 @@ class BoundsTests(unittest.TestCase):
                      lambda: native_crc('absent', bytes(4097)),
                      lambda: postload_comparison('absent', -1, 0),
                      lambda: startup_status_predicate('absent', -1),
-                     lambda: startup_exit_boundary('absent', 0, producer='other')):
+                     lambda: startup_exit_boundary('absent', 0, producer='other'),
+                     lambda: jni_registration_gate('absent','unknown',0)):
             with self.assertRaises(ValueError): call()
 
 
 @unittest.skipUnless(TPRT, 'private pinned libtprt and native dependencies required')
 class NativeIntegrityTests(unittest.TestCase):
+    def test_jni_environment_requires_zero_result_and_nonnull_environment(self):
+        for result,present,passed in [(0,True,True),(0,False,False),(-1,True,False),(4,True,False)]:
+            actual=jni_registration_gate(TPRT,'environment',result,present)
+            self.assertEqual(actual['passed_gate'],passed)
+            self.assertFalse(actual['android_initialization_performed'])
+
+    def test_jni_class_lookup_and_registration_have_distinct_predicates(self):
+        for stage,result,passed in [('class_lookup',0,False),('class_lookup',1,True),
+                                    ('registration',-1,False),('registration',0,True),
+                                    ('registration',1,True)]:
+            actual=jni_registration_gate(TPRT,stage,result)
+            self.assertEqual(actual['passed_gate'],passed)
+            self.assertEqual(actual['stopped_at'],{'class_lookup':0x315e,'registration':0x3188}[stage] if passed else 0x3174)
+
     def test_original_rtti_links_file_checker_to_code_four_method(self):
         result=startup_checker_identity(TPRT)
         self.assertEqual(result,{'type_name':'FileChecker','vtable':0x22478,

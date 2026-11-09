@@ -224,6 +224,35 @@ def startup_checker_identity(library):
             'base_typeinfo': base_typeinfo}
 
 
+def jni_registration_gate(library, stage, supplied_result, environment_present=True):
+    """Original JNI guard branches, with supplied results and no JVM execution.
+
+    Stops before lookup/registration/auxiliary initialization, or failure handling.
+    This is a negative-control boundary audit, never a completed Android init.
+    """
+    gates = {'environment': (0x313e, 0x3148),
+             'class_lookup': (0x315a, 0x315e),
+             'registration': (0x3170, 0x3188)}
+    if stage not in gates or type(supplied_result) is not int or supplied_result not in (-1, 0, 1, 4):
+        raise ValueError('fixed JNI boundary control required')
+    if type(environment_present) is not bool:
+        raise ValueError('explicit synthetic environment presence required')
+    n = TprtControl(library)
+    n.write(STACK + 0xf000, CTX if environment_present else 0)
+    entry, passed = gates[stage]
+    outcome = {}
+    def boundary(u, address):
+        if address in (passed, 0x3174):
+            outcome.update(passed_gate=address == passed, stopped_at=address,
+                           android_initialization_performed=False)
+            return True
+        return False
+    n.execute(entry, (supplied_result,), boundary)
+    if not outcome:
+        raise RuntimeError('expected JNI guard boundary missing')
+    return outcome
+
+
 def startup_status_predicate(library, status):
     """Actual status predicate with a synthetic input, not a phone return value."""
     if type(status) is not int or not 0 <= status < 2**32:

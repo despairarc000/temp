@@ -1,5 +1,52 @@
 # Scoped-trust copy exits at startup
 
+## Initialization boundary and negative JNI controls — 2026-11-09 UTC
+
+CONFIRMED_NATIVE_STATIC: original pinned TPRT ELF dynamic tags contain
+DT_INIT_ARRAY0x22458/size0x20, seven nonzero Thumb constructor entries and one
+zero. No separate DT_INIT tag. .rel.dyn/.rel.plt have no targets within
+.tptext0x177ac–0x18398. This excludes a missed separate DT_INIT or ordinary
+recorded relocation into this region as a sufficient initialization recipe;
+it does not exclude runtime writes or explain its runtime code/results.
+
+JNI_OnLoad0x3100 obtains an environment through JavaVM.GetEnv, requires result0
+AND nonnull environment, looks up a class through JNI function-table slot+0x18,
+then uses RegisterNatives slot+0x35c with18 entries at0x23224. Registration requires
+nonnegative result before auxiliary initialization0x7d80. The failure handling
+0x3174–0x3176 forms return-1, distinct from the FileChecker code4 landing.
+JNI table names are not resolved from the untouched on-disk table here;18 target
+function pointers are source metadata, not successful runtime registration.
+The registration-table address uses the aligned Thumb PC-relative literal at
+0x31a8 plus PC0x3170; an exploratory unaligned literal calculation was discarded.
+
+NATIVE_CONTROL_WITH_EXPLICIT_SUBSTITUTIONS: new `jni_registration_gate` in the
+[native audit](../../../experiments/native_integrity_controls.py) executes only
+the actual post-call guards with supplied results/environment pointer. GetEnv
+result0 + nonnull environment passes; result0/null, -1/non-null and4/non-null
+take failure handling. Class lookup null fails/non-null passes. Registration-1
+fails while0/1 pass. Every control stops BEFORE lookup/registration/auxiliary
+initialization or before failure handling; no JNI call, checker, constructor,
+real initialization or termination is executed. These results cannot be used
+to claim a working initialized library or exclude other constructor/thread exits.
+
+[Native suite](../../../tests/test_native_integrity_controls.py):16 methods PASS
+with explicit original TPRT/Mono; default3 PASS/13 SKIP. Guard input-shape negative
+rejects an unknown stage before source access. Source files remain unchanged;
+no APK preparation, guard disabling, decryption, binary/raw-code publication or
+Android/phone/network run.
+
+TECHNICAL BLOCKER REACHED: available private originals and reports do not provide
+the initialized JNI/protected-native state or the actual FileChecker input/result.
+Neither the malformed static instruction interpretation of .tptext nor arbitrary
+stubbed successful initialization would establish the real check. There is no
+attached Android target/emulator or verified specific runtime collector here.
+A matched read-only native startup trace, or independently reproduced complete
+initialization with explicit proven dependencies, is needed to advance beyond
+this boundary. No additional identical exit report/reinstall is requested. Do
+not claim research continues in the background after this turn. Existing B TLS
+test stays paused; no login/gameplay acceptance. Diary near cap, no append or
+rotation. Schedules paused.
+
 ## Checker hierarchy and scope of a hypothetical removal — 2026-11-09 UTC
 
 Owner asks whether this is an integrity checker and whether disabling it would
