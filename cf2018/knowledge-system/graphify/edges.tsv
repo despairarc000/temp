@@ -203,3 +203,5 @@ knowledge-system/vault/research/CONFIGURATION_DNS_TLS_CONTROL.md	tested-by	tests
 knowledge-system/vault/CHECKPOINT.md	evidence	knowledge-system/vault/research/SCOPED_TRUST_STARTUP_EXIT.md	OWNER_OBSERVATION
 knowledge-system/vault/research/SCOPED_TRUST_STARTUP_EXIT.md	describes	tools/summarize_startup_exit.py	REPOSITORY_SOURCE
 knowledge-system/vault/research/SCOPED_TRUST_STARTUP_EXIT.md	tested-by	tests/test_summarize_startup_exit.py	SYNTHETIC_ONLY
+knowledge-system/vault/research/SCOPED_TRUST_STARTUP_EXIT.md	evidence	experiments/native_integrity_controls.py	NATIVE_CONTROL_WITH_SUBSTITUTIONS
+knowledge-system/vault/research/SCOPED_TRUST_STARTUP_EXIT.md	tested-by	tests/test_native_integrity_controls.py	NATIVE_CONTROL_WITH_SUBSTITUTIONS

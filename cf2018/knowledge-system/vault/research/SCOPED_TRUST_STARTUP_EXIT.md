@@ -1,5 +1,62 @@
 # Scoped-trust copy exits at startup
 
+## Installed B and exit4; separate native failure path — 2026-11-09 UTC
+
+PHONE_REPORT: CF2018_STARTUP_EXIT_20261109T000839_389418Z_c7b3a600.txt,
+SHA2561295dee2db824e5c35506514cc4b888a67ae1d3c5d8a6ee737a81eba8bf1e80b.
+All acquisition/hash reads READ; installed hash class SCOPED_TRUST_B;
+package update time parsed. All3 listed main-process records are EXIT_SELF,
+exit_status_code4, AT_OR_AFTER_UPDATE. Target Java fatal records0. This now ties
+the installed artifact to reviewed B and places these records at/after its update,
+superseding the previous unknown-install/unknown-code status. Exact launch
+attribution and clock/update-time limits remain. No Java-crash or configuration
+TLS acceptance is established; no new game execution was requested here.
+
+CONFIRMED_NATIVE_STATIC: original libtprt.so SHA256
+f608b142822b888f4e5b44bbb0167e8d5c02e1680ea89bab8171aeaab59b4f0a
+reverified; ELF32 little-endian EM_ARM. A different native failure landing0x5194
+sets r0=4 and branches0x5164 to wrapper0x43ac. Wrapper sets r7=248 and reaches
+SVC at0x43b2, the ARM exit_group boundary. This is distinct from previously
+examined0x31ac loader guard using18/26. The phone's4 does not support identifying
+the known unconditional18 mismatch fallback as its direct exit source.
+
+The enclosing function0x50fc calls unresolved0x17e74 in .tptext at0x511e, then
+predicate0x47f6. Predicate accepts0 or101–200; otherwise fallback searches up to8
+records for type4 and may attempt a dynamic callback. Missing record, failed
+resolution or nonzero callback result can converge on landing0x5194. Exit4 is
+therefore a shared failure code here; it does NOT reveal the upstream returned
+status, record meaning, original check, manifest/resource integrity condition or
+phone call stack. Callback/config alternatives also prevent treating the code
+as unique call-site identification.
+
+NATIVE_CONTROL_WITH_EXPLICIT_SUBSTITUTIONS: added bounded controls in
+[existing native audit](../../../experiments/native_integrity_controls.py).
+Starting at failure landing with independent r0 inputs0/18 yields r0=4,r7=248
+at0x43b2; wrapper-only input18 preserves18. Every run stops BEFORE SVC; no real
+termination. Separate native predicate controls accept0/101/150/200 and reject
+1/4/18/100/201/0xffffffff. These execute original instructions in synthetic
+entry contexts, not the phone's upstream check or actual runtime initialization.
+[Suite](../../../tests/test_native_integrity_controls.py):11 methods PASS with
+explicit original TPRT/Mono sources; default1 PASS/10 SKIP. No original bytes,
+raw disassembly, patches or secrets published.
+
+CONFIRMED_ORIGINAL_DEX_STATIC: original APK330453… rehashed and direct termination
+references inspected. TPShellApplication.preInitial exception fallbacks0x52/0x96
+pass constant1; finalInitial0x52 also passes1. These inspected Java fallbacks do
+not explain4. Other native/reflection/runtime termination paths remain open;
+absence of Java fatal markers still does not exclude handled exceptions.
+
+TECHNICAL BOUNDARY: original binaries are available; initialized Android native
+state and the runtime semantics/result of .tptext call0x17e74 are not reproduced
+here. No decryption, key extraction, guard disabling or further APK edit was
+performed. NEXT read-only .tptext initialization/fallback provenance research
+before another phone test or replacement build. Do not resume B TLS simply from
+matching exit code, and do not ask for another copy of the same exit report.
+Diary near cap; no append/rotation. Schedules paused; login/gameplay unproven.
+
+Earlier unknown installed-identity/status statements below are historical and
+superseded by this report; exact integrity-cause uncertainty remains current.
+
 ## Existing exit report and attribution correction — 2026-11-08 UTC
 
 PHONE_REPORT: CF2018_STARTUP_EXIT_20261108T230135_845334Z_9a907bd0.txt,

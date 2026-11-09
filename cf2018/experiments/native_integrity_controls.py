@@ -151,6 +151,38 @@ Termination is intercepted before syscall, never executed on host/device.
             'evidence': 'INJECTED_POSTLOAD_CHECKSUM_NOT_PHONE_CAUSE'}
 
 
+def startup_status_predicate(library, status):
+    """Actual status predicate with a synthetic input, not a phone return value."""
+    if type(status) is not int or not 0 <= status < 2**32:
+        raise ValueError('unsigned synthetic status required')
+    n = TprtControl(library)
+    return n.execute(0x47f6, (status,), lambda u, a: False)
+
+
+def startup_exit_boundary(library, status, producer=True):
+    """Observe a supplied failure landing or wrapper; stop before syscall.
+
+    Does not execute upstream checks, decrypt protected sections, patch a game,
+    terminate a process, or establish the origin of any phone exit status.
+    """
+    if type(status) is not int or not 0 <= status < 2**32 or type(producer) is not bool:
+        raise ValueError('bounded synthetic status/entry required')
+    from unicorn.arm_const import UC_ARM_REG_R0, UC_ARM_REG_R7
+    n = TprtControl(library)
+    event = {}
+    def boundary(u, address):
+        if address == 0x43b2:
+            event.update(exit_argument=u.reg_read(UC_ARM_REG_R0),
+                         syscall_number=u.reg_read(UC_ARM_REG_R7),
+                         stopped_before_syscall=True)
+            return True
+        return False
+    n.execute(0x5194 if producer else 0x43ac, (status,), boundary)
+    if not event:
+        raise RuntimeError('expected pre-syscall boundary missing')
+    return event
+
+
 def mono_handoff(mono, tprt):
     """Original ARM entry -> Thumb veneer -> actual table target, then stop.
 

@@ -6,7 +6,8 @@ import unittest
 import zlib
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'experiments'))
 from native_integrity_controls import (classify_branch, native_crc,
-                                      postload_comparison, mono_handoff)
+                                      postload_comparison, mono_handoff,
+                                      startup_status_predicate, startup_exit_boundary)
 TPRT, MONO = os.environ.get('CF18_TPRT_LIBRARY'), os.environ.get('CF18_MONO_LIBRARY')
 
 
@@ -15,7 +16,9 @@ class BoundsTests(unittest.TestCase):
         for call in (lambda: classify_branch('absent', b'A', 10),
                      lambda: classify_branch('absent', b'ABCD', 3),
                      lambda: native_crc('absent', bytes(4097)),
-                     lambda: postload_comparison('absent', -1, 0)):
+                     lambda: postload_comparison('absent', -1, 0),
+                     lambda: startup_status_predicate('absent', -1),
+                     lambda: startup_exit_boundary('absent', 0, producer='other')):
             with self.assertRaises(ValueError): call()
 
 
@@ -58,6 +61,19 @@ class NativeIntegrityTests(unittest.TestCase):
         for pair in ((0,124),(123,0),(0,0)):
             self.assertEqual(postload_comparison(TPRT,*pair)['events'][-1][0],
                              'normal_return_boundary')
+
+    def test_actual_status_predicate_accepts_zero_or_101_through_200(self):
+        for value in [0,101,150,200]:
+            self.assertEqual(startup_status_predicate(TPRT,value),1)
+        for value in [1,4,18,100,201,0xffffffff]:
+            self.assertEqual(startup_status_predicate(TPRT,value),0)
+
+    def test_actual_failure_landing_selects_four_and_wrapper_preserves_other_status(self):
+        for supplied in [0,18]:
+            self.assertEqual(startup_exit_boundary(TPRT,supplied),
+                             {'exit_argument':4,'syscall_number':248,'stopped_before_syscall':True})
+        self.assertEqual(startup_exit_boundary(TPRT,18,producer=False),
+                         {'exit_argument':18,'syscall_number':248,'stopped_before_syscall':True})
 
 
 @unittest.skipUnless(TPRT and MONO, 'both private pinned native libraries required')
