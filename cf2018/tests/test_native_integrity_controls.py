@@ -8,11 +8,18 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'experiments'))
 from native_integrity_controls import (classify_branch, native_crc,
                                       postload_comparison, mono_handoff,
                                       startup_status_predicate, startup_exit_boundary,
-                                      simple_rtti_name, startup_checker_identity)
+                                      simple_rtti_name, startup_checker_identity, rtti_name)
 TPRT, MONO = os.environ.get('CF18_TPRT_LIBRARY'), os.environ.get('CF18_MONO_LIBRARY')
 
 
 class BoundsTests(unittest.TestCase):
+    def test_nested_rtti_names_preserve_namespace_and_reject_bad_lengths(self):
+        self.assertEqual(rtti_name(b'N7tpshell8TPThreadE'),'tpshell::TPThread')
+        self.assertEqual(rtti_name(b'N10__cxxabiv120__si_class_type_infoE'),'__cxxabiv1::__si_class_type_info')
+        self.assertEqual(rtti_name(b'9OtherType'),'OtherType')
+        for raw in [b'N7tpshell7TPThreadE',b'N7tpshell8TPThread',b'N7tpshellE',b'N0E',b'N7tpshell8TPThreadESECRET']:
+            with self.subTest(raw=raw),self.assertRaises(ValueError):rtti_name(raw)
+
     def test_rtti_simple_name_lengths_and_unrelated_names(self):
         self.assertEqual(simple_rtti_name(b'11FileChecker'),'FileChecker')
         self.assertEqual(simple_rtti_name(b'9OtherType'),'OtherType')
@@ -35,7 +42,9 @@ class NativeIntegrityTests(unittest.TestCase):
         result=startup_checker_identity(TPRT)
         self.assertEqual(result,{'type_name':'FileChecker','vtable':0x22478,
                                 'typeinfo':0x2248c,'virtual_method':0x50fc,
-                                'thumb':True,'phone_path_observed':False})
+                                'thumb':True,'phone_path_observed':False,
+                                'typeinfo_kind':'__cxxabiv1::__si_class_type_info',
+                                'base_type':'tpshell::TPThread','base_typeinfo':0x224ac})
 
     def test_real_crc_matches_independent_standard_vectors(self):
         for b in (b'', b'123456789', bytes(range(256)), bytes(4096)):

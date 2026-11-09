@@ -162,6 +162,29 @@ def simple_rtti_name(raw):
     return match[2].decode('ascii')
 
 
+def rtti_name(raw):
+    """Simple or bounded nested Itanium name; no templates or encoded expressions."""
+    if type(raw) is not bytes or not 2 <= len(raw) <= 96:
+        raise ValueError('bounded RTTI name required')
+    if not raw.startswith(b'N'):
+        return simple_rtti_name(raw)
+    if not raw.endswith(b'E'):
+        raise ValueError('unterminated nested RTTI name')
+    import re
+    rest = raw[1:-1]
+    names = []
+    while rest and len(names) < 8:
+        match = re.match(rb'([1-9][0-9]?)(?=[A-Za-z_])', rest)
+        if match is None:
+            raise ValueError('invalid nested RTTI component')
+        size = int(match[1]); end = match.end() + size
+        names.append(simple_rtti_name(rest[:end]))
+        rest = rest[end:]
+    if rest or len(names) < 2:
+        raise ValueError('nested RTTI component budget')
+    return '::'.join(names)
+
+
 def startup_checker_identity(library):
     """Read exact original vtable/typeinfo link; not observed phone ownership."""
     guarded_bytes(library, 'tprt')
@@ -188,9 +211,17 @@ def startup_checker_identity(library):
     target = word(vtable + 16)
     if target != 0x50fd:
         raise ValueError('startup checker virtual target changed')
+    def name_at(info):
+        return rtti_name(read(word(info + 4), 96).split(b'\0', 1)[0])
+    kind = name_at(word(word(typeinfo) - 4))
+    if kind != '__cxxabiv1::__si_class_type_info':
+        raise ValueError('single-inheritance RTTI required before base lookup')
+    base_typeinfo = word(typeinfo + 8)
     return {'type_name': simple_rtti_name(encoded), 'vtable': vtable,
             'typeinfo': typeinfo, 'virtual_method': target & ~1,
-            'thumb': bool(target & 1), 'phone_path_observed': False}
+            'thumb': bool(target & 1), 'phone_path_observed': False,
+            'typeinfo_kind': kind, 'base_type': name_at(base_typeinfo),
+            'base_typeinfo': base_typeinfo}
 
 
 def startup_status_predicate(library, status):

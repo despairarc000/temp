@@ -1,5 +1,44 @@
 # Scoped-trust copy exits at startup
 
+## Checker hierarchy and scope of a hypothetical removal — 2026-11-09 UTC
+
+Owner asks whether this is an integrity checker and whether disabling it would
+permit unrestricted changes. No removal/patch was performed. Source supports a
+file-verification/protection candidate, not a proven particular integrity check
+or a sufficient change for successful launch, TLS, authentication or gameplay.
+
+CONFIRMED_NATIVE_STATIC: original TPRT SHA f608b142… reverified by existing pins.
+FileChecker typeinfo0x2248c has typeinfo-kind __cxxabiv1::__si_class_type_info,
+resolved through its metatype vtable, before interpreting the base pointer at+8.
+Base pointer is0x224ac, name tpshell::TPThread; its metatype is ordinary
+__class_type_info. Thus the candidate is statically a TPThread subclass. This
+does not attest thread creation, scheduling, execution on the phone or the
+upstream checker input. The method0x50fc/code4 association remains as above.
+
+The separately verified Mono-loader/post-load comparison uses another wrapper
+and status18/26. Native type inheritance plus the distinct check path provides
+no basis for treating one FileChecker alteration as removal of every guard.
+Provider initialization, resource correctness and SDK/account session gates also
+retain their own acceptance requirements. Disabling an examined termination
+branch would not demonstrate that failed initialization became successful; this
+is a limitation of the inference, not a tested removal result.
+
+Added bounded nested-name decoding and metatype validation to the existing
+[read-only audit](../../../experiments/native_integrity_controls.py).
+[Suite](../../../tests/test_native_integrity_controls.py):14 methods PASS with
+explicit originals; default3 PASS/11 SKIP. Nested-name positive controls include
+TPThread, the SI metatype and unrelated simple class; malformed lengths, truncated
+names, single nested component and trailing data are rejected. Actual original
+metadata asserts base/typeinfo-kind alongside the candidate virtual target.
+No Android run, memory patch, protection removal, raw code publication or secret
+extraction. Existing graph routes still point to this audit/test/document.
+
+UNKNOWN: checked file/condition, actual phone call site and full initialized
+.tptext result. Next remains a justified read-only way to observe those inputs;
+no verified collection method is available here yet. Do not request another
+identical exit report or replacement install as a substitute. Diary near cap,
+no append/rotation. Schedules paused.
+
 ## Candidate is statically owned by FileChecker — 2026-11-09 UTC
 
 CONFIRMED_NATIVE_STATIC: original libtprt.so SHA256
