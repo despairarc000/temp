@@ -36,3 +36,5 @@ XAPK control delivery: [Verified packager/limits](../../cf2018/knowledge-system/
 Configuration DNS/TLS phone control: [Scoped local rig, tested limits and exact manual procedure](../../cf2018/knowledge-system/vault/research/CONFIGURATION_DNS_TLS_CONTROL.md).
 
 Modified-copy startup exit: [B launch failure and existing Android exit reader](../../cf2018/knowledge-system/vault/research/SCOPED_TRUST_STARTUP_EXIT.md).
+
+Protected APK-file manifest / B startup cause: [Native package-integrity audit and controls](../../cf2018/knowledge-system/vault/research/PACKAGE_INTEGRITY_RECORDS.md).

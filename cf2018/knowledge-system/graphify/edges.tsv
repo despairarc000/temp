@@ -205,3 +205,7 @@ knowledge-system/vault/research/SCOPED_TRUST_STARTUP_EXIT.md	describes	tools/sum
 knowledge-system/vault/research/SCOPED_TRUST_STARTUP_EXIT.md	tested-by	tests/test_summarize_startup_exit.py	SYNTHETIC_ONLY
 knowledge-system/vault/research/SCOPED_TRUST_STARTUP_EXIT.md	evidence	experiments/native_integrity_controls.py	NATIVE_CONTROL_WITH_SUBSTITUTIONS
 knowledge-system/vault/research/SCOPED_TRUST_STARTUP_EXIT.md	tested-by	tests/test_native_integrity_controls.py	NATIVE_CONTROL_WITH_SUBSTITUTIONS
+knowledge-system/vault/research/PACKAGE_INTEGRITY_RECORDS.md	describes	experiments/original_package_integrity.py	ORIGINAL_NATIVE_WITH_MODELS
+knowledge-system/vault/research/PACKAGE_INTEGRITY_RECORDS.md	tested-by	tests/test_original_package_integrity.py	ORIGINAL_NATIVE_WITH_MODELS
+knowledge-system/vault/research/PACKAGE_INTEGRITY_RECORDS.md	uses	experiments/native_integrity_controls.py	ORIGINAL_NATIVE_WITH_MODELS
+knowledge-system/vault/CHECKPOINT.md	evidence	knowledge-system/vault/research/PACKAGE_INTEGRITY_RECORDS.md	ORIGINAL_NATIVE_WITH_MODELS

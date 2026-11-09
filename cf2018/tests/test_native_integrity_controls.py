@@ -4,12 +4,14 @@ from pathlib import Path
 import sys
 import unittest
 import zlib
+from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'experiments'))
 from native_integrity_controls import (classify_branch, native_crc,
                                       postload_comparison, mono_handoff,
                                       startup_status_predicate, startup_exit_boundary,
                                       simple_rtti_name, startup_checker_identity, rtti_name,
-                                      jni_registration_gate)
+                                      jni_registration_gate, TprtControl,
+                                      prepare_tprt_text_for_audit)
 TPRT, MONO = os.environ.get('CF18_TPRT_LIBRARY'), os.environ.get('CF18_MONO_LIBRARY')
 
 
@@ -40,6 +42,27 @@ class BoundsTests(unittest.TestCase):
 
 @unittest.skipUnless(TPRT, 'private pinned libtprt and native dependencies required')
 class NativeIntegrityTests(unittest.TestCase):
+    def test_sequential_native_calls_remove_previous_return_hooks(self):
+        n=TprtControl(TPRT)
+        self.assertEqual(n.execute(0x47f6,(0,),lambda u,a:False),1)
+        self.assertEqual(n.execute(0x47f6,(4,),lambda u,a:False),0)
+
+    def test_original_text_initialization_preserves_checksum_and_source(self):
+        n,result=prepare_tprt_text_for_audit(TPRT)
+        self.assertEqual(result['original_native_return'],0)
+        self.assertFalse(result['source_file_modified'])
+        self.assertFalse(result['android_initialization_performed'])
+        self.assertEqual(len(result['modeled_services']),3)
+        self.assertEqual(n.execute(0x47f6,(101,),lambda u,a:False),1)
+
+    def test_original_text_initialization_rejects_corrupted_emulator_copy(self):
+        n=TprtControl(TPRT)
+        original=bytes(n.u.mem_read(0x177ac,1))
+        n.u.mem_write(0x177ac,bytes([original[0]^1]))
+        with patch('native_integrity_controls.TprtControl',return_value=n):
+            with self.assertRaisesRegex(RuntimeError,'checksum failed'):
+                prepare_tprt_text_for_audit(TPRT)
+
     def test_jni_environment_requires_zero_result_and_nonnull_environment(self):
         for result,present,passed in [(0,True,True),(0,False,False),(-1,True,False),(4,True,False)]:
             actual=jni_registration_gate(TPRT,'environment',result,present)

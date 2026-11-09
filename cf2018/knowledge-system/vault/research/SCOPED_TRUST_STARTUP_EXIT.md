@@ -1,5 +1,7 @@
 # Scoped-trust copy exits at startup
 
+Latest2026-11-09: [Native metadata audit and reproduced B inconsistency](PACKAGE_INTEGRITY_RECORDS.md) supersedes the earlier .tptext/initialization blocker below. Normal original initialization now succeeds in isolated memory; protected records disagree with the two changed files. No protection change made; owner scope decision is next.
+
 ## Initialization boundary and negative JNI controls — 2026-11-09 UTC
 
 CONFIRMED_NATIVE_STATIC: original pinned TPRT ELF dynamic tags contain

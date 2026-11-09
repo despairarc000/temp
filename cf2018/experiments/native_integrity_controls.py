@@ -63,8 +63,11 @@ class TprtControl:
             if address == STOP or boundary(u, address):
                 done = True
                 u.emu_stop()
-        self.u.hook_add(UC_HOOK_CODE, hook)
-        self.u.emu_start(entry|1, STOP+2, timeout=1000000, count=100000)
+        handle = self.u.hook_add(UC_HOOK_CODE, hook)
+        try:
+            self.u.emu_start(entry|1, STOP+2, timeout=1000000, count=100000)
+        finally:
+            self.u.hook_del(handle)
         if not done:
             raise RuntimeError('native instruction/time budget reached')
         return self.u.reg_read(UC_ARM_REG_R0)
@@ -149,6 +152,43 @@ Termination is intercepted before syscall, never executed on host/device.
     n.execute(0x35fc, (), boundary)
     return {'events': events, 'stubs': stubs,
             'evidence': 'INJECTED_POSTLOAD_CHECKSUM_NOT_PHONE_CAUSE'}
+
+
+def prepare_tprt_text_for_audit(library):
+    """Run the original checksum-verified text initializer in isolated memory.
+
+    Models only emulator memory-protection/cache services. Does not remove a
+    check, modify a source file, dump code, or complete Android initialization.
+    """
+    from unicorn import UC_HOOK_INTR
+    from unicorn.arm_const import (UC_ARM_REG_R0, UC_ARM_REG_R1, UC_ARM_REG_R2,
+                                  UC_ARM_REG_PC, UC_ARM_REG_LR)
+    n = TprtControl(library)
+    events = []
+    def forbid_interrupt(*unused):
+        raise RuntimeError('unmodeled native syscall refused')
+    n.u.hook_add(UC_HOOK_INTR, forbid_interrupt)
+    def boundary(u, address):
+        if address not in (0x173cc, 0x173dc):
+            return False
+        args = [u.reg_read(r) for r in (UC_ARM_REG_R0, UC_ARM_REG_R1, UC_ARM_REG_R2)]
+        expected = ([0x17000, 0x2000, 7] if not events else
+                    [0x177ac, 0x18398, 0] if len(events) == 1 else
+                    [0x17000, 0x2000, 5])
+        if args != expected or len(events) >= 3:
+            raise ValueError('original initializer service scope changed')
+        if address != (0x173dc if len(events) == 1 else 0x173cc):
+            raise ValueError('original initializer service order changed')
+        events.append('cache_service_modeled' if address == 0x173dc else 'memory_protection_modeled')
+        u.reg_write(UC_ARM_REG_R0, 0)
+        u.reg_write(UC_ARM_REG_PC, u.reg_read(UC_ARM_REG_LR))
+        return False
+    result = n.execute(0x538c, (0,), boundary)
+    if result != 0 or len(events) != 3:
+        raise RuntimeError('original native text initialization/checksum failed')
+    guarded_bytes(library, 'tprt')
+    return n, {'original_native_return': result, 'modeled_services': events,
+               'android_initialization_performed': False, 'source_file_modified': False}
 
 
 def simple_rtti_name(raw):
