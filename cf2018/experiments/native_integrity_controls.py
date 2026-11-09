@@ -151,6 +151,48 @@ Termination is intercepted before syscall, never executed on host/device.
             'evidence': 'INJECTED_POSTLOAD_CHECKSUM_NOT_PHONE_CAUSE'}
 
 
+def simple_rtti_name(raw):
+    """Bounded Itanium simple-name decoder; public controls use synthetic bytes."""
+    if type(raw) is not bytes or not 2 <= len(raw) <= 96:
+        raise ValueError('bounded simple RTTI name required')
+    import re
+    match = re.fullmatch(rb'([1-9][0-9]?)([A-Za-z_][A-Za-z0-9_]*)', raw)
+    if match is None or int(match[1]) != len(match[2]):
+        raise ValueError('simple RTTI name length/shape mismatch')
+    return match[2].decode('ascii')
+
+
+def startup_checker_identity(library):
+    """Read exact original vtable/typeinfo link; not observed phone ownership."""
+    guarded_bytes(library, 'tprt')
+    import struct
+    from elftools.elf.elffile import ELFFile
+    with open(library, 'rb') as stream:
+        elf = ELFFile(stream)
+        if elf.elfclass != 32 or not elf.little_endian or elf['e_machine'] != 'EM_ARM':
+            raise ValueError('unexpected source ISA')
+        segments = [(s['p_vaddr'], s.data()) for s in elf.iter_segments() if s['p_type'] == 'PT_LOAD']
+    def read(address, size):
+        for base, data in segments:
+            offset = address - base
+            if 0 <= offset and offset + size <= len(data):
+                return data[offset:offset + size]
+        raise ValueError('file-backed metadata boundary required')
+    word = lambda address: struct.unpack('<I', read(address, 4))[0]
+    vtable = 0x22478
+    if word(vtable) != 0:
+        raise ValueError('unexpected primary vtable offset')
+    typeinfo = word(vtable + 4)
+    name_address = word(typeinfo + 4)
+    encoded = read(name_address, 96).split(b'\0', 1)[0]
+    target = word(vtable + 16)
+    if target != 0x50fd:
+        raise ValueError('startup checker virtual target changed')
+    return {'type_name': simple_rtti_name(encoded), 'vtable': vtable,
+            'typeinfo': typeinfo, 'virtual_method': target & ~1,
+            'thumb': bool(target & 1), 'phone_path_observed': False}
+
+
 def startup_status_predicate(library, status):
     """Actual status predicate with a synthetic input, not a phone return value."""
     if type(status) is not int or not 0 <= status < 2**32:

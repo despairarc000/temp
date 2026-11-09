@@ -7,11 +7,18 @@ import zlib
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'experiments'))
 from native_integrity_controls import (classify_branch, native_crc,
                                       postload_comparison, mono_handoff,
-                                      startup_status_predicate, startup_exit_boundary)
+                                      startup_status_predicate, startup_exit_boundary,
+                                      simple_rtti_name, startup_checker_identity)
 TPRT, MONO = os.environ.get('CF18_TPRT_LIBRARY'), os.environ.get('CF18_MONO_LIBRARY')
 
 
 class BoundsTests(unittest.TestCase):
+    def test_rtti_simple_name_lengths_and_unrelated_names(self):
+        self.assertEqual(simple_rtti_name(b'11FileChecker'),'FileChecker')
+        self.assertEqual(simple_rtti_name(b'9OtherType'),'OtherType')
+        for raw in [b'10FileChecker',b'0',b'11FileChecker\0SECRET',b'999TooLong',b'2\xff\xff']:
+            with self.subTest(raw=raw),self.assertRaises(ValueError):simple_rtti_name(raw)
+
     def test_invalid_controls_rejected_before_source_access(self):
         for call in (lambda: classify_branch('absent', b'A', 10),
                      lambda: classify_branch('absent', b'ABCD', 3),
@@ -24,6 +31,12 @@ class BoundsTests(unittest.TestCase):
 
 @unittest.skipUnless(TPRT, 'private pinned libtprt and native dependencies required')
 class NativeIntegrityTests(unittest.TestCase):
+    def test_original_rtti_links_file_checker_to_code_four_method(self):
+        result=startup_checker_identity(TPRT)
+        self.assertEqual(result,{'type_name':'FileChecker','vtable':0x22478,
+                                'typeinfo':0x2248c,'virtual_method':0x50fc,
+                                'thumb':True,'phone_path_observed':False})
+
     def test_real_crc_matches_independent_standard_vectors(self):
         for b in (b'', b'123456789', bytes(range(256)), bytes(4096)):
             with self.subTest(size=len(b)):

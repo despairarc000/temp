@@ -1,5 +1,52 @@
 # Scoped-trust copy exits at startup
 
+## Candidate is statically owned by FileChecker — 2026-11-09 UTC
+
+CONFIRMED_NATIVE_STATIC: original libtprt.so SHA256
+f608b142822b888f4e5b44bbb0167e8d5c02e1680ea89bab8171aeaab59b4f0a
+reverified from the available private original. Primary vtable0x22478 has
+offset-to-top0 and typeinfo pointer0x2248c. Typeinfo name pointer0x1b031 holds a
+valid simple Itanium name for FileChecker (encoded length11). The third function
+slot0x22488 contains Thumb pointer0x50fd, resolving to0x50fc: the method whose
+failure path selects exit4. This establishes static C++ ownership of the candidate
+method; it does not prove this virtual method executed on the phone.
+
+Added read-only `startup_checker_identity` to the
+[existing native audit](../../../experiments/native_integrity_controls.py), with
+size/hash/ELF/ISA checks and bounded file-backed metadata reads. No Android
+constructor or checker is executed by this metadata audit. No game modification,
+guard change, decryption, original byte dump or secret export.
+
+SYNTHETIC_ONLY / CONFIRMED_NATIVE_STATIC: simple-name decoder tests distinguish
+valid FileChecker and unrelated OtherType, reject mismatched lengths, embedded
+NUL/trailing data, invalid bytes and malformed lengths. Original-source test
+verifies the complete vtable→typeinfo→name and virtual-target association.
+[Native suite](../../../tests/test_native_integrity_controls.py):13 methods PASS
+with explicit original TPRT/Mono; default2 PASS/11 SKIP. Earlier code4/predicate,
+code18 mismatch and equality/missing-checksum controls remain covered.
+
+Read-only original APK330453… was rehashed; literal-name negative check finds
+zero on-disk ASCII occurrences of AndroidManifest.xml, resources.arsc or
+Assembly-CSharp.dll in libtprt (FileChecker occurs once). Absence does not exclude
+checks against those files, indirect/resource-ID access or runtime string
+construction. It provides no basis for assigning a checked file. No decoded
+runtime string/table, file trace or full initializer result is claimed.
+
+INTERPRETATION: file verification is a source-grounded candidate, consistent
+with a startup difference after metadata/resource changes despite unchanged DLL.
+Neither the RTTI label nor exit4 identifies the checked file, algorithm, rejected
+condition or phone call site. Do not collapse this into “confirmed integrity
+failure”, or assume the historical DLL checksum path is responsible.
+
+REMAINING TECHNICAL BOUNDARY: method calls .tptext0x17e74, whose initialized
+runtime semantics/result are unverified; the fallback still has multiple routes.
+Next required evidence is checker input/result or a matched runtime call trace.
+No verified collection method for that specific state is available in this
+workspace yet; no adb target/emulator is attached. No additional user phone run
+or replacement APK is requested merely to repeat the known exit. The current
+installation and saved failure should be retained. Schedules paused; no diary
+append/rotation and no TLS/login/gameplay acceptance.
+
 ## Installed B and exit4; separate native failure path — 2026-11-09 UTC
 
 PHONE_REPORT: CF2018_STARTUP_EXIT_20261109T000839_389418Z_c7b3a600.txt,
